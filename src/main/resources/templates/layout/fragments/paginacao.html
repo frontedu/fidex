@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Fragmento para a paginaçao</title>
+</head>
+<body>
+
+	<nav aria-label="Paginação" th:fragment="paginacao(pagina)" th:if="${pagina.numeroPaginas > 1}">
+		<ul class="pagination justify-content-center">
+			<li class="page-item" th:classappend="${pagina.primeira} ? disabled">
+				<a class="page-link" href="#" th:attrappend="tabindex=${pagina.primeira} ? -1" th:href="${pagina.urlParaPagina(0)}">
+					<span class="bi bi-skip-backward-fill" aria-hidden="true"></span>
+				</a>
+			</li>
+			<li class="page-item" th:classappend="${pagina.primeira} ? disabled">
+				<a class="page-link" href="#" th:attrappend="tabindex=${pagina.primeira} ? -1" th:href="${pagina.urlParaPagina(pagina.atual -1)}">
+					<span class="bi bi-caret-left-fill" aria-hidden="true"></span>
+				</a>
+			</li>
+			<li class="page-item" th:each="numeroPagina : ${#numbers.sequence(pagina.inicio, pagina.fim)}" th:classappend="${numeroPagina == pagina.atual + 1} ? active">
+				<a class="page-link" href="#" th:text="${numeroPagina}" th:href="${pagina.urlParaPagina(numeroPagina - 1)}">1</a>
+			</li>
+			<li class="page-item" th:classappend="${pagina.ultima} ? disabled">
+				<a class="page-link" href="#" th:attrappend="tabindex=${pagina.ultima} ? -1" th:href="${pagina.urlParaPagina(pagina.atual + 1)}">
+					<span class="bi bi-caret-right-fill" aria-hidden="true"></span>
+				</a>
+			</li>
+			<li class="page-item" th:classappend="${pagina.ultima} ? disabled">
+				<a class="page-link" href="#" th:attrappend="tabindex=${pagina.ultima} ? -1" th:href="${pagina.urlParaPagina(pagina.numeroPaginas - 1)}">
+					<span class="bi bi-skip-forward-fill" aria-hidden="true"></span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<th scope="col" th:fragment="coluna(pagina, propriedade, texto, classe)" th:classappend="${classe}">
+		<a th:href="${pagina.urlInvertendoDirecaoOrdem(propriedade)}" th:unless="${pagina.vazia}">
+			<span th:text="${texto}"></span>
+			<i class="bi fs-6" th:classappend="${pagina.isDescendente(propriedade)} ? 'bi-sort-alpha-down-alt' : bi-sort-alpha-down"></i>
+		</a>
+		<span th:text="${texto}" th:if="${pagina.vazia}"></span>
+	</th>
+</body>
+</html>

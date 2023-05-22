@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Buscar pelo Código</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='vacinas')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+
+                <form th:action="@{/vacinas/buscar}" method="POST">
+                    <label for="codigo" class="form-label">Código</label>
+                    <input type="number" id="codigo" name="codigo" class="form-control"> 
+                    <input type="submit" value="Buscar" class="btn btn-primary mt-3">
+                </form>
+
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+</body>
+</html>

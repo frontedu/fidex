@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Pesquisar Lotes</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao=${uso})}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+               
+                <form th:action="@{${url}}" method="GET">
+                    <label for="codigo" class="form-label">Código</label>
+                    <input type="number" id="codigo" name="codigo" class="form-control">
+                    
+                    <label for="validadeInicial" class="form-label">Validade a partir de</label>
+                    <input type="text" id="validadeInicial" name="validadeInicial" class="form-control">
+                    
+                    <label for="validadeFinal" class="form-label">Validade até</label>
+                    <input type="text" id="validadeFinal" name="validadeFinal" class="form-control"> 
+
+                    <label for="nroDosesDoLoteInicial" class="form-label">Número de Doses do Lote a partir de</label>
+                    <input type="number" id="nroDosesDoLoteInicial" name="nroDosesDoLoteInicial" class="form-control">
+
+                    <label for="nroDosesDoLoteFinal" class="form-label">Número de Doses do Lote até</label>
+                    <input type="number" id="nroDosesDoLoteFinal" name="nroDosesDoLoteFinal" class="form-control">
+
+                    <label for="nroDosesAtualInicial" class="form-label">Número de Doses Atual a partir de</label>
+                    <input type="number" id="nroDosesAtualInicial" name="nroDosesAtualInicial" class="form-control">
+
+                    <label for="nroDosesAtualFinal" class="form-label">Número de Doses Atual até</label>
+                    <input type="number" id="nroDosesAtualFinal" name="nroDosesAtualFinal" class="form-control">
+
+                    <label for="nomeVacina" class="form-label mt-3">Vacina</label>
+					<select id="nomeVacina" name="nomeVacina" class="form-select">
+                        <option value="">Qualquer vacina</option>
+						<option th:each="vacina : ${vacinas}" th:value="${vacina.nome}" 
+						                                      th:text="${vacina.nome}"></option>
+					</select>
+
+                    <input type="submit" value="Pesquisar" class="btn btn-primary mt-3">
+                </form>
+
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+</body>
+</html>

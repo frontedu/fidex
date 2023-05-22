@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Erro 404</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+				<img th:src="@{/images/404.png}" class="img-fluid mx-auto d-block mt-5" alt="Erro 404">
+				<h3 class="text-center mt-5 mb-5">
+					O recurso que você tentou acessar não existe. Verifique a URL utilizada ou
+					<a th:href="@{/}">volte para a página principal.</a>
+				</h3>
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+</body>
+</html>

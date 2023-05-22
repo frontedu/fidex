@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Alterar Pessoa</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='pessoas')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+					
+				<form th:action="@{/pessoas/alterar}" method="POST">
+					<input type="hidden" th:field="${pessoa.codigo}">
+					<label for="nome" class="form-label">Nome:</label>
+                    <input type="text" th:field="${pessoa.nome}" class="form-control">
+                    <label for="cpf" class="form-label">CPF:</label>
+                    <input type="text" th:field="${pessoa.cpf}" class="form-control">
+                    <label for="dataNascimento" class="form-label">Nascimento:</label>
+                    <input type="text" th:field="${pessoa.dataNascimento}" class="form-control">
+                    <label for="profissao" class="form-label">Profissão:</label>
+                    <input type="text" th:field="${pessoa.profissao}" class="form-control">
+                    <input type="submit" value="Alterar" class="btn btn-primary mt-3">
+                </form>
+
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+</body>
+</html>

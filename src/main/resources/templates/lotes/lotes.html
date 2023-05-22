@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Lotes</title>
+</head>
+
+<body>
+    <div layout:fragment="conteudo">
+
+        <div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='lotes')}"></div>
+
+        <!-- conteudo principal -->
+        <main class="mt-5 p-4 pt-5">
+            <div class="container-fluid">
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <div
+                                th:replace="~{layout/fragments/paginacao :: coluna(${pagina}, 'codigo', 'Código', 'w-25')}">
+                            </div>
+                            <th>Validade</th>
+                            <th>Nro Doses Lote</th>
+                            <th>Nro Doses Atual</th>
+                            <th>Vacina</th>
+                            <th th:if="${uso == 'lotes'}" colspan="2">Operação</th>
+                            <th th:if="${uso == 'aplicacoes'}">Operação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="lote : ${pagina.conteudo}">
+                            <td th:text="${lote.codigo}"></td>
+                            <td th:text="${lote.validade}"></td>
+                            <td th:text="${lote.nroDosesDoLote}"></td>
+                            <td th:text="${lote.nroDosesAtual}"></td>
+                            <td th:text="${lote.vacina.nome}"></td>
+                            <div th:if="${uso == 'lotes'}">
+                                <td>
+                                    <form th:action="@{/lotes/abriralterar}" method="POST">
+                                        <input type="hidden" name="codigo" th:value="${lote.codigo}">
+                                        <input type="hidden" name="validade" th:value="${lote.validade}">
+                                        <input type="hidden" name="nroDosesDoLote" th:value="${lote.nroDosesDoLote}">
+                                        <input type="hidden" name="nroDosesAtual" th:value="${lote.nroDosesAtual}">
+                                        <input type="hidden" name="vacina.codigo" th:value="${lote.vacina.codigo}">
+                                        <input type="hidden" name="vacina.nome" th:value="${lote.vacina.nome}">
+                                        <input type="hidden" name="vacina.descricao"
+                                            th:value="${lote.vacina.descricao}">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form th:action="@{/lotes/abrirremover}" method="POST">
+                                        <input type="hidden" name="codigo" th:value="${lote.codigo}">
+                                        <input type="hidden" name="validade" th:value="${lote.validade}">
+                                        <input type="hidden" name="nroDosesDoLote" th:value="${lote.nroDosesDoLote}">
+                                        <input type="hidden" name="nroDosesAtual" th:value="${lote.nroDosesAtual}">
+                                        <input type="hidden" name="vacina.codigo" th:value="${lote.vacina.codigo}">
+                                        <input type="hidden" name="vacina.nome" th:value="${lote.vacina.nome}">
+                                        <input type="hidden" name="vacina.descricao"
+                                            th:value="${lote.vacina.descricao}">
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="bi bi-trash-fill"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </div>
+                            <div th:if="${uso == 'aplicacoes'}">
+                                <td>
+                                    <form th:action="@{/aplicacoes/definirlote}" method="POST">
+                                        <input type="hidden" name="codigoLote" th:value="${lote.codigo}">
+                                        <input type="submit" value="Escolher" class="btn btn-primary"
+                                           th:disabled="${lote.nroDosesAtual < 1}">
+                                    </form>
+                                </td>
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div th:replace="~{layout/fragments/paginacao :: paginacao(${pagina})}"></div>
+
+            </div>
+        </main>
+        <!-- !conteudo principal -->
+
+    </div>
+
+</body>
+
+</html>

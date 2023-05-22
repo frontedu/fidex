@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Página Principal</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+					<h1 class="text-center mt-5 mb-5">Bem vindo ao Sistema de Controle de Aplicações de Vacinas</h1>
+					<img th:src="@{/images/ze-gotinha.jpg}" class="img-fluid rounded mx-auto d-block" alt="Zé Gotinha">
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+	<!-- Nao usamos
+	<th:block layout:fragment="scripts">
+		<script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+	</th:block> -->
+
+</body>
+</html>

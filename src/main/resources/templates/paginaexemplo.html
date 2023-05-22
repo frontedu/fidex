@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Página Principal</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+				<!-- titulo -->
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Título do Conteúdo</h4>
+					</div>
+				</div>
+
+				<!-- areas pequenas -->
+				<div class="row">
+					<div class="col-md-3 mb-3">
+						<div class="card h-100">
+							<div class="card-header">
+								<span class="me-2">
+									<i class="bi bi-bar-chart-fill"></i>
+								</span>
+								<span>Exemplo de Área Pequena - 1/4 da Largura</span>
+							</div>
+							<div class="card-body">Conteúdo</div>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<div class="card h-100">
+							<div class="card-header">
+								<span class="me-2">
+									<i class="bi bi-bar-chart-fill"></i>
+								</span>
+								<span>Exemplo de Área Pequena - 1/4 da Largura</span>
+							</div>
+							<div class="card-body">Conteúdo</div>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<div class="card h-100">
+							<div class="card-header">
+								<span class="me-2">
+									<i class="bi bi-bar-chart-fill"></i>
+								</span>
+								<span>Exemplo de Área Pequena - 1/4 da Largura</span>
+							</div>
+							<div class="card-body">Conteúdo</div>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<div class="card h-100">
+							<div class="card-header">
+								<span class="me-2">
+									<i class="bi bi-bar-chart-fill"></i>
+								</span>
+								<span>Exemplo de Área Pequena - 1/4 da Largura</span>
+							</div>
+							<div class="card-body">Conteúdo</div>
+						</div>
+					</div>
+				</div>
+				<!-- !areas pequenas -->
+
+				<!-- areas ,edias -->
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<div class="card h-100">
+							<div class="card-header">
+								<span class="me-2">
+									<i class="bi bi-bar-chart-fill"></i>
+								</span>
+								<span>Exemplo de Área Média - Metade da Largura</span>
+							</div>
+							<div class="card-body">Conteúdo</div>
+						</div>
+					</div>
+					<div class="col-md-6 mb-3">
+						<div class="card h-100">
+							<div class="card-header">
+								<span class="me-2">
+									<i class="bi bi-bar-chart-fill"></i>
+								</span>
+								<span>Exemplo de Área Média - Metade da Largura</span>
+							</div>
+							<div class="card-body">Conteúdo</div>
+						</div>
+					</div>
+				</div>
+				<!-- !areas medias -->
+
+				<!-- area Grande -->
+				<div class="row">
+					<div class="col-md-12 mb-3">
+						<div class="card">
+							<div class="card-header">
+								<span>
+									<i class="bi bi-table me-2"></i>
+								</span>
+								<span>Exemplo de Área Maior - Toda Largura</span>
+							</div>
+							<div class="card-body">Conteúdo</div>
+						</div>
+					</div>
+				</div>
+				<!-- area grande -->
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+	<!-- Nao usamos
+	<th:block layout:fragment="scripts">
+		<script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+	</th:block> -->
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+body,
+button {
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --sidebar-width: 270px;
+  --top-navbar-height: 56px;
+}
+
+.sidebar-nav {
+  width: var(--sidebar-width) !important;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-link .right-icon {
+  display: inline-flex;
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+
+  main {
+    margin-left: var(--sidebar-width);
+    height: calc(100% - var(--top-navbar-height));
+  }
+
+  footer {
+    margin-left: var(--sidebar-width);
+  }
+
+  /* this is to remove the backdrop */
+  .offcanvas-backdrop {
+    display: none !important;
+  }
+
+  .sidebar-nav {
+    transform: none !important;
+    visibility: visible !important;
+    top: var(--top-navbar-height) !important;
+    height: calc(100% - var(--top-navbar-height));
+  }
+}

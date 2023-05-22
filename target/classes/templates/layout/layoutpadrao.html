@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+                   xmlns:layout="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Controle de Vacinação</title>
+	<link rel="shortcut icon" th:href="@{/images/logo.png}" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="../../static/css/vendors/bootstrap5/bootstrap.min.css" th:href="@{/css/vendors/bootstrap5/bootstrap.min.css}"/>
+	<!-- Bootstrap Icons -->
+	<link rel="stylesheet" type="text/css" href="../../static/css/vendors/bootstrap5/bootstrap-icons.css" th:href="@{/css/vendors/bootstrap5/bootstrap-icons.css}"/>
+	<!-- Estilo Principal do Template -->
+	<link rel="stylesheet" type="text/css" href="../../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+  <body class="d-flex flex-column min-vh-100">
+	<!-- Navbar da pagina TOPO -->
+	<div th:replace="~{layout/fragments/navbar :: navbar}"></div>
+
+	<!-- Conteudo Principal da pagina (vai incluir o sidebar) -->
+	<div class="col" layout:fragment="conteudo">
+		<p>Esse conteúdo vai ser substituído se a página usando o layout também definir uma seção layout:fragment="conteudo".</p>
+	</div>
+
+	<!-- Rodape da pagina -->
+	<div th:replace="~{layout/fragments/rodape :: rodape}"></div>
+
+	<!-- Bootstrap JS -->
+	<script src="../../static/js/vendors/bootstrap5/bootstrap.bundle.min.js" th:src="@{/js/vendors/bootstrap5/bootstrap.bundle.min.js}"></script>
+    <!-- <script src="../../static/js/vendors/jquery/jquery-3.6.0.min.js" th:src="@{/js/vendors/jquery/jquery-3.6.0.min.js}" ></script> -->
+
+	<!-- Bloco para JavaScript adicional que a página pode precisar -->
+	<th:block layout:fragment="scripts"></th:block>
+</body>
+</html>

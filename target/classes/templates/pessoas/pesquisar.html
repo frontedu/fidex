@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Pesquisa de Pessoas</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao=${uso})}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+					
+				<form th:action="@{__${url}__}" method="GET">
+                    <label for="codigo" class="form-label">Código:</label>
+                    <input type="number" id="codigo" name="codigo" class="form-control">
+                    <label for="nome" class="form-label">Nome:</label>
+                    <input type="text" id="nome" name="nome" class="form-control">
+                    <label for="cpf" class="form-label">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" class="form-control">
+                    <label for="dataNascimento" class="form-label">Nascimento a partir de:</label>
+                    <input type="text" id="dataNascimentoInicial" name="dataNascimentoInicial" class="form-control">
+                    <label for="dataNascimento" class="form-label">Nascimento até:</label>
+                    <input type="text" id="dataNascimentoFinal" name="dataNascimentoFinal" class="form-control">
+					<label for="profissao" class="form-label">Profissão:</label>
+                    <input type="text" id="profissao" name="profissao" class="form-control">
+                    <input type="submit" value="Pesquisar" class="btn btn-primary mt-3">
+                </form>
+
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+</body>
+</html>

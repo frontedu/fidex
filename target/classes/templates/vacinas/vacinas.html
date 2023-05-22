@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Vacinas</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='vacinas')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <div th:replace="~{layout/fragments/paginacao :: coluna(${pagina}, 'codigo', 'Código', 'w-25')}"></div>
+                            <div th:replace="~{layout/fragments/paginacao :: coluna(${pagina}, 'nome', 'Nome', 'w-25')}"></div>
+                            <th>Descrição</th>
+                            <th colspan="2">Operação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="vacina : ${pagina.conteudo}">
+                            <td th:text="${vacina.codigo}"></td>
+                            <td th:text="${vacina.nome}"></td>
+                            <td th:text="${vacina.descricao}"></td>
+                            <td>
+                                <form th:action="@{/vacinas/abriralterar}" method="POST">
+                                    <input type="hidden" name="codigo" th:value="${vacina.codigo}">
+                                    <input type="hidden" name="nome" th:value="${vacina.nome}">
+                                    <input type="hidden" name="descricao" th:value="${vacina.descricao}">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form th:action="@{/vacinas/abrirremover}" method="POST">
+                                    <input type="hidden" name="codigo" th:value="${vacina.codigo}">
+                                    <input type="hidden" name="nome" th:value="${vacina.nome}">
+                                    <input type="hidden" name="descricao" th:value="${vacina.descricao}">
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div th:replace="~{layout/fragments/paginacao :: paginacao(${pagina})}"></div>
+
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+</body>
+</html>

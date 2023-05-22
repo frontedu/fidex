@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title th:text="${titulo}">Cadastrar Aplicação</title>
+</head>
+
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='aplicacoes')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+
+				<form th:action="@{/aplicacoes/escolherpessoa}" method="POST">
+					<input th:if="${session.aplicacao.pessoa == null}" type="submit" value="Escolher Pessoa" class="btn btn-primary mt-3">
+					<input th:if="${session.aplicacao.pessoa != null}" type="submit" value="Trocar Pessoa" class="btn btn-primary mt-3">
+				</form>
+				<div th:if="${session.aplicacao.pessoa != null}" class="mt-3">
+					<p th:text="'Nome: ' + ${session.aplicacao.pessoa.nome}"></p>
+					<p th:text="'CPF: ' + ${session.aplicacao.pessoa.cpf}"></p>
+				</div>
+
+				<form th:action="@{/aplicacoes/escolherlote}" method="POST">
+					<input th:if="${session.aplicacao.lote == null}" type="submit" value="Escolher Lote" class="btn btn-primary mt-3">
+					<input th:if="${session.aplicacao.lote != null}" type="submit" value="Trocar Lote" class="btn btn-primary mt-3">
+				</form>
+				<div th:if="${session.aplicacao.lote != null}" class="mt-3">
+					<p th:text="'Validade: ' + ${session.aplicacao.lote.validade}"></p>
+					<p th:text="'Vacina: ' + ${session.aplicacao.lote.vacina.nome}"></p>
+				</div>
+
+				<form th:action="@{/aplicacoes/cadastrar}" method="POST">
+					<input th:disabled="${session.aplicacao.lote == null} or ${session.aplicacao.pessoa == null}" 
+						type="submit" value="Cadastrar" class="btn btn-primary mt-3">
+				</form>
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+</body>
+
+</html>

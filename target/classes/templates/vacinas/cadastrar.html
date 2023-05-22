@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title th:text="${titulo}">Cadastrar Vacina</title>
+</head>
+
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='vacinas')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+
+				<form th:action="@{${url}}" method="POST" th:object="${vacina}">
+					<input type="hidden" th:field="*{codigo}">
+
+					<label for="nome" class="form-label">Nome</label>
+					<input type="text" th:field="*{nome}" class="form-control" th:errorclass="is-invalid">
+					<span class="invalid-feedback" th:if="${#fields.hasErrors('nome')}"
+						th:each="erro : ${#fields.errors('nome')}" th:text="${erro} + '. '"></span>
+
+					<label for="descricao" class="form-label mt-3">Descrição</label>
+					<input type="text" th:field="*{descricao}" class="form-control" th:errorclass="is-invalid">
+					<span class="invalid-feedback" th:if="${#fields.hasErrors('descricao')}"
+						th:each="erro : ${#fields.errors('descricao')}" th:text="${erro} + '. '"></span>
+
+					<input type="submit" th:value="${textoBotao}" class="btn btn-primary mt-3">
+				</form>
+
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+</body>
+
+</html>
