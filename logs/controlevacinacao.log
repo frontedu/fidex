@@ -258,3 +258,603 @@ descricao: null, org.springframework.validation.BindingResult.vacinaFilter=org.s
 2023-05-22T12:33:10.680-03:00  INFO 10932 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Start completed.
 2023-05-22T12:33:11.021-03:00  INFO 10932 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://ep-jolly-credit-957858.us-east-2.aws.neon.tech/neondb (PostgreSQL 15.2)
 2023-05-22T12:33:13.086-03:00  INFO 10932 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 5 migrations (execution time 00:00.694s)
+2023-05-22T12:33:15.133-03:00  INFO 10932 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 05
+2023-05-22T12:33:15.309-03:00  INFO 10932 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-05-22T12:33:16.356-03:00  INFO 10932 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-22T12:33:16.358-03:00  WARN 10932 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-05-22T12:33:16.551-03:00  INFO 10932 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-22T12:33:16.941-03:00  INFO 10932 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-22T12:33:16.941-03:00  INFO 10932 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-22T12:33:17.299-03:00  INFO 10932 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-22T12:33:17.626-03:00  INFO 10932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-22T12:33:17.632-03:00  INFO 10932 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-05-22T12:33:17.663-03:00  INFO 10932 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-22T12:33:17.672-03:00  INFO 10932 --- [restartedMain] w.c.Application                          : Started Application in 10.249 seconds (process running for 938.964)
+2023-05-22T12:33:17.676-03:00  INFO 10932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-22T12:37:17.987-03:00  INFO 1984 --- [restartedMain] w.c.Application                          : Starting Application using Java 17.0.7 with PID 1984 (C:\Users\fdsed\Documents\controlevacinacao\target\classes started by fdsed in C:\Users\fdsed\Documents\controlevacinacao)
+2023-05-22T12:37:17.995-03:00 DEBUG 1984 --- [restartedMain] w.c.Application                          : Running with Spring Boot v3.0.5, Spring v6.0.7
+2023-05-22T12:37:17.996-03:00  INFO 1984 --- [restartedMain] w.c.Application                          : No active profile set, falling back to 1 default profile: "default"
+2023-05-22T12:37:18.397-03:00  INFO 1984 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-22T12:37:18.398-03:00  INFO 1984 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-22T12:37:19.889-03:00  INFO 1984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-22T12:37:20.016-03:00  INFO 1984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113 ms. Found 4 JPA repository interfaces.
+2023-05-22T12:37:21.019-03:00  INFO 1984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-05-22T12:37:21.030-03:00  INFO 1984 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-05-22T12:37:21.030-03:00  INFO 1984 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-22T12:37:21.108-03:00  INFO 1984 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-05-22T12:37:21.108-03:00  INFO 1984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2709 ms
+2023-05-22T12:37:21.528-03:00  INFO 1984 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-05-22T12:37:21.528-03:00  INFO 1984 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-05-22T12:37:21.528-03:00  INFO 1984 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-05-22T12:37:21.551-03:00  INFO 1984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-05-22T12:37:23.584-03:00  INFO 1984 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@8b798bf
+2023-05-22T12:37:23.586-03:00  INFO 1984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-05-22T12:37:23.944-03:00  INFO 1984 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://ep-jolly-credit-957858.us-east-2.aws.neon.tech/neondb (PostgreSQL 15.2)
+2023-05-22T12:37:25.975-03:00  INFO 1984 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 5 migrations (execution time 00:00.685s)
+2023-05-22T12:37:28.010-03:00  INFO 1984 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 05
+2023-05-22T12:37:28.176-03:00  INFO 1984 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-05-22T12:37:29.331-03:00  INFO 1984 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-22T12:37:29.402-03:00  INFO 1984 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-22T12:37:29.567-03:00  WARN 1984 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-05-22T12:37:29.939-03:00  INFO 1984 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-22T12:37:31.140-03:00  INFO 1984 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-22T12:37:31.149-03:00  INFO 1984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-22T12:37:32.181-03:00  INFO 1984 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-22T12:37:32.965-03:00  INFO 1984 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-22T12:37:32.975-03:00  INFO 1984 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-05-22T12:37:33.089-03:00  INFO 1984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-22T12:37:33.104-03:00  INFO 1984 --- [restartedMain] w.c.Application                          : Started Application in 15.755 seconds (process running for 16.852)
+2023-05-22T12:37:35.269-03:00  INFO 1984 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-22T12:37:35.270-03:00  INFO 1984 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-05-22T12:37:35.271-03:00  INFO 1984 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-05-22T12:37:57.811-03:00 TRACE 1984 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.pesquisar
+2023-05-22T12:37:57.812-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:37:57.812-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+descricao: null
+2023-05-22T12:37:57.812-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@37ba4c2
+2023-05-22T12:37:57.812-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-22T12:37:57.812-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	model: {vacinaFilter=codigo: null
+nome: null
+descricao: null, org.springframework.validation.BindingResult.vacinaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:37:57.824-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-22T12:37:57.888-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-22T12:37:58.481-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&descricao=
+2023-05-22T12:37:58.481-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-22T12:37:58.481-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/vacinas/pesquisar?, queryString:  e URL final: http://localhost:8080/vacinas/pesquisar?
+2023-05-22T12:37:58.484-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Vacina instances e o máximo de páginas na numeração 5
+2023-05-22T12:37:58.484-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-22T12:37:58.484-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-22T12:37:58.491-03:00 TRACE 1984 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/vacinas
+2023-05-22T12:37:59.021-03:00 TRACE 1984 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: IndexController.index
+2023-05-22T12:37:59.021-03:00 TRACE 1984 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: index
+2023-05-22T12:37:59.596-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-22T12:37:59.603-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-22T12:37:59.603-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-22T12:37:59.604-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=codigo,desc
+2023-05-22T12:37:59.617-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade nome invertida
+2023-05-22T12:37:59.618-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade nome
+2023-05-22T12:37:59.618-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : Direção final da propriedade nome: asc
+2023-05-22T12:37:59.618-03:00 DEBUG 1984 --- [http-nio-8080-exec-1] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=nome,asc
+2023-05-22T12:38:00.288-03:00 TRACE 1984 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: IndexController.index
+2023-05-22T12:38:00.288-03:00 TRACE 1984 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: index
+2023-05-22T12:38:56.785-03:00  INFO 16884 --- [restartedMain] w.c.Application                          : Starting Application using Java 17.0.7 with PID 16884 (C:\Users\fdsed\Documents\controlevacinacao\target\classes started by fdsed in C:\Users\fdsed\Documents\controlevacinacao)
+2023-05-22T12:38:56.794-03:00 DEBUG 16884 --- [restartedMain] w.c.Application                          : Running with Spring Boot v3.0.5, Spring v6.0.7
+2023-05-22T12:38:56.796-03:00  INFO 16884 --- [restartedMain] w.c.Application                          : No active profile set, falling back to 1 default profile: "default"
+2023-05-22T12:38:57.265-03:00  INFO 16884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-22T12:38:57.266-03:00  INFO 16884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-22T12:38:58.451-03:00  INFO 16884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-22T12:38:58.563-03:00  INFO 16884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102 ms. Found 4 JPA repository interfaces.
+2023-05-22T12:38:59.635-03:00  INFO 16884 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-05-22T12:38:59.646-03:00  INFO 16884 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-05-22T12:38:59.646-03:00  INFO 16884 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-22T12:38:59.736-03:00  INFO 16884 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-05-22T12:38:59.736-03:00  INFO 16884 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2469 ms
+2023-05-22T12:39:00.153-03:00  INFO 16884 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-05-22T12:39:00.153-03:00  INFO 16884 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-05-22T12:39:00.153-03:00  INFO 16884 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-05-22T12:39:00.173-03:00  INFO 16884 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-05-22T12:39:02.308-03:00  INFO 16884 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4749971b
+2023-05-22T12:39:02.309-03:00  INFO 16884 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-05-22T12:39:02.655-03:00  INFO 16884 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://ep-jolly-credit-957858.us-east-2.aws.neon.tech/neondb (PostgreSQL 15.2)
+2023-05-22T12:39:04.686-03:00  INFO 16884 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 5 migrations (execution time 00:00.692s)
+2023-05-22T12:39:06.694-03:00  INFO 16884 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 05
+2023-05-22T12:39:06.861-03:00  INFO 16884 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-05-22T12:39:08.037-03:00  INFO 16884 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-22T12:39:08.125-03:00  INFO 16884 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-22T12:39:08.313-03:00  WARN 16884 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-05-22T12:39:08.653-03:00  INFO 16884 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-22T12:39:09.785-03:00  INFO 16884 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-22T12:39:09.795-03:00  INFO 16884 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-22T12:39:10.740-03:00  INFO 16884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-22T12:39:11.618-03:00  INFO 16884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-22T12:39:11.635-03:00  INFO 16884 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-05-22T12:39:11.779-03:00  INFO 16884 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-22T12:39:11.802-03:00  INFO 16884 --- [restartedMain] w.c.Application                          : Started Application in 15.63 seconds (process running for 16.667)
+2023-05-22T12:39:12.456-03:00  INFO 16884 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-22T12:39:12.456-03:00  INFO 16884 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-05-22T12:39:12.458-03:00  INFO 16884 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-05-22T12:39:12.517-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Entrou no método: IndexController.index
+2023-05-22T12:39:12.517-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: index
+2023-05-22T12:39:15.860-03:00 TRACE 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirPesquisar
+2023-05-22T12:39:15.861-03:00 TRACE 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/pesquisar
+2023-05-22T12:39:16.525-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.pesquisar
+2023-05-22T12:39:16.525-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:16.525-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+descricao: null
+2023-05-22T12:39:16.525-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@4b945b6e
+2023-05-22T12:39:16.525-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-22T12:39:16.525-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	model: {vacinaFilter=codigo: null
+nome: null
+descricao: null, org.springframework.validation.BindingResult.vacinaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:39:16.536-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-22T12:39:16.608-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-22T12:39:17.220-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&descricao=
+2023-05-22T12:39:17.220-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-22T12:39:17.220-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/vacinas/pesquisar?, queryString:  e URL final: http://localhost:8080/vacinas/pesquisar?
+2023-05-22T12:39:17.221-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Vacina instances e o máximo de páginas na numeração 5
+2023-05-22T12:39:17.222-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-22T12:39:17.222-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-22T12:39:17.222-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/vacinas
+2023-05-22T12:39:17.277-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-22T12:39:17.282-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-22T12:39:17.282-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-22T12:39:17.283-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=codigo,desc
+2023-05-22T12:39:17.290-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade nome invertida
+2023-05-22T12:39:17.290-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade nome
+2023-05-22T12:39:17.290-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Direção final da propriedade nome: asc
+2023-05-22T12:39:17.290-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=nome,asc
+2023-05-22T12:39:21.264-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirRemover
+2023-05-22T12:39:21.265-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:21.265-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: 1
+nome: Goriula 2
+descricao: Varíola do macaco
+status: ATIVO
+2023-05-22T12:39:21.265-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/confirmarremocao
+2023-05-22T12:39:22.490-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.remover
+2023-05-22T12:39:22.491-03:00 DEBUG 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:22.491-03:00 DEBUG 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	codigo: 1
+2023-05-22T12:39:22.491-03:00 DEBUG 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:39:23.005-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaService.salvar
+2023-05-22T12:39:23.005-03:00 DEBUG 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:23.005-03:00 DEBUG 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: 1
+nome: Goriula 2
+descricao: Varíola do macaco
+status: INATIVO
+2023-05-22T12:39:23.181-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Retornando: null
+2023-05-22T12:39:23.527-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Redirecionando para a URL: /vacinas/remocaook
+2023-05-22T12:39:23.540-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.mostrarMensagemRemocaoOK
+2023-05-22T12:39:23.540-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:23.540-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:39:23.540-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: mostrarmensagem
+2023-05-22T12:39:24.894-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirCadastrar
+2023-05-22T12:39:24.894-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:24.894-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: null
+nome: null
+descricao: null
+status: ATIVO
+2023-05-22T12:39:24.894-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	model: {vacina=codigo: null
+nome: null
+descricao: null
+status: ATIVO, org.springframework.validation.BindingResult.vacina=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:39:24.894-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/cadastrar
+2023-05-22T12:39:32.457-03:00 TRACE 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.cadastrar
+2023-05-22T12:39:32.457-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:32.457-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : 	resultado: org.springframework.validation.BeanPropertyBindingResult: 0 errors
+2023-05-22T12:39:32.457-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: null
+nome: Covid 19 bttn
+descricao: Covid-19
+status: ATIVO
+2023-05-22T12:39:32.457-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : 	model: {vacina=codigo: null
+nome: Covid 19 bttn
+descricao: Covid-19
+status: ATIVO, org.springframework.validation.BindingResult.vacina=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:39:32.633-03:00 TRACE 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaService.salvar
+2023-05-22T12:39:32.633-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:32.634-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: null
+nome: Covid 19 bttn
+descricao: Covid-19
+status: ATIVO
+2023-05-22T12:39:32.816-03:00 TRACE 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Retornando: null
+2023-05-22T12:39:33.170-03:00 TRACE 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Redirecionando para a URL: /vacinas/cadastrook
+2023-05-22T12:39:33.176-03:00 TRACE 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.mostrarMensagemCadastroOK
+2023-05-22T12:39:33.176-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:33.176-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:39:33.176-03:00 TRACE 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: mostrarmensagem
+2023-05-22T12:39:34.380-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirPesquisar
+2023-05-22T12:39:34.380-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/pesquisar
+2023-05-22T12:39:34.982-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.pesquisar
+2023-05-22T12:39:34.982-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:34.982-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+descricao: null
+2023-05-22T12:39:34.982-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@2c6313aa
+2023-05-22T12:39:34.982-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-22T12:39:34.982-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	model: {vacinaFilter=codigo: null
+nome: null
+descricao: null, org.springframework.validation.BindingResult.vacinaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:39:34.982-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-22T12:39:34.983-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-22T12:39:35.513-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&descricao=
+2023-05-22T12:39:35.513-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-22T12:39:35.514-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/vacinas/pesquisar?, queryString:  e URL final: http://localhost:8080/vacinas/pesquisar?
+2023-05-22T12:39:35.514-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Vacina instances e o máximo de páginas na numeração 5
+2023-05-22T12:39:35.514-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-22T12:39:35.514-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-22T12:39:35.514-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/vacinas
+2023-05-22T12:39:35.532-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-22T12:39:35.532-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-22T12:39:35.532-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-22T12:39:35.532-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=codigo,desc
+2023-05-22T12:39:35.535-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade nome invertida
+2023-05-22T12:39:35.535-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade nome
+2023-05-22T12:39:35.535-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Direção final da propriedade nome: asc
+2023-05-22T12:39:35.535-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=nome,asc
+2023-05-22T12:39:38.276-03:00 TRACE 16884 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : Entrou no método: ErrosController.handleError
+2023-05-22T12:39:38.276-03:00 DEBUG 16884 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:38.276-03:00 DEBUG 16884 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.core.ApplicationHttpRequest@5ab7da7f
+2023-05-22T12:39:38.276-03:00  WARN 16884 --- [http-nio-8080-exec-5] w.c.c.ErrosController                    : A URL /profissoes/cadastrar foi acessada mas não existe.
+2023-05-22T12:39:38.276-03:00 TRACE 16884 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: error/404
+2023-05-22T12:39:39.789-03:00 TRACE 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Entrou no método: LoteController.abrirCadastrar
+2023-05-22T12:39:39.789-03:00 DEBUG 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:39.789-03:00 DEBUG 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : 	lote: codigo: null
+validade: null
+nroDosesDoLote: null
+nroDosesAtual: null
+2023-05-22T12:39:39.789-03:00 DEBUG 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : 	model: {lote=codigo: null
+validade: null
+nroDosesDoLote: null
+nroDosesAtual: null, org.springframework.validation.BindingResult.lote=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:39:40.152-03:00 TRACE 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: lotes/cadastrar
+2023-05-22T12:39:40.950-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Entrou no método: LoteController.abrirPesquisar
+2023-05-22T12:39:40.950-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:40.950-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:39:41.303-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: lotes/pesquisar
+2023-05-22T12:39:42.168-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Entrou no método: LoteController.pesquisar
+2023-05-22T12:39:42.168-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:42.168-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+validadeInicial: null
+validadeFinal: null
+nroDosesDoLoteInicial: null
+nroDosesDoLoteFinal: null
+nroDosesAtualInicial: null
+nroDosesAtualFinal: null
+nomeVacina: null
+2023-05-22T12:39:42.168-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@3082140a
+2023-05-22T12:39:42.168-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-22T12:39:42.168-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	model: {loteFilter=codigo: null
+validadeInicial: null
+validadeFinal: null
+nroDosesDoLoteInicial: null
+nroDosesDoLoteFinal: null
+nroDosesAtualInicial: null
+nroDosesAtualFinal: null
+nomeVacina: null, org.springframework.validation.BindingResult.loteFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:39:42.171-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-22T12:39:42.172-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-22T12:39:42.706-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: mostrarmensagem
+2023-05-22T12:39:43.891-03:00 TRACE 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Entrou no método: LoteController.abrirCadastrar
+2023-05-22T12:39:43.891-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:43.891-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	lote: codigo: null
+validade: null
+nroDosesDoLote: null
+nroDosesAtual: null
+2023-05-22T12:39:43.891-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	model: {lote=codigo: null
+validade: null
+nroDosesDoLote: null
+nroDosesAtual: null, org.springframework.validation.BindingResult.lote=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:39:44.245-03:00 TRACE 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: lotes/cadastrar
+2023-05-22T12:39:56.810-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Entrou no método: LoteController.cadastrar
+2023-05-22T12:39:56.810-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:56.811-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	resultado: org.springframework.validation.BeanPropertyBindingResult: 0 errors
+2023-05-22T12:39:56.811-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	lote: codigo: null
+validade: 2023-05-19
+nroDosesDoLote: 200
+nroDosesAtual: 20
+2023-05-22T12:39:56.811-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	model: {lote=codigo: null
+validade: 2023-05-19
+nroDosesDoLote: 200
+nroDosesAtual: 20, org.springframework.validation.BindingResult.lote=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:39:56.811-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Entrou no método: LoteService.salvar
+2023-05-22T12:39:56.811-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:56.811-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	lote: codigo: null
+validade: 2023-05-19
+nroDosesDoLote: 200
+nroDosesAtual: 20
+2023-05-22T12:39:56.994-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Retornando: null
+2023-05-22T12:39:57.350-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Redirecionando para a URL: /lotes/cadastrook
+2023-05-22T12:39:57.356-03:00 TRACE 16884 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : Entrou no método: LoteController.mostrarMensagemCadastroOK
+2023-05-22T12:39:57.356-03:00 DEBUG 16884 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:57.356-03:00 DEBUG 16884 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:39:57.356-03:00 TRACE 16884 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: mostrarmensagem
+2023-05-22T12:39:58.110-03:00 TRACE 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Entrou no método: LoteController.abrirPesquisar
+2023-05-22T12:39:58.110-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:58.110-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:39:58.463-03:00 TRACE 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: lotes/pesquisar
+2023-05-22T12:39:59.736-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Entrou no método: LoteController.pesquisar
+2023-05-22T12:39:59.736-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:39:59.736-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+validadeInicial: null
+validadeFinal: null
+nroDosesDoLoteInicial: null
+nroDosesDoLoteFinal: null
+nroDosesAtualInicial: null
+nroDosesAtualFinal: null
+nomeVacina: null
+2023-05-22T12:39:59.736-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@477c2db
+2023-05-22T12:39:59.736-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-22T12:39:59.736-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	model: {loteFilter=codigo: null
+validadeInicial: null
+validadeFinal: null
+nroDosesDoLoteInicial: null
+nroDosesDoLoteFinal: null
+nroDosesAtualInicial: null
+nroDosesAtualFinal: null
+nomeVacina: null, org.springframework.validation.BindingResult.loteFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:39:59.737-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-22T12:39:59.738-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-22T12:40:00.270-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&validadeInicial=&validadeFinal=&nroDosesDoLoteInicial=&nroDosesDoLoteFinal=&nroDosesAtualInicial=&nroDosesAtualFinal=&nomeVacina=
+2023-05-22T12:40:00.270-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-22T12:40:00.270-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/lotes/pesquisar?, queryString:  e URL final: http://localhost:8080/lotes/pesquisar?
+2023-05-22T12:40:00.270-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Lote instances e o máximo de páginas na numeração 5
+2023-05-22T12:40:00.270-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-22T12:40:00.270-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-22T12:40:00.270-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: lotes/lotes
+2023-05-22T12:40:00.282-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-22T12:40:00.282-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-22T12:40:00.282-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-22T12:40:00.282-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/lotes/pesquisar?sort=codigo,desc
+2023-05-22T12:40:03.008-03:00 TRACE 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Entrou no método: PessoaController.abrirCadastro
+2023-05-22T12:40:03.008-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:40:03.008-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	pessoa: codigo: null
+nome: null
+cpf: null
+dataNascimento: null
+profissao: null
+status: ATIVO
+2023-05-22T12:40:03.009-03:00 TRACE 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: pessoas/cadastrar
+2023-05-22T12:40:04.130-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Entrou no método: PessoaController.abrirPesquisar
+2023-05-22T12:40:04.130-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:40:04.130-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:40:04.130-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: pessoas/pesquisar
+2023-05-22T12:40:05.251-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Entrou no método: PessoaController.pesquisar
+2023-05-22T12:40:05.251-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:40:05.251-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+cpf: null
+dataNascimentoInicial: null
+dataNascimentoFinal: null
+profissao: null
+status: null
+2023-05-22T12:40:05.251-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@6c752d6b
+2023-05-22T12:40:05.251-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-22T12:40:05.251-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	model: {pessoaFilter=codigo: null
+nome: null
+cpf: null
+dataNascimentoInicial: null
+dataNascimentoFinal: null
+profissao: null
+status: null, org.springframework.validation.BindingResult.pessoaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:40:05.252-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-22T12:40:05.252-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-22T12:40:05.783-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&cpf=&dataNascimentoInicial=&dataNascimentoFinal=&profissao=
+2023-05-22T12:40:05.783-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-22T12:40:05.783-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/pessoas/pesquisar?, queryString:  e URL final: http://localhost:8080/pessoas/pesquisar?
+2023-05-22T12:40:05.783-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 0 containing UNKNOWN instances e o máximo de páginas na numeração 5
+2023-05-22T12:40:05.783-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : totalDePaginas: 0, paginaAtual: 1
+2023-05-22T12:40:05.783-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-22T12:40:05.783-03:00  INFO 16884 --- [http-nio-8080-exec-7] w.c.c.PessoaController                   : Pessoas buscadas no BD: []
+2023-05-22T12:40:05.784-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: pessoas/mostrartodas
+2023-05-22T12:40:07.405-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: PessoaController.abrirCadastro
+2023-05-22T12:40:07.405-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:40:07.405-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	pessoa: codigo: null
+nome: null
+cpf: null
+dataNascimento: null
+profissao: null
+status: ATIVO
+2023-05-22T12:40:07.405-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: pessoas/cadastrar
+2023-05-22T12:40:22.585-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Entrou no método: PessoaController.cadastrar
+2023-05-22T12:40:22.585-03:00 DEBUG 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:40:22.585-03:00 DEBUG 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	pessoa: codigo: null
+nome: Eduardo
+cpf: 14761191632
+dataNascimento: 2002-02-03
+profissao: Programador
+status: ATIVO
+2023-05-22T12:40:22.761-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Entrou no método: PessoaService.salvar
+2023-05-22T12:40:22.761-03:00 DEBUG 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:40:22.761-03:00 DEBUG 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	pessoa: codigo: null
+nome: Eduardo
+cpf: 14761191632
+dataNascimento: 2002-02-03
+profissao: Programador
+status: ATIVO
+2023-05-22T12:40:22.953-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Retornando: null
+2023-05-22T12:40:23.306-03:00 TRACE 16884 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Redirecionando para a URL: /pessoas/mostrarmensagemcadastrook
+2023-05-22T12:40:23.312-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Entrou no método: PessoaController.mostrarMensagemCadastroOK
+2023-05-22T12:40:23.312-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:40:23.312-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:40:23.312-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: mostrarmensagem
+2023-05-22T12:40:24.804-03:00 TRACE 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Entrou no método: PessoaController.abrirPesquisar
+2023-05-22T12:40:24.804-03:00 DEBUG 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:40:24.804-03:00 DEBUG 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:40:24.804-03:00 TRACE 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: pessoas/pesquisar
+2023-05-22T12:40:25.495-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Entrou no método: PessoaController.pesquisar
+2023-05-22T12:40:25.495-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:40:25.495-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+cpf: null
+dataNascimentoInicial: null
+dataNascimentoFinal: null
+profissao: null
+status: null
+2023-05-22T12:40:25.495-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@207c09e
+2023-05-22T12:40:25.495-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-22T12:40:25.495-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	model: {pessoaFilter=codigo: null
+nome: null
+cpf: null
+dataNascimentoInicial: null
+dataNascimentoFinal: null
+profissao: null
+status: null, org.springframework.validation.BindingResult.pessoaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:40:25.495-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-22T12:40:25.496-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-22T12:40:26.027-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&cpf=&dataNascimentoInicial=&dataNascimentoFinal=&profissao=
+2023-05-22T12:40:26.027-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-22T12:40:26.027-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/pessoas/pesquisar?, queryString:  e URL final: http://localhost:8080/pessoas/pesquisar?
+2023-05-22T12:40:26.027-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Pessoa instances e o máximo de páginas na numeração 5
+2023-05-22T12:40:26.027-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-22T12:40:26.027-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-22T12:40:26.027-03:00  INFO 16884 --- [http-nio-8080-exec-8] w.c.c.PessoaController                   : Pessoas buscadas no BD: [codigo: 1
+nome: Eduardo
+cpf: 14761191632
+dataNascimento: 2002-02-03
+profissao: Programador
+status: ATIVO]
+2023-05-22T12:40:26.027-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: pessoas/mostrartodas
+2023-05-22T12:40:26.039-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-22T12:40:26.040-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-22T12:40:26.040-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-22T12:40:26.040-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/pessoas/pesquisar?sort=codigo,desc
+2023-05-22T12:40:26.042-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade nome invertida
+2023-05-22T12:40:26.043-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade nome
+2023-05-22T12:40:26.043-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Direção final da propriedade nome: asc
+2023-05-22T12:40:26.043-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/pessoas/pesquisar?sort=nome,asc
+2023-05-22T12:44:34.597-03:00 TRACE 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.abrirCadastrar
+2023-05-22T12:44:34.597-03:00 DEBUG 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:34.597-03:00 DEBUG 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : 	sessao: org.apache.catalina.session.StandardSessionFacade@322b6150
+2023-05-22T12:44:34.598-03:00 TRACE 16884 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: aplicacoes/cadastrar
+2023-05-22T12:44:36.532-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Entrou no método: ErrosController.handleError
+2023-05-22T12:44:36.532-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:36.532-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.core.ApplicationHttpRequest@5653667b
+2023-05-22T12:44:36.532-03:00  WARN 16884 --- [http-nio-8080-exec-7] w.c.c.ErrosController                    : A URL /aplicacoes/abrirpesquisar;jsessionid=AA32D347EA2857991B937FF53120FFDC foi acessada mas não existe.
+2023-05-22T12:44:36.532-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: error/404
+2023-05-22T12:44:38.324-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.abrirCadastrar
+2023-05-22T12:44:38.324-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:38.324-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	sessao: org.apache.catalina.session.StandardSessionFacade@322b6150
+2023-05-22T12:44:38.324-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: aplicacoes/cadastrar
+2023-05-22T12:44:39.369-03:00 TRACE 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.abrirPesquisarPessoa
+2023-05-22T12:44:39.369-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:39.369-03:00 DEBUG 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:44:39.369-03:00 TRACE 16884 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: pessoas/pesquisar
+2023-05-22T12:44:40.638-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.pesquisar
+2023-05-22T12:44:40.639-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:40.639-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+cpf: null
+dataNascimentoInicial: null
+dataNascimentoFinal: null
+profissao: null
+status: null
+2023-05-22T12:44:40.639-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@269b65a
+2023-05-22T12:44:40.639-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-22T12:44:40.639-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	model: {pessoaFilter=codigo: null
+nome: null
+cpf: null
+dataNascimentoInicial: null
+dataNascimentoFinal: null
+profissao: null
+status: null, org.springframework.validation.BindingResult.pessoaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:44:40.639-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-22T12:44:40.640-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-22T12:44:41.170-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&cpf=&dataNascimentoInicial=&dataNascimentoFinal=&profissao=
+2023-05-22T12:44:41.170-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-22T12:44:41.170-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/aplicacoes/pesquisarpessoa?, queryString:  e URL final: http://localhost:8080/aplicacoes/pesquisarpessoa?
+2023-05-22T12:44:41.170-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Pessoa instances e o máximo de páginas na numeração 5
+2023-05-22T12:44:41.170-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-22T12:44:41.170-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-22T12:44:41.170-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: pessoas/mostrartodas
+2023-05-22T12:44:41.179-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-22T12:44:41.179-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-22T12:44:41.179-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-22T12:44:41.179-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/aplicacoes/pesquisarpessoa?sort=codigo,desc
+2023-05-22T12:44:41.181-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade nome invertida
+2023-05-22T12:44:41.181-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade nome
+2023-05-22T12:44:41.181-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : Direção final da propriedade nome: asc
+2023-05-22T12:44:41.181-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/aplicacoes/pesquisarpessoa?sort=nome,asc
+2023-05-22T12:44:42.561-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.definirPessoa
+2023-05-22T12:44:42.561-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:42.561-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	sessao: org.apache.catalina.session.StandardSessionFacade@322b6150
+2023-05-22T12:44:42.561-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	codigoPessoa: 1
+2023-05-22T12:44:43.095-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: aplicacoes/cadastrar
+2023-05-22T12:44:44.411-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.abrirPesquisarLote
+2023-05-22T12:44:44.411-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:44.411-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:44:44.766-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: lotes/pesquisar
+2023-05-22T12:44:45.720-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.pesquisarLote
+2023-05-22T12:44:45.720-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:45.720-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+validadeInicial: null
+validadeFinal: null
+nroDosesDoLoteInicial: null
+nroDosesDoLoteFinal: null
+nroDosesAtualInicial: null
+nroDosesAtualFinal: null
+nomeVacina: null
+2023-05-22T12:44:45.720-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@7ba10012
+2023-05-22T12:44:45.720-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-22T12:44:45.720-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	model: {loteFilter=codigo: null
+validadeInicial: null
+validadeFinal: null
+nroDosesDoLoteInicial: null
+nroDosesDoLoteFinal: null
+nroDosesAtualInicial: null
+nroDosesAtualFinal: null
+nomeVacina: null, org.springframework.validation.BindingResult.loteFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-22T12:44:45.720-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-22T12:44:45.721-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-22T12:44:46.254-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&validadeInicial=&validadeFinal=&nroDosesDoLoteInicial=&nroDosesDoLoteFinal=&nroDosesAtualInicial=&nroDosesAtualFinal=&nomeVacina=
+2023-05-22T12:44:46.254-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-22T12:44:46.254-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/aplicacoes/pesquisarlote?, queryString:  e URL final: http://localhost:8080/aplicacoes/pesquisarlote?
+2023-05-22T12:44:46.254-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Lote instances e o máximo de páginas na numeração 5
+2023-05-22T12:44:46.254-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-22T12:44:46.254-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-22T12:44:46.254-03:00 TRACE 16884 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: lotes/lotes
+2023-05-22T12:44:46.264-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-22T12:44:46.264-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-22T12:44:46.264-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-22T12:44:46.264-03:00 DEBUG 16884 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/aplicacoes/pesquisarlote?sort=codigo,desc
+2023-05-22T12:44:47.102-03:00 TRACE 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.definirLote
+2023-05-22T12:44:47.102-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:47.102-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	sessao: org.apache.catalina.session.StandardSessionFacade@322b6150
+2023-05-22T12:44:47.102-03:00 DEBUG 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	codigoLote: 1
+2023-05-22T12:44:47.642-03:00 TRACE 16884 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: aplicacoes/cadastrar
+2023-05-22T12:44:48.836-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.cadastrar
+2023-05-22T12:44:48.836-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:48.836-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	sessao: org.apache.catalina.session.StandardSessionFacade@322b6150
+2023-05-22T12:44:48.836-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:44:49.014-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoService.salvar
+2023-05-22T12:44:49.014-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:49.014-03:00 DEBUG 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : 	aplicacao: codigo: null
+data: 2023-05-22
+pessoa: codigo: 1
+nome: Eduardo
+cpf: 14761191632
+dataNascimento: 2002-02-03
+profissao: Programador
+status: ATIVO
+lote: codigo: 1
+validade: 2023-05-19
+nroDosesDoLote: 200
+nroDosesAtual: 20
+status: ATIVO
+2023-05-22T12:44:49.380-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Retornando: null
+2023-05-22T12:44:49.910-03:00 TRACE 16884 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Redirecionando para a URL: /aplicacoes/cadastrook
+2023-05-22T12:44:49.915-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.mostrarMensagemCadastroOK
+2023-05-22T12:44:49.915-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:49.915-03:00 DEBUG 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-22T12:44:49.915-03:00 TRACE 16884 --- [http-nio-8080-exec-3] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: mostrarmensagem
+2023-05-22T12:44:51.370-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Entrou no método: ErrosController.handleError
+2023-05-22T12:44:51.370-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:51.370-03:00 DEBUG 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.core.ApplicationHttpRequest@15b8de4e
+2023-05-22T12:44:51.370-03:00  WARN 16884 --- [http-nio-8080-exec-8] w.c.c.ErrosController                    : A URL /aplicacoes/abrirpesquisar foi acessada mas não existe.
+2023-05-22T12:44:51.370-03:00 TRACE 16884 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: error/404
+2023-05-22T12:44:52.712-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: AplicacaoController.abrirCadastrar
+2023-05-22T12:44:52.712-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-22T12:44:52.712-03:00 DEBUG 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	sessao: org.apache.catalina.session.StandardSessionFacade@322b6150
+2023-05-22T12:44:52.712-03:00 TRACE 16884 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: aplicacoes/cadastrar
+2023-05-22T13:20:59.003-03:00  INFO 16884 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-22T13:20:59.007-03:00  INFO 16884 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-05-22T13:20:59.012-03:00  INFO 16884 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
