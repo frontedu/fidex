@@ -243,3 +243,18 @@ descricao: null, org.springframework.validation.BindingResult.vacinaFilter=org.s
 2023-05-22T12:29:15.401-03:00  INFO 10932 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-05-22T12:29:15.410-03:00  INFO 10932 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
 2023-05-22T12:29:15.423-03:00  INFO 10932 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-05-22T12:33:07.509-03:00  INFO 10932 --- [restartedMain] w.c.Application                          : Starting Application using Java 17.0.7 with PID 10932 (C:\Users\fdsed\Documents\controlevacinacao\target\classes started by fdsed in C:\Users\fdsed\Documents\controlevacinacao)
+2023-05-22T12:33:07.509-03:00 DEBUG 10932 --- [restartedMain] w.c.Application                          : Running with Spring Boot v3.0.5, Spring v6.0.7
+2023-05-22T12:33:07.509-03:00  INFO 10932 --- [restartedMain] w.c.Application                          : No active profile set, falling back to 1 default profile: "default"
+2023-05-22T12:33:08.176-03:00  INFO 10932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-22T12:33:08.218-03:00  INFO 10932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 4 JPA repository interfaces.
+2023-05-22T12:33:08.449-03:00  INFO 10932 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-05-22T12:33:08.450-03:00  INFO 10932 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-05-22T12:33:08.450-03:00  INFO 10932 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-22T12:33:08.500-03:00  INFO 10932 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-05-22T12:33:08.500-03:00  INFO 10932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 989 ms
+2023-05-22T12:33:08.735-03:00  INFO 10932 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Starting...
+2023-05-22T12:33:10.680-03:00  INFO 10932 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@15e1dfb
+2023-05-22T12:33:10.680-03:00  INFO 10932 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Start completed.
+2023-05-22T12:33:11.021-03:00  INFO 10932 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://ep-jolly-credit-957858.us-east-2.aws.neon.tech/neondb (PostgreSQL 15.2)
+2023-05-22T12:33:13.086-03:00  INFO 10932 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 5 migrations (execution time 00:00.694s)

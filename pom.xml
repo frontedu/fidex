@@ -19,7 +19,7 @@
 
 	<properties>
 		<!-- Versao do Java -->
-		<java.version>19</java.version>
+		<java.version>17</java.version>
 
 		<!-- Versao do Disruptor -->
 		<disruptor.version>3.4.4</disruptor.version>
