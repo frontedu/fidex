@@ -39,11 +39,10 @@
                                 </form>
                             </td>
                             <td>
-                                <form th:action="@{/vacinas/abrirremover}" method="POST">
+                                <form th:action="@{/vacinas/remover}" method="POST">
+                                    <input type="hidden" th:value="'Você tem certeza que quer remover a vacina ' + ${vacina.nome} + '?'" class="mensagem">
                                     <input type="hidden" name="codigo" th:value="${vacina.codigo}">
-                                    <input type="hidden" name="nome" th:value="${vacina.nome}">
-                                    <input type="hidden" name="descricao" th:value="${vacina.descricao}">
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger confirmacao">
                                         <i class="bi bi-trash-fill"></i>
                                     </button>
                                 </form>

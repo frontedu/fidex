@@ -37,7 +37,7 @@
 						<td th:text="${pessoa.codigo}"></td>
 						<td th:text="${pessoa.nome}"></td>
 						<td th:text="${pessoa.cpf}"></td>
-						<td th:text="${pessoa.dataNascimento}"></td>
+						<td th:text="${{pessoa.dataNascimento}}"></td>
 						<td th:text="${pessoa.profissao}"></td>
 						<div th:if="${uso == 'pessoas'}">
 							<td>
@@ -49,9 +49,10 @@
 								</form>
 							</td>
 							<td>
-								<form th:action="@{/pessoas/abrirremover}" method="POST">
+								<form th:action="@{/pessoas/remover}" method="POST">
+									<input type="hidden" th:value="'Você tem certeza que quer remover a pessoa ' + ${pessoa.nome} + '?'" class="mensagem">
 									<input type="hidden" name="codigo" th:value="${pessoa.codigo}">
-									<button type="submit" class="btn btn-danger">
+									<button type="submit" class="btn btn-danger confirmacao">
 										<i class="bi bi-trash-fill"></i>
 									</button>
 								</form>

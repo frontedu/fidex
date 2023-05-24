@@ -28,7 +28,7 @@
 	<Loggers>
 		<AsyncLogger name="web.controlevacinacao" level="trace" additivity="false">
 			<AppenderRef ref="Console" />
-			<AppenderRef ref="File" />
+			<!-- <AppenderRef ref="File" /> -->
 		</AsyncLogger>
 		<!-- Log SQL statements -->
 		<AsyncLogger name="org.hibernate.SQL" level="debug" additivity="false">

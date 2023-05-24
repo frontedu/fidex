@@ -123,41 +123,6 @@
 
 					<!-- 4o elemento -->
 					<li>
-						<a class="nav-link px-3 sidebar-link text-white" data-bs-toggle="collapse" href="#profissoes">
-							<span class="me-2">
-								<i class="bi bi-briefcase-fill"></i>
-							</span>
-							<span>Profissões</span>
-							<span class="ms-auto">
-								<span class="right-icon">
-									<i class="bi bi-chevron-down"></i>
-								</span>
-							</span>
-						</a>
-						<div class="collapse" id="profissoes" th:classappend="${opcao == 'profissoes'} ? show">
-							<ul class="navbar-nav ps-3">
-								<li>
-									<a th:href="@{/profissoes/cadastrar}" class="nav-link px-3">
-										<span class="me-2">
-											<i class="bi bi-plus-square text-white"></i>
-										</span>
-										<span class="text-white">Cadastrar</span>
-									</a>
-								</li>
-								<li>
-									<a th:href="@{/vacinas/abrirpesquisar}" class="nav-link px-3">
-										<span class="me-2">
-											<i class="bi bi-search text-white"></i>
-										</span>
-										<span class="text-white">Pesquisar</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</li>
-					
-					<!-- 5o elemento -->
-					<li>
 						<a class="nav-link px-3 sidebar-link text-white" data-bs-toggle="collapse" href="#vacinas">
 							<span class="me-2">
 								<i class="bi bi-capsule"></i>

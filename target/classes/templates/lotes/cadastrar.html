@@ -18,7 +18,7 @@
                     <input type="hidden" th:field="*{codigo}">
 
 					<label for="validade" class="form-label">Validade</label>
-                    <input type="text" th:field="*{validade}" class="form-control" th:errorclass="is-invalid"> 
+                    <input type="text" th:field="*{validade}" class="form-control componentedata" th:errorclass="is-invalid"> 
 					<span class="invalid-feedback" th:if="${#fields.hasErrors('validade')}"
 						th:each="erro : ${#fields.errors('validade')}" th:text="${erro} + '. '"></span>
 

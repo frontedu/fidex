@@ -18,11 +18,11 @@
 					<input type="hidden" th:field="${pessoa.codigo}">
 					<label for="nome" class="form-label">Nome:</label>
                     <input type="text" th:field="${pessoa.nome}" class="form-control">
-                    <label for="cpf" class="form-label">CPF:</label>
+                    <label for="cpf" class="form-label mt-3">CPF:</label>
                     <input type="text" th:field="${pessoa.cpf}" class="form-control">
-                    <label for="dataNascimento" class="form-label">Nascimento:</label>
-                    <input type="text" th:field="${pessoa.dataNascimento}" class="form-control">
-                    <label for="profissao" class="form-label">Profissão:</label>
+                    <label for="dataNascimento" class="form-label mt-3">Nascimento:</label>
+                    <input type="text" th:field="${pessoa.dataNascimento}" class="form-control componentedata">
+                    <label for="profissao" class="form-label mt-3">Profissão:</label>
                     <input type="text" th:field="${pessoa.profissao}" class="form-control">
                     <input type="submit" value="Alterar" class="btn btn-primary mt-3">
                 </form>

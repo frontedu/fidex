@@ -17,21 +17,33 @@
 		<main class="mt-5 p-4 pt-5">
 			<div class="container-fluid">
 
-				<form th:action="@{${url}}" method="POST" th:object="${vacina}">
-					<input type="hidden" th:field="*{codigo}">
+				<div id="resposta">
 
-					<label for="nome" class="form-label">Nome</label>
-					<input type="text" th:field="*{nome}" class="form-control" th:errorclass="is-invalid">
-					<span class="invalid-feedback" th:if="${#fields.hasErrors('nome')}"
-						th:each="erro : ${#fields.errors('nome')}" th:text="${erro} + '. '"></span>
+					<form th:action="@{${url}}" method="POST" th:object="${vacina}" class="enviarcomajax"
+						th:fragment="cadastrar" data-iddestinoresposta="resposta">
+						<input type="hidden" th:field="*{codigo}">
 
-					<label for="descricao" class="form-label mt-3">Descrição</label>
-					<input type="text" th:field="*{descricao}" class="form-control" th:errorclass="is-invalid">
-					<span class="invalid-feedback" th:if="${#fields.hasErrors('descricao')}"
-						th:each="erro : ${#fields.errors('descricao')}" th:text="${erro} + '. '"></span>
+						<label for="nome" class="form-label">Nome</label>
+						<input type="text" th:field="*{nome}" class="form-control" th:errorclass="is-invalid">
+						<span class="invalid-feedback" th:if="${#fields.hasErrors('nome')}"
+							th:each="erro : ${#fields.errors('nome')}" th:text="${erro} + '. '"></span>
 
-					<input type="submit" th:value="${textoBotao}" class="btn btn-primary mt-3">
-				</form>
+						<label for="descricao" class="form-label mt-3">Descrição</label>
+						<input type="text" th:field="*{descricao}" class="form-control" th:errorclass="is-invalid">
+						<span class="invalid-feedback" th:if="${#fields.hasErrors('descricao')}"
+							th:each="erro : ${#fields.errors('descricao')}" th:text="${erro} + '. '"></span>
+
+						<input type="submit" th:value="${textoBotao}" class="btn btn-primary mt-3">
+
+						<div th:if="${notificacao != null}" th:object="${notificacao}">
+							<input type="hidden" id="mensagem" th:value="*{mensagem}">
+							<input type="hidden" id="tipo" th:value="*{tipo}">
+							<input type="hidden" id="intervalo" th:value="*{intervalo}">
+						</div>
+
+					</form>
+
+				</div>
 
 			</div>
 		</main>

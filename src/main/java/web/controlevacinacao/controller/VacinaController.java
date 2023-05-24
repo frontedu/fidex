@@ -10,15 +10,24 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import web.controlevacinacao.ajax.NotificacaoAlertify;
+import web.controlevacinacao.ajax.RespostaJSON;
+import web.controlevacinacao.ajax.ThymeleafUtil;
+import web.controlevacinacao.ajax.TipoNotificaoAlertify;
+import web.controlevacinacao.ajax.TipoResposta;
 import web.controlevacinacao.model.Status;
 import web.controlevacinacao.model.Vacina;
 import web.controlevacinacao.model.filter.VacinaFilter;
@@ -37,6 +46,9 @@ public class VacinaController {
 
     @Autowired
     private VacinaService vacinaService;
+
+    @Autowired
+    private ThymeleafUtil util;
 
     // @GetMapping("/todas")
     // public String mostrarTodas(Model model) {
@@ -120,15 +132,34 @@ public class VacinaController {
         return "vacinas/cadastrar";
     }
 
-    @PostMapping("/cadastrar")
-    public String cadastrar(@Valid Vacina vacina, BindingResult resultado, Model model) {
+    @PostMapping(value = { "/cadastrar" }, produces = { MediaType.APPLICATION_JSON_VALUE })
+    @ResponseBody
+    public RespostaJSON cadastrar(@RequestBody @Valid Vacina vacina, BindingResult resultado, 
+        Model model, HttpServletRequest request, HttpServletResponse response) {
+
+        
+        RespostaJSON resposta;
+
         if (resultado.hasErrors()) {
-            return abrirCadastrar(vacina, model);
+            model.addAttribute("titulo", "Cadastrar Vacina");
+            model.addAttribute("url", "/vacinas/cadastrar");
+            model.addAttribute("textoBotao", "Cadastrar");
+            resposta = new RespostaJSON(TipoResposta.FRAGMENTO);
+            
+            String html = util.processThymeleafTemplate(request, response, model.asMap(), "vacinas/cadastrar", "cadastrar");
+            resposta.setHtmlFragmento(html);
         } else {
             // vacina.setStatus(Status.ATIVO);
             vacinaService.salvar(vacina);
-            return "redirect:/vacinas/cadastrook";
+
+            resposta = new RespostaJSON(TipoResposta.NOTIFICACAO);
+            NotificacaoAlertify notificacaoAlertify = new NotificacaoAlertify("Vacina cadastrada com sucesso",
+                TipoNotificaoAlertify.SUCESSO, 5);
+            resposta.setNotificacao(notificacaoAlertify);
+
+                       // return "redirect:/vacinas/cadastrook";
         }
+        return resposta;
     }
 
     @GetMapping("/cadastrook")
@@ -185,9 +216,10 @@ public class VacinaController {
 
     @GetMapping("/remocaook")
     public String mostrarMensagemRemocaoOK(Model model) {
-        model.addAttribute("mensagem", "Vacina removida com sucesso");
-        model.addAttribute("opcao", "vacinas");
-        return "mostrarmensagem";
+        NotificacaoAlertify notificacaoAlertify = new NotificacaoAlertify("Vacina removida com sucesso",
+                TipoNotificaoAlertify.SUCESSO, 5);
+        model.addAttribute("notificacao", notificacaoAlertify);
+        return "vacinas/pesquisar";
     }
 
 }

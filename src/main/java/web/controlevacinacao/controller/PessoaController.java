@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
+import web.controlevacinacao.ajax.NotificacaoAlertify;
+import web.controlevacinacao.ajax.TipoNotificaoAlertify;
 import web.controlevacinacao.model.Pessoa;
 import web.controlevacinacao.model.Status;
 import web.controlevacinacao.model.filter.PessoaFilter;
@@ -48,10 +50,12 @@ public class PessoaController {
     }
 
     @GetMapping("/mostrarmensagemcadastrook")
-    public String mostrarMensagemCadastroOK(Model model) {
-        model.addAttribute("opcao", "pessoas");
-        model.addAttribute("mensagem", "Pessoa inserida com sucesso!");
-        return "mostrarmensagem";
+    public String mostrarMensagemCadastroOK(Model model, Pessoa pessoa) {
+        NotificacaoAlertify notificacaoAlertify = new NotificacaoAlertify("Pessoa inserida com sucesso!");
+        notificacaoAlertify.setTipo(TipoNotificaoAlertify.SUCESSO);
+        notificacaoAlertify.setIntervalo(5);
+        model.addAttribute("notificacao", notificacaoAlertify);
+        return "pessoas/cadastrar";
     }
 
     @GetMapping("/abrirpesquisar")

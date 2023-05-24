@@ -1030,3 +1030,552 @@ nomeVacina: null, org.springframework.validation.BindingResult.loteFilter=org.sp
 2023-05-23T12:46:52.090-03:00  INFO 4677 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-05-23T12:46:52.119-03:00  INFO 4677 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
 2023-05-23T12:46:53.673-03:00  INFO 4677 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-05-24T10:07:58.046-03:00  INFO 15384 --- [restartedMain] w.c.Application                          : Starting Application using Java 17.0.7 with PID 15384 (C:\Users\fdsed\OneDrive - IFTM\Documentos\Eduardo Documentos\GITHUB\vinca\target\classes started by fdsed in C:\Users\fdsed\OneDrive - IFTM\Documentos\Eduardo Documentos\GITHUB\vinca)
+2023-05-24T10:07:58.127-03:00 DEBUG 15384 --- [restartedMain] w.c.Application                          : Running with Spring Boot v3.0.5, Spring v6.0.7
+2023-05-24T10:07:58.136-03:00  INFO 15384 --- [restartedMain] w.c.Application                          : No active profile set, falling back to 1 default profile: "default"
+2023-05-24T10:07:59.076-03:00  INFO 15384 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-24T10:07:59.078-03:00  INFO 15384 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-24T10:08:01.706-03:00  INFO 15384 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-24T10:08:01.846-03:00  INFO 15384 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 4 JPA repository interfaces.
+2023-05-24T10:08:03.580-03:00  INFO 15384 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-05-24T10:08:03.606-03:00  INFO 15384 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-05-24T10:08:03.607-03:00  INFO 15384 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-24T10:08:03.737-03:00  INFO 15384 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-05-24T10:08:03.738-03:00  INFO 15384 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4658 ms
+2023-05-24T10:08:04.561-03:00  INFO 15384 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-05-24T10:08:04.561-03:00  INFO 15384 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-05-24T10:08:04.562-03:00  INFO 15384 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-05-24T10:08:04.599-03:00  INFO 15384 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-05-24T10:08:08.882-03:00  INFO 15384 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3464be6b
+2023-05-24T10:08:08.885-03:00  INFO 15384 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-05-24T10:08:09.260-03:00  INFO 15384 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://ep-jolly-credit-957858.us-east-2.aws.neon.tech/neondb (PostgreSQL 15.2)
+2023-05-24T10:08:11.409-03:00  INFO 15384 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 5 migrations (execution time 00:00.749s)
+2023-05-24T10:08:13.466-03:00  INFO 15384 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 05
+2023-05-24T10:08:13.637-03:00  INFO 15384 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-05-24T10:08:14.836-03:00  INFO 15384 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-24T10:08:14.936-03:00  INFO 15384 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-24T10:08:15.197-03:00  WARN 15384 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-05-24T10:08:15.772-03:00  INFO 15384 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-24T10:08:17.207-03:00  INFO 15384 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-24T10:08:17.224-03:00  INFO 15384 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-24T10:08:18.784-03:00  INFO 15384 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-24T10:08:19.905-03:00  INFO 15384 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-24T10:08:19.918-03:00  INFO 15384 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-05-24T10:08:20.058-03:00  INFO 15384 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-24T10:08:20.099-03:00  INFO 15384 --- [restartedMain] w.c.Application                          : Started Application in 23.098 seconds (process running for 24.987)
+2023-05-24T10:08:20.737-03:00  INFO 15384 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-24T10:08:20.737-03:00  INFO 15384 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-05-24T10:08:20.742-03:00  INFO 15384 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2023-05-24T10:08:22.890-03:00 TRACE 15384 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Entrou no método: IndexController.index
+2023-05-24T10:08:22.891-03:00 TRACE 15384 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: index
+2023-05-24T10:08:28.981-03:00 TRACE 15384 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirPesquisar
+2023-05-24T10:08:28.981-03:00 TRACE 15384 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/pesquisar
+2023-05-24T10:08:30.405-03:00 TRACE 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.pesquisar
+2023-05-24T10:08:30.405-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:30.405-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+descricao: null
+2023-05-24T10:08:30.405-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@9486221
+2023-05-24T10:08:30.405-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-24T10:08:30.405-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	model: {vacinaFilter=codigo: null
+nome: null
+descricao: null, org.springframework.validation.BindingResult.vacinaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-24T10:08:30.421-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-24T10:08:30.558-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-24T10:08:31.195-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&descricao=
+2023-05-24T10:08:31.195-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-24T10:08:31.195-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/vacinas/pesquisar?, queryString:  e URL final: http://localhost:8080/vacinas/pesquisar?
+2023-05-24T10:08:31.196-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Vacina instances e o máximo de páginas na numeração 5
+2023-05-24T10:08:31.197-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-24T10:08:31.197-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-24T10:08:31.197-03:00 TRACE 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/vacinas
+2023-05-24T10:08:31.262-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-24T10:08:31.266-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-24T10:08:31.266-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-24T10:08:31.267-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=codigo,desc
+2023-05-24T10:08:31.274-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade nome invertida
+2023-05-24T10:08:31.274-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade nome
+2023-05-24T10:08:31.274-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : Direção final da propriedade nome: asc
+2023-05-24T10:08:31.274-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=nome,asc
+2023-05-24T10:08:33.511-03:00 TRACE 15384 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirAlterar
+2023-05-24T10:08:33.512-03:00 DEBUG 15384 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:33.512-03:00 DEBUG 15384 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: 2
+nome: Bttn Covid-19
+descricao: Covid-19 butantan
+status: ATIVO
+2023-05-24T10:08:33.512-03:00 DEBUG 15384 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : 	model: {vacina=codigo: 2
+nome: Bttn Covid-19
+descricao: Covid-19 butantan
+status: ATIVO, org.springframework.validation.BindingResult.vacina=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-24T10:08:33.512-03:00 TRACE 15384 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/cadastrar
+2023-05-24T10:08:39.401-03:00 TRACE 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.alterar
+2023-05-24T10:08:39.401-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:39.401-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	resultado: org.springframework.validation.BeanPropertyBindingResult: 0 errors
+2023-05-24T10:08:39.401-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: 2
+nome: Bttn Covid-20
+descricao: Covid-19 butantan
+status: ATIVO
+2023-05-24T10:08:39.401-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	model: {vacina=codigo: 2
+nome: Bttn Covid-20
+descricao: Covid-19 butantan
+status: ATIVO, org.springframework.validation.BindingResult.vacina=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-24T10:08:39.581-03:00 TRACE 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaService.salvar
+2023-05-24T10:08:39.581-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:39.581-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: 2
+nome: Bttn Covid-20
+descricao: Covid-19 butantan
+status: ATIVO
+2023-05-24T10:08:39.785-03:00 TRACE 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Retornando: null
+2023-05-24T10:08:40.149-03:00 TRACE 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Redirecionando para a URL: /vacinas/alteracaook
+2023-05-24T10:08:40.163-03:00 TRACE 15384 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.mostrarMensagemAlteracaoOK
+2023-05-24T10:08:40.163-03:00 DEBUG 15384 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:40.163-03:00 DEBUG 15384 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-24T10:08:40.163-03:00 TRACE 15384 --- [http-nio-8080-exec-9] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: mostrarmensagem
+2023-05-24T10:08:42.077-03:00 TRACE 15384 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirPesquisar
+2023-05-24T10:08:42.077-03:00 TRACE 15384 --- [http-nio-8080-exec-10] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/pesquisar
+2023-05-24T10:08:43.206-03:00 TRACE 15384 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.pesquisar
+2023-05-24T10:08:43.208-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:43.208-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+descricao: null
+2023-05-24T10:08:43.208-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@49c0a50
+2023-05-24T10:08:43.208-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-24T10:08:43.208-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : 	model: {vacinaFilter=codigo: null
+nome: null
+descricao: null, org.springframework.validation.BindingResult.vacinaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-24T10:08:43.208-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-24T10:08:43.209-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-24T10:08:43.730-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&descricao=
+2023-05-24T10:08:43.730-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-24T10:08:43.730-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/vacinas/pesquisar?, queryString:  e URL final: http://localhost:8080/vacinas/pesquisar?
+2023-05-24T10:08:43.730-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Vacina instances e o máximo de páginas na numeração 5
+2023-05-24T10:08:43.730-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-24T10:08:43.730-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-24T10:08:43.730-03:00 TRACE 15384 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/vacinas
+2023-05-24T10:08:43.749-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-24T10:08:43.749-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-24T10:08:43.749-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-24T10:08:43.749-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=codigo,desc
+2023-05-24T10:08:43.752-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade nome invertida
+2023-05-24T10:08:43.752-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade nome
+2023-05-24T10:08:43.752-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : Direção final da propriedade nome: asc
+2023-05-24T10:08:43.752-03:00 DEBUG 15384 --- [http-nio-8080-exec-8] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=nome,asc
+2023-05-24T10:08:46.795-03:00 TRACE 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirAlterar
+2023-05-24T10:08:46.795-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:46.795-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: 2
+nome: Bttn Covid-20
+descricao: Covid-19 butantan
+status: ATIVO
+2023-05-24T10:08:46.795-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	model: {vacina=codigo: 2
+nome: Bttn Covid-20
+descricao: Covid-19 butantan
+status: ATIVO, org.springframework.validation.BindingResult.vacina=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-24T10:08:46.795-03:00 TRACE 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/cadastrar
+2023-05-24T10:08:50.077-03:00 TRACE 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.alterar
+2023-05-24T10:08:50.077-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:50.077-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	resultado: org.springframework.validation.BeanPropertyBindingResult: 0 errors
+2023-05-24T10:08:50.077-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: 2
+nome: Bttn Covid-19
+descricao: Covid-19 butantan
+status: ATIVO
+2023-05-24T10:08:50.077-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	model: {vacina=codigo: 2
+nome: Bttn Covid-19
+descricao: Covid-19 butantan
+status: ATIVO, org.springframework.validation.BindingResult.vacina=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-24T10:08:50.249-03:00 TRACE 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaService.salvar
+2023-05-24T10:08:50.249-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:50.249-03:00 DEBUG 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : 	vacina: codigo: 2
+nome: Bttn Covid-19
+descricao: Covid-19 butantan
+status: ATIVO
+2023-05-24T10:08:50.420-03:00 TRACE 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Retornando: null
+2023-05-24T10:08:50.764-03:00 TRACE 15384 --- [http-nio-8080-exec-2] w.c.a.ApplicationLoggingAspect           : Redirecionando para a URL: /vacinas/alteracaook
+2023-05-24T10:08:50.769-03:00 TRACE 15384 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.mostrarMensagemAlteracaoOK
+2023-05-24T10:08:50.769-03:00 DEBUG 15384 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:08:50.769-03:00 DEBUG 15384 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : 	model: {}
+2023-05-24T10:08:50.769-03:00 TRACE 15384 --- [http-nio-8080-exec-1] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: mostrarmensagem
+2023-05-24T10:08:56.670-03:00 TRACE 15384 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : Entrou no método: IndexController.index
+2023-05-24T10:08:56.670-03:00 TRACE 15384 --- [http-nio-8080-exec-5] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: index
+2023-05-24T10:09:03.913-03:00 TRACE 15384 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirPesquisar
+2023-05-24T10:09:03.914-03:00 TRACE 15384 --- [http-nio-8080-exec-8] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/pesquisar
+2023-05-24T10:09:04.625-03:00 TRACE 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.pesquisar
+2023-05-24T10:09:04.625-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:09:04.625-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+descricao: null
+2023-05-24T10:09:04.625-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@2474523b
+2023-05-24T10:09:04.625-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-24T10:09:04.627-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : 	model: {vacinaFilter=codigo: null
+nome: null
+descricao: null, org.springframework.validation.BindingResult.vacinaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-24T10:09:04.627-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-24T10:09:04.628-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-24T10:09:05.146-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&descricao=
+2023-05-24T10:09:05.146-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-24T10:09:05.146-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/vacinas/pesquisar?, queryString:  e URL final: http://localhost:8080/vacinas/pesquisar?
+2023-05-24T10:09:05.146-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Vacina instances e o máximo de páginas na numeração 5
+2023-05-24T10:09:05.146-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-24T10:09:05.146-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-24T10:09:05.146-03:00 TRACE 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/vacinas
+2023-05-24T10:09:05.165-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-24T10:09:05.165-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-24T10:09:05.165-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-24T10:09:05.165-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=codigo,desc
+2023-05-24T10:09:05.167-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade nome invertida
+2023-05-24T10:09:05.167-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade nome
+2023-05-24T10:09:05.167-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : Direção final da propriedade nome: asc
+2023-05-24T10:09:05.167-03:00 DEBUG 15384 --- [http-nio-8080-exec-6] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=nome,asc
+2023-05-24T10:09:32.131-03:00 TRACE 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Entrou no método: IndexController.index
+2023-05-24T10:09:32.131-03:00 TRACE 15384 --- [http-nio-8080-exec-6] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: index
+2023-05-24T10:09:34.235-03:00 TRACE 15384 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.abrirPesquisar
+2023-05-24T10:09:34.236-03:00 TRACE 15384 --- [http-nio-8080-exec-4] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/pesquisar
+2023-05-24T10:09:34.969-03:00 TRACE 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Entrou no método: VacinaController.pesquisar
+2023-05-24T10:09:34.969-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Parâmetros recebidos:
+2023-05-24T10:09:34.970-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	filtro: codigo: null
+nome: null
+descricao: null
+2023-05-24T10:09:34.970-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	request: org.apache.catalina.connector.RequestFacade@646e9bf3
+2023-05-24T10:09:34.970-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	pageable: Page request [number: 0, size 5, sort: codigo: ASC]
+2023-05-24T10:09:34.970-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : 	model: {vacinaFilter=codigo: null
+nome: null
+descricao: null, org.springframework.validation.BindingResult.vacinaFilter=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2023-05-24T10:09:34.970-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.r.p.PaginacaoUtil                    : Ordenando o resultado da pesquisa por codigo, ASC
+2023-05-24T10:09:34.971-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.r.p.PaginacaoUtil                    : Filtrando a página 0, registros entre 0 e 5
+2023-05-24T10:09:35.487-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Removendo os parâmetros vazios da queryString: codigo=&nome=&descricao=
+2023-05-24T10:09:35.487-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : queryString sem parâmetros vazios: 
+2023-05-24T10:09:35.487-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : PageWrapper criado para a requestURL: http://localhost:8080/vacinas/pesquisar?, queryString:  e URL final: http://localhost:8080/vacinas/pesquisar?
+2023-05-24T10:09:35.487-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Gerando a numeração da paginação para a Página Page 1 of 1 containing web.controlevacinacao.model.Vacina instances e o máximo de páginas na numeração 5
+2023-05-24T10:09:35.487-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : totalDePaginas: 1, paginaAtual: 1
+2023-05-24T10:09:35.487-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Números das páginas serão gerados entre 1 e 1
+2023-05-24T10:09:35.487-03:00 TRACE 15384 --- [http-nio-8080-exec-7] w.c.a.ApplicationLoggingAspect           : Encaminhando para a view: vacinas/vacinas
+2023-05-24T10:09:35.504-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade codigo invertida
+2023-05-24T10:09:35.504-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade codigo
+2023-05-24T10:09:35.504-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Direção final da propriedade codigo: desc
+2023-05-24T10:09:35.504-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=codigo,desc
+2023-05-24T10:09:35.507-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Gerando uma nova URL com a ordem da propriedade nome invertida
+2023-05-24T10:09:35.508-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Invertendo a direcao da propriedade nome
+2023-05-24T10:09:35.508-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : Direção final da propriedade nome: asc
+2023-05-24T10:09:35.508-03:00 DEBUG 15384 --- [http-nio-8080-exec-7] w.c.p.PageWrapper                        : URL gerada: http://localhost:8080/vacinas/pesquisar?sort=nome,asc
+2023-05-24T10:13:01.635-03:00  INFO 15384 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-24T10:13:01.641-03:00  INFO 15384 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-05-24T10:13:03.316-03:00  INFO 15384 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-05-24T10:18:29.867-03:00  INFO 3880 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-24T10:18:29.868-03:00  INFO 3880 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-24T10:18:31.141-03:00  INFO 3880 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-24T10:18:31.292-03:00  INFO 3880 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 136 ms. Found 4 JPA repository interfaces.
+2023-05-24T10:18:32.513-03:00  INFO 3880 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-05-24T10:18:32.525-03:00  INFO 3880 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-05-24T10:18:32.525-03:00  INFO 3880 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-24T10:18:32.635-03:00  INFO 3880 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-05-24T10:18:32.635-03:00  INFO 3880 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2766 ms
+2023-05-24T10:18:33.142-03:00  INFO 3880 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-05-24T10:18:33.143-03:00  INFO 3880 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-05-24T10:18:33.143-03:00  INFO 3880 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-05-24T10:18:33.167-03:00  INFO 3880 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-05-24T10:18:35.613-03:00 ERROR 3880 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Exception during pool initialization.
+
+org.postgresql.util.PSQLException: ERROR: password authentication failed for user 'frontedu'
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:253) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.Driver.makeConnection(Driver.java:434) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.Driver.connect(Driver.java:291) ~[postgresql-42.5.4.jar:42.5.4]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:146) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:128) ~[flyway-core-9.5.1.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.0.5.jar:3.0.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.5.jar:3.0.5]
+	at web.controlevacinacao.Application.main(Application.java:10) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.5.jar:3.0.5]
+
+2023-05-24T10:18:35.616-03:00  WARN 3880 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: ERROR: password authentication failed for user 'frontedu'
+----------------------------------------------------------------------------------------------------
+SQL State  : XX000
+Error Code : 0
+Message    : ERROR: password authentication failed for user 'frontedu'
+
+2023-05-24T10:18:35.619-03:00  INFO 3880 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-05-24T10:18:35.639-03:00  INFO 3880 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-24T10:18:35.660-03:00 ERROR 3880 --- [restartedMain] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: ERROR: password authentication failed for user 'frontedu'
+----------------------------------------------------------------------------------------------------
+SQL State  : XX000
+Error Code : 0
+Message    : ERROR: password authentication failed for user 'frontedu'
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.5.jar:3.0.5]
+	at web.controlevacinacao.Application.main(Application.java:10) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.5.jar:3.0.5]
+Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: ERROR: password authentication failed for user 'frontedu'
+----------------------------------------------------------------------------------------------------
+SQL State  : XX000
+Error Code : 0
+Message    : ERROR: password authentication failed for user 'frontedu'
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:146) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:128) ~[flyway-core-9.5.1.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.0.5.jar:3.0.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.7.jar:6.0.7]
+	... 23 more
+Caused by: org.postgresql.util.PSQLException: ERROR: password authentication failed for user 'frontedu'
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:253) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.Driver.makeConnection(Driver.java:434) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.Driver.connect(Driver.java:291) ~[postgresql-42.5.4.jar:42.5.4]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:146) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:128) ~[flyway-core-9.5.1.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.0.5.jar:3.0.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.7.jar:6.0.7]
+	... 23 more
+
+2023-05-24T10:19:17.353-03:00  INFO 6484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-24T10:19:17.355-03:00  INFO 6484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-24T10:19:18.514-03:00  INFO 6484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-24T10:19:18.653-03:00  INFO 6484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124 ms. Found 4 JPA repository interfaces.
+2023-05-24T10:19:19.739-03:00  INFO 6484 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-05-24T10:19:19.751-03:00  INFO 6484 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-05-24T10:19:19.752-03:00  INFO 6484 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-24T10:19:19.849-03:00  INFO 6484 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-05-24T10:19:19.849-03:00  INFO 6484 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2492 ms
+2023-05-24T10:19:20.347-03:00  INFO 6484 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-05-24T10:19:20.347-03:00  INFO 6484 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-05-24T10:19:20.347-03:00  INFO 6484 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-05-24T10:19:20.376-03:00  INFO 6484 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-05-24T10:19:22.725-03:00 ERROR 6484 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Exception during pool initialization.
+
+org.postgresql.util.PSQLException: ERROR: password authentication failed for user 'frontedu'
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:253) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.Driver.makeConnection(Driver.java:434) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.Driver.connect(Driver.java:291) ~[postgresql-42.5.4.jar:42.5.4]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:146) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:128) ~[flyway-core-9.5.1.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.0.5.jar:3.0.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.5.jar:3.0.5]
+	at web.controlevacinacao.Application.main(Application.java:10) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.5.jar:3.0.5]
+
+2023-05-24T10:19:22.729-03:00  WARN 6484 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: ERROR: password authentication failed for user 'frontedu'
+----------------------------------------------------------------------------------------------------
+SQL State  : XX000
+Error Code : 0
+Message    : ERROR: password authentication failed for user 'frontedu'
+
+2023-05-24T10:19:22.732-03:00  INFO 6484 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-05-24T10:19:22.757-03:00  INFO 6484 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-24T10:19:22.780-03:00 ERROR 6484 --- [restartedMain] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: ERROR: password authentication failed for user 'frontedu'
+----------------------------------------------------------------------------------------------------
+SQL State  : XX000
+Error Code : 0
+Message    : ERROR: password authentication failed for user 'frontedu'
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.5.jar:3.0.5]
+	at web.controlevacinacao.Application.main(Application.java:10) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.5.jar:3.0.5]
+Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: ERROR: password authentication failed for user 'frontedu'
+----------------------------------------------------------------------------------------------------
+SQL State  : XX000
+Error Code : 0
+Message    : ERROR: password authentication failed for user 'frontedu'
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:146) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:128) ~[flyway-core-9.5.1.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.0.5.jar:3.0.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.7.jar:6.0.7]
+	... 23 more
+Caused by: org.postgresql.util.PSQLException: ERROR: password authentication failed for user 'frontedu'
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:253) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.Driver.makeConnection(Driver.java:434) ~[postgresql-42.5.4.jar:42.5.4]
+	at org.postgresql.Driver.connect(Driver.java:291) ~[postgresql-42.5.4.jar:42.5.4]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:146) ~[flyway-core-9.5.1.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:128) ~[flyway-core-9.5.1.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.0.5.jar:3.0.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.7.jar:6.0.7]
+	... 23 more
+
+2023-05-24T10:20:57.191-03:00  INFO 13988 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-24T10:20:57.193-03:00  INFO 13988 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-24T10:20:58.459-03:00  INFO 13988 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-24T10:20:58.588-03:00  INFO 13988 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117 ms. Found 4 JPA repository interfaces.
+2023-05-24T10:20:59.781-03:00  INFO 13988 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-05-24T10:20:59.794-03:00  INFO 13988 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-05-24T10:20:59.794-03:00  INFO 13988 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-24T10:20:59.886-03:00  INFO 13988 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-05-24T10:20:59.886-03:00  INFO 13988 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2693 ms
+2023-05-24T10:21:00.447-03:00  INFO 13988 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-05-24T10:21:00.447-03:00  INFO 13988 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-05-24T10:21:00.447-03:00  INFO 13988 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-05-24T10:21:00.473-03:00  INFO 13988 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-05-24T10:21:05.406-03:00  INFO 13988 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ccb13fd
+2023-05-24T10:21:05.409-03:00  INFO 13988 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-05-24T10:21:05.776-03:00  INFO 13988 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://ep-jolly-credit-957858.us-east-2.aws.neon.tech/neondb (PostgreSQL 15.2)
+2023-05-24T10:21:07.874-03:00  INFO 13988 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 5 migrations (execution time 00:00.730s)
+2023-05-24T10:21:09.891-03:00  INFO 13988 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 05
+2023-05-24T10:21:10.060-03:00  INFO 13988 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-05-24T10:21:11.215-03:00  INFO 13988 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-24T10:21:11.306-03:00  INFO 13988 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-24T10:21:11.517-03:00  WARN 13988 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-05-24T10:21:12.100-03:00  INFO 13988 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-24T10:21:13.483-03:00  INFO 13988 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-24T10:21:13.499-03:00  INFO 13988 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-24T10:21:15.305-03:00  INFO 13988 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-05-24T10:21:16.308-03:00  INFO 13988 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-24T10:21:16.320-03:00  INFO 13988 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-05-24T10:21:16.446-03:00  INFO 13988 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-24T10:21:16.717-03:00  INFO 13988 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-24T10:21:16.717-03:00  INFO 13988 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-05-24T10:21:16.719-03:00  INFO 13988 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
+2023-05-24T10:23:48.345-03:00  WARN 13988 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2023-05-24T10:23:49.413-03:00  WARN 13988 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2023-05-24T10:23:50.036-03:00  WARN 13988 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2023-05-24T10:30:09.716-03:00  INFO 13988 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-24T10:30:09.720-03:00  INFO 13988 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-05-24T10:30:11.405-03:00  INFO 13988 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.

@@ -34,7 +34,7 @@
                     <tbody>
                         <tr th:each="lote : ${pagina.conteudo}">
                             <td th:text="${lote.codigo}"></td>
-                            <td th:text="${lote.validade}"></td>
+                            <td th:text="${{lote.validade}}"></td>
                             <td th:text="${lote.nroDosesDoLote}"></td>
                             <td th:text="${lote.nroDosesAtual}"></td>
                             <td th:text="${lote.vacina.nome}"></td>
@@ -42,7 +42,7 @@
                                 <td>
                                     <form th:action="@{/lotes/abriralterar}" method="POST">
                                         <input type="hidden" name="codigo" th:value="${lote.codigo}">
-                                        <input type="hidden" name="validade" th:value="${lote.validade}">
+                                        <input type="hidden" name="validade" th:value="${{lote.validade}}">
                                         <input type="hidden" name="nroDosesDoLote" th:value="${lote.nroDosesDoLote}">
                                         <input type="hidden" name="nroDosesAtual" th:value="${lote.nroDosesAtual}">
                                         <input type="hidden" name="vacina.codigo" th:value="${lote.vacina.codigo}">
@@ -55,16 +55,12 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <form th:action="@{/lotes/abrirremover}" method="POST">
+                                    <form th:action="@{/lotes/remover}" method="POST">
+                                        <input type="hidden" 
+                                                th:value="'Você tem certeza que quer remover o lote da vacina ' + ${lote.vacina.nome} + '?'" 
+                                                class="mensagem">
                                         <input type="hidden" name="codigo" th:value="${lote.codigo}">
-                                        <input type="hidden" name="validade" th:value="${lote.validade}">
-                                        <input type="hidden" name="nroDosesDoLote" th:value="${lote.nroDosesDoLote}">
-                                        <input type="hidden" name="nroDosesAtual" th:value="${lote.nroDosesAtual}">
-                                        <input type="hidden" name="vacina.codigo" th:value="${lote.vacina.codigo}">
-                                        <input type="hidden" name="vacina.nome" th:value="${lote.vacina.nome}">
-                                        <input type="hidden" name="vacina.descricao"
-                                            th:value="${lote.vacina.descricao}">
-                                        <button type="submit" class="btn btn-danger">
+                                        <button type="submit" class="btn btn-danger confirmacao">
                                             <i class="bi bi-trash-fill"></i>
                                         </button>
                                     </form>
