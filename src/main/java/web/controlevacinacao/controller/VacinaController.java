@@ -134,10 +134,9 @@ public class VacinaController {
 
     @PostMapping(value = { "/cadastrar" }, produces = { MediaType.APPLICATION_JSON_VALUE })
     @ResponseBody
-    public RespostaJSON cadastrar(@RequestBody @Valid Vacina vacina, BindingResult resultado, 
-        Model model, HttpServletRequest request, HttpServletResponse response) {
+    public RespostaJSON cadastrar(@RequestBody @Valid Vacina vacina, BindingResult resultado,
+            Model model, HttpServletRequest request, HttpServletResponse response) {
 
-        
         RespostaJSON resposta;
 
         if (resultado.hasErrors()) {
@@ -145,19 +144,24 @@ public class VacinaController {
             model.addAttribute("url", "/vacinas/cadastrar");
             model.addAttribute("textoBotao", "Cadastrar");
             resposta = new RespostaJSON(TipoResposta.FRAGMENTO);
-            
-            String html = util.processThymeleafTemplate(request, response, model.asMap(), "vacinas/cadastrar", "cadastrar");
+            String html = util.processThymeleafTemplate(request, response, model.asMap(), "vacinas/cadastrar",
+                    "cadastrar");
             resposta.setHtmlFragmento(html);
         } else {
             // vacina.setStatus(Status.ATIVO);
             vacinaService.salvar(vacina);
 
-            resposta = new RespostaJSON(TipoResposta.NOTIFICACAO);
             NotificacaoAlertify notificacaoAlertify = new NotificacaoAlertify("Vacina cadastrada com sucesso",
-                TipoNotificaoAlertify.SUCESSO, 5);
+                    TipoNotificaoAlertify.SUCESSO, 5);
+            model.addAttribute("titulo", "Cadastrar Vacina");
+            model.addAttribute("url", "/vacinas/cadastrar");
+            model.addAttribute("textoBotao", "Cadastrar");
+            resposta = new RespostaJSON(TipoResposta.FRAGMENTO_E_NOTIFICACAO);
             resposta.setNotificacao(notificacaoAlertify);
-
-                       // return "redirect:/vacinas/cadastrook";
+            model.addAttribute("vacina", new Vacina());
+            String html = util.processThymeleafTemplate(request, response, model.asMap(), "vacinas/cadastrar",
+                    "cadastrar");
+            resposta.setHtmlFragmento(html);
         }
         return resposta;
     }
@@ -174,7 +178,7 @@ public class VacinaController {
         model.addAttribute("titulo", "Alterar Vacina");
         model.addAttribute("url", "/vacinas/alterar");
         model.addAttribute("textoBotao", "Alterar");
-        return "vacinas/cadastrar";
+        return "vacinas/alterar";
     }
 
     @PostMapping("/alterar")
@@ -189,9 +193,10 @@ public class VacinaController {
 
     @GetMapping("/alteracaook")
     public String mostrarMensagemAlteracaoOK(Model model) {
-        model.addAttribute("mensagem", "Vacina alterada com sucesso");
-        model.addAttribute("opcao", "vacinas");
-        return "mostrarmensagem";
+        NotificacaoAlertify notificacaoAlertify = new NotificacaoAlertify("Vacina alterada com sucesso",
+            TipoNotificaoAlertify.SUCESSO);
+        model.addAttribute("notificacao", notificacaoAlertify);
+        return "vacinas/pesquisar";
     }
 
     @PostMapping("/abrirremover")

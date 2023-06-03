@@ -100,9 +100,12 @@ public class PessoaController {
 
     @GetMapping("/mostrarmensagemalterarok")
     public String mostrarMensagemAlterarOK(Model model) {
-        model.addAttribute("opcao", "pessoas");
-        model.addAttribute("mensagem", "Pessoa alterada com sucesso!");
-        return "mostrarmensagem";
+        NotificacaoAlertify notificacao = new NotificacaoAlertify("Pessoa alterada com sucesso!",
+         TipoNotificaoAlertify.SUCESSO);
+        model.addAttribute("notificacao", notificacao);
+        model.addAttribute("url", "/pessoas/pesquisar");
+        model.addAttribute("uso", "pessoas");
+        return "pessoas/pesquisar";
     }
 
     @PostMapping("/abrirremover")
@@ -135,8 +138,11 @@ public class PessoaController {
 
     @GetMapping("/mostrarmensagemremocaook")
     public String mostrarMensagemRemoverOK(Model model) {
-        model.addAttribute("opcao", "pessoas");
-        model.addAttribute("mensagem", "Pessoa removida com sucesso!");
-        return "mostrarmensagem";
+        NotificacaoAlertify notificacao = new NotificacaoAlertify("Pessoa removida com sucesso!",
+         TipoNotificaoAlertify.SUCESSO);
+        model.addAttribute("notificacao", notificacao);
+        model.addAttribute("url", "/pessoas/pesquisar");
+        model.addAttribute("uso", "pessoas");
+        return "pessoas/pesquisar";
     }
 }

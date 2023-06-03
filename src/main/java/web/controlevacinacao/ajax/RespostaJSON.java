@@ -30,34 +30,6 @@ public class RespostaJSON {
 		this.htmlFragmento = htmlFragmento;
 	}
 
-	public String getMensagem() {
-		return notificacao.getMensagem();
-	}
-
-	public void setMensagem(String mensagem) {
-		notificacao.setMensagem(mensagem);
-	}
-
-	public String getTipoMensagem() {
-		return notificacao.getTipo();
-	}
-
-	public void setTipoMensagem(String tipoMensagem) {
-		notificacao.setTipo(tipoMensagem);
-	}
-	
-	public void setTipoMensagem(TipoNotificaoAlertify tipo) {
-		notificacao.setTipo(tipo);
-	}
-
-	public int getIntervalo() {
-		return notificacao.getIntervalo();
-	}
-
-	public void setIntervalo(int intervalo) {
-		notificacao.setIntervalo(intervalo);
-	}
-
 	public NotificacaoAlertify getNotificacao() {
 		return notificacao;
 	}

@@ -112,6 +112,7 @@ window.addEventListener("load", function() {
 						break;
 					case 'NOTIFICACAO':
 						mostrarNotificacao(resposta.notificacao);
+
 						break;
 					case 'FRAGMENTO_E_NOTIFICACAO':
 						mostrarNotificacao(resposta.notificacao);
@@ -128,6 +129,7 @@ window.addEventListener("load", function() {
 	//o tipo deve ser um dos tipos permitidos pelo AlertifyJS: success, error, warning ou message
 	function mostrarNotificacao(notificacao) {
 		alertify.notify(notificacao.mensagem, notificacao.tipo, notificacao.intervalo);
+		atualizarCodigoNaPagina();
 	}
 
 	//Funcao que atualiza um pedaco da pagina atual

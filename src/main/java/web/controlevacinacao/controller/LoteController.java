@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import web.controlevacinacao.ajax.NotificacaoAlertify;
+import web.controlevacinacao.ajax.TipoNotificaoAlertify;
 import web.controlevacinacao.model.Lote;
 import web.controlevacinacao.model.Status;
 import web.controlevacinacao.model.Vacina;
@@ -64,10 +66,15 @@ public class LoteController {
     }
 
     @GetMapping("/cadastrook")
-    public String mostrarMensagemCadastroOK(Model model) {
-        model.addAttribute("mensagem", "Lote cadastrado com sucesso");
-        model.addAttribute("opcao", "lotes");
-        return "mostrarmensagem";
+    public String mostrarMensagemCadastroOK(Lote lote, Model model) {
+        NotificacaoAlertify notificacaoAlertify = new NotificacaoAlertify("Lote cadastrado com sucesso",
+                TipoNotificaoAlertify.SUCESSO);
+        model.addAttribute("notificacao", notificacaoAlertify);
+        model.addAttribute("titulo", "Cadastrar Lote");
+        model.addAttribute("url", "/lotes/cadastrar");
+        model.addAttribute("textoBotao", "Cadastrar");
+        colocarVacinasNoModel(model);
+        return "lotes/cadastrar";
     }
 
     @GetMapping("/abrirpesquisar")
@@ -121,9 +128,13 @@ public class LoteController {
 
     @GetMapping("/alteracaook")
     public String mostrarMensagemAlteracaoOK(Model model) {
-        model.addAttribute("mensagem", "Lote alterado com sucesso");
-        model.addAttribute("opcao", "lotes");
-        return "mostrarmensagem";
+        NotificacaoAlertify notificacaoAlertify = new NotificacaoAlertify("Lote alterado com sucesso",
+                TipoNotificaoAlertify.SUCESSO);
+        model.addAttribute("notificacao", notificacaoAlertify);
+        colocarVacinasNoModel(model);
+        model.addAttribute("uso", "lotes");
+        model.addAttribute("url", "/lotes/pesquisar");
+        return "lotes/pesquisar";
     }
 
     @PostMapping("/abrirremover")
@@ -148,9 +159,13 @@ public class LoteController {
 
     @GetMapping("/remocaook")
     public String mostrarMensagemRemocaoOK(Model model) {
-        model.addAttribute("mensagem", "Lote removido com sucesso");
-        model.addAttribute("opcao", "lotes");
-        return "mostrarmensagem";
+        NotificacaoAlertify notificacaoAlertify = new NotificacaoAlertify("Lote removido com sucesso",
+                TipoNotificaoAlertify.SUCESSO);
+        model.addAttribute("notificacao", notificacaoAlertify);
+        colocarVacinasNoModel(model);
+        model.addAttribute("uso", "lotes");
+        model.addAttribute("url", "/lotes/pesquisar");
+        return "lotes/pesquisar";
     }
 
 }

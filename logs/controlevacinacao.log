@@ -1611,3 +1611,70 @@ Caused by: org.postgresql.util.PSQLException: ERROR: password authentication fai
 2023-06-01T23:43:29.719Z  INFO 2879 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
 2023-06-01T23:43:29.725Z  INFO 2879 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
 2023-06-01T23:43:29.771Z  INFO 2879 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-03T10:34:47.361-03:00  INFO 19132 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-03T10:34:47.363-03:00  INFO 19132 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-03T10:34:48.667-03:00  INFO 19132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-03T10:34:48.778-03:00  INFO 19132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 4 JPA repository interfaces.
+2023-06-03T10:34:49.729-03:00  INFO 19132 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-06-03T10:34:49.743-03:00  INFO 19132 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-03T10:34:49.743-03:00  INFO 19132 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-03T10:34:49.824-03:00  INFO 19132 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-03T10:34:49.824-03:00  INFO 19132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2461 ms
+2023-06-03T10:34:50.326-03:00  INFO 19132 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-06-03T10:34:50.326-03:00  INFO 19132 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-06-03T10:34:50.326-03:00  INFO 19132 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-06-03T10:34:50.344-03:00  INFO 19132 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-06-03T10:34:55.613-03:00  INFO 19132 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6c8b8a1f
+2023-06-03T10:34:55.614-03:00  INFO 19132 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-06-03T10:34:55.982-03:00  INFO 19132 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://ep-jolly-credit-957858.us-east-2.aws.neon.tech/neondb (PostgreSQL 15.2)
+2023-06-03T10:34:58.051-03:00  INFO 19132 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 5 migrations (execution time 00:00.707s)
+2023-06-03T10:35:00.065-03:00  INFO 19132 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 05
+2023-06-03T10:35:00.232-03:00  INFO 19132 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-03T10:35:01.399-03:00  INFO 19132 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-03T10:35:01.507-03:00  INFO 19132 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-06-03T10:35:01.720-03:00  WARN 19132 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-03T10:35:02.249-03:00  INFO 19132 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-03T10:35:03.422-03:00  INFO 19132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-03T10:35:03.434-03:00  INFO 19132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T10:35:04.797-03:00  INFO 19132 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-03T10:35:05.619-03:00  INFO 19132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-03T10:35:05.630-03:00  INFO 19132 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-03T10:35:05.744-03:00  INFO 19132 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-03T10:35:07.754-03:00  INFO 19132 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-03T10:35:07.754-03:00  INFO 19132 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-06-03T10:35:07.755-03:00  INFO 19132 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-06-03T10:35:56.851-03:00  INFO 19132 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T10:35:56.855-03:00  INFO 19132 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-06-03T10:35:58.533-03:00  INFO 19132 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-06-03T10:36:04.572-03:00  INFO 11116 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-03T10:36:04.572-03:00  INFO 11116 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-03T10:36:05.749-03:00  INFO 11116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-03T10:36:05.875-03:00  INFO 11116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 114 ms. Found 4 JPA repository interfaces.
+2023-06-03T10:36:06.940-03:00  INFO 11116 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-06-03T10:36:06.950-03:00  INFO 11116 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-03T10:36:06.950-03:00  INFO 11116 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-03T10:36:07.038-03:00  INFO 11116 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-03T10:36:07.038-03:00  INFO 11116 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2465 ms
+2023-06-03T10:36:07.520-03:00  INFO 11116 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-06-03T10:36:07.521-03:00  INFO 11116 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-06-03T10:36:07.521-03:00  INFO 11116 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-06-03T10:36:07.544-03:00  INFO 11116 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-06-03T10:36:09.682-03:00  INFO 11116 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@144ed0af
+2023-06-03T10:36:09.683-03:00  INFO 11116 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-06-03T10:36:10.034-03:00  INFO 11116 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://ep-jolly-credit-957858.us-east-2.aws.neon.tech/neondb (PostgreSQL 15.2)
+2023-06-03T10:36:12.085-03:00  INFO 11116 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 5 migrations (execution time 00:00.692s)
+2023-06-03T10:36:14.093-03:00  INFO 11116 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 05
+2023-06-03T10:36:14.260-03:00  INFO 11116 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-03T10:36:15.409-03:00  INFO 11116 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-03T10:36:15.477-03:00  INFO 11116 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-06-03T10:36:15.705-03:00  WARN 11116 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-03T10:36:16.045-03:00  INFO 11116 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-03T10:36:17.202-03:00  INFO 11116 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-03T10:36:17.213-03:00  INFO 11116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T10:36:18.393-03:00  INFO 11116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-03T10:36:19.156-03:00  INFO 11116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-03T10:36:19.166-03:00  INFO 11116 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-03T10:36:19.288-03:00  INFO 11116 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-03T10:36:21.459-03:00  INFO 11116 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-03T10:36:21.459-03:00  INFO 11116 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-06-03T10:36:21.461-03:00  INFO 11116 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms

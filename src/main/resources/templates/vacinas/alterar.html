@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title th:text="${titulo}">Cadastrar Vacina</title>
+	<title th:text="${titulo}">Alterar Vacina</title>
 </head>
 
 <body>
@@ -19,8 +19,7 @@
 
 				<div id="resposta">
 
-					<form th:action="@{${url}}" method="POST" th:object="${vacina}" class="enviarcomajax"
-						th:fragment="cadastrar" data-iddestinoresposta="resposta">
+					<form th:action="@{${url}}" method="POST" th:object="${vacina}">
 						<input type="hidden" th:field="*{codigo}">
 
 						<label for="nome" class="form-label">Nome</label>
