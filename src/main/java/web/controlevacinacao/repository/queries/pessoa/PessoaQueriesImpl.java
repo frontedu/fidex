@@ -17,7 +17,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import web.controlevacinacao.model.Pessoa;
-import web.controlevacinacao.model.Status;
+import web.controlevacinacao.model.fidex_model.Status;
 import web.controlevacinacao.model.filter.PessoaFilter;
 import web.controlevacinacao.repository.pagination.PaginacaoUtil;
 

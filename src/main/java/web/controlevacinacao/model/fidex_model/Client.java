@@ -1,4 +1,4 @@
-package web.controlevacinacao.model;
+package web.controlevacinacao.model.fidex_model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -63,11 +63,11 @@ public class Client implements Serializable {
 		this.phone_number = phoneNumber;
 	}
 
-	public Long getPoints() {
+	public Double getPoints() {
 		return points;
 	}
 
-	public void setPoints(Long points) {
+	public void setPoints(Double points) {
 		this.points = points;
 	}
 
@@ -78,7 +78,7 @@ public class Client implements Serializable {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

@@ -1,4 +1,4 @@
-package web.controlevacinacao.model;
+package web.controlevacinacao.model.fidex_model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -55,19 +55,19 @@ public class Product implements Serializable {
         return name;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Long price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
-    public Long getPoints() {
+    public Double getPoints() {
 		return points;
 	}
 
-	public void setPoints(Long points) {
+	public void setPoints(Double points) {
 		this.points = points;
 	}
 

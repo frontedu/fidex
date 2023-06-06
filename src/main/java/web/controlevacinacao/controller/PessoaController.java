@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import web.controlevacinacao.ajax.NotificacaoAlertify;
 import web.controlevacinacao.ajax.TipoNotificaoAlertify;
 import web.controlevacinacao.model.Pessoa;
-import web.controlevacinacao.model.Status;
+import web.controlevacinacao.model.fidex_model.Status;
 import web.controlevacinacao.model.filter.PessoaFilter;
 import web.controlevacinacao.pagination.PageWrapper;
 import web.controlevacinacao.repository.PessoaRepository;

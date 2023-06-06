@@ -20,6 +20,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
+import web.controlevacinacao.model.fidex_model.Status;
 import web.controlevacinacao.validation.IntegerAttributesRelation;
 import web.controlevacinacao.validation.util.AttributesRelation;
 

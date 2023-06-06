@@ -1,4 +1,4 @@
-package web.controlevacinacao.model;
+package web.controlevacinacao.model.fidex_model;
 
 import java.io.Serializable;
 import java.time.LocalDate;

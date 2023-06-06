@@ -1,4 +1,4 @@
-package web.controlevacinacao.model;
+package web.controlevacinacao.model.fidex_model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -27,7 +27,7 @@ public class Prize implements Serializable {
 	private Long id;
     private LocalDate date;
     private Product product;
-	@Enumerated(EnumType.STRINnameG)
+	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 
 	public Long getId() {
@@ -38,13 +38,6 @@ public class Prize implements Serializable {
 		this.id = id;
 	}
 
-	public String getProduct() {
-		return product;
-	}
-
-	public void setProduct(String product) {
-		this.product = product;
-	}
 
     public LocalDate getDate() {
 		return date;

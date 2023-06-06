@@ -13,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import web.controlevacinacao.model.fidex_model.Status;
 
 @Entity
 @Table(name = "pessoa")
