@@ -137,8 +137,6 @@ public class LoteQueriesImpl implements LoteQueries {
 
         predicateList.add(builder.equal(l.<Status>get("status"), Status.ATIVO));
 
-        // l.join("vacina");
-
         Predicate[] predArray = new Predicate[predicateList.size()];
         predicateList.toArray(predArray);
 

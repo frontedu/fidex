@@ -3,8 +3,6 @@ package web.controlevacinacao.model.fidex_model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -13,9 +11,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "prizes")
+@Table(name = "prize")
 public class Prize implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -23,9 +22,12 @@ public class Prize implements Serializable {
 	@Id
 	@SequenceGenerator(name="gerador2", sequenceName="prize_id", allocationSize=1)
 	@GeneratedValue(generator="gerador2", strategy=GenerationType.SEQUENCE)
-    private Client client;
-	private Long id;
+    private Long id;
+	
+	@NotBlank(message = "O cliente é obrigatório")
+	private Client client;
     private LocalDate date;
+	@NotBlank(message = "O produto é obrigatório")
     private Product product;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;

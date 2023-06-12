@@ -1,10 +1,7 @@
 package web.controlevacinacao.model.fidex_model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -13,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "client")
@@ -21,11 +19,14 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@SequenceGenerator(name="gerador2", sequenceName="client_id", allocationSize=1)
-	@GeneratedValue(generator="gerador2", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name="gerador1", sequenceName="client_id", allocationSize=1)
+	@GeneratedValue(generator="gerador1", strategy=GenerationType.SEQUENCE)
 	private Long id;
+	@NotBlank(message = "O CPF é obrigatório")
     private String cpf;
+	@NotBlank(message = "O nome da pessoa é obrigatório")
     private String name;
+	@NotBlank(message = "O WhatsApp é obrigatório")
     private String phone_number;
 	private Double points;
 	@Enumerated(EnumType.STRING)

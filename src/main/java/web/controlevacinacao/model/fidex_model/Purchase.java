@@ -3,8 +3,6 @@ package web.controlevacinacao.model.fidex_model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -13,20 +11,23 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "purchases")
-public class Purchases implements Serializable {
+@Table(name = "purchase")
+public class Purchase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@SequenceGenerator(name="gerador2", sequenceName="purchases_id", allocationSize=1)
-	@GeneratedValue(generator="gerador2", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name="gerador4", sequenceName="purchase_id", allocationSize=1)
+	@GeneratedValue(generator="gerador4", strategy=GenerationType.SEQUENCE)
 	private Long id;
+	@NotBlank(message = "O cliente é obrigatório")
     private Client client;
-    private LocalDate date;
+	@NotBlank(message = "O valor gasto é obrigatório")
     private Double price;
+    private LocalDate date;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 
@@ -75,7 +76,7 @@ public class Purchases implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Purchases other = (Purchases) obj;
+		Purchase other = (Purchase) obj;
 		return Objects.equals(id, other.id);
 	}
 
