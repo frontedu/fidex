@@ -9,6 +9,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -25,9 +27,13 @@ public class Prize implements Serializable {
     private Long id;
 	
 	@NotBlank(message = "O cliente é obrigatório")
+	@ManyToOne
+	@JoinColumn(name = "client_id")
 	private Client client;
     private LocalDate date;
 	@NotBlank(message = "O produto é obrigatório")
+	@ManyToOne
+	@JoinColumn(name = "product_id")
     private Product product;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;

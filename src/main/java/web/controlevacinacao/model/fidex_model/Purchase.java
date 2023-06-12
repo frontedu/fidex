@@ -9,6 +9,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -24,6 +26,8 @@ public class Purchase implements Serializable {
 	@GeneratedValue(generator="gerador4", strategy=GenerationType.SEQUENCE)
 	private Long id;
 	@NotBlank(message = "O cliente é obrigatório")
+	@ManyToOne
+	@JoinColumn(name = "client_id")
     private Client client;
 	@NotBlank(message = "O valor gasto é obrigatório")
     private Double price;

@@ -132,4 +132,6 @@ public class Lote implements Serializable {
 				+ "\nnroDosesAtual: " + nroDosesAtual;
 	}
 
+	
+
 }
