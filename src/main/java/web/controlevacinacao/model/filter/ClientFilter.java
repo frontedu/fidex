@@ -7,6 +7,7 @@ public class ClientFilter {
     private String name;
     private String phone_number;
 	private Double points;
+	
 	public Long getId() {
 		return id;
 	}

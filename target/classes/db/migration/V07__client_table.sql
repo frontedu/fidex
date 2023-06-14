@@ -4,7 +4,7 @@ CREATE TABLE public.client
     name text NOT NULL,
     cpf text NOT NULL,
     phone_number text NOT NULL,
-    poits integer,
+    points integer,
     status text DEFAULT 'ATIVO',
     PRIMARY KEY (id)
 );
