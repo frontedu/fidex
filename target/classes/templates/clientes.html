@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/dashboard}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de cliente</title>
+</head>
+<body>
+
+    <div layout:fragment="main-content" class="app">
+        <header class="app-header">
+            <div th:replace="~{layout/fragments/logo}"></div>
+            <div class="app-header-navigation">
+                <div class="tabs">
+                    <a href="#" class="active">
+                        Últimos clientes
+                    </a>
+                    <a href="#" >
+                        Maior pontuação
+                    </a>
+                    <a href="#" >
+                        Mais antigos
+                    </a>
+                    <a href="#" >
+                        Nome do cliente
+                    </a>
+                </div>
+            </div>
+            <div class="app-header-actions">
+                <button class="flat-button">
+                    <i class="ph ph-plus"></i>
+                    Adicionar cliente
+                </button>
+                <div class="app-header-actions-buttons">
+                    <button class="icon-button large">
+                        <i class="ph-magnifying-glass"></i>
+                    </button>
+                    <button class="icon-button large">
+                        <i class="ph ph-sign-out"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="app-header-mobile">
+                <button class="icon-button large">
+                    <i class="ph-list"></i>
+                </button>
+            </div>
+    
+        </header>
+        <div class="app-body">
+            <div class="app-body-navigation">
+                <nav th:replace="~{layout/fragments/nav}"></nav>
+                <footer th:replace="~{layout/fragments/footer}"></footer>
+            </div>
+            <div class="app-body-main-content">
+                <section class="service-section">
+                    <div class="tiles">
+                        <article class="tile">
+                            <a href="#">
+                                <span></span>
+                                <span class="icon-button">
+                                    <i class="ph ph-x"></i>
+                                </span>
+                            </a>
+                            <div class="tile-header">
+                                <h3>
+                                    Eduardo Fernandes Silva
+                                </h3>
+                                <div class="customer-data">
+                                    <span>
+                                        <i class="ph ph-whatsapp-logo"></i>
+                                        (34) 9 9889-6336
+                                    </span>
+                                    <span>
+                                        <i class="ph ph-identification-card"></i>
+                                        147.611.916-35
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="customer-stats">
+                                <i><span>328</span> pontos</i>
+                                <i><span>8</span> premiações disponíveis</i>
+                            </div>
+                            
+                        </article>
+                        
+                    </div>
+                    <div class="service-section-footer">
+                        <i class="ph ph-arrow-left"></i>
+                        <p>1-8 de 56 resultados.</p>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
