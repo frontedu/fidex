@@ -16,8 +16,8 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import web.controlevacinacao.model.Lote;
+import web.controlevacinacao.model.Status;
 import web.controlevacinacao.model.Vacina;
-import web.controlevacinacao.model.fidex_model.Status;
 import web.controlevacinacao.model.filter.LoteFilter;
 import web.controlevacinacao.repository.pagination.PaginacaoUtil;
 
@@ -136,6 +136,8 @@ public class LoteQueriesImpl implements LoteQueries {
         }
 
         predicateList.add(builder.equal(l.<Status>get("status"), Status.ATIVO));
+
+        // l.join("vacina");
 
         Predicate[] predArray = new Predicate[predicateList.size()];
         predicateList.toArray(predArray);

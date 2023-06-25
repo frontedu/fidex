@@ -2,7 +2,7 @@ package web.controlevacinacao.model.filter;
 
 import java.time.LocalDate;
 
-import web.controlevacinacao.model.fidex_model.Status;
+import web.controlevacinacao.model.Status;
 
 public class PessoaFilter {
 

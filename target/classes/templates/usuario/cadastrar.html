@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Página Principal</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='usuarios')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container-fluid">
+				<h1>Cadastro de Usuário</h1>
+
+				<form th:action="@{/usuarios/cadastrar}" method="post" th:object="${usuario}">
+					<label for="nome" class="form-label mt-4">Nome:</label>
+					<input type="text" id="nome" th:field="*{nome}" autofocus="autofocus" class="form-control" th:errorclass="is-invalid">
+					<span class="invalid-feedback" th:if="${#fields.hasErrors('nome')}" th:each="erro : ${#fields.errors('nome')}" th:text="${erro} + '. '"></span>
+					<label for="email" class="form-label mt-3">E-mail:</label>
+					<input type="email" id="email" th:field="*{email}" class="form-control" th:errorclass="is-invalid">
+					<span class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:each="erro : ${#fields.errors('email')}" th:text="${erro} + '. '"></span>
+					<label for="senha" class="form-label mt-3">Senha:</label>
+					<input type="password" id="senha" th:field="*{senha}" class="form-control" th:errorclass="is-invalid">
+					<span class="invalid-feedback" th:if="${#fields.hasErrors('senha')}" th:each="erro : ${#fields.errors('senha')}" th:text="${erro} + '. '"></span>
+					<label for="nomeUsuario" class="form-label mt-3">Nome de usuário:</label>
+					<input type="text" id="nomeUsuario" th:field="*{nomeUsuario}" class="form-control" th:errorclass="is-invalid">
+					<span class="invalid-feedback" th:if="${#fields.hasErrors('nomeUsuario')}" th:each="erro : ${#fields.errors('nomeUsuario')}" th:text="${erro} + '. '"></span>
+					<label for="dataNascimento" class="form-label mt-3">Data de Nascimento:</label>
+					<input type="text" id="dataNascimento" th:field="*{dataNascimento}" class="form-control mb-4 componentedata" th:errorclass="is-invalid">
+					<span class="invalid-feedback" th:if="${#fields.hasErrors('dataNascimento')}" th:each="erro : ${#fields.errors('dataNascimento')}" th:text="${erro} + '. '"></span>
+					<div th:each="papel: ${todosPapeis}" class="form-check">
+						<input type="checkbox" th:field="*{papeis}" th:value="${papel.codigo}" class="form-check-input">
+						<label th:for="${#ids.prev('papeis')}" th:text="${papel.nome}" class="form-check-label">Texto checkbox 1</label>
+					</div>
+					<span class="invalid-feedback" th:if="${#fields.hasErrors('papeis')}" th:each="erro : ${#fields.errors('papeis')}" th:text="${erro} + '. '"></span>
+					<input type="submit" value="Cadastrar" class="btn btn-primary mt-4">
+				</form>
+				
+				<div th:if="${notificacao != null}" th:object="${notificacao}">
+					<input type="hidden" id="mensagem" th:value="*{mensagem}">
+					<input type="hidden" id="tipo" th:value="*{tipo}">
+					<input type="hidden" id="intervalo" th:value="*{intervalo}">
+				</div>
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+	<!-- Nao usamos
+	<th:block layout:fragment="scripts">
+		<script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+	</th:block> -->
+
+</body>
+</html>
+

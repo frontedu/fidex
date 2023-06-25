@@ -11,7 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import web.controlevacinacao.model.fidex_model.Status;
 
 @Entity
 @Table(name="vacina")

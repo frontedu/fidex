@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioSQLDiretoComplexoSubLotes" pageWidth="555" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b84017f5-4f8e-48c6-b3a7-2e0c5de6b375">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="bG90ZSAsMTUsMTUsMDc5YTM3M2UtYjMzMi00YzdiLWEzOTgtNzg3Y2FmZDk2ZWY4Ow=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreSQL Vacinas"/>
+	<parameter name="CODIGOVACINA" class="java.lang.Long"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT codigo,
+	validade,
+	nro_doses_do_lote,
+	nro_doses_atual,
+	codigo_vacina,
+	status
+FROM lote
+WHERE codigo_vacina = $P{CODIGOVACINA} ]]>
+	</queryString>
+	<field name="codigo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="codigo"/>
+		<property name="com.jaspersoft.studio.field.label" value="codigo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lote"/>
+	</field>
+	<field name="validade" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="validade"/>
+		<property name="com.jaspersoft.studio.field.label" value="validade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lote"/>
+	</field>
+	<field name="nro_doses_do_lote" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nro_doses_do_lote"/>
+		<property name="com.jaspersoft.studio.field.label" value="nro_doses_do_lote"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lote"/>
+	</field>
+	<field name="nro_doses_atual" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nro_doses_atual"/>
+		<property name="com.jaspersoft.studio.field.label" value="nro_doses_atual"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lote"/>
+	</field>
+	<field name="codigo_vacina" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="codigo_vacina"/>
+		<property name="com.jaspersoft.studio.field.label" value="codigo_vacina"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lote"/>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lote"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="107" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="57f8702f-ebce-4595-99ab-79ca46b6da83"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="73372f2b-454b-494d-af01-3af577e723cd"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[codigo]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="100" y="20" width="100" height="20" uuid="9ec6e012-ea8b-42d3-908c-50557cf9cd5b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{validade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="eddbc540-c898-4d91-9508-1befc8ac2707"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[validade]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="40" width="100" height="20" uuid="09c398fe-56b0-4dfa-becc-96fc72d0ba98"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nro_doses_do_lote}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="20" uuid="566ef661-88db-432e-aa02-6fc9163f39d7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[nro_doses_do_lote]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="60" width="100" height="20" uuid="049e0acc-d84c-475f-b7c0-6a74f45cdd32"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nro_doses_atual}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="100" height="20" uuid="0c0249d5-b5e2-46ee-b45c-f36e0f5020bc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[nro_doses_atual]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="80" width="100" height="20" uuid="d4b91006-baa8-4816-b11e-94e992568911"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{status}.equals("ATIVO") ? "Ativo" : "Inativo"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="100" height="20" uuid="dafc19bc-2400-43db-a07c-0b824c3c0c11"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[status]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

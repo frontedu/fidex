@@ -1,40 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-BR" 
-	  xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <body>
 	<!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="navbar">
-      <div class="container-fluid d-flex">
-        <!-- offcanvas sidebar trigger -->
-        <button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
-          <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
-        </button>
-        <!-- !offcanvas sidebar trigger -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="navbar">
+		<div class="container-fluid d-flex">
+			<!-- offcanvas sidebar trigger -->
+			<button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
+				<span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+			</button>
+			<!-- !offcanvas sidebar trigger -->
 
-        <!-- titulo da aplicacao -->
-        <a class="navbar-brand fw-bold text-uppercase me-auto" th:href="@{/}">Controle de Vacinação</a>
+			<!-- titulo da aplicacao -->
+			<a class="navbar-brand fw-bold text-uppercase me-auto" th:href="@{/}">Controle de Vacinação</a>
 
-        <!-- parte da direita -->
-        <div class="d-flex justify-content-end align-items-center">
-          <!-- botao login -->
-          <form action="#" method="post">
-            <input type="submit" class="form-control btn btn-primary" value="Login" />
-          </form>
+			<!-- parte da direita -->
+			<div class="d-flex justify-content-end align-items-center">
 
-          <!-- nome usuario -->
-          <div class="ms-3 d-none d-sm-block">
-            <a class="navbar-brand" href="#">
-              <span class="navbar-text text-white">Grosbilda<i class="bi bi-person-fill ms-2"></i> </span>
-            </a>
-          </div>
+				<div sec:authorize="!isAuthenticated()">
+					<!-- botao login -->
+					<form action="#" th:action="@{/login}" method="post">
+						<input type="submit" class="form-control btn btn-primary" value="Login" />
+					</form>
+				</div>
 
-          <!-- botao logout -->
-          <form action="#" method="post">
-            <input type="submit" class="form-control btn btn-primary" value="Logout" />
-          </form>
-        </div>
-      </div>
-    </nav>
-    <!-- !navbar -->
+				<div sec:authorize="isAuthenticated()">
+					<!-- nome do usuario -->
+					<div class="ms-3 d-none d-sm-block">
+						<a class="navbar-brand" href="#">
+							<span sec:authentication="principal.username" class="navbar-text text-white">
+								<i class="bi bi-person-fill ms-2"></i>
+							</span>
+						</a>
+					</div>
+				</div>
+
+				<div sec:authorize="isAuthenticated()">
+					<!-- botao logout -->
+					<form action="#" th:action="@{/logout}" method="post">
+						<input type="submit" class="form-control btn btn-primary" value="Logout" />
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</nav>
+	<!-- !navbar -->
 </body>
 </html>

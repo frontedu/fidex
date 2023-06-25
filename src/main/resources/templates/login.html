@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Página de Login</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+
+		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='')}"></div>
+
+		<!-- conteudo principal -->
+		<main class="mt-5 p-4 pt-5">
+			<div class="container">
+				<p class="mt-5">Usuário exemplo: grosbilda / 12345 / ADMIN</p>
+				<p>Usuário exemplo: estrobilobaldo / 12345 / USUARIO</p>
+				<p>Usuário exemplo: zirgonisvaldo / 12345 / ADMIN e USUARIO</p>
+				<div>
+					<span th:if="${param.error}">Usuário e/ou senha inválidos.</span>
+					<span th:if="${param.logout}">Você foi deslogado.</span>
+				</div>
+				<form th:action="@{/login}" method="post">
+					<label for="username" class="form-label mt-4">Usuário:</label>
+					<input type="text" id="username" name="username" autofocus="autofocus" class="form-control">
+					<label for="password" class="form-label mt-4">Password:</label>
+					<input type="password" id="password" name="password" class="form-control">
+					<input type="submit" value="Logar" class="btn btn-primary mt-4">
+				</form>
+			</div>
+		</main>
+		<!-- !conteudo principal -->
+
+	</div>
+
+	<!-- Nao usamos
+	<th:block layout:fragment="scripts">
+		<script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+	</th:block> -->
+
+</body>
+</html>
