@@ -6961,3 +6961,380 @@ Verify the connector's configuration, identify and stop any process that's liste
 2023-06-25T11:57:59.159-03:00  INFO 16412 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-25T11:57:59.159-03:00  INFO 16412 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
 2023-06-25T11:57:59.162-03:00  INFO 16412 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2023-06-25T12:06:10.825-03:00  INFO 16412 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2023-06-25T12:06:10.840-03:00  INFO 16412 --- [Thread-5] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-06-25T12:06:10.842-03:00  INFO 16412 --- [Thread-5] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-06-25T12:06:10.863-03:00  INFO 16412 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:06:10.869-03:00  INFO 16412 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-06-25T12:06:12.721-03:00  INFO 16412 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-06-25T12:06:13.445-03:00  INFO 16412 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-25T12:06:13.531-03:00  INFO 16412 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 10 JPA repository interfaces.
+2023-06-25T12:06:13.780-03:00  INFO 16412 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8443 (https) 8080 (https)
+2023-06-25T12:06:13.782-03:00  INFO 16412 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-25T12:06:13.782-03:00  INFO 16412 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-25T12:06:13.830-03:00  INFO 16412 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-25T12:06:13.830-03:00  INFO 16412 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 964 ms
+2023-06-25T12:06:14.075-03:00  INFO 16412 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Starting...
+2023-06-25T12:06:15.775-03:00  INFO 16412 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@19c14899
+2023-06-25T12:06:15.776-03:00  INFO 16412 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Start completed.
+2023-06-25T12:06:16.147-03:00  INFO 16412 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://containers-us-west-205.railway.app:7025/railway (PostgreSQL 13.2)
+2023-06-25T12:06:18.381-03:00  INFO 16412 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 10 migrations (execution time 00:00.749s)
+2023-06-25T12:06:20.604-03:00  INFO 16412 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 10
+2023-06-25T12:06:20.789-03:00  INFO 16412 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-25T12:06:21.934-03:00  INFO 16412 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-25T12:06:21.936-03:00  WARN 16412 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-25T12:06:22.133-03:00  INFO 16412 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-25T12:06:22.524-03:00  WARN 16412 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-06-25T12:06:22.531-03:00  WARN 16412 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-06-25T12:06:22.536-03:00  WARN 16412 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-06-25T12:06:22.545-03:00  WARN 16412 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-06-25T12:06:22.659-03:00  INFO 16412 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-25T12:06:22.659-03:00  INFO 16412 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:06:23.170-03:00  INFO 16412 --- [restartedMain] o.s.s.p.JdbcUserDetailsManager           : No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-06-25T12:06:23.221-03:00  INFO 16412 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-25T12:06:23.492-03:00  INFO 16412 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-25T12:06:23.523-03:00  INFO 16412 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@460852e0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59d0b170, org.springframework.security.web.context.SecurityContextHolderFilter@2322ec8, org.springframework.security.web.header.HeaderWriterFilter@7dc7ce6, org.springframework.security.web.csrf.CsrfFilter@5c5f88aa, org.springframework.security.web.authentication.logout.LogoutFilter@7f66e20a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@403fcc20, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@296a8bc4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b72709, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32028b03, org.springframework.security.web.access.ExceptionTranslationFilter@8af3e6f, org.springframework.security.web.access.intercept.AuthorizationFilter@7539441c]
+2023-06-25T12:06:23.771-03:00  INFO 16412 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-25T12:06:23.839-03:00  INFO 16412 --- [restartedMain] o.a.t.u.n.N.certificate                  : Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [UNDEFINED] configured from [file:/C:/Users/fdsed/OneDrive%20-%20IFTM/Documentos/Eduardo%20Documentos/GITHUB/vinca/target/classes/keystore.p12] using alias [tomcat] and with trust store [null]
+2023-06-25T12:06:23.852-03:00  INFO 16412 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8443 (https) 8080 (https) with context path ''
+2023-06-25T12:06:23.859-03:00  INFO 16412 --- [http-nio-8080-exec-10] o.a.c.h.Http11Processor                  : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x03u0xb90xb00xd70x8b0x7f0xe4Ae0xaerK0xaf0xeba0x1b0xa2#0x1c0xc10x890xc50xc120xad0xb20xe30x900xb8>0xf10xcf ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+
+2023-06-25T12:06:23.868-03:00  INFO 16412 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-25T12:06:29.529-03:00  INFO 16412 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:06:29.530-03:00  INFO 16412 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown initiated...
+2023-06-25T12:06:31.378-03:00  INFO 16412 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown completed.
+2023-06-25T12:06:38.302-03:00  INFO 704 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-25T12:06:38.304-03:00  INFO 704 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-25T12:06:39.588-03:00  INFO 704 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-25T12:06:39.734-03:00  INFO 704 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 136 ms. Found 10 JPA repository interfaces.
+2023-06-25T12:06:41.096-03:00  INFO 704 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8443 (https) 8080 (https)
+2023-06-25T12:06:41.122-03:00  INFO 704 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-25T12:06:41.122-03:00  INFO 704 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-25T12:06:41.213-03:00  INFO 704 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-25T12:06:41.214-03:00  INFO 704 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2909 ms
+2023-06-25T12:06:41.722-03:00  INFO 704 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-06-25T12:06:41.722-03:00  INFO 704 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-06-25T12:06:41.722-03:00  INFO 704 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-06-25T12:06:41.744-03:00  INFO 704 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-06-25T12:06:43.655-03:00  INFO 704 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7fd75e4
+2023-06-25T12:06:43.657-03:00  INFO 704 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-06-25T12:06:44.047-03:00  INFO 704 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://containers-us-west-205.railway.app:7025/railway (PostgreSQL 13.2)
+2023-06-25T12:06:46.324-03:00  INFO 704 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 10 migrations (execution time 00:00.776s)
+2023-06-25T12:06:48.556-03:00  INFO 704 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 10
+2023-06-25T12:06:48.742-03:00  INFO 704 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-25T12:06:49.989-03:00  INFO 704 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-25T12:06:50.060-03:00  INFO 704 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-06-25T12:06:50.296-03:00  WARN 704 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-25T12:06:50.912-03:00  INFO 704 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-25T12:06:51.476-03:00  WARN 704 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-06-25T12:06:51.488-03:00  WARN 704 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-06-25T12:06:51.497-03:00  WARN 704 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-06-25T12:06:51.530-03:00  WARN 704 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-06-25T12:06:52.467-03:00  INFO 704 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-25T12:06:52.480-03:00  INFO 704 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:06:53.660-03:00  INFO 704 --- [restartedMain] o.s.s.p.JdbcUserDetailsManager           : No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-06-25T12:06:53.793-03:00  INFO 704 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-25T12:06:54.352-03:00  INFO 704 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-25T12:06:54.435-03:00  INFO 704 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@73195f0d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3d89e6ae, org.springframework.security.web.context.SecurityContextHolderFilter@12f2bcf6, org.springframework.security.web.header.HeaderWriterFilter@1ab2613c, org.springframework.security.web.csrf.CsrfFilter@6ed3b2fd, org.springframework.security.web.authentication.logout.LogoutFilter@29a44849, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@9e78070, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@420b4f59, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57c1421a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31ed34dd, org.springframework.security.web.access.ExceptionTranslationFilter@6a8a2406, org.springframework.security.web.access.intercept.AuthorizationFilter@6eaff971]
+2023-06-25T12:06:55.119-03:00  INFO 704 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-25T12:06:55.316-03:00  INFO 704 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-25T12:06:55.316-03:00  INFO 704 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-06-25T12:06:55.321-03:00  INFO 704 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2023-06-25T12:06:55.365-03:00  INFO 704 --- [restartedMain] o.a.t.u.n.N.certificate                  : Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [UNDEFINED] configured from [file:/C:/Users/fdsed/OneDrive%20-%20IFTM/Documentos/Eduardo%20Documentos/GITHUB/vinca/target/classes/keystore.p12] using alias [tomcat] and with trust store [null]
+2023-06-25T12:06:55.398-03:00  INFO 704 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8443 (https) 8080 (https) with context path ''
+2023-06-25T12:08:35.150-03:00  INFO 704 --- [http-nio-8080-exec-1] o.a.c.h.Http11Processor                  : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030xf3!0xa0%0xc9C|t0x10(0xff^0xe90x110xc860xafPGP0xb7H0x040x80&2|0xcd00x09=T ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+
+2023-06-25T12:09:13.790-03:00  INFO 704 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2023-06-25T12:09:13.804-03:00  INFO 704 --- [Thread-5] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-06-25T12:09:13.805-03:00  INFO 704 --- [Thread-5] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-06-25T12:09:13.826-03:00  INFO 704 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:09:13.830-03:00  INFO 704 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-06-25T12:09:15.685-03:00  INFO 704 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-06-25T12:09:16.526-03:00  INFO 704 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-25T12:09:16.585-03:00  INFO 704 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 10 JPA repository interfaces.
+2023-06-25T12:11:58.140-03:00  INFO 9804 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-25T12:11:58.142-03:00  INFO 9804 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-25T12:11:59.508-03:00  INFO 9804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-25T12:11:59.667-03:00  INFO 9804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 147 ms. Found 10 JPA repository interfaces.
+2023-06-25T12:12:01.140-03:00  INFO 9804 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8443 (https)
+2023-06-25T12:12:01.163-03:00  INFO 9804 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-25T12:12:01.164-03:00  INFO 9804 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-25T12:12:01.271-03:00  INFO 9804 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-25T12:12:01.271-03:00  INFO 9804 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3128 ms
+2023-06-25T12:12:01.822-03:00  INFO 9804 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-06-25T12:12:01.822-03:00  INFO 9804 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-06-25T12:12:01.822-03:00  INFO 9804 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-06-25T12:12:01.847-03:00  INFO 9804 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-06-25T12:12:03.836-03:00  INFO 9804 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@16529551
+2023-06-25T12:12:03.838-03:00  INFO 9804 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-06-25T12:12:04.235-03:00  INFO 9804 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://containers-us-west-205.railway.app:7025/railway (PostgreSQL 13.2)
+2023-06-25T12:12:06.542-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 10 migrations (execution time 00:00.793s)
+2023-06-25T12:12:08.777-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 10
+2023-06-25T12:12:08.963-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-25T12:12:10.260-03:00  INFO 9804 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-25T12:12:10.403-03:00  INFO 9804 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-06-25T12:12:10.652-03:00  WARN 9804 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-25T12:12:11.291-03:00  INFO 9804 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-25T12:12:12.034-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-06-25T12:12:12.062-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-06-25T12:12:12.077-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-06-25T12:12:12.129-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-06-25T12:12:13.421-03:00  INFO 9804 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-25T12:12:13.441-03:00  INFO 9804 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:12:15.096-03:00  INFO 9804 --- [restartedMain] o.s.s.p.JdbcUserDetailsManager           : No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-06-25T12:12:15.274-03:00  INFO 9804 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-25T12:12:16.011-03:00  INFO 9804 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-25T12:12:16.155-03:00  INFO 9804 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5cd09230, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10749e12, org.springframework.security.web.context.SecurityContextHolderFilter@2627ac1f, org.springframework.security.web.header.HeaderWriterFilter@55f56a4, org.springframework.security.web.csrf.CsrfFilter@259d0b7, org.springframework.security.web.authentication.logout.LogoutFilter@2c658914, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@50a78dfc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@426b7311, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b925e1a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46072966, org.springframework.security.web.access.ExceptionTranslationFilter@3c0e61c6, org.springframework.security.web.access.intercept.AuthorizationFilter@5f99d969]
+2023-06-25T12:12:17.137-03:00  INFO 9804 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-25T12:12:17.466-03:00  INFO 9804 --- [restartedMain] o.a.t.u.n.N.certificate                  : Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [UNDEFINED] configured from [file:/C:/Users/fdsed/OneDrive%20-%20IFTM/Documentos/Eduardo%20Documentos/GITHUB/vinca/target/classes/keystore.p12] using alias [tomcat] and with trust store [null]
+2023-06-25T12:12:17.505-03:00  INFO 9804 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8443 (https) with context path ''
+2023-06-25T12:12:18.117-03:00  INFO 9804 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-25T12:12:18.117-03:00  INFO 9804 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-06-25T12:12:18.119-03:00  INFO 9804 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
+2023-06-25T12:14:30.780-03:00  INFO 9804 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 1 deletion, 1 modification)
+2023-06-25T12:14:30.790-03:00  INFO 9804 --- [Thread-5] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-06-25T12:14:30.792-03:00  INFO 9804 --- [Thread-5] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-06-25T12:14:30.807-03:00  INFO 9804 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:14:30.810-03:00  INFO 9804 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-06-25T12:14:32.678-03:00  INFO 9804 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-06-25T12:14:33.214-03:00  INFO 9804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-25T12:14:33.283-03:00  INFO 9804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 10 JPA repository interfaces.
+2023-06-25T12:14:33.533-03:00  INFO 9804 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8443 (https)
+2023-06-25T12:14:33.534-03:00  INFO 9804 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-25T12:14:33.534-03:00  INFO 9804 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-25T12:14:33.570-03:00  INFO 9804 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-25T12:14:33.570-03:00  INFO 9804 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 751 ms
+2023-06-25T12:14:33.742-03:00  INFO 9804 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Starting...
+2023-06-25T12:14:35.426-03:00  INFO 9804 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@5fd21dae
+2023-06-25T12:14:35.427-03:00  INFO 9804 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Start completed.
+2023-06-25T12:14:35.796-03:00  INFO 9804 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://containers-us-west-205.railway.app:7025/railway (PostgreSQL 13.2)
+2023-06-25T12:14:38.033-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 10 migrations (execution time 00:00.750s)
+2023-06-25T12:14:40.257-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 10
+2023-06-25T12:14:40.443-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-25T12:14:41.604-03:00  INFO 9804 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-25T12:14:41.606-03:00  WARN 9804 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-25T12:14:41.810-03:00  INFO 9804 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-25T12:14:42.191-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-06-25T12:14:42.198-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-06-25T12:14:42.201-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-06-25T12:14:42.206-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-06-25T12:14:42.310-03:00  INFO 9804 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-25T12:14:42.310-03:00  INFO 9804 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:14:42.830-03:00  INFO 9804 --- [restartedMain] o.s.s.p.JdbcUserDetailsManager           : No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-06-25T12:14:42.863-03:00  INFO 9804 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-25T12:14:43.103-03:00  INFO 9804 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-25T12:14:43.135-03:00  INFO 9804 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5150c52, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1fae0a5f, org.springframework.security.web.context.SecurityContextHolderFilter@2bf6c8b3, org.springframework.security.web.header.HeaderWriterFilter@274806ab, org.springframework.security.web.csrf.CsrfFilter@95efc78, org.springframework.security.web.authentication.logout.LogoutFilter@6b169809, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@248a7c2b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1257ce9e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3604140e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5813475b, org.springframework.security.web.access.ExceptionTranslationFilter@11aa892d, org.springframework.security.web.access.intercept.AuthorizationFilter@1e28c379]
+2023-06-25T12:14:43.405-03:00  INFO 9804 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-25T12:14:43.495-03:00  INFO 9804 --- [restartedMain] o.a.t.u.n.N.certificate                  : Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [UNDEFINED] configured from [file:/C:/Users/fdsed/OneDrive%20-%20IFTM/Documentos/Eduardo%20Documentos/GITHUB/vinca/target/classes/keystore.p12] using alias [tomcat] and with trust store [null]
+2023-06-25T12:14:43.502-03:00  INFO 9804 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8443 (https) with context path ''
+2023-06-25T12:14:43.520-03:00  INFO 9804 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   ServletWebServerFactoryConfiguration.EmbeddedTomcat matched:
+      - @ConditionalOnClass found required classes 'jakarta.servlet.Servlet', 'org.apache.catalina.startup.Tomcat', 'org.apache.coyote.UpgradeProtocol' (OnClassCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.boot.web.servlet.server.ServletWebServerFactory; SearchStrategy: current) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2023-06-25T12:14:45.938-03:00  INFO 9804 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-25T12:14:45.947-03:00  INFO 9804 --- [Thread-7] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-06-25T12:14:45.955-03:00  INFO 9804 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:14:45.956-03:00  INFO 9804 --- [Thread-7] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown initiated...
+2023-06-25T12:14:47.624-03:00  INFO 9804 --- [Thread-7] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown completed.
+2023-06-25T12:14:48.095-03:00  INFO 9804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-25T12:14:48.154-03:00  INFO 9804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 10 JPA repository interfaces.
+2023-06-25T12:14:48.306-03:00  INFO 9804 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8443 (https)
+2023-06-25T12:14:48.306-03:00  INFO 9804 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-25T12:14:48.307-03:00  INFO 9804 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-25T12:14:48.331-03:00  INFO 9804 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-25T12:14:48.331-03:00  INFO 9804 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 582 ms
+2023-06-25T12:14:48.462-03:00  INFO 9804 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-3 - Starting...
+2023-06-25T12:14:50.142-03:00  INFO 9804 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@2b1ef7e2
+2023-06-25T12:14:50.142-03:00  INFO 9804 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-3 - Start completed.
+2023-06-25T12:14:50.513-03:00  INFO 9804 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://containers-us-west-205.railway.app:7025/railway (PostgreSQL 13.2)
+2023-06-25T12:14:52.755-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 10 migrations (execution time 00:00.751s)
+2023-06-25T12:14:54.982-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 10
+2023-06-25T12:14:55.168-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-25T12:14:56.303-03:00  INFO 9804 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-25T12:14:56.305-03:00  WARN 9804 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-25T12:14:56.504-03:00  INFO 9804 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-25T12:14:56.885-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-06-25T12:14:56.888-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-06-25T12:14:56.891-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-06-25T12:14:56.894-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-06-25T12:14:56.971-03:00  INFO 9804 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-25T12:14:56.971-03:00  INFO 9804 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:14:57.346-03:00  INFO 9804 --- [restartedMain] o.s.s.p.JdbcUserDetailsManager           : No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-06-25T12:14:57.369-03:00  INFO 9804 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-25T12:14:57.526-03:00  INFO 9804 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-25T12:14:57.549-03:00  INFO 9804 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5293e0d6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58db226a, org.springframework.security.web.context.SecurityContextHolderFilter@6d427d64, org.springframework.security.web.header.HeaderWriterFilter@67902d6c, org.springframework.security.web.csrf.CsrfFilter@1ab4f69, org.springframework.security.web.authentication.logout.LogoutFilter@7c17918d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7457ed40, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6eb2b22a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@409b0735, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ea08ac0, org.springframework.security.web.access.ExceptionTranslationFilter@4c71ea18, org.springframework.security.web.access.intercept.AuthorizationFilter@1534a2e5]
+2023-06-25T12:14:57.727-03:00  INFO 9804 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-25T12:14:57.764-03:00  INFO 9804 --- [restartedMain] o.a.t.u.n.N.certificate                  : Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [UNDEFINED] configured from [file:/C:/Users/fdsed/OneDrive%20-%20IFTM/Documentos/Eduardo%20Documentos/GITHUB/vinca/target/classes/keystore.p12] using alias [tomcat] and with trust store [null]
+2023-06-25T12:14:57.768-03:00  INFO 9804 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8443 (https) with context path ''
+2023-06-25T12:14:57.776-03:00  INFO 9804 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-25T12:14:59.231-03:00  INFO 9804 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-25T12:14:59.243-03:00  INFO 9804 --- [Thread-11] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-06-25T12:14:59.251-03:00  INFO 9804 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:14:59.252-03:00  INFO 9804 --- [Thread-11] c.z.h.HikariDataSource                   : HikariPool-3 - Shutdown initiated...
+2023-06-25T12:15:00.735-03:00  INFO 9804 --- [Thread-11] c.z.h.HikariDataSource                   : HikariPool-3 - Shutdown completed.
+2023-06-25T12:15:01.275-03:00  INFO 9804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-25T12:15:01.331-03:00  INFO 9804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 10 JPA repository interfaces.
+2023-06-25T12:15:01.489-03:00  INFO 9804 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8443 (https)
+2023-06-25T12:15:01.489-03:00  INFO 9804 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-25T12:15:01.490-03:00  INFO 9804 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-25T12:15:01.525-03:00  INFO 9804 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-25T12:15:01.525-03:00  INFO 9804 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 633 ms
+2023-06-25T12:15:01.710-03:00  INFO 9804 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-4 - Starting...
+2023-06-25T12:15:03.386-03:00  INFO 9804 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@6b919e2d
+2023-06-25T12:15:03.386-03:00  INFO 9804 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-4 - Start completed.
+2023-06-25T12:15:03.757-03:00  INFO 9804 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://containers-us-west-205.railway.app:7025/railway (PostgreSQL 13.2)
+2023-06-25T12:15:05.995-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 10 migrations (execution time 00:00.749s)
+2023-06-25T12:15:08.216-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 10
+2023-06-25T12:15:08.402-03:00  INFO 9804 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-25T12:15:09.539-03:00  INFO 9804 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-25T12:15:09.540-03:00  WARN 9804 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-25T12:15:09.734-03:00  INFO 9804 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-25T12:15:10.114-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-06-25T12:15:10.118-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-06-25T12:15:10.119-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-06-25T12:15:10.123-03:00  WARN 9804 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-06-25T12:15:10.187-03:00  INFO 9804 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-25T12:15:10.188-03:00  INFO 9804 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:15:10.557-03:00  INFO 9804 --- [restartedMain] o.s.s.p.JdbcUserDetailsManager           : No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-06-25T12:15:10.581-03:00  INFO 9804 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-25T12:15:10.760-03:00  INFO 9804 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-25T12:15:10.791-03:00  INFO 9804 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2b671f6b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a190282, org.springframework.security.web.context.SecurityContextHolderFilter@235b751b, org.springframework.security.web.header.HeaderWriterFilter@17e0cfd8, org.springframework.security.web.csrf.CsrfFilter@39e5ddc, org.springframework.security.web.authentication.logout.LogoutFilter@57fc33d5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3d17121d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d17769, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79df0b38, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1d1ad976, org.springframework.security.web.access.ExceptionTranslationFilter@6cfe9373, org.springframework.security.web.access.intercept.AuthorizationFilter@52bbf3e9]
+2023-06-25T12:15:10.999-03:00  INFO 9804 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-25T12:15:11.041-03:00  INFO 9804 --- [restartedMain] o.a.t.u.n.N.certificate                  : Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [UNDEFINED] configured from [file:/C:/Users/fdsed/OneDrive%20-%20IFTM/Documentos/Eduardo%20Documentos/GITHUB/vinca/target/classes/keystore.p12] using alias [tomcat] and with trust store [null]
+2023-06-25T12:15:11.044-03:00  INFO 9804 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8443 (https) with context path ''
+2023-06-25T12:15:11.053-03:00  INFO 9804 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-25T12:15:40.224-03:00  INFO 16532 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-25T12:15:40.225-03:00  INFO 16532 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-25T12:15:41.469-03:00  INFO 16532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-25T12:15:41.603-03:00  INFO 16532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122 ms. Found 10 JPA repository interfaces.
+2023-06-25T12:15:42.895-03:00  INFO 16532 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8443 (https)
+2023-06-25T12:15:42.911-03:00  INFO 16532 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-25T12:15:42.911-03:00  INFO 16532 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-25T12:15:42.990-03:00  INFO 16532 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-25T12:15:42.991-03:00  INFO 16532 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2766 ms
+2023-06-25T12:15:43.452-03:00  INFO 16532 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.5.1 by Redgate
+2023-06-25T12:15:43.453-03:00  INFO 16532 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-06-25T12:15:43.453-03:00  INFO 16532 --- [restartedMain] o.f.c.i.l.VersionPrinter                 : 
+2023-06-25T12:15:43.476-03:00  INFO 16532 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-06-25T12:15:45.405-03:00  INFO 16532 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@468b7791
+2023-06-25T12:15:45.407-03:00  INFO 16532 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-06-25T12:15:45.795-03:00  INFO 16532 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://containers-us-west-205.railway.app:7025/railway (PostgreSQL 13.2)
+2023-06-25T12:15:48.079-03:00  INFO 16532 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 10 migrations (execution time 00:00.775s)
+2023-06-25T12:15:50.313-03:00  INFO 16532 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 10
+2023-06-25T12:15:50.498-03:00  INFO 16532 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-25T12:15:51.747-03:00  INFO 16532 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-25T12:15:51.813-03:00  INFO 16532 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-06-25T12:15:51.978-03:00  WARN 16532 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-25T12:15:52.381-03:00  INFO 16532 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-25T12:15:52.962-03:00  WARN 16532 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-06-25T12:15:52.977-03:00  WARN 16532 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-06-25T12:15:52.987-03:00  WARN 16532 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-06-25T12:15:53.019-03:00  WARN 16532 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-06-25T12:15:53.938-03:00  INFO 16532 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-25T12:15:53.948-03:00  INFO 16532 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:15:55.274-03:00  INFO 16532 --- [restartedMain] o.s.s.p.JdbcUserDetailsManager           : No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-06-25T12:15:55.398-03:00  INFO 16532 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-25T12:15:56.003-03:00  INFO 16532 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-25T12:15:56.099-03:00  INFO 16532 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@323a06fb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23d5e9db, org.springframework.security.web.context.SecurityContextHolderFilter@51f25321, org.springframework.security.web.header.HeaderWriterFilter@4413b5eb, org.springframework.security.web.csrf.CsrfFilter@48513a43, org.springframework.security.web.authentication.logout.LogoutFilter@7ae3dab3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@18dd343e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@53e5eacc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@559256b4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53e80496, org.springframework.security.web.access.ExceptionTranslationFilter@133894a1, org.springframework.security.web.access.intercept.AuthorizationFilter@52291d04]
+2023-06-25T12:15:56.756-03:00  INFO 16532 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-25T12:15:57.078-03:00  INFO 16532 --- [restartedMain] o.a.t.u.n.N.certificate                  : Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [UNDEFINED] configured from [file:/C:/Users/fdsed/OneDrive%20-%20IFTM/Documentos/Eduardo%20Documentos/GITHUB/vinca/target/classes/keystore.p12] using alias [tomcat] and with trust store [null]
+2023-06-25T12:15:57.102-03:00  INFO 16532 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8443 (https) with context path ''
+2023-06-25T12:15:57.222-03:00  INFO 16532 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-25T12:15:57.222-03:00  INFO 16532 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-06-25T12:15:57.225-03:00  INFO 16532 --- [RMI TCP Connection(1)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2023-06-25T12:16:20.185-03:00  INFO 16532 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-25T12:16:20.196-03:00  INFO 16532 --- [Thread-5] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-06-25T12:16:20.201-03:00  INFO 16532 --- [Thread-5] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-06-25T12:16:20.219-03:00  INFO 16532 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:16:20.224-03:00  INFO 16532 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-06-25T12:16:22.077-03:00  INFO 16532 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-06-25T12:16:22.831-03:00  INFO 16532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-25T12:16:22.897-03:00  INFO 16532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 10 JPA repository interfaces.
+2023-06-25T12:16:23.168-03:00  INFO 16532 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-06-25T12:16:23.169-03:00  INFO 16532 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-06-25T12:16:23.169-03:00  INFO 16532 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-06-25T12:16:23.204-03:00  INFO 16532 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-06-25T12:16:23.204-03:00  INFO 16532 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 958 ms
+2023-06-25T12:16:23.435-03:00  INFO 16532 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Starting...
+2023-06-25T12:16:25.119-03:00  INFO 16532 --- [restartedMain] c.z.h.p.HikariPool                       : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@5647167
+2023-06-25T12:16:25.119-03:00  INFO 16532 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Start completed.
+2023-06-25T12:16:25.490-03:00  INFO 16532 --- [restartedMain] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://containers-us-west-205.railway.app:7025/railway (PostgreSQL 13.2)
+2023-06-25T12:16:27.725-03:00  INFO 16532 --- [restartedMain] o.f.c.i.c.DbValidate                     : Successfully validated 10 migrations (execution time 00:00.750s)
+2023-06-25T12:16:29.947-03:00  INFO 16532 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 10
+2023-06-25T12:16:30.132-03:00  INFO 16532 --- [restartedMain] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-06-25T12:16:31.309-03:00  INFO 16532 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-25T12:16:31.312-03:00  WARN 16532 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-06-25T12:16:31.521-03:00  INFO 16532 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-25T12:16:31.918-03:00  WARN 16532 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-06-25T12:16:31.929-03:00  WARN 16532 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-06-25T12:16:31.936-03:00  WARN 16532 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-06-25T12:16:31.946-03:00  WARN 16532 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-06-25T12:16:32.063-03:00  INFO 16532 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-25T12:16:32.063-03:00  INFO 16532 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-25T12:16:32.728-03:00  INFO 16532 --- [restartedMain] o.s.s.p.JdbcUserDetailsManager           : No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-06-25T12:16:32.777-03:00  INFO 16532 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-25T12:16:33.027-03:00  INFO 16532 --- [restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-25T12:16:33.064-03:00  INFO 16532 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@49552e68, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bf46a1, org.springframework.security.web.context.SecurityContextHolderFilter@72f843b, org.springframework.security.web.header.HeaderWriterFilter@4737ee61, org.springframework.security.web.csrf.CsrfFilter@6fac7e04, org.springframework.security.web.authentication.logout.LogoutFilter@594d95f2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4ed6689d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34961129, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@73aee80e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54eda524, org.springframework.security.web.access.ExceptionTranslationFilter@583a4983, org.springframework.security.web.access.intercept.AuthorizationFilter@3eea1e32]
+2023-06-25T12:16:33.364-03:00  INFO 16532 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-25T12:16:33.400-03:00  INFO 16532 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-25T12:16:33.412-03:00  INFO 16532 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-25T12:16:48.824-03:00  INFO 16532 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-25T12:16:48.824-03:00  INFO 16532 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-06-25T12:16:48.826-03:00  INFO 16532 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
