@@ -29,14 +29,7 @@
                     <i class="ph ph-plus"></i>
                     Adicionar cliente
                 </button>
-                <div class="app-header-actions-buttons">
-                    <button class="icon-button large">
-                        <i class="ph-magnifying-glass"></i>
-                    </button>
-                    <button class="icon-button large">
-                        <i class="ph ph-sign-out"></i>
-                    </button>
-                </div>
+                <div th:replace="~{layout/fragments/actions}"></div>
             </div>
             <div class="app-header-mobile">
                 <button class="icon-button large">
@@ -61,6 +54,14 @@
                                 </span>
                             </a>
                             <div class="tile-header">
+
+                                <!--
+                                <tr th:each="client : ${pagina.conteudo}">
+                                    <td th:text="${client.id}"></td>
+                                    <td th:text="${client.name}"></td>
+                                </tr>
+                            -->
+
                                 <h3>
                                     Eduardo Fernandes Silva
                                 </h3>

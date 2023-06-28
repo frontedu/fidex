@@ -1,11 +1,12 @@
 <!-- Footer -->
-<footer class="footer">
-    <button class="user-profile">
-        <span>
-            <i class="ph ph-user"></i>
-        </span>
-        <span>frontedu</span>
-    </button>
+<footer class="footer" sec:authorize="isAuthenticated()">
+        <!-- nome do usuario -->
+        <button class="user-profile">
+            <span>
+                <i class="ph ph-user"></i>
+            </span>
+            <span sec:authentication="principal.username"></span>
+        </button>
     <div>
         2023 © Fidex
     </div>
