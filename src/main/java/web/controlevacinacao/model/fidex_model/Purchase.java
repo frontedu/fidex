@@ -6,6 +6,7 @@ import java.util.Objects;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,13 +26,13 @@ public class Purchase implements Serializable {
 	@SequenceGenerator(name="gerador4", sequenceName="purchase_id", allocationSize=1)
 	@GeneratedValue(generator="gerador4", strategy=GenerationType.SEQUENCE)
 	private Long id;
-	@NotBlank(message = "O cliente é obrigatório")
-	@ManyToOne
-	@JoinColumn(name = "client_id")
-    private Client client;
 	@NotBlank(message = "O valor gasto é obrigatório")
     private Double price;
     private LocalDate date;
+	@NotBlank(message = "O cliente é obrigatório")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "client_id")
+    private Client client;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 
@@ -65,6 +66,14 @@ public class Purchase implements Serializable {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR" layout:decorate="~{layout/dashboard}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Cadastro de cliente</title>
 </head>
 <body>
@@ -40,53 +42,15 @@
         </header>
         <div class="app-body">
             <div class="app-body-navigation">
-                <nav th:replace="~{layout/fragments/nav}"></nav>
+                <nav th:replace="~{layout/fragments/nav :: nav(opcao='clientes')}"></nav>
                 <footer th:replace="~{layout/fragments/footer}"></footer>
             </div>
             <div class="app-body-main-content">
                 <section class="service-section">
-                    <div class="tiles">
-                        <article class="tile">
-                            <a href="#">
-                                <span></span>
-                                <span class="icon-button">
-                                    <i class="ph ph-x"></i>
-                                </span>
-                            </a>
-                            <div class="tile-header">
-
-                                <!--
-                                <tr th:each="client : ${pagina.conteudo}">
-                                    <td th:text="${client.id}"></td>
-                                    <td th:text="${client.name}"></td>
-                                </tr>
-                            -->
-
-                                <h3>
-                                    Eduardo Fernandes Silva
-                                </h3>
-                                <div class="customer-data">
-                                    <span>
-                                        <i class="ph ph-whatsapp-logo"></i>
-                                        (34) 9 9889-6336
-                                    </span>
-                                    <span>
-                                        <i class="ph ph-identification-card"></i>
-                                        147.611.916-35
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="customer-stats">
-                                <i><span>328</span> pontos</i>
-                                <i><span>8</span> premiações disponíveis</i>
-                            </div>
-                            
-                        </article>
-                        
-                    </div>
+                    <div class="tiles" th:replace="~{layout/fragments/clients}"></div>
                     <div class="service-section-footer">
                         <i class="ph ph-arrow-left"></i>
-                        <p>1-8 de 56 resultados.</p>
+                        <p>1-9 de 56 resultados.</p>
                         <i class="ph ph-arrow-right"></i>
                     </div>
                 </section>

@@ -45,6 +45,18 @@ public class PrizeQueriesImpl implements PrizeQueries {
                             filtro.getClientName().toUpperCase() + "%"));
         }
 
+        if (filtro.getClientCpf() != null) {
+            predicateList.add(builder.like(
+                    builder.upper(p.<Client>get("client").<String>get("cpf")), "%" +
+                            filtro.getClientName().toUpperCase() + "%"));
+        }
+
+        if (filtro.getClientPhone() != null) {
+            predicateList.add(builder.like(
+                    builder.upper(p.<Client>get("client").<String>get("phone")), "%" +
+                            filtro.getClientName().toUpperCase() + "%"));
+        }
+
         if (filtro.getDate() != null) {
             predicateList.add(builder.equal(
                     p.<LocalDate>get("date"), filtro.getDate()));
@@ -85,6 +97,18 @@ public class PrizeQueriesImpl implements PrizeQueries {
         if (filtro.getClientName() != null) {
             predicateList.add(builder.like(
                     builder.upper(p.<Client>get("client").<String>get("name")), "%" +
+                            filtro.getClientName().toUpperCase() + "%"));
+        }
+
+        if (filtro.getClientCpf() != null) {
+            predicateList.add(builder.like(
+                    builder.upper(p.<Client>get("client").<String>get("cpf")), "%" +
+                            filtro.getClientName().toUpperCase() + "%"));
+        }
+
+        if (filtro.getClientPhone() != null) {
+            predicateList.add(builder.like(
+                    builder.upper(p.<Client>get("client").<String>get("phone")), "%" +
                             filtro.getClientName().toUpperCase() + "%"));
         }
 

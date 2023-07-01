@@ -6,6 +6,7 @@ import java.util.Objects;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,12 +28,12 @@ public class Prize implements Serializable {
     private Long id;
 	
 	@NotBlank(message = "O cliente é obrigatório")
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "client_id")
 	private Client client;
     private LocalDate date;
 	@NotBlank(message = "O produto é obrigatório")
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")
     private Product product;
 	@Enumerated(EnumType.STRING)
@@ -66,6 +67,22 @@ public class Prize implements Serializable {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+	
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	@Override

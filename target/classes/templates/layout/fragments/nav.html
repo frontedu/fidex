@@ -1,20 +1,20 @@
 <!-- Navbar -->
 <nav class="navigation">
-    <a href="#">
+    <a th:href="@{/compras}" th:classappend="${opcao == 'compras'} ? active">
         <i class="ph ph-shopping-bag"></i>
         <span>Compras</span>
     </a>
-    <a href="#" class="active">
+    <a th:href="@{/clientes}" th:classappend="${opcao == 'clientes'} ? active">
         <i class="ph ph-users"></i>
         <span>Clientes</span>
     </a>
-    <a href="#">
+    <a th:href="@{/produtos}" th:classappend="${opcao == 'produtos'} ? active">
         <i class="ph ph-package"></i>
         <span>Produtos</span>
     </a>
-    <a href="#">
+    <a th:href="@{/premios}" th:classappend="${opcao == 'premios'} ? active">
         <i class="ph ph-confetti"></i>
-        <span>Premiar</span>
+        <span>Prêmios</span>
     </a>
 
 </nav>

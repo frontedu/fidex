@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,15 @@
     <link rel="shortcut icon" th:href="@{/images/favicon.svg}" />
 
     <link rel="stylesheet" type="text/css" href="../static/css/fidex.css" th:href="@{/css/fidex.css}">
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
 </head>
+
 <body>
-    
-	<!-- Conteudo Principal -->
-	<div class="col" layout:fragment="main-content"></div>
+
+    <!-- Conteudo Principal -->
+    <div class="col" layout:fragment="main-content"></div>
 
     <script src="https://unpkg.com/phosphor-icons"></script>
 </body>
+
 </html>

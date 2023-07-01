@@ -5,7 +5,7 @@ public class ClientFilter {
 	private Long id;
     private String cpf;
     private String name;
-    private String phone_number;
+    private String phone;
 	private Double points;
 	
 	public Long getId() {
@@ -32,12 +32,12 @@ public class ClientFilter {
         return name;
     }
 
-    public String getPhoneNumber() {
-		return phone_number;
+    public String getPhone() {
+		return phone;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phone_number = phoneNumber;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public Double getPoints() {
@@ -50,7 +50,7 @@ public class ClientFilter {
 
     @Override
     public String toString() {
-        return "ClientFilter [id=" + id + ", cpf=" + cpf + ", name=" + name + ", phone_number=" + phone_number
+        return "ClientFilter [id=" + id + ", cpf=" + cpf + ", name=" + name + ", phone=" + phone
                 + ", points=" + points + "]";
     }
 

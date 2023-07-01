@@ -1,0 +1,30 @@
+<div class="tiles" >
+    <article class="tile" th:each="client : ${pagina.conteudo}">
+        <a href="#">
+            <span></span>
+            <span class="icon-button">
+                <i class="ph ph-x"></i>
+            </span>
+        </a>
+        <div class="tile-header">
+
+            <h3 th:text="${client.name}"></h3>
+            <div class="customer-data">
+                <span>
+                    <i class="ph ph-whatsapp-logo"></i>
+                    <span class="cpf" th:text="${client.phone}"></span>
+                </span>
+                <span>
+                    <i class="ph ph-identification-card"></i>
+                    <span th:text="${client.cpf}"></span>
+                </span>
+            </div>
+        </div>
+        <div class="customer-stats">
+            <i><span th:text="${client.points}"></span> pontos</i>
+            <i><span>0</span> premiações disponíveis</i>
+        </div>
+        
+    </article>
+    
+</div>

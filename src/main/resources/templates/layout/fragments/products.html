@@ -1,0 +1,26 @@
+<div class="tiles" >
+    <article class="tile" th:each="product : ${pagina.conteudo}">
+        <a href="#">
+            <span></span>
+            <span class="icon-button">
+                <i class="ph ph-x"></i>
+            </span>
+        </a>
+        <div class="tile-header">
+            <div class="product-data">
+                <span>
+                    <i class="ph ph-archive-box"></i>
+                    <span><span th:text="${product.quantity}"></span> itens restantes</span>
+                </span>
+            </div>
+            <h3 th:text="${product.name}"></h3>
+
+        </div>
+        <div class="customer-stats">
+            <!-- <i><span th:text="${client.points}"></span> pontos</i> -->
+            <i><span th:text="${product.price}">0</span> pontos necessários</i>
+        </div>
+        
+    </article>
+    
+</div>

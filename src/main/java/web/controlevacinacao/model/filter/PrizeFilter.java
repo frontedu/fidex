@@ -5,6 +5,8 @@ import java.time.LocalDate;
 public class PrizeFilter {
     private Long id;
 	private String clientName;
+    private String clientCpf;
+    private String clientPhone;
     private LocalDate date;
     private String productName;
 
@@ -38,6 +40,22 @@ public class PrizeFilter {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getClientCpf() {
+        return clientCpf;
+    }
+
+    public void setClientCpf(String clientCpf) {
+        this.clientCpf = clientCpf;
+    }
+
+    public String getClientPhone() {
+        return clientPhone;
+    }
+
+    public void setClientPhone(String clientPhone) {
+        this.clientPhone = clientPhone;
     }
 
     @Override

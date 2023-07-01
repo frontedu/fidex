@@ -49,16 +49,15 @@ public class ClientQueriesImpl implements ClientQueries {
                     "%" + filtro.getCpf().toLowerCase() + "%"));
         }
 
-        if (StringUtils.hasText(filtro.getPhoneNumber())) {
+        if (StringUtils.hasText(filtro.getPhone())) {
             predicateList.add(builder.like(
-                    builder.lower(v.<String>get("phoneNumber")),
-                    "%" + filtro.getPhoneNumber().toLowerCase() + "%"));
+                    builder.lower(v.<String>get("phone")),
+                    "%" + filtro.getPhone().toLowerCase() + "%"));
         }
 
         if (filtro.getPoints() != null) {
             predicateList.add(builder.equal(v.<Long>get("points"), filtro.getPoints()));
         }
-
 
         predicateList.add(builder.equal(v.<Status>get("status"), Status.ATIVO));
 
@@ -101,10 +100,10 @@ public class ClientQueriesImpl implements ClientQueries {
                     "%" + filtro.getCpf().toLowerCase() + "%"));
         }
 
-        if (StringUtils.hasText(filtro.getPhoneNumber())) {
+        if (StringUtils.hasText(filtro.getPhone())) {
             predicateList.add(builder.like(
-                    builder.lower(v.<String>get("phoneNumber")),
-                    "%" + filtro.getPhoneNumber().toLowerCase() + "%"));
+                    builder.lower(v.<String>get("phone")),
+                    "%" + filtro.getPhone().toLowerCase() + "%"));
         }
 
         if (filtro.getPoints() != null) {

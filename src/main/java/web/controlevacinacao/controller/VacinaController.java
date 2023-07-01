@@ -2,8 +2,6 @@ package web.controlevacinacao.controller;
 
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,8 +36,6 @@ import web.controlevacinacao.service.VacinaService;
 @Controller
 @RequestMapping("/vacinas")
 public class VacinaController {
-
-    private static final Logger logger = LoggerFactory.getLogger(VacinaController.class);
 
     @Autowired
     private VacinaRepository vacinaRepository;

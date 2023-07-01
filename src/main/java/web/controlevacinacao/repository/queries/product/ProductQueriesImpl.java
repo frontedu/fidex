@@ -43,10 +43,6 @@ public class ProductQueriesImpl implements ProductQueries {
                     "%" + filtro.getName().toLowerCase() + "%"));
         }
 
-        if (filtro.getPoints() != null) {
-            predicateList.add(builder.equal(v.<Long>get("points"), filtro.getPoints()));
-        }
-
         if (filtro.getPrice() != null) {
             predicateList.add(builder.equal(v.<Long>get("price"), filtro.getPrice()));
         }
@@ -88,10 +84,6 @@ public class ProductQueriesImpl implements ProductQueries {
             predicateList.add(builder.like(
                     builder.lower(v.<String>get("name")),
                     "%" + filtro.getName().toLowerCase() + "%"));
-        }
-
-        if (filtro.getPoints() != null) {
-            predicateList.add(builder.equal(v.<Long>get("points"), filtro.getPoints()));
         }
 
         if (filtro.getPrice() != null) {

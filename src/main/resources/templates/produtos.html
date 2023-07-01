@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/dashboard}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de produtos</title>
+</head>
+<body>
+
+    <div layout:fragment="main-content" class="app">
+        <header class="app-header">
+            <div th:replace="~{layout/fragments/logo}"></div>
+            <div class="app-header-navigation">
+                <div class="tabs">
+                    <a href="#" class="active">
+                        Últimos produtos
+                    </a>
+                    <a href="#" >
+                        Maior estoque
+                    </a>
+                    <a href="#" >
+                        Maior valor
+                    </a>
+                    <a href="#" >
+                        Nome do produto
+                    </a>
+                </div>
+            </div>
+            <div class="app-header-actions">
+                <button class="flat-button">
+                    <i class="ph ph-plus"></i>
+                    Adicionar produto
+                </button>
+                <div th:replace="~{layout/fragments/actions}"></div>
+            </div>
+            <div class="app-header-mobile">
+                <button class="icon-button large">
+                    <i class="ph-list"></i>
+                </button>
+            </div>
+    
+        </header>
+        <div class="app-body">
+            <div class="app-body-navigation">
+                <nav th:replace="~{layout/fragments/nav :: nav(opcao='produtos')}"></nav>
+                <footer th:replace="~{layout/fragments/footer}"></footer>
+            </div>
+            <div class="app-body-main-content">
+                <section class="service-section">
+                    <div class="tiles" th:replace="~{layout/fragments/products}"></div>
+                    <div class="service-section-footer">
+                        <i class="ph ph-arrow-left"></i>
+                        <p>1-9 de 16 resultados.</p>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

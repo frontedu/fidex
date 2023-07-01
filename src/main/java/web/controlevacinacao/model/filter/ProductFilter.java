@@ -6,7 +6,6 @@ public class ProductFilter {
     private String name;
     private Double price;
     private Long quantity;
-    private Double points;
 
 	public Long getId() {
 		return id;
@@ -40,18 +39,10 @@ public class ProductFilter {
 		this.price = price;
 	}
 
-    public Double getPoints() {
-		return points;
-	}
-
-	public void setPoints(Double points) {
-		this.points = points;
-	}
-
     @Override
     public String toString() {
         return "ProductFilter [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity
-                + ", points=" + points + "]";
+                + "]";
     }
 
     

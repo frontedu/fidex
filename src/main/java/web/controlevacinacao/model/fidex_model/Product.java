@@ -30,7 +30,6 @@ public class Product implements Serializable {
 
 	@NotBlank(message = "A quantidade de itens disponíveis é obrigatório")
     private Long quantity;
-    private Double points;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 
@@ -64,14 +63,6 @@ public class Product implements Serializable {
 
 	public void setPrice(Double price) {
 		this.price = price;
-	}
-
-    public Double getPoints() {
-		return points;
-	}
-
-	public void setPoints(Double points) {
-		this.points = points;
 	}
 
 	public Status getStatus() {

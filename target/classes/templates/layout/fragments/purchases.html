@@ -1,0 +1,25 @@
+<div class="tiles" >
+    <article class="tile" th:each="purchase : ${pagina.conteudo}">
+        <a href="#">
+            <span></span>
+            <span class="icon-button">
+                <i class="ph ph-x"></i>
+            </span>
+        </a>
+        <div class="tile-header">
+            <div class="product-data">
+                <span>
+                    <i class="ph ph-calendar-blank"></i>
+                    <span th:text="${purchase.date}"></span>
+                </span>
+            </div>
+            <h3 th:text="${purchase.client.name}"></h3>
+
+        </div>
+        <div class="customer-stats">
+            <i><span th:text="${purchase.price}"></span></i>
+        </div>
+        
+    </article>
+    
+</div>

@@ -27,7 +27,7 @@ public class Client implements Serializable {
 	@NotBlank(message = "O nome da pessoa é obrigatório")
     private String name;
 	@NotBlank(message = "O WhatsApp é obrigatório")
-    private String phone_number;
+    private String phone;
 	private Double points;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
@@ -41,7 +41,8 @@ public class Client implements Serializable {
 	}
 
     public String getCpf() {
-		return cpf;
+		if (cpf == null || cpf.isEmpty()) return "";
+    	return cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6, 9) + "-" + cpf.substring(9, 11); 
 	}
 
 	public void setCpf(String cpf) {
@@ -56,12 +57,16 @@ public class Client implements Serializable {
         return name;
     }
 
-    public String getPhoneNumber() {
-		return phone_number;
+    public String getPhone() {
+		if (phone == null || phone.isEmpty()) {
+        return "";
+		}
+		phone = phone.replaceAll("\\D", "");
+		return "(" + phone.substring(0, 2) + ") " + phone.substring(2, 3) + " " + phone.substring(3, 7) + "-" + phone.substring(7);
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phone_number = phoneNumber;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public Double getPoints() {
