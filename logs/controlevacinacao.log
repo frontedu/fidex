@@ -8512,3 +8512,8 @@ web.controlevacinacao.controller.PrizeController#cadastrar(Purchase, BindingResu
 2023-07-02T23:22:48.593-03:00  WARN 16236 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
 2023-07-02T23:22:48.597-03:00  WARN 16236 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
 2023-07-02T23:22:48.629-03:00  WARN 16236 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-07-02T23:32:09.704-03:00  WARN 17792 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-07-02T23:32:10.953-03:00  WARN 17792 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-07-02T23:32:10.967-03:00  WARN 17792 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-07-02T23:32:10.974-03:00  WARN 17792 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-07-02T23:32:11.013-03:00  WARN 17792 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5

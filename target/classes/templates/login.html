@@ -4,8 +4,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Entrar | Fidex</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{/css/login.css}" />
+	<link rel="shortcut icon" th:href="@{/images/favicon.svg}" />
 </head>
 
 <body>
@@ -22,7 +23,7 @@
 			<p class="desc">O jeito descomplicado de recompensar seus clientes.</p>
 		</div>
 		<div class="right">
-			<div class="signin wrapper">
+			<div class="signin wrapper" style="display: none;">
 				<h1 class="heading">Olá novamente,
 					que bom ter você aqui :)</h1>
 				<form th:action="@{/login}" method="post" class="form">
@@ -45,12 +46,16 @@
 					</p>
 				</form>
 			</div>
-			<div class="signup wrapper" style="display: none;">
+			<div class="signup wrapper">
 				<h1 class="heading">Crie sua conta, é rápido e gratuito!</h1>
 				<form th:action="@{/usuarios/cadastrar}" method="post" th:object="${usuario}" class="form">
 					<div class="input-group">
 						<input type="text" id="name" name="nome" />
 						<label for="name">Nome e sobrenome</label>
+					</div>
+					<div class="input-group">
+						<input type="text" id="username" name="nomeUsuario" />
+						<label for="username">Nome de usuário</label>
 					</div>
 					<div class="input-group">
 						<input type="email" id="email" name="email" onblur="userValue()" />
@@ -64,7 +69,7 @@
 					</div>
 
 					<input name="papeis" value="2" class="form-check-input" hidden>
-					<input type="text" id="nomeUsuario" name="nomeUsuario" class="form-control" value="" hidden>
+
 
 					<input type="submit" value="Criar conta" class="btn button_slide slide_right">
 
@@ -118,12 +123,6 @@
 				signInDiv.style.display = 'none';
 				signUpDiv.style.display = 'flex';
 			}
-		}
-
-		function userValue() {
-			var emailInput = document.getElementById('email');
-			var userInput = document.getElementById('nomeUsuario');
-			userInput.value = emailInput.value;
 		}
 
 	</script>
