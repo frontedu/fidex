@@ -186,6 +186,9 @@
   .form .input-group input {
     height: 40px;
   }
+  .form .btn {
+    height: 45px;
+  }
   .bottom-text {
     font-size: 14px;
   }

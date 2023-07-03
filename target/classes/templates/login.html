@@ -23,29 +23,6 @@
 			<p class="desc">O jeito descomplicado de recompensar seus clientes.</p>
 		</div>
 		<div class="right">
-			<div class="signin wrapper">
-				<h1 class="heading">Olá novamente,
-					que bom ter você aqui :)</h1>
-				<form th:action="@{/login}" method="post" class="form">
-					<div class="input-group">
-						<input type="text" id="username" name="username" autofocus="autofocus" />
-						<label for="username">Nome de usuário</label>
-					</div>
-					<div class="input-group">
-						<input type="password" name="password" id="password" />
-						<label for="password">Senha</label>
-						<img src="https://svgshare.com/i/uqQ.svg" alt="" class="eye" />
-						<img src="https://svgshare.com/i/uqu.svg" alt="" class="close-eye" style="display: none" />
-					</div>
-
-					<input type="submit" value="Entrar" class="btn button_slide slide_right">
-
-					<p class="bottom-text">
-						Não tem uma conta?
-						<a href="#" onclick="toggle()">Criar agora</a>
-					</p>
-				</form>
-			</div>
 			<div class="signup wrapper" style="display: none;">
 				<h1 class="heading">Crie sua conta, é rápido e gratuito!</h1>
 				<form th:action="@{/usuarios/cadastrar}" method="post" th:object="${usuario}" class="form">
@@ -64,8 +41,9 @@
 					<div class="input-group">
 						<input type="password" id="password" name="senha" />
 						<label for="password">Senha</label>
-						<img src="https://svgshare.com/i/uqQ.svg" alt="" class="eye" />
-						<img src="https://svgshare.com/i/uqu.svg" alt="" class="close-eye" style="display: none" />
+						<img th:src="@{/images/eye-open.svg}" alt="Ver senha" class="eye" />
+						<img th:src="@{/images/eye-close.svg}" alt="Esconder senha" class="close-eye"
+							style="display: none" />
 					</div>
 
 					<input name="papeis" value="2" class="form-check-input" hidden>
@@ -80,6 +58,28 @@
 				</form>
 
 			</div>
+			<div class="signin wrapper">
+				<h1 class="heading">Olá novamente,
+					que bom ter você aqui :)</h1>
+				<form th:action="@{/login}" method="post" class="form">
+					<div class="input-group">
+						<input type="text" id="username" name="username" autofocus="autofocus" />
+						<label for="username">Nome de usuário</label>
+					</div>
+					<div class="input-group">
+						<input type="password" name="password" id="password" />
+						<label for="password">Senha</label>
+					</div>
+
+					<input type="submit" value="Entrar" class="btn button_slide slide_right">
+
+					<p class="bottom-text">
+						Não tem uma conta?
+						<a href="#" onclick="toggle()">Criar agora</a>
+					</p>
+				</form>
+			</div>
+
 		</div>
 	</div>
 
