@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR" layout:decorate="~{layout/dashboard}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<html lang="pt-BR" layout:decorate="~{layout/dashboard}" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.thymeleaf.org">
+
 <head>
     <title>Cadastro de produtos</title>
 </head>
+
 <body>
 
     <div layout:fragment="main-content" class="app">
@@ -13,22 +16,53 @@
                     <a href="#" class="active">
                         Últimos produtos
                     </a>
-                    <a href="#" >
+                    <a href="#">
                         Maior estoque
                     </a>
-                    <a href="#" >
+                    <a href="#">
                         Maior valor
                     </a>
-                    <a href="#" >
+                    <a href="#">
                         Nome do produto
                     </a>
                 </div>
             </div>
             <div class="app-header-actions">
-                <button class="flat-button">
-                    <i class="ph ph-plus"></i>
-                    Adicionar produto
-                </button>
+
+                <!--  Modal  -->
+                <label class="flat-button" for="modal-toggle">
+                    <i class="ph ph-plus"></i>Novo produto
+                </label>
+
+
+                <div class="modal-container">
+                    <input type="checkbox" id="modal-toggle">
+                    <label class="modal-backdrop" for="modal-toggle"></label>
+
+                    <div class="modal-content">
+                        <!-- Content -->
+                        <h2>Novo produto</h2>
+                        <form th:action="@{/produtos/cadastrar}" method="POST" class="form">
+                            <input type="hidden" name="id">
+                            <input type="hidden" name="points">
+                            <div class="input-group">
+                                <input type="text" id="name" name="name" autofocus="autofocus" />
+                                <label for="name">Nome do produto</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="number" id="price" name="price" autofocus="autofocus" />
+                                <label for="price">Valor de vendas</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="number" id="quantity" name="quantity" autofocus="autofocus" />
+                                <label for="quantity">Itens disponíveis</label>
+                            </div>
+                            <input type="submit" value="Cadastrar produto" class="btn button_slide slide_right">
+                        </form>
+                    </div>
+                </div>
+                <!--  Modal  -->
+
                 <div th:replace="~{layout/fragments/actions}"></div>
             </div>
             <div class="app-header-mobile">
@@ -36,7 +70,7 @@
                     <i class="ph-list"></i>
                 </button>
             </div>
-    
+
         </header>
         <div class="app-body">
             <div class="app-body-navigation">
@@ -57,4 +91,5 @@
     </div>
 
 </body>
+
 </html>

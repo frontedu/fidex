@@ -16,7 +16,6 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import web.controlevacinacao.service.NomeUsuarioUnicoService;
 import web.controlevacinacao.validation.UniqueValueAttribute;
@@ -29,8 +28,8 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="gerador55", sequenceName="usuario_codigo_seq", allocationSize=1)
-	@GeneratedValue(generator="gerador55", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "gerador55", sequenceName = "usuario_codigo_seq", allocationSize = 1)
+	@GeneratedValue(generator = "gerador55", strategy = GenerationType.SEQUENCE)
 	private Long codigo;
 	@NotBlank(message = "O nome do usuário é obrigatório")
 	private String nome;
@@ -42,7 +41,6 @@ public class Usuario implements Serializable {
 	@NotBlank(message = "O nome de usuário do usuário é obrigatório")
 	private String nomeUsuario;
 	@Column(name = "data_nascimento")
-	@NotNull(message = "A data de nascimento do usuário é obrigatória")
 	private LocalDate dataNascimento;
 	private boolean ativo;
 	@ManyToMany
@@ -149,7 +147,8 @@ public class Usuario implements Serializable {
 
 	@Override
 	public String toString() {
-		return "codigo: " + codigo + "\nnome: " + nome + "\nemail: " + email + "\nsenha: " + senha + "\nusuario: " + nomeUsuario + "\ndataNascimento: " + dataNascimento + "\nativo: " + ativo;
+		return "codigo: " + codigo + "\nnome: " + nome + "\nemail: " + email + "\nsenha: " + senha + "\nusuario: "
+				+ nomeUsuario + "\ndataNascimento: " + dataNascimento + "\nativo: " + ativo;
 	}
 
 }

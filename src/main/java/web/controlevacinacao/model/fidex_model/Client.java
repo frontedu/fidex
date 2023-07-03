@@ -19,7 +19,7 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@SequenceGenerator(name="gerador1", sequenceName="client_id", allocationSize=1)
+	@SequenceGenerator(name="gerador1", sequenceName="client_id_seq", allocationSize=1)
 	@GeneratedValue(generator="gerador1", strategy=GenerationType.SEQUENCE)
 	private Long id;
 	@NotBlank(message = "O CPF é obrigatório")

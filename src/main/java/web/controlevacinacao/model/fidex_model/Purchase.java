@@ -14,7 +14,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Min;
 
 @Entity
 @Table(name = "purchase")
@@ -23,13 +23,12 @@ public class Purchase implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@SequenceGenerator(name="gerador4", sequenceName="purchase_id", allocationSize=1)
+	@SequenceGenerator(name="gerador4", sequenceName="purchase_id_seq", allocationSize=1)
 	@GeneratedValue(generator="gerador4", strategy=GenerationType.SEQUENCE)
 	private Long id;
-	@NotBlank(message = "O valor gasto é obrigatório")
+	@Min(value=0)
     private Double price;
     private LocalDate date;
-	@NotBlank(message = "O cliente é obrigatório")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "client_id")
     private Client client;

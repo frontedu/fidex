@@ -8,7 +8,7 @@ public class IndexController {
 
 	@GetMapping(value = {"/", "/index.html"})
 	public String index() {
-		return "redirect:/compras";
+		return "redirect:/login";
 	}
 
 	@GetMapping("/login")

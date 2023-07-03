@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
@@ -19,16 +20,15 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@SequenceGenerator(name="gerador3", sequenceName="product_id", allocationSize=1)
+	@SequenceGenerator(name="gerador3", sequenceName="product_id_seq", allocationSize=1)
 	@GeneratedValue(generator="gerador3", strategy=GenerationType.SEQUENCE)
 	private Long id;
 	
 	@NotBlank(message = "O nome do produto é obrigatório")
     private String name;
-	@NotBlank(message = "O valor de venda é obrigatório")
+	@Min(value = 0)
     private Double price;
-
-	@NotBlank(message = "A quantidade de itens disponíveis é obrigatório")
+	@Min(value = 1)
     private Long quantity;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;

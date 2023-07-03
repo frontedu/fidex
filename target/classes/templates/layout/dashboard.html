@@ -17,6 +17,18 @@
     <div class="col" layout:fragment="main-content"></div>
 
     <script src="https://unpkg.com/phosphor-icons"></script>
+    <script>
+        const inputs = document.querySelectorAll(".input-group input");
+		inputs.forEach((input) => {
+			input.addEventListener("change", () => {
+				if (input.value) {
+					input.classList.add("filled");
+				} else {
+					input.classList.remove("filled");
+				}
+			});
+		});
+    </script>
 </body>
 
 </html>

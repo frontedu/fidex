@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.validation.Valid;
-import web.controlevacinacao.ajax.NotificacaoAlertify;
-import web.controlevacinacao.ajax.TipoNotificaoAlertify;
 import web.controlevacinacao.model.Papel;
 import web.controlevacinacao.model.Usuario;
 import web.controlevacinacao.repository.PapelRepository;
@@ -30,20 +28,20 @@ public class UsuarioController {
 
 	@Autowired
 	private PapelRepository papelRepository;
-	
+
 	@Autowired
 	private CadastroUsuarioService cadastroUsuarioService;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@GetMapping("/cadastrar")
 	public String abrirCadastroUsuario(Usuario usuario, Model model) {
 		List<Papel> papeis = papelRepository.findAll();
 		model.addAttribute("todosPapeis", papeis);
 		return "usuario/cadastrar";
 	}
-	
+
 	@PostMapping("/cadastrar")
 	public String cadastrarNovoUsuario(@Valid Usuario usuario, BindingResult resultado, Model model) {
 		if (resultado.hasErrors()) {
@@ -59,19 +57,7 @@ public class UsuarioController {
 			usuario.setAtivo(true);
 			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 			cadastroUsuarioService.salvar(usuario);
-			return "redirect:/usuarios/cadastrosucesso";
-		} 
-	}
-	
-	@GetMapping("/cadastrosucesso")
-	public String mostrarCadastroSucesso(Usuario usuario, Model model) {
-		List<Papel> papeis = papelRepository.findAll();
-		model.addAttribute("todosPapeis", papeis);
-		NotificacaoAlertify notificacao = 
-				new NotificacaoAlertify("Cadastro de usuário efetuado com sucesso.",
-						                TipoNotificaoAlertify.SUCESSO);
-		model.addAttribute("notificacao", notificacao);
-		return "usuario/cadastrar";
+			return "redirect:/login";
+		}
 	}
 }
-

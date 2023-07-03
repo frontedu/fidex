@@ -1,10 +1,14 @@
-<div class="tiles" >
+<div class="tiles">
     <article class="tile" th:each="client : ${pagina.conteudo}">
-        <a href="#">
-            <span></span>
-            <span class="icon-button">
-                <i class="ph ph-x"></i>
-            </span>
+        <a id="remover">
+            <form th:action="@{/clientes/remover}" method="POST">
+                <input type="hidden" name="id" th:value="${client.id}">
+                <button type="submit">
+                    <span class="icon-button">
+                        <i class="ph ph-x"></i>
+                    </span>
+                </button>
+            </form>
         </a>
         <div class="tile-header">
 
@@ -24,7 +28,7 @@
             <i><span th:text="${client.points}"></span> pontos</i>
             <i><span>0</span> premiações disponíveis</i>
         </div>
-        
+
     </article>
-    
+
 </div>

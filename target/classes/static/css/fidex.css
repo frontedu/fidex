@@ -64,13 +64,29 @@ img {
 
 button,
 select,
-input,
 textarea {
   font: inherit;
 }
 
 a {
   color: inherit;
+}
+
+#remover form{
+  z-index: 1;
+}
+
+#remover button{
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+#remover button:focus{
+ box-shadow: none;
 }
 
 .responsive-wrapper {
@@ -549,16 +565,6 @@ a {
   position: relative;
 }
 
-.search-field input {
-  width: 100%;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border: 0;
-  border-bottom: 1px solid var(--c-gray-600);
-  background-color: transparent;
-  padding-left: 1.5rem;
-}
-
 .search-field i {
   position: absolute;
   left: 0;
@@ -919,13 +925,6 @@ a {
   border-right: 1px solid var(--c-gray-600);
 }
 
-.faq div input {
-  border: 0;
-  background-color: transparent;
-  padding: 0.25em 0;
-  width: 100%;
-}
-
 .payment-section-footer {
   display: flex;
   align-items: center;
@@ -968,11 +967,187 @@ a {
   color: var(--c-white);
 }
 
-input:focus,
-select:focus,
+
 a:focus,
 textarea:focus,
 button:focus {
   outline: 0;
   box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-gray-300);
+}
+
+
+/* MODAL */
+.modal-btn {
+  color: #5d4037;
+  font-size: 10vw;
+  font-weight: bold;
+  padding: 5vw;
+  outline: solid #5d4037 1.5vw;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.1s ease-in;
+}
+#modal-toggle {
+  display: none;
+}
+.modal-content, .modal-backdrop {
+  opacity: 0;
+  transition: all .15s ease-in-out;
+  position: fixed;
+  z-index: -1;
+  overflow: hidden;
+  cursor: pointer;
+}
+.modal-content {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  text-align: left;
+  height: fit-content;
+  width: 70%;
+  max-width: 480px;
+}
+
+.modal-content h2{
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+.modal-backdrop {
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
+#modal-toggle:checked ~ .modal-backdrop {
+  opacity: 1;
+  z-index: 998;
+  background-color: rgba(0, 0, 0, 0.33);
+  background-image: url(https://railway.app/illustrations/grid--dark.svg);
+}
+#modal-toggle:checked ~ .modal-content {
+  opacity: 1;
+  z-index: 999;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  padding: 32px;
+  overflow: auto;
+  pointer-events: auto;
+  cursor: auto;
+}
+@media (max-width: 600px) {
+  #modal-toggle:checked ~ .modal-backdrop {
+    opacity: 0;
+ }
+  .modal-content {
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+ }
+}
+.modal-close-btn {
+  margin-top: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+.modal-close-btn svg {
+  transition: 0.3s;
+}
+.modal-close-btn svg line {
+  stroke-width: 5px;
+  stroke: #5d4037;
+}
+.modal-close-btn:hover svg {
+  transform: rotate(90deg);
+}
+
+
+
+
+/* INPUTS */
+.form .input-group {
+  position: relative;
+  border-bottom: 1px solid #383838;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 0 10px;
+}
+
+.form .input-group label {
+  font-family: "Be Vietnam Pro", sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #9d9d9d;
+  font-size: 16px;
+  line-height: 35px;
+  pointer-events: none;
+  transition: .15s ease-out;
+}
+.form .input-group :is(input, select) {
+  font-family: "Be Vietnam Pro", sans-serif;
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #aaa;
+  background-color: transparent;
+}
+
+.form .input-group :is(input, select):focus ~ label,
+.form .input-group :is(input, select).filled ~ label,
+.form .input-group select ~ label{
+  top: -20px;
+  left: 0;
+  color: #5a5a5a;
+  font-size: 12px;
+  font-weight: 600;
+}
+.form .input-group img {
+  cursor: pointer;
+}
+
+.form input[type="submit"]{
+  font-family: "Be Vietnam Pro", sans-serif;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #e3ffa8;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button_slide {
+  margin-top: 12px;
+  color: black;
+  background-color: #e3ffa8;
+  border: none;
+  padding: 18px 36px;
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #d0e4a7;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.25s;
+}
+
+.slide_right:hover {
+  box-shadow: inset 500px 0 0 0 #d0e4a7;
+}
+
+@media (max-width: 768px) {
+  .form .input-group {
+    margin-bottom: 10px;
+  }
+  .form .input-group :is(input, select) {
+    height: 40px;
+  }
 }

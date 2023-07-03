@@ -1,37 +1,132 @@
 <!DOCTYPE html>
-<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Página de Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{/css/login.css}" />
 </head>
+
 <body>
-	<div layout:fragment="conteudo">
 
-		<div th:replace="~{layout/fragments/sidebar :: sidebar(opcao='')}"></div>
+	<div class="container">
+		<div class="left">
+			<a th:href="@{/}">
+				<svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect width="32" height="32" fill="white" />
+					<rect x="8.38086" y="17.5237" width="14.4762" height="2.28571" fill="black" />
+					<rect x="8.38086" y="12.1904" width="3.80952" height="3.80952" rx="1.90476" fill="black" />
+				</svg>
+			</a>
+			<p class="desc">O jeito descomplicado de recompensar seus clientes.</p>
+		</div>
+		<div class="right">
+			<div class="signin wrapper">
+				<h1 class="heading">Olá novamente,
+					que bom ter você aqui :)</h1>
+				<form th:action="@{/login}" method="post" class="form">
+					<div class="input-group">
+						<input type="text" id="username" name="username" autofocus="autofocus" />
+						<label for="username">Nome de usuário</label>
+					</div>
+					<div class="input-group">
+						<input type="password" name="password" id="password" />
+						<label for="password">Senha</label>
+						<img src="https://svgshare.com/i/uqQ.svg" alt="" class="eye" />
+						<img src="https://svgshare.com/i/uqu.svg" alt="" class="close-eye" style="display: none" />
+					</div>
 
-		<!-- conteudo principal -->
-		<main class="mt-5 p-4 pt-5">
-			<div class="container">
-				<p class="mt-5">Usuário exemplo: grosbilda / 12345 / ADMIN</p>
-				<p>Usuário exemplo: estrobilobaldo / 12345 / USUARIO</p>
-				<p>Usuário exemplo: zirgonisvaldo / 12345 / ADMIN e USUARIO</p>
-				<div>
-					<span th:if="${param.error}">Usuário e/ou senha inválidos.</span>
-					<span th:if="${param.logout}">Você foi deslogado.</span>
-				</div>
-				<form th:action="@{/login}" method="post">
-					<label for="username" class="form-label mt-4">Usuário:</label>
-					<input type="text" id="username" name="username" autofocus="autofocus" class="form-control">
-					<label for="password" class="form-label mt-4">Password:</label>
-					<input type="password" id="password" name="password" class="form-control">
-					<input type="submit" value="Logar" class="btn btn-primary mt-4">
+					<input type="submit" value="Entrar" class="btn button_slide slide_right">
+
+					<p class="bottom-text">
+						Não tem uma conta?
+						<a href="#" onclick="toggle()">Criar agora</a>
+					</p>
 				</form>
 			</div>
-		</main>
-		<!-- !conteudo principal -->
+			<div class="signup wrapper" style="display: none;">
+				<h1 class="heading">Crie sua conta, é rápido e gratuito!</h1>
+				<form th:action="@{/usuarios/cadastrar}" method="post" th:object="${usuario}" class="form">
+					<div class="input-group">
+						<input type="text" id="name" name="nome" />
+						<label for="name">Nome e sobrenome</label>
+					</div>
+					<div class="input-group">
+						<input type="email" id="email" name="email" onblur="userValue()" />
+						<label for="email">Email</label>
+					</div>
+					<div class="input-group">
+						<input type="password" id="password" name="senha" />
+						<label for="password">Senha</label>
+						<img src="https://svgshare.com/i/uqQ.svg" alt="" class="eye" />
+						<img src="https://svgshare.com/i/uqu.svg" alt="" class="close-eye" style="display: none" />
+					</div>
 
+					<input name="papeis" value="2" class="form-check-input" hidden>
+					<input type="text" id="nomeUsuario" name="nomeUsuario" class="form-control" value="" hidden>
+
+					<input type="submit" value="Criar conta" class="btn button_slide slide_right">
+
+					<p class="bottom-text">
+						Já tem uma conta?
+						<a href="#" onclick="toggle()">Acesse</a>
+					</p>
+				</form>
+
+			</div>
+		</div>
 	</div>
 
+	<script>
+		const inputs = document.querySelectorAll(".input-group input");
+		inputs.forEach((input) => {
+			input.addEventListener("change", () => {
+				console.log(input.value);
+				if (input.value) {
+					input.classList.add("filled");
+				} else {
+					input.classList.remove("filled");
+				}
+			});
+		});
+
+		const password = document.getElementById("password");
+		const eye = document.querySelector(".eye");
+		const closeEye = document.querySelector(".close-eye");
+
+		eye.addEventListener("click", () => {
+			password.setAttribute("type", "text");
+			eye.style.display = "none";
+			closeEye.style.display = "block";
+		});
+
+		closeEye.addEventListener("click", () => {
+			password.setAttribute("type", "password");
+			closeEye.style.display = "none";
+			eye.style.display = "block";
+		});
+
+		function toggle() {
+			var signInDiv = document.querySelector('.signin');
+			var signUpDiv = document.querySelector('.signup');
+
+			if (signInDiv.style.display === 'none') {
+				signInDiv.style.display = 'flex';
+				signUpDiv.style.display = 'none';
+			} else {
+				signInDiv.style.display = 'none';
+				signUpDiv.style.display = 'flex';
+			}
+		}
+
+		function userValue() {
+			var emailInput = document.getElementById('email');
+			var userInput = document.getElementById('nomeUsuario');
+			userInput.value = emailInput.value;
+		}
+
+	</script>
 </body>
+
 </html>

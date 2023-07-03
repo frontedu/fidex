@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR" layout:decorate="~{layout/dashboard}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<html lang="pt-BR" layout:decorate="~{layout/dashboard}" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.thymeleaf.org">
+
 <head>
     <title>Cadastro de compras</title>
 </head>
+
 <body>
 
     <div layout:fragment="main-content" class="app">
@@ -13,19 +16,47 @@
                     <a href="#" class="active">
                         Últimas compras
                     </a>
-                    <a href="#" >
+                    <a href="#">
                         Maior valor
                     </a>
-                    <a href="#" >
+                    <a href="#">
                         Nome do cliente
                     </a>
                 </div>
             </div>
             <div class="app-header-actions">
-                <button class="flat-button">
-                    <i class="ph ph-plus"></i>
-                    Adicionar compra
-                </button>
+                <!--  Modal  -->
+                <label class="flat-button" for="modal-toggle">
+                    <i class="ph ph-plus"></i>Nova compra
+                </label>
+
+
+                <div class="modal-container">
+                    <input type="checkbox" id="modal-toggle">
+                    <label class="modal-backdrop" for="modal-toggle"></label>
+
+                    <div class="modal-content">
+                        <!-- Content -->
+                        <h2>Nova compra</h2>
+                        <form th:action="@{/compras/cadastrar}" method="POST" class="form">
+                            <input type="hidden" name="id">
+                            <input type="hidden" name="date" id="dateInput">
+                            <div class="input-group">
+                                <select id="client" name="client">
+                                    <option th:each="client : ${clients}" th:value="${client.id}"
+                                        th:text="${client.name}"></option>
+                                </select>
+                                <label for="client">Cliente</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="number" id="price" name="price" autofocus="autofocus" />
+                                <label for="price">Valor total</label>
+                            </div>
+                            <input type="submit" value="Cadastrar compra" class="btn button_slide slide_right">
+                        </form>
+                    </div>
+                </div>
+                <!--  Modal  -->
                 <div th:replace="~{layout/fragments/actions}"></div>
             </div>
             <div class="app-header-mobile">
@@ -33,7 +64,7 @@
                     <i class="ph-list"></i>
                 </button>
             </div>
-    
+
         </header>
         <div class="app-body">
             <div class="app-body-navigation">
@@ -53,5 +84,13 @@
         </div>
     </div>
 
+    <script>
+        var currentDate = new Date();
+        var formattedDate = currentDate.toISOString(); // Example: "2023-07-02T22:46:24.000Z"
+        document.getElementById("dateInput").value = formattedDate;
+    </script>
+
+
 </body>
+
 </html>

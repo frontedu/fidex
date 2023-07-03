@@ -1,10 +1,14 @@
-<div class="tiles" >
+<div class="tiles">
     <article class="tile" th:each="purchase : ${pagina.conteudo}">
-        <a href="#">
-            <span></span>
-            <span class="icon-button">
-                <i class="ph ph-x"></i>
-            </span>
+        <a id="remover">
+            <form th:action="@{/compras/remover}" method="POST">
+                <input type="hidden" name="id" th:value="${purchase.id}">
+                <button type="submit">
+                    <span class="icon-button">
+                        <i class="ph ph-x"></i>
+                    </span>
+                </button>
+            </form>
         </a>
         <div class="tile-header">
             <div class="product-data">
@@ -19,7 +23,7 @@
         <div class="customer-stats">
             <i><span th:text="${purchase.price}"></span></i>
         </div>
-        
+
     </article>
-    
+
 </div>
