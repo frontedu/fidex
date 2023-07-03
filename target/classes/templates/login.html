@@ -23,7 +23,7 @@
 			<p class="desc">O jeito descomplicado de recompensar seus clientes.</p>
 		</div>
 		<div class="right">
-			<div class="signin wrapper" style="display: none;">
+			<div class="signin wrapper">
 				<h1 class="heading">Olá novamente,
 					que bom ter você aqui :)</h1>
 				<form th:action="@{/login}" method="post" class="form">
@@ -46,7 +46,7 @@
 					</p>
 				</form>
 			</div>
-			<div class="signup wrapper">
+			<div class="signup wrapper" style="display: none;">
 				<h1 class="heading">Crie sua conta, é rápido e gratuito!</h1>
 				<form th:action="@{/usuarios/cadastrar}" method="post" th:object="${usuario}" class="form">
 					<div class="input-group">

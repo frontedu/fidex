@@ -49,7 +49,7 @@
                     <h2>Novo cliente</h2>
                         <form th:action="@{/clientes/cadastrar}" method="POST" class="form">
                             <input type="hidden" name="id">
-                            <input type="hidden" name="points">
+                            <input type="hidden" name="points" value="0">
                             <div class="input-group">
                                 <input type="text" id="name" name="name" autofocus="autofocus" />
                                 <label for="name">Nome completo</label>

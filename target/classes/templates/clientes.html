@@ -31,22 +31,25 @@
             </div>
             <div class="app-header-actions">
 
-                <!--  Modal  -->
-                <label class="flat-button" for="modal-toggle">
-                    <i class="ph ph-plus"></i>Novo cliente
-                </label>
+                    
+                    <label class="flat-button" for="modal-toggle">
+                            <i class="ph ph-plus"></i>Novo cliente
+                    </label>
 
 
+                
+
+                <!--  START Modal  -->  
                 <div class="modal-container">
                     <input type="checkbox" id="modal-toggle">
                     <label class="modal-backdrop" for="modal-toggle"></label>
-
+                    
                     <div class="modal-content">
-                        <!-- Content -->
-                        <h2>Novo cliente</h2>
+                    <!-- Here your content -->
+                    <h2>Novo cliente</h2>
                         <form th:action="@{/clientes/cadastrar}" method="POST" class="form">
                             <input type="hidden" name="id">
-                            <input type="hidden" name="points">
+                            <input type="hidden" name="points" value="0">
                             <div class="input-group">
                                 <input type="text" id="name" name="name" autofocus="autofocus" />
                                 <label for="name">Nome completo</label>
@@ -63,7 +66,8 @@
                         </form>
                     </div>
                 </div>
-                <!--  Modal  -->
+                <!--  END Modal  -->
+
 
                 <div th:replace="~{layout/fragments/actions}"></div>
             </div>
