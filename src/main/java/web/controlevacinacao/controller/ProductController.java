@@ -65,7 +65,7 @@ public class ProductController {
             Product product = optProduct.get();
             product.setStatus(Status.INATIVO);
             productService.salvar(product);
-            return "redirect:/compras";
+            return "redirect:/produtos";
         } else {
             model.addAttribute("mensagem", "Não foi encontrado produto com esse código");
             return "mostrarmensagem";

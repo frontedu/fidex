@@ -8935,3 +8935,18 @@ Caused by: org.postgresql.util.PSQLException: This connection has been closed.
 2023-07-03T16:20:06.709Z  WARN 5146 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
 2023-07-03T16:20:06.725Z  WARN 5146 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
 2023-07-03T16:20:06.734Z  WARN 5146 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-07-04T13:55:34.169Z  WARN 14286 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-07-04T13:55:34.832Z  WARN 14286 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-07-04T13:55:34.836Z  WARN 14286 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-07-04T13:55:34.842Z  WARN 14286 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-07-04T13:55:34.846Z  WARN 14286 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-07-04T13:56:45.440Z  WARN 15214 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-07-04T13:56:46.286Z  WARN 15214 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-07-04T13:56:46.299Z  WARN 15214 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-07-04T13:56:46.310Z  WARN 15214 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-07-04T13:56:46.317Z  WARN 15214 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-07-04T13:57:44.846Z  WARN 16192 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-07-04T13:57:45.563Z  WARN 16192 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-07-04T13:57:45.567Z  WARN 16192 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-07-04T13:57:45.570Z  WARN 16192 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-07-04T13:57:45.573Z  WARN 16192 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
