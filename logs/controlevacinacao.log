@@ -12251,3 +12251,8 @@ web.controlevacinacao.controller.RelatoriosController#gerarRelatorioSimplesVacin
 2023-07-09T21:57:25.355-03:00  WARN 19624 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
 2023-07-09T21:57:25.363-03:00  WARN 19624 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
 2023-07-09T21:57:25.407-03:00  WARN 19624 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
+2023-07-09T22:07:01.169-03:00  WARN 13356 --- [restartedMain] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.validation.mode], use [jakarta.persistence.validation.mode] instead
+2023-07-09T22:07:02.351-03:00  WARN 13356 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador3
+2023-07-09T22:07:02.368-03:00  WARN 13356 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador4
+2023-07-09T22:07:02.377-03:00  WARN 13356 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador2
+2023-07-09T22:07:02.419-03:00  WARN 13356 --- [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl    : HHH000069: Duplicate generator name gerador5
