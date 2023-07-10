@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import web.controlevacinacao.model.fidex_model.Client;
 import web.controlevacinacao.model.fidex_model.Prize;
@@ -29,6 +30,8 @@ import web.controlevacinacao.repository.ClientRepository;
 import web.controlevacinacao.repository.PrizeRepository;
 import web.controlevacinacao.repository.ProductRepository;
 import web.controlevacinacao.service.PrizeService;
+import web.controlevacinacao.service.ProductService;
+import web.controlevacinacao.service.ClientService;
 
 @Controller
 public class PrizeController {
@@ -45,9 +48,15 @@ public class PrizeController {
     @Autowired
     private PrizeService prizeService;
 
+    @Autowired
+    private ProductService productService;
+
+    @Autowired
+    private ClientService clientService;
+
     @GetMapping("/premios")
     public String pesquisar(PrizeFilter filtro, Model model,
-            @PageableDefault(size = 5) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 500) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         putClientAndPurchases(model);
         Page<Prize> pagina = prizeRepository.buscarComFiltro(filtro, pageable);
@@ -63,16 +72,29 @@ public class PrizeController {
     }
 
     @PostMapping("/premios/cadastrar")
+    @Transactional
     public String cadastrar(@Valid Prize prize, BindingResult resultado, Model model) {
-        if (resultado.hasErrors()) {
+
+        if (prize.getClient().getPoints() < prize.getProduct().getPrice() && prize.getProduct().getQuantity() > 0) {
+            model.addAttribute("mensagem", "O cliente não possui pontos suficientes para resgatar esse produto");
             return "redirect:/premios";
         } else {
             LocalDateTime currentDateTime = LocalDateTime.now();
             LocalDate currentDate = currentDateTime.toLocalDate();
+
+            Product product = prize.getProduct();
+            product.setQuantity(product.getQuantity() - 1);
+            productService.salvar(product);
+
+            Client client = prize.getClient();
+            client.setPoints(client.getPoints() - prize.getProduct().getPrice());
+            clientService.salvar(client);
+
             prize.setDate(currentDate);
             prizeService.salvar(prize);
             return "redirect:/premios";
         }
+
     }
 
     private void putClientAndPurchases(Model model) {

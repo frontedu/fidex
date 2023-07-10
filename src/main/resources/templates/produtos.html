@@ -62,8 +62,20 @@
                     </div>
                 </div>
                 <!--  Modal  -->
+                <div class="app-header-actions-buttons">
+                    <a th:href="@{/relatorios/produtos}" style="text-decoration: none;">
+                        <button class="icon-button large">
+                            <i class="ph-file-pdf"></i>
+                        </button>
+                    </a>
 
-                <div th:replace="~{layout/fragments/actions}"></div>
+
+                    <form action="#" th:action="@{/logout}" method="post">
+                        <button class="icon-button large">
+                            <i class="ph ph-sign-out"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
             <div class="app-header-mobile">
                 <button class="icon-button large">
@@ -80,11 +92,6 @@
             <div class="app-body-main-content">
                 <section class="service-section">
                     <div class="tiles" th:replace="~{layout/fragments/products}"></div>
-                    <div class="service-section-footer">
-                        <i class="ph ph-arrow-left"></i>
-                        <p>1-9 de 16 resultados.</p>
-                        <i class="ph ph-arrow-right"></i>
-                    </div>
                 </section>
             </div>
         </div>

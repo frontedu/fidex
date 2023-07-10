@@ -18,18 +18,18 @@ import jakarta.validation.constraints.NotBlank;
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@SequenceGenerator(name="gerador3", sequenceName="product_id_seq", allocationSize=1)
-	@GeneratedValue(generator="gerador3", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "gerador3", sequenceName = "product_id_seq", allocationSize = 1)
+	@GeneratedValue(generator = "gerador3", strategy = GenerationType.SEQUENCE)
 	private Long id;
-	
+
 	@NotBlank(message = "O nome do produto é obrigatório")
-    private String name;
+	private String name;
 	@Min(value = 0)
-    private Double price;
+	private Double price;
 	@Min(value = 1)
-    private Long quantity;
+	private Long quantity;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 
@@ -41,7 +41,7 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 
-    public Long getQuantity() {
+	public Long getQuantity() {
 		return quantity;
 	}
 
@@ -49,20 +49,24 @@ public class Product implements Serializable {
 		this.quantity = quantity;
 	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getName(){
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public Double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public int getPoints() {
+		return (int) (price * 1);
 	}
 
 	public Status getStatus() {

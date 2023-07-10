@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.transaction.annotation.Transactional;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import web.controlevacinacao.model.fidex_model.Client;
@@ -42,19 +43,15 @@ public class PurchaseController {
 
     @GetMapping("/compras")
     public String pesquisar(PurchaseFilter filtro, Model model,
-            @PageableDefault(size = 5) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 10000) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         putClient(model);
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
-        if (!pagina.isEmpty()) {
-            PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
-            model.addAttribute("pagina", paginaWrapper);
-            return "compras";
-        } else {
-            model.addAttribute("mensagem", "Não foram encontradas Purchasees com esse filtro");
-            model.addAttribute("opcao", "purchase");
-            return "mostrarmensagem";
-        }
+
+        PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        return "compras";
+
     }
 
     @PostMapping("/compras/cadastrar")
@@ -66,6 +63,11 @@ public class PurchaseController {
             LocalDate currentDate = currentDateTime.toLocalDate();
             purchase.setDate(currentDate);
             purchaseService.salvar(purchase);
+
+            Client client = purchase.getClient();
+            client.setPoints(client.getPoints() + purchase.getPoints());
+            clientRepository.save(client);
+
             return "redirect:/compras";
         }
     }
@@ -76,12 +78,20 @@ public class PurchaseController {
     }
 
     @PostMapping("/compras/remover")
+    @Transactional
     public String remover(Long id, Model model) {
         Optional<Purchase> optPurchase = purchaseRepository.findById(id);
         if (optPurchase.isPresent()) {
+
             Purchase purchase = optPurchase.get();
+
+            Client client = purchase.getClient();
+            client.setPoints(client.getPoints() - purchase.getPoints());
+            clientRepository.save(client);
+
             purchase.setStatus(Status.INATIVO);
             purchaseService.salvar(purchase);
+
             return "redirect:/compras";
         } else {
             model.addAttribute("mensagem", "Não foi encontrado compra com esse código");

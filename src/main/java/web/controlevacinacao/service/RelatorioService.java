@@ -25,11 +25,10 @@ public class RelatorioService {
 
 	@Autowired
 	private DataSource dataSource;
-	
-	public byte[] gerarRelatorioSimplesVacinas() {
-		logger.trace("Entrou em gerarRelatorioSimplesVacinas");
-		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/RelatorioSQLDiretoSimplesVacina.jasper");
-		try (Connection conexao = dataSource.getConnection()){
+
+	public byte[] gerarCompras() {
+		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/compras.jasper");
+		try (Connection conexao = dataSource.getConnection()) {
 			try {
 				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
 				return JasperExportManager.exportReportToPdf(jasperPrint);
@@ -43,23 +42,90 @@ public class RelatorioService {
 		return null;
 	}
 
-    public byte[] gerarRelatorioComplexoTodosLotes() {
-		logger.trace("Entrou em gerarRelatorioComplexoTodosLotes");
-		
+	public byte[] gerarProdutos() {
+		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/produtos.jasper");
 		try (Connection conexao = dataSource.getConnection()) {
-				try {
-					InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/RelatorioSQLDiretoComplexoVacina.jasper");
-					Map<String, Object> parametros = new HashMap<>();
-                    parametros.put("TITULO", "Outra coisa");
-
-                    JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, parametros, conexao);
-					return JasperExportManager.exportReportToPdf(jasperPrint);
-				} catch (JRException e) {
-					logger.error("Problemas na geracao do PDF do relatório: " + e);
-				}
-			} catch (SQLException e) {
-				logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
+			try {
+				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
+				return JasperExportManager.exportReportToPdf(jasperPrint);
+			} catch (JRException e) {
+				logger.error("Problemas na geracao do PDF do relatório: " + e);
 			}
-			return null;
+		} catch (SQLException e) {
+			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
+		}
+
+		return null;
+	}
+
+	public byte[] gerarPremios() {
+		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/premios.jasper");
+		try (Connection conexao = dataSource.getConnection()) {
+			try {
+				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
+				return JasperExportManager.exportReportToPdf(jasperPrint);
+			} catch (JRException e) {
+				logger.error("Problemas na geracao do PDF do relatório: " + e);
+			}
+		} catch (SQLException e) {
+			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
+		}
+
+		return null;
+	}
+
+	public byte[] gerarClientes() {
+		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/clientes.jasper");
+		try (Connection conexao = dataSource.getConnection()) {
+			try {
+				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
+				return JasperExportManager.exportReportToPdf(jasperPrint);
+			} catch (JRException e) {
+				logger.error("Problemas na geracao do PDF do relatório: " + e);
+			}
+		} catch (SQLException e) {
+			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
+		}
+
+		return null;
+	}
+
+	public byte[] gerarRelatorioSimplesVacinas() {
+		logger.trace("Entrou em gerarRelatorioSimplesVacinas");
+		InputStream arquivoJasper = getClass()
+				.getResourceAsStream("/relatorios/RelatorioSQLDiretoSimplesVacina.jasper");
+		try (Connection conexao = dataSource.getConnection()) {
+			try {
+				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
+				return JasperExportManager.exportReportToPdf(jasperPrint);
+			} catch (JRException e) {
+				logger.error("Problemas na geracao do PDF do relatório: " + e);
+			}
+		} catch (SQLException e) {
+			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
+		}
+
+		return null;
+	}
+
+	public byte[] gerarRelatorioComplexoTodosLotes() {
+		logger.trace("Entrou em gerarRelatorioComplexoTodosLotes");
+
+		try (Connection conexao = dataSource.getConnection()) {
+			try {
+				InputStream arquivoJasper = getClass()
+						.getResourceAsStream("/relatorios/RelatorioSQLDiretoComplexoVacina.jasper");
+				Map<String, Object> parametros = new HashMap<>();
+				parametros.put("TITULO", "Outra coisa");
+
+				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, parametros, conexao);
+				return JasperExportManager.exportReportToPdf(jasperPrint);
+			} catch (JRException e) {
+				logger.error("Problemas na geracao do PDF do relatório: " + e);
+			}
+		} catch (SQLException e) {
+			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
+		}
+		return null;
 	}
 }

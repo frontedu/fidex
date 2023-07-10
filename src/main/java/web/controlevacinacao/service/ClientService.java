@@ -1,5 +1,7 @@
 package web.controlevacinacao.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +11,7 @@ import web.controlevacinacao.repository.ClientRepository;
 
 @Service
 public class ClientService {
-    
+
     @Autowired
     private ClientRepository ClientRepository;
 
@@ -21,6 +23,10 @@ public class ClientService {
     @Transactional
     public void remover(Long codigo) {
         ClientRepository.deleteById(codigo);
+    }
+
+    public List<Client> getAllClients() {
+        return ClientRepository.findAll();
     }
 
 }

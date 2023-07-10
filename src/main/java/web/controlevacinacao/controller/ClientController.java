@@ -33,7 +33,7 @@ public class ClientController {
 
     @GetMapping("/clientes")
     public String pesquisar(ClientFilter filtro, Model model,
-            @PageableDefault(size = 5) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 5000) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
         if (!pagina.isEmpty()) {

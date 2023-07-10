@@ -2,6 +2,7 @@ package web.controlevacinacao.model.fidex_model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -20,19 +21,19 @@ import jakarta.persistence.Table;
 public class Prize implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@SequenceGenerator(name="gerador2", sequenceName="prize_id_seq", allocationSize=1)
-	@GeneratedValue(generator="gerador2", strategy=GenerationType.SEQUENCE)
-    private Long id;
-	
+	@SequenceGenerator(name = "gerador2", sequenceName = "prize_id_seq", allocationSize = 1)
+	@GeneratedValue(generator = "gerador2", strategy = GenerationType.SEQUENCE)
+	private Long id;
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "client_id")
 	private Client client;
-    private LocalDate date;
+	private LocalDate date;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")
-    private Product product;
+	private Product product;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 
@@ -44,9 +45,9 @@ public class Prize implements Serializable {
 		this.id = id;
 	}
 
-
-    public LocalDate getDate() {
-		return date;
+	public String getDate() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return date.format(formatter);
 	}
 
 	public void setDate(LocalDate date) {
@@ -65,7 +66,7 @@ public class Prize implements Serializable {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
+
 	public Client getClient() {
 		return client;
 	}

@@ -52,12 +52,28 @@
                                 <input type="number" id="price" name="price" autofocus="autofocus" />
                                 <label for="price">Valor total</label>
                             </div>
+
+                            <input type="hidden" name="points" id="pointsInput">
+
                             <input type="submit" value="Cadastrar compra" class="btn button_slide slide_right">
                         </form>
                     </div>
                 </div>
                 <!--  Modal  -->
-                <div th:replace="~{layout/fragments/actions}"></div>
+                <div class="app-header-actions-buttons">
+                    <a th:href="@{/relatorios/compras}" style="text-decoration: none;">
+                        <button class="icon-button large">
+                            <i class="ph-file-pdf"></i>
+                        </button>
+                    </a>
+
+
+                    <form action="#" th:action="@{/logout}" method="post">
+                        <button class="icon-button large">
+                            <i class="ph ph-sign-out"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
             <div class="app-header-mobile">
                 <button class="icon-button large">
@@ -74,11 +90,6 @@
             <div class="app-body-main-content">
                 <section class="service-section">
                     <div class="tiles" th:replace="~{layout/fragments/purchases}"></div>
-                    <div class="service-section-footer">
-                        <i class="ph ph-arrow-left"></i>
-                        <p>1-9 de 16 resultados.</p>
-                        <i class="ph ph-arrow-right"></i>
-                    </div>
                 </section>
             </div>
         </div>
@@ -88,6 +99,13 @@
         var currentDate = new Date();
         var formattedDate = currentDate.toISOString(); // Example: "2023-07-02T22:46:24.000Z"
         document.getElementById("dateInput").value = formattedDate;
+
+        document.getElementById("price").addEventListener("change", function () {
+            var price = document.getElementById("price").value;
+            var points = price * 5 / 100;
+            document.getElementById("pointsInput").value = points;
+        });
+
     </script>
 
 

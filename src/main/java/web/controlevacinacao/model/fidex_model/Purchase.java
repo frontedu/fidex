@@ -1,7 +1,9 @@
 package web.controlevacinacao.model.fidex_model;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -21,17 +23,17 @@ import jakarta.validation.constraints.Min;
 public class Purchase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@SequenceGenerator(name="gerador4", sequenceName="purchase_id_seq", allocationSize=1)
-	@GeneratedValue(generator="gerador4", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "gerador4", sequenceName = "purchase_id_seq", allocationSize = 1)
+	@GeneratedValue(generator = "gerador4", strategy = GenerationType.SEQUENCE)
 	private Long id;
-	@Min(value=0)
-    private Double price;
-    private LocalDate date;
+	@Min(value = 0)
+	private Double price;
+	private LocalDate date;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "client_id")
-    private Client client;
+	private Client client;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 
@@ -43,16 +45,22 @@ public class Purchase implements Serializable {
 		this.id = id;
 	}
 
-    public Double getPrice() {
-		return price;
+	public String getPrice() {
+		DecimalFormat df = new DecimalFormat("R$ #,##0.00");
+		return df.format(price);
+	}
+
+	public int getPoints() {
+		return (int) (price * 5 / 100);
 	}
 
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-    
-    public LocalDate getDate() {
-		return date;
+
+	public String getDate() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return date.format(formatter);
 	}
 
 	public void setDate(LocalDate date) {

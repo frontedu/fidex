@@ -1,4 +1,4 @@
-<div class="tiles" >
+<div class="tiles">
     <article class="tile" th:each="prize : ${pagina.conteudo}">
         <a id="remover">
             <form th:action="@{/premios/remover}" method="POST">
@@ -25,9 +25,9 @@
         </div>
         <div class="customer-stats">
             <i><span th:text="${prize.product.name}"></span></i>
-            <span th:text="${prize.date}"></span>
+            <i><span th:text="${prize.date}"></span></i>
         </div>
-        
+
     </article>
-    
+
 </div>

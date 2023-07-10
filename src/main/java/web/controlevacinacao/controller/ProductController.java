@@ -34,7 +34,7 @@ public class ProductController {
 
     @GetMapping("/produtos")
     public String pesquisar(ProductFilter filtro, Model model,
-            @PageableDefault(size = 5) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
         if (!pagina.isEmpty()) {

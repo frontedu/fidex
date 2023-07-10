@@ -31,22 +31,22 @@
             </div>
             <div class="app-header-actions">
 
-                    
-                    <label class="flat-button" for="modal-toggle">
-                            <i class="ph ph-plus"></i>Novo cliente
-                    </label>
+
+                <label class="flat-button" for="modal-toggle">
+                    <i class="ph ph-plus"></i>Novo cliente
+                </label>
 
 
-                
 
-                <!--  START Modal  -->  
+
+                <!--  START Modal  -->
                 <div class="modal-container">
                     <input type="checkbox" id="modal-toggle">
                     <label class="modal-backdrop" for="modal-toggle"></label>
-                    
+
                     <div class="modal-content">
-                    <!-- Here your content -->
-                    <h2>Novo cliente</h2>
+                        <!-- Here your content -->
+                        <h2>Novo cliente</h2>
                         <form th:action="@{/clientes/cadastrar}" method="POST" class="form">
                             <input type="hidden" name="id">
                             <input type="hidden" name="points" value="0">
@@ -68,8 +68,20 @@
                 </div>
                 <!--  END Modal  -->
 
+                <div class="app-header-actions-buttons">
+                    <a th:href="@{/relatorios/clientes}" style="text-decoration: none;">
+                        <button class="icon-button large">
+                            <i class="ph-file-pdf"></i>
+                        </button>
+                    </a>
 
-                <div th:replace="~{layout/fragments/actions}"></div>
+
+                    <form action="#" th:action="@{/logout}" method="post">
+                        <button class="icon-button large">
+                            <i class="ph ph-sign-out"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
             <div class="app-header-mobile">
                 <button class="icon-button large">
@@ -86,11 +98,6 @@
             <div class="app-body-main-content">
                 <section class="service-section">
                     <div class="tiles" th:replace="~{layout/fragments/clients}"></div>
-                    <div class="service-section-footer">
-                        <i class="ph ph-arrow-left"></i>
-                        <p>1-9 de 56 resultados.</p>
-                        <i class="ph ph-arrow-right"></i>
-                    </div>
                 </section>
             </div>
         </div>
