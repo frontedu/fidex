@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
 	<Properties>
-        <property name="APP_NAME">controlevacinacao</property>
+        <property name="APP_NAME">fidex</property>
 		<Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
 		<Property name="LOG_LEVEL_PATTERN">%5p</Property>
 		<Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd'T'HH:mm:ss.SSSXXX</Property>
@@ -26,7 +26,7 @@
 		</RollingFile>
 	</Appenders>
 	<Loggers>
-		<AsyncLogger name="web.controlevacinacao" level="trace" additivity="false">
+		<AsyncLogger name="web.fidex" level="trace" additivity="false">
 			<AppenderRef ref="Console" />
 			<!-- <AppenderRef ref="File" /> -->
 		</AsyncLogger>

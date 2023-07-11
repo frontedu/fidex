@@ -12,9 +12,9 @@
 	</parent>
 
 	<groupId>web</groupId>
-	<artifactId>controlevacinacao</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<name>controlevacinacao</name>
+	<artifactId>fidex</artifactId>
+	<version>1.0-RELEASE</version>
+	<name>fidex</name>
 
 	<properties>
 		<!-- Versao do Java -->
