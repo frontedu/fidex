@@ -19,15 +19,22 @@
     <script src="https://unpkg.com/phosphor-icons"></script>
     <script>
         const inputs = document.querySelectorAll(".input-group input");
-		inputs.forEach((input) => {
-			input.addEventListener("change", () => {
-				if (input.value) {
-					input.classList.add("filled");
-				} else {
-					input.classList.remove("filled");
-				}
-			});
-		});
+        inputs.forEach((input) => {
+            input.addEventListener("change", () => {
+                if (input.value) {
+                    input.classList.add("filled");
+                } else {
+                    input.classList.remove("filled");
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const formSubmitButton = document.querySelector('.form input[type="submit"]');
+            const tileElement = document.querySelector('.tile');
+            formSubmitButton.style.backgroundColor = getComputedStyle(tileElement).backgroundColor;
+        });
     </script>
 </body>
 

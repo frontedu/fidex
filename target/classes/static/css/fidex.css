@@ -1151,7 +1151,7 @@ button:focus {
 }
 
 .slide_right:hover {
-  box-shadow: inset 500px 0 0 0 #d0e4a7;
+  box-shadow: inset 500px 0 0 0 rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 768px) {
