@@ -13,14 +13,14 @@
             <div th:replace="~{layout/fragments/logo}"></div>
             <div class="app-header-navigation">
                 <div class="tabs">
-                    <a href="#" class="active">
+                    <a th:href="@{/premios}" th:classappend="${active == 'ultimos' ? 'active' : ''}">
                         Últimos prêmios
                     </a>
-                    <a href="#">
-                        Mais antigos
+                    <a th:href="@{/premios/ordenar/produto}" th:classappend="${active == 'produto' ? 'active' : ''}">
+                        Agrupar por produto
                     </a>
-                    <a href="#">
-                        Nome do cliente
+                    <a th:href="@{/premios/ordenar/cliente}" th:classappend="${active == 'cliente' ? 'active' : ''}">
+                        Agrupar por cliente
                     </a>
                 </div>
             </div>

@@ -39,6 +39,58 @@ public class ClientController {
         if (!pagina.isEmpty()) {
             PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
             model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "ultimos");
+            return "clientes";
+        } else {
+            model.addAttribute("mensagem", "Não foram encontradas clientes com esse filtro");
+            model.addAttribute("opcao", "client");
+            return "mostrarmensagem";
+        }
+    }
+
+    @GetMapping("/clientes/ordenar/pontuacao")
+    public String pesquisarPontuacao(ClientFilter filtro, Model model,
+            @PageableDefault(size = 5000) @SortDefault(sort = "points", direction = Sort.Direction.DESC) Pageable pageable,
+            HttpServletRequest request) {
+        Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
+        if (!pagina.isEmpty()) {
+            PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
+            model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "pontuacao");
+            return "clientes";
+        } else {
+            model.addAttribute("mensagem", "Não foram encontradas clientes com esse filtro");
+            model.addAttribute("opcao", "client");
+            return "mostrarmensagem";
+        }
+    }
+
+    @GetMapping("/clientes/ordenar/nome")
+    public String pesquisarNome(ClientFilter filtro, Model model,
+            @PageableDefault(size = 5000) @SortDefault(sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
+            HttpServletRequest request) {
+        Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
+        if (!pagina.isEmpty()) {
+            PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
+            model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "nome");
+            return "clientes";
+        } else {
+            model.addAttribute("mensagem", "Não foram encontradas clientes com esse filtro");
+            model.addAttribute("opcao", "client");
+            return "mostrarmensagem";
+        }
+    }
+
+    @GetMapping("/clientes/ordenar/antigos")
+    public String pesquisarAntigos(ClientFilter filtro, Model model,
+            @PageableDefault(size = 5000) @SortDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
+            HttpServletRequest request) {
+        Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
+        if (!pagina.isEmpty()) {
+            PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
+            model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "antigos");
             return "clientes";
         } else {
             model.addAttribute("mensagem", "Não foram encontradas clientes com esse filtro");

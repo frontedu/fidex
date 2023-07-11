@@ -40,6 +40,8 @@ public class ProductController {
         if (!pagina.isEmpty()) {
             PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
             model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "ultimos");
+
             return "produtos";
         } else {
             model.addAttribute("mensagem", "Não foram encontradas Productes com esse filtro");
@@ -47,6 +49,59 @@ public class ProductController {
             return "mostrarmensagem";
         }
     }
+
+    @GetMapping("/produtos/ordenar/estoque")
+    public String pesquisarEstoque(ProductFilter filtro, Model model,
+            @PageableDefault(size = 50) @SortDefault(sort = "quantity", direction = Sort.Direction.DESC) Pageable pageable,
+            HttpServletRequest request) {
+        Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
+        if (!pagina.isEmpty()) {
+            PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
+            model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "estoque");
+            return "produtos";
+        } else {
+            model.addAttribute("mensagem", "Não foram encontradas Productes com esse filtro");
+            model.addAttribute("opcao", "product");
+            return "mostrarmensagem";
+        }
+    }
+
+        @GetMapping("/produtos/ordenar/pontos")
+    public String pesquisarPontos(ProductFilter filtro, Model model,
+            @PageableDefault(size = 50) @SortDefault(sort = "price", direction = Sort.Direction.DESC) Pageable pageable,
+            HttpServletRequest request) {
+        Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
+        if (!pagina.isEmpty()) {
+            PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
+            model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "pontos");
+            return "produtos";
+        } else {
+            model.addAttribute("mensagem", "Não foram encontradas Productes com esse filtro");
+            model.addAttribute("opcao", "product");
+            return "mostrarmensagem";
+        }
+    }
+
+            @GetMapping("/produtos/ordenar/nome")
+    public String pesquisarNome(ProductFilter filtro, Model model,
+            @PageableDefault(size = 50) @SortDefault(sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
+            HttpServletRequest request) {
+        Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
+        if (!pagina.isEmpty()) {
+            PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
+            model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "nome");
+            return "produtos";
+        } else {
+            model.addAttribute("mensagem", "Não foram encontradas Productes com esse filtro");
+            model.addAttribute("opcao", "product");
+            return "mostrarmensagem";
+        }
+    }
+
+
 
     @PostMapping("/produtos/cadastrar")
     public String cadastrar(@Valid Product product, BindingResult resultado, Model model) {

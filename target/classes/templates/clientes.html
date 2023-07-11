@@ -15,16 +15,16 @@
             <div th:replace="~{layout/fragments/logo}"></div>
             <div class="app-header-navigation">
                 <div class="tabs">
-                    <a href="#" class="active">
+                    <a th:href="@{/clientes}" th:classappend="${active == 'ultimos' ? 'active' : ''}">
                         Últimos clientes
                     </a>
-                    <a href="#">
+                    <a th:href="@{/clientes/ordenar/pontuacao}" th:classappend="${active == 'pontuacao' ? 'active' : ''}">
                         Maior pontuação
                     </a>
-                    <a href="#">
+                    <a th:href="@{/clientes/ordenar/antigos}" th:classappend="${active == 'antigos' ? 'active' : ''}">
                         Mais antigos
                     </a>
-                    <a href="#">
+                    <a th:href="@{/clientes/ordenar/nome}" th:classappend="${active == 'nome' ? 'active' : ''}">
                         Nome do cliente
                     </a>
                 </div>

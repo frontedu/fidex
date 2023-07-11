@@ -12,6 +12,8 @@
   --c-gray-100: #ffffff;
   --c-green-500: #45ffbc;
   --c-olive-500: #e3ffa8;
+  --c-prize-500: #C4A8FF;
+  --c-product-500: #47C8FF;
   --c-white: var(--c-gray-100);
   --c-text-primary: var(--c-gray-100);
   --c-text-secondary: var(--c-gray-200);
@@ -425,21 +427,30 @@ a {
   box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-olive-500);
 }
 
-.tile:nth-child(2) {
+#clientes .tile {
   background-color: var(--c-green-500);
 }
 
-.tile:nth-child(2):focus-within {
+#clientes .tile:focus-within {
   box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-green-500);
 }
 
-.tile:nth-child(3) {
-  background-color: var(--c-gray-300);
+#produtos .tile {
+  background-color: var(--c-product-500);
 }
 
-.tile:nth-child(3):focus-within {
+#produtos .tile:focus-within {
   box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-gray-300);
 }
+
+#premios .tile {
+  background-color: var(--c-prize-500);
+}
+
+#premios .tile:focus-within {
+  box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-gray-300);
+}
+
 
 .tile a {
   text-decoration: none;

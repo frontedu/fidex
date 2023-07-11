@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -50,6 +49,35 @@ public class PurchaseController {
 
         PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "ultimos");
+        return "compras";
+
+    }
+
+    @GetMapping("/compras/ordenar/valor")
+    public String pesquisarValor(PurchaseFilter filtro, Model model,
+            @PageableDefault(size = 10000) @SortDefault(sort = "price", direction = Sort.Direction.DESC) Pageable pageable,
+            HttpServletRequest request) {
+        putClient(model);
+        Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
+
+        PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "valor");
+        return "compras";
+
+    }
+
+    @GetMapping("/compras/ordenar/cliente")
+    public String pesquisarNome(PurchaseFilter filtro, Model model,
+            @PageableDefault(size = 10000) @SortDefault(sort = "client", direction = Sort.Direction.DESC) Pageable pageable,
+            HttpServletRequest request) {
+        putClient(model);
+        Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
+
+        PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "cliente");
         return "compras";
 
     }

@@ -13,14 +13,14 @@
             <div th:replace="~{layout/fragments/logo}"></div>
             <div class="app-header-navigation">
                 <div class="tabs">
-                    <a href="#" class="active">
+                    <a th:href="@{/compras}" th:classappend="${active == 'ultimos' ? 'active' : ''}">
                         Últimas compras
                     </a>
-                    <a href="#">
+                    <a th:href="@{/compras/ordenar/valor}" th:classappend="${active == 'valor' ? 'active' : ''}">
                         Maior valor
                     </a>
-                    <a href="#">
-                        Nome do cliente
+                    <a th:href="@{/compras/ordenar/cliente}" th:classappend="${active == 'cliente' ? 'active' : ''}">
+                       Agrupar por cliente
                     </a>
                 </div>
             </div>
@@ -105,6 +105,7 @@
             var points = price * 5 / 100;
             document.getElementById("pointsInput").value = points;
         });
+
 
     </script>
 

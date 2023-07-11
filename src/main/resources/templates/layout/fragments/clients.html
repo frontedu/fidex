@@ -1,4 +1,4 @@
-<div class="tiles">
+<div id="clientes" class="tiles">
     <article class="tile" th:each="client : ${pagina.conteudo}">
         <a id="remover">
             <form th:action="@{/clientes/remover}" method="POST">

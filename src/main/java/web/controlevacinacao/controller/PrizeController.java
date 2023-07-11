@@ -63,6 +63,43 @@ public class PrizeController {
         if (!pagina.isEmpty()) {
             PageWrapper<Prize> paginaWrapper = new PageWrapper<>(pagina, request);
             model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "ultimos");
+            return "premios";
+        } else {
+            model.addAttribute("mensagem", "Não foram encontradas Prizees com esse filtro");
+            model.addAttribute("opcao", "prize");
+            return "mostrarmensagem";
+        }
+    }
+
+    @GetMapping("/premios/ordenar/cliente")
+    public String pesquisarAntigos(PrizeFilter filtro, Model model,
+            @PageableDefault(size = 500) @SortDefault(sort = "client", direction = Sort.Direction.DESC) Pageable pageable,
+            HttpServletRequest request) {
+        putClientAndPurchases(model);
+        Page<Prize> pagina = prizeRepository.buscarComFiltro(filtro, pageable);
+        if (!pagina.isEmpty()) {
+            PageWrapper<Prize> paginaWrapper = new PageWrapper<>(pagina, request);
+            model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "cliente");
+            return "premios";
+        } else {
+            model.addAttribute("mensagem", "Não foram encontradas Prizees com esse filtro");
+            model.addAttribute("opcao", "prize");
+            return "mostrarmensagem";
+        }
+    }
+
+    @GetMapping("/premios/ordenar/produto")
+    public String pesquisarProduto(PrizeFilter filtro, Model model,
+            @PageableDefault(size = 500) @SortDefault(sort = "product", direction = Sort.Direction.DESC) Pageable pageable,
+            HttpServletRequest request) {
+        putClientAndPurchases(model);
+        Page<Prize> pagina = prizeRepository.buscarComFiltro(filtro, pageable);
+        if (!pagina.isEmpty()) {
+            PageWrapper<Prize> paginaWrapper = new PageWrapper<>(pagina, request);
+            model.addAttribute("pagina", paginaWrapper);
+            model.addAttribute("active", "produto");
             return "premios";
         } else {
             model.addAttribute("mensagem", "Não foram encontradas Prizees com esse filtro");

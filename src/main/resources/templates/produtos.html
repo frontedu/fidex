@@ -13,16 +13,16 @@
             <div th:replace="~{layout/fragments/logo}"></div>
             <div class="app-header-navigation">
                 <div class="tabs">
-                    <a href="#" class="active">
+                    <a th:href="@{/produtos}" th:classappend="${active == 'ultimos' ? 'active' : ''}">
                         Últimos produtos
                     </a>
-                    <a href="#">
+                    <a th:href="@{/produtos/ordenar/estoque}" th:classappend="${active == 'estoque' ? 'active' : ''}">
                         Maior estoque
                     </a>
-                    <a href="#">
-                        Maior valor
+                    <a th:href="@{/produtos/ordenar/pontos}" th:classappend="${active == 'pontos' ? 'active' : ''}">
+                        Pontuação necessária
                     </a>
-                    <a href="#">
+                    <a th:href="@{/produtos/ordenar/nome}" th:classappend="${active == 'nome' ? 'active' : ''}">
                         Nome do produto
                     </a>
                 </div>
