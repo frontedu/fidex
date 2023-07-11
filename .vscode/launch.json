@@ -19,6 +19,16 @@
             "projectName": "controlevacinacao",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<controlevacinacao>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "web.fidex.Application",
+            "projectName": "controlevacinacao",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

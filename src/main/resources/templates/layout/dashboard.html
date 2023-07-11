@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">Fidex</title>
-    <link rel="shortcut icon" th:href="@{/images/favicon.svg}" />
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" />
 
     <link rel="stylesheet" type="text/css" href="../static/css/fidex.css" th:href="@{/css/fidex.css}">
     <script th:src="@{/js/progress.js}" src="../static/js/progress.js"></script>
@@ -16,7 +16,6 @@
     <!-- Conteudo Principal -->
     <div class="col" layout:fragment="main-content"></div>
 
-    <script src="https://unpkg.com/phosphor-icons"></script>
     <script>
         const inputs = document.querySelectorAll(".input-group input");
         inputs.forEach((input) => {
@@ -32,8 +31,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const formSubmitButton = document.querySelector('.form input[type="submit"]');
-            const tileElement = document.querySelector('.tile');
-            formSubmitButton.style.backgroundColor = getComputedStyle(tileElement).backgroundColor;
+            formSubmitButton.style.backgroundColor = "var(--load)";
         });
     </script>
 </body>

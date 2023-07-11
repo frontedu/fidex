@@ -4,17 +4,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">FIDEX</title>
-	<link rel="shortcut icon" th:href="@{/images/logo.png}" />
+	<title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">Fidex</title>
+	<link rel="shortcut icon" th:href="@{/images/favicon.ico}" />
+
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="../../static/css/vendors/bootstrap5/bootstrap.min.css" th:href="@{/css/vendors/bootstrap5/bootstrap.min.css}"/>
-	<!-- Bootstrap Icons -->
-	<link rel="stylesheet" type="text/css" href="../../static/css/vendors/bootstrap5/bootstrap-icons.css" th:href="@{/css/vendors/bootstrap5/bootstrap-icons.css}"/>
 	
-	<!-- AlertifyJS -->
-	<link rel="stylesheet" type="text/css" href="../../static/css/vendors/alertifyjs/alertify.min.css" th:href="@{/css/vendors/alertifyjs/alertify.min.css}"/>
-	<link rel="stylesheet" type="text/css" href="../../static/css/vendors/alertifyjs/bootstrap.min.css" th:href="@{/css/vendors/alertifyjs/bootstrap.min.css}"/>
-
 	<!-- Estilo Principal do Template -->
 	<link rel="stylesheet" type="text/css" href="../../static/css/style.css" th:href="@{/css/style.css}">
 </head>
@@ -29,13 +24,6 @@
 
 	<!-- Rodape da pagina -->
 	<div th:replace="~{layout/fragments/rodape :: rodape}"></div>
-
-	<!-- Bootstrap JS -->
-	<script src="../../static/js/vendors/bootstrap5/bootstrap.bundle.min.js" th:src="@{/js/vendors/bootstrap5/bootstrap.bundle.min.js}"></script>
-    <!-- <script src="../../static/js/vendors/jquery/jquery-3.6.0.min.js" th:src="@{/js/vendors/jquery/jquery-3.6.0.min.js}" ></script> -->
-
-	<!-- AlertifyJS -->
-	<script src="../../static/js/vendors/alertifyjs/alertify.min.js" th:src="@{/js/vendors/alertifyjs/alertify.min.js}"></script>
 
 	<!-- CodigoNinjaDoGodoi -->
 	<script src="../../static/js/codigoninjadogodoi.js" th:src="@{/js/codigoninjadogodoi.js}"></script>
