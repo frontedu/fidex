@@ -1,9 +1,10 @@
-CREATE TABLE public.purchase
+CREATE TABLE public.product
 (
     id serial NOT NULL,
-    date date NOT NULL,
-    client_id integer,
+    name text NOT NULL,
+    quantity integer NOT NULL,
     price numeric(19,2) NOT NULL,
+    createdBy text NOT NULL,
     status text DEFAULT 'ATIVO',
     PRIMARY KEY (id)
 );

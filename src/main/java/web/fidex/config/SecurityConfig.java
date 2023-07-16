@@ -29,7 +29,7 @@ public class SecurityConfig {
 						// URLs
 						.requestMatchers("/compras", "/produtos", "/premios", "/clientes")
 						.hasAnyRole("ADMIN", "USUARIO")
-						.requestMatchers("/relatorios/compras").hasRole("ADMIN")
+						.requestMatchers("/relatorios/compras", "/relatorios/clientes", "/relatorios/produtos", "/relatorios/premios", "/usuarios/cadastrar").hasRole("ADMIN")
 						// .requestMatchers("URL").hasAnyRole("ADMIN", "USUARIO")
 						// Todas as outras requisições exigem um usuário autenticado
 						.anyRequest().permitAll())
@@ -40,7 +40,7 @@ public class SecurityConfig {
 						// .failureUrl("/login-error")
 						// Define a URL para o caso de sucesso no login se nenhuma URL segura foi
 						// acessada anteriormente ou solicitada
-						.defaultSuccessUrl("/compras", true)
+						.defaultSuccessUrl("/clientes", true)
 						.permitAll())
 				.logout(logout -> logout
 						.permitAll()

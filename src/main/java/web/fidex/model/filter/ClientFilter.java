@@ -7,6 +7,7 @@ public class ClientFilter {
     private String name;
     private String phone;
 	private Double points;
+	private String createdBy;
 	
 	public Long getId() {
 		return id;
@@ -48,12 +49,12 @@ public class ClientFilter {
 		this.points = points;
 	}
 
-    @Override
-    public String toString() {
-        return "ClientFilter [id=" + id + ", cpf=" + cpf + ", name=" + name + ", phone=" + phone
-                + ", points=" + points + "]";
-    }
+	public String getCreatedBy() {
+		return createdBy;
+	}
 
-    
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 
 }

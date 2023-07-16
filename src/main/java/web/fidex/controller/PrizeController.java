@@ -11,6 +11,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -60,16 +63,10 @@ public class PrizeController {
             HttpServletRequest request) {
         putClientAndPurchases(model);
         Page<Prize> pagina = prizeRepository.buscarComFiltro(filtro, pageable);
-        if (!pagina.isEmpty()) {
-            PageWrapper<Prize> paginaWrapper = new PageWrapper<>(pagina, request);
-            model.addAttribute("pagina", paginaWrapper);
-            model.addAttribute("active", "ultimos");
-            return "premios";
-        } else {
-            model.addAttribute("mensagem", "Não foram encontradas Prizees com esse filtro");
-            model.addAttribute("opcao", "prize");
-            return "mostrarmensagem";
-        }
+        PageWrapper<Prize> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "ultimos");
+        return "premios";
     }
 
     @GetMapping("/premios/ordenar/cliente")
@@ -78,16 +75,10 @@ public class PrizeController {
             HttpServletRequest request) {
         putClientAndPurchases(model);
         Page<Prize> pagina = prizeRepository.buscarComFiltro(filtro, pageable);
-        if (!pagina.isEmpty()) {
-            PageWrapper<Prize> paginaWrapper = new PageWrapper<>(pagina, request);
-            model.addAttribute("pagina", paginaWrapper);
-            model.addAttribute("active", "cliente");
-            return "premios";
-        } else {
-            model.addAttribute("mensagem", "Não foram encontradas Prizees com esse filtro");
-            model.addAttribute("opcao", "prize");
-            return "mostrarmensagem";
-        }
+        PageWrapper<Prize> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "cliente");
+        return "premios";
     }
 
     @GetMapping("/premios/ordenar/produto")
@@ -96,25 +87,22 @@ public class PrizeController {
             HttpServletRequest request) {
         putClientAndPurchases(model);
         Page<Prize> pagina = prizeRepository.buscarComFiltro(filtro, pageable);
-        if (!pagina.isEmpty()) {
-            PageWrapper<Prize> paginaWrapper = new PageWrapper<>(pagina, request);
-            model.addAttribute("pagina", paginaWrapper);
-            model.addAttribute("active", "produto");
-            return "premios";
-        } else {
-            model.addAttribute("mensagem", "Não foram encontradas Prizees com esse filtro");
-            model.addAttribute("opcao", "prize");
-            return "mostrarmensagem";
-        }
+        PageWrapper<Prize> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "produto");
+        return "premios";
     }
 
     @PostMapping("/premios/cadastrar")
     @Transactional
     public String cadastrar(@Valid Prize prize, BindingResult resultado, Model model) {
 
-        if (prize.getClient().getPoints() < prize.getProduct().getPrice() && prize.getProduct().getQuantity() > 0) {
-            model.addAttribute("mensagem", "O cliente não possui pontos suficientes para resgatar esse produto");
-            return "redirect:/premios";
+        if(resultado.hasErrors()) {
+            model.addAttribute("mensagem", "Há campos em inválidos ou em branco. Verifique e tente novamente.");
+            return "mostrarmensagem";
+        } else if(prize.getClient().getPoints() < prize.getProduct().getPrice() && prize.getProduct().getQuantity() > 0) {
+            model.addAttribute("mensagem", "O cliente não possui pontuação suficiente para resgatar esse produto");
+            return "mostrarmensagem";
         } else {
             LocalDateTime currentDateTime = LocalDateTime.now();
             LocalDate currentDate = currentDateTime.toLocalDate();
@@ -126,6 +114,12 @@ public class PrizeController {
             Client client = prize.getClient();
             client.setPoints(client.getPoints() - prize.getProduct().getPrice());
             clientService.salvar(client);
+
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String userId = userDetails.getUsername();
+
+            prize.setCreatedBy(userId);
 
             prize.setDate(currentDate);
             prizeService.salvar(prize);
@@ -150,7 +144,7 @@ public class PrizeController {
             prizeService.salvar(prize);
             return "redirect:/premios";
         } else {
-            model.addAttribute("mensagem", "Não foi encontrado premios com esse código");
+            model.addAttribute("mensagem", "Não foi encontrado prêmios com esse código.");
             return "mostrarmensagem";
         }
     }

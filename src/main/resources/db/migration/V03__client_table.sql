@@ -3,8 +3,9 @@ CREATE TABLE public.client
     id serial NOT NULL,
     name text NOT NULL,
     cpf text NOT NULL,
-    phone_number text NOT NULL,
-    poits integer,
+    createdBy text NOT NULL,
+    phone text NOT NULL,
+    points integer,
     status text DEFAULT 'ATIVO',
     PRIMARY KEY (id)
 );

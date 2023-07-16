@@ -32,6 +32,15 @@ public class Product implements Serializable {
 	private Long quantity;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
+	private String createdBy;
+	
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 
 	public Long getId() {
 		return id;
@@ -92,6 +101,10 @@ public class Product implements Serializable {
 			return false;
 		Product other = (Product) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

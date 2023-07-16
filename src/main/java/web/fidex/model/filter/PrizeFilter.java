@@ -9,6 +9,7 @@ public class PrizeFilter {
     private String clientPhone;
     private LocalDate date;
     private String productName;
+    private String createdBy;
 
 	public Long getId() {
 		return id;
@@ -58,10 +59,12 @@ public class PrizeFilter {
         this.clientPhone = clientPhone;
     }
 
-    @Override
-    public String toString() {
-        return "PrizeFilter [id=" + id + ", clientName=" + clientName + ", date=" + date + ", productName="
-                + productName + "]";
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
 

@@ -6,6 +6,7 @@ public class ProductFilter {
     private String name;
     private Double price;
     private Long quantity;
+	private String createdBy;
 
 	public Long getId() {
 		return id;
@@ -39,11 +40,13 @@ public class ProductFilter {
 		this.price = price;
 	}
 
-    @Override
-    public String toString() {
-        return "ProductFilter [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity
-                + "]";
-    }
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 
     
 

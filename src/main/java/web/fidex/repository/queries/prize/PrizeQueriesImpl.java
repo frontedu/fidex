@@ -7,6 +7,9 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -63,6 +66,12 @@ public class PrizeQueriesImpl implements PrizeQueries {
         }
 
         predicateList.add(builder.equal(p.<Status>get("status"), Status.ATIVO));
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String userId = userDetails.getUsername();
+
+        predicateList.add(builder.equal(p.get("createdBy"), userId));
 
         p.fetch("client");
         p.fetch("product");
@@ -124,6 +133,12 @@ public class PrizeQueriesImpl implements PrizeQueries {
         }
 
         predicateList.add(builder.equal(p.<Status>get("status"), Status.ATIVO));
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String userId = userDetails.getUsername();
+
+        predicateList.add(builder.equal(p.get("createdBy"), userId));
 
         Predicate[] predArray = new Predicate[predicateList.size()];
         predicateList.toArray(predArray);

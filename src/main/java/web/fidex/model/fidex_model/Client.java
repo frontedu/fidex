@@ -29,6 +29,7 @@ public class Client implements Serializable {
 	@NotBlank(message = "O WhatsApp é obrigatório")
     private String phone;
 	private Double points;
+	private String createdBy;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 
@@ -57,7 +58,15 @@ public class Client implements Serializable {
         return name;
     }
 
-    public String getPhone() {
+    public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getPhone() {
 		if (phone == null || phone.isEmpty()) {
         return "";
 		}

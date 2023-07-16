@@ -42,17 +42,5 @@ public class PaginacaoUtil {
 		}
 		criteriaQuery.orderBy(ordenacoes);
 	}
-	
-	// public static long getTotalRegistros(Root<?> root, Predicate[] predicateArray, CriteriaBuilder builder, EntityManager manager) {
-	// 	logger.debug("Calculando o total de registros que o filtro retornará.");
-	// 	CriteriaQuery<Long> criteriaQuery = builder.createQuery(Long.class);
-	// 	criteriaQuery.select(builder.count(criteriaQuery.from(root.getJavaType())));
-	// 	criteriaQuery.where(predicateArray);
-	// 	TypedQuery<Long> typedQueryTotal = manager.createQuery(criteriaQuery);
-	// 	long totalRegistros = typedQueryTotal.getSingleResult();
-	// 	logger.debug("O filtro retornará {} registros.", totalRegistros);	
-	// 	return totalRegistros;
-	// }
-
 
 }

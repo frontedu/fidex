@@ -6,7 +6,8 @@ public class PurchaseFilter {
     private String clientName;
     private Double price;
     private LocalDate date;
-
+	private String createdBy;
+    
 	public Long getId() {
 		return id;
 	}
@@ -39,12 +40,13 @@ public class PurchaseFilter {
         this.clientName = clientName;
     }
 
-    @Override
-    public String toString() {
-        return "PurchaseFilter [id=" + id + ", clientName=" + clientName + ", price=" + price + ", date=" + date + "]";
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
 
 }
 

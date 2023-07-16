@@ -52,7 +52,7 @@ public class UsuarioController {
 			}
 			List<Papel> papeis = papelRepository.findAll();
 			model.addAttribute("todosPapeis", papeis);
-			return "usuario/cadastrar";
+			return "login";
 		} else {
 			usuario.setAtivo(true);
 			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));

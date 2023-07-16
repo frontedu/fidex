@@ -33,4 +33,9 @@ ALTER TABLE public.usuario_papel
     ADD FOREIGN KEY (codigo_papel)
     REFERENCES public.papel (codigo)
     NOT VALID;
+
+INSERT INTO papel (codigo, nome) VALUES 
+(1, 'ROLE_ADMIN'),
+(2, 'ROLE_USUARIO');
+
 END;

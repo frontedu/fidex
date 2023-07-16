@@ -11,6 +11,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -46,12 +49,10 @@ public class PurchaseController {
             HttpServletRequest request) {
         putClient(model);
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
-
         PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
         model.addAttribute("active", "ultimos");
         return "compras";
-
     }
 
     @GetMapping("/compras/ordenar/valor")
@@ -60,7 +61,6 @@ public class PurchaseController {
             HttpServletRequest request) {
         putClient(model);
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
-
         PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
         model.addAttribute("active", "valor");
@@ -74,7 +74,6 @@ public class PurchaseController {
             HttpServletRequest request) {
         putClient(model);
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
-
         PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
         model.addAttribute("active", "cliente");
@@ -90,6 +89,13 @@ public class PurchaseController {
             LocalDateTime currentDateTime = LocalDateTime.now();
             LocalDate currentDate = currentDateTime.toLocalDate();
             purchase.setDate(currentDate);
+
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String userId = userDetails.getUsername();
+
+            purchase.setCreatedBy(userId);
+
             purchaseService.salvar(purchase);
 
             Client client = purchase.getClient();
@@ -112,17 +118,22 @@ public class PurchaseController {
         if (optPurchase.isPresent()) {
 
             Purchase purchase = optPurchase.get();
-
             Client client = purchase.getClient();
-            client.setPoints(client.getPoints() - purchase.getPoints());
-            clientRepository.save(client);
+
+            if (client.getPoints() - purchase.getPoints() < 0) {
+                client.setPoints(0.00);
+                clientRepository.save(client);
+            } else {
+                client.setPoints(client.getPoints() - purchase.getPoints());
+                clientRepository.save(client);
+            }
 
             purchase.setStatus(Status.INATIVO);
             purchaseService.salvar(purchase);
 
             return "redirect:/compras";
         } else {
-            model.addAttribute("mensagem", "Não foi encontrado compra com esse código");
+            model.addAttribute("mensagem", "Não foi encontrado compra com esse código.");
             return "mostrarmensagem";
         }
     }

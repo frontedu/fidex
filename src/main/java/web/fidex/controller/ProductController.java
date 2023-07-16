@@ -8,6 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,17 +40,11 @@ public class ProductController {
             @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
-        if (!pagina.isEmpty()) {
-            PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
-            model.addAttribute("pagina", paginaWrapper);
-            model.addAttribute("active", "ultimos");
+        PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "ultimos");
 
-            return "produtos";
-        } else {
-            model.addAttribute("mensagem", "Não foram encontradas Productes com esse filtro");
-            model.addAttribute("opcao", "product");
-            return "mostrarmensagem";
-        }
+        return "produtos";
     }
 
     @GetMapping("/produtos/ordenar/estoque")
@@ -55,59 +52,49 @@ public class ProductController {
             @PageableDefault(size = 50) @SortDefault(sort = "quantity", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
-        if (!pagina.isEmpty()) {
-            PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
-            model.addAttribute("pagina", paginaWrapper);
-            model.addAttribute("active", "estoque");
-            return "produtos";
-        } else {
-            model.addAttribute("mensagem", "Não foram encontradas Productes com esse filtro");
-            model.addAttribute("opcao", "product");
-            return "mostrarmensagem";
-        }
+        PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "estoque");
+        return "produtos";
+
     }
 
-        @GetMapping("/produtos/ordenar/pontos")
+    @GetMapping("/produtos/ordenar/pontos")
     public String pesquisarPontos(ProductFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "price", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
-        if (!pagina.isEmpty()) {
-            PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
-            model.addAttribute("pagina", paginaWrapper);
-            model.addAttribute("active", "pontos");
-            return "produtos";
-        } else {
-            model.addAttribute("mensagem", "Não foram encontradas Productes com esse filtro");
-            model.addAttribute("opcao", "product");
-            return "mostrarmensagem";
-        }
+        PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "pontos");
+        return "produtos";
+
     }
 
-            @GetMapping("/produtos/ordenar/nome")
+    @GetMapping("/produtos/ordenar/nome")
     public String pesquisarNome(ProductFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
             HttpServletRequest request) {
         Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
-        if (!pagina.isEmpty()) {
-            PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
-            model.addAttribute("pagina", paginaWrapper);
-            model.addAttribute("active", "nome");
-            return "produtos";
-        } else {
-            model.addAttribute("mensagem", "Não foram encontradas Productes com esse filtro");
-            model.addAttribute("opcao", "product");
-            return "mostrarmensagem";
-        }
+        PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
+        model.addAttribute("pagina", paginaWrapper);
+        model.addAttribute("active", "nome");
+        return "produtos";
     }
-
-
 
     @PostMapping("/produtos/cadastrar")
     public String cadastrar(@Valid Product product, BindingResult resultado, Model model) {
         if (resultado.hasErrors()) {
-            return "redirect:/produtos";
+            model.addAttribute("mensagem", "Há campos em inválidos ou em branco. Verifique e tente novamente.");
+            return "mostrarmensagem";
         } else {
+
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String userId = userDetails.getUsername();
+
+            product.setCreatedBy(userId);
+
             productService.salvar(product);
             return "redirect:/produtos";
         }
@@ -122,7 +109,7 @@ public class ProductController {
             productService.salvar(product);
             return "redirect:/produtos";
         } else {
-            model.addAttribute("mensagem", "Não foi encontrado produto com esse código");
+            model.addAttribute("mensagem", "Não foi encontrado produto com esse código.");
             return "mostrarmensagem";
         }
     }
