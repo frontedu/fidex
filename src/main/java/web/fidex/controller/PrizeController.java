@@ -129,6 +129,15 @@ public class PrizeController {
     }
 
     private void putClientAndPurchases(Model model) {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String username = userDetails.getUsername();
+            model.addAttribute("username", username);
+        }
+
         List<Client> clients = clientRepository.findByStatus(Status.ATIVO);
         List<Product> products = productRepository.findByStatus(Status.ATIVO);
         model.addAttribute("clients", clients);

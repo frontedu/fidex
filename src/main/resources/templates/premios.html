@@ -51,14 +51,14 @@
                             <div class="input-group">
                                 <select id="client" name="client">
                                     <option th:each="client : ${clients}" th:value="${client.id}"
-                                        th:text="${client.name}"></option>
+                                        th:text="${client.name}" th:if="${client.createdBy == username}"></option>
                                 </select>
                                 <label for="client">Cliente</label>
                             </div>
                             <div class="input-group">
                                 <select id="product" name="product">
                                     <option th:each="product : ${products}" th:value="${product.id}"
-                                        th:text="${product.name}"></option>
+                                        th:text="${product.name}" th:if="${product.createdBy == username}"></option>
                                 </select>
                                 <label for="product">Produto</label>
                             </div>

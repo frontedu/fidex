@@ -48,6 +48,7 @@ public class PurchaseController {
             @PageableDefault(size = 10000) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         putClient(model);
+
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -107,6 +108,15 @@ public class PurchaseController {
     }
 
     private void putClient(Model model) {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String username = userDetails.getUsername();
+            model.addAttribute("username", username);
+        }
+
         List<Client> clients = clientRepository.findByStatus(Status.ATIVO);
         model.addAttribute("clients", clients);
     }
