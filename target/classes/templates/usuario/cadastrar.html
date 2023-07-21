@@ -31,10 +31,6 @@
 					<label for="dataNascimento" class="form-label mt-3">Data de Nascimento:</label>
 					<input type="text" id="dataNascimento" th:field="*{dataNascimento}" class="form-control mb-4 componentedata" th:errorclass="is-invalid">
 					<span class="invalid-feedback" th:if="${#fields.hasErrors('dataNascimento')}" th:each="erro : ${#fields.errors('dataNascimento')}" th:text="${erro} + '. '"></span>
-					<div th:each="papel: ${todosPapeis}" class="form-check">
-						<input type="checkbox" th:field="*{papeis}" th:value="${papel.codigo}" class="form-check-input">
-						<label th:for="${#ids.prev('papeis')}" th:text="${papel.nome}" class="form-check-label">Texto checkbox 1</label>
-					</div>
 					<span class="invalid-feedback" th:if="${#fields.hasErrors('papeis')}" th:each="erro : ${#fields.errors('papeis')}" th:text="${erro} + '. '"></span>
 					<input type="submit" value="Cadastrar" class="btn btn-primary mt-4">
 				</form>

@@ -29,7 +29,7 @@ public class SecurityConfig {
 						// URLs
 						.requestMatchers("/compras", "/produtos", "/premios", "/clientes")
 						.hasAnyRole("ADMIN", "USUARIO")
-						.requestMatchers("/relatorios/compras", "/relatorios/clientes", "/relatorios/produtos", "/relatorios/premios", "/usuarios/cadastrar").hasRole("ADMIN")
+						.requestMatchers("/relatorios/compras", "/relatorios/clientes", "/relatorios/produtos", "/relatorios/premios").hasRole("ADMIN")
 						// .requestMatchers("URL").hasAnyRole("ADMIN", "USUARIO")
 						// Todas as outras requisições exigem um usuário autenticado
 						.anyRequest().permitAll())
