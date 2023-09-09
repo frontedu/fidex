@@ -19,7 +19,8 @@
 	<properties>
 		<!-- Versao do Java -->
 		<java.version>17</java.version>
-
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>16</maven.compiler.target>
 		<!-- Versao do Disruptor -->
 		<disruptor.version>3.4.4</disruptor.version>
 	</properties>
