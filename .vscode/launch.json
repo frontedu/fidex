@@ -1,33 +1,42 @@
 {
     "configurations": [
-    
         {
             "type": "java",
-            "name": "Spring Boot-Application<controlevacinacao>",
+            "name": "Spring Boot-Application<fidex>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "web.Application",
-            "projectName": "controlevacinacao",
+            "projectName": "fidex",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         },
         {
             "type": "java",
-            "name": "Spring Boot-Application<controlevacinacao>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "web.controlevacinacao.Application",
-            "projectName": "controlevacinacao",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-Application<controlevacinacao>",
+            "name": "Spring Boot-Application<fidex>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "web.fidex.Application",
-            "projectName": "controlevacinacao",
+            "projectName": "fidex",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<fidex>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "web.fidex.Application",
+            "projectName": "fidex",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<fidex>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "web.fidex.Application",
+            "projectName": "fidex",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
