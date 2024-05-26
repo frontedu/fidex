@@ -9,7 +9,11 @@ COPY pom.xml .
 
 COPY src ./src
 
+RUN ls -l
+
 RUN chmod +x mvnw
+
+RUN ls -l
 
 RUN ./mvnw package -DskipTests
 
