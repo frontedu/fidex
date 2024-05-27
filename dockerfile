@@ -1,22 +1,24 @@
-FROM openjdk:17-jdk-slim
+FROM nixos/nix
 
-WORKDIR /app
+RUN nix-env -iA nixpkgs.nixpkgs-nixpkgs-unstable
 
-COPY mvnw .
-COPY .mvn .mvn
+ENV NIXPACKS /nixpacks
+RUN mkdir -p $NIXPACKS
+WORKDIR $NIXPACKS
 
-COPY pom.xml .
+COPY nixpacks.nix .
+
+RUN nixpkgs-unstable.nix-build
+
+ENV MAVEN_HOME /nixpacks/.nix-profile/share/maven
+ENV PATH $MAVEN_HOME/bin:$PATH
+ENV JAVA_HOME /nixpacks/.nix-profile/share/jdk
 
 COPY src ./src
 
-RUN ls -l
-
-RUN chmod +x mvnw
-
-RUN ls -l
-
-RUN ./mvnw package -DskipTests
+RUN mvn clean package
 
 EXPOSE 8080
 
+# Start the Spring Boot application
 CMD ["java", "-jar", "target/*.jar"]
