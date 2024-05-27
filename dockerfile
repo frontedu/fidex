@@ -6,7 +6,8 @@ ENV NIXPACKS /nixpacks
 RUN mkdir -p $NIXPACKS
 WORKDIR $NIXPACKS
 
-COPY nixpacks.nix .
+COPY nixpacks.nix /tmp/
+RUN cp /tmp/nixpacks.nix .
 
 RUN nixpkgs-unstable.nix-build
 
