@@ -1,24 +1,19 @@
-FROM nixos/nix
+FROM ghcr.io/railwayapp/nixpacks:ubuntu-1716249803
 
-RUN nix-env -iA nixpkgs.nixpkgs-nixpkgs-unstable
+ENTRYPOINT ["/bin/bash", "-l", "-c"]
 
-ENV NIXPACKS /nixpacks
-RUN mkdir -p $NIXPACKS
-WORKDIR $NIXPACKS
+WORKDIR /app/
 
-COPY nixpacks.nix /tmp/
-RUN cp /tmp/nixpacks.nix .
+COPY .nixpacks/nixpkgs-59dc10b5a6f2a592af36375c68fda41246794b86.nix .nixpacks/nixpkgs-59dc10b5a6f2a592af36375c68fda41246794b86.nix
 
-RUN nixpkgs-unstable.nix-build
+RUN nix-env -if .nixpacks/nixpkgs-59dc10b5a6f2a592af36375c68fda41246794b86.nix && nix-collect-garbage -d
 
-ENV MAVEN_HOME /root/.nix-profile/share/maven
-ENV PATH $MAVEN_HOME/bin:$PATH
-ENV JAVA_HOME /root/.nix-profile/share/jdk
+ARG NIXPACKS_METADATA
+ENV NIXPACKS_METADATA=$NIXPACKS_METADATA
 
-COPY src ./src
 
-RUN mvn clean package
+COPY . /app/.
+RUN --mount=type=cache,id=mpH3KmXGGg-m2/repository,target=/app/.m2/repository chmod +x ./mvnw && ./mvnw -DoutputFile=target/mvn-dependency-list.log -B -DskipTests clean dependency:list install
 
-EXPOSE 8080
-
-CMD ["java", "-jar", "target/*.jar"]
+COPY . /app
+CMD ["java", "-Dserver.port=$PORT", "$JAVA_OPTS", "-jar", "target/*jar"]
