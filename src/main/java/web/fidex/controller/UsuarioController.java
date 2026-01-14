@@ -63,6 +63,16 @@ public class UsuarioController {
 		try {
 			usuario.setAtivo(true);
 			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+
+			// Re-fetch papeis from database to avoid detached entity issues
+			List<Papel> papeisManaged = new java.util.ArrayList<>();
+			for (Papel papel : usuario.getPapeis()) {
+				if (papel != null && papel.getCodigo() != null) {
+					papelRepository.findById(papel.getCodigo()).ifPresent(papeisManaged::add);
+				}
+			}
+			usuario.setPapeis(papeisManaged);
+
 			cadastroUsuarioService.salvar(usuario);
 			redirectAttributes.addFlashAttribute("sucesso", "Conta criada com sucesso! Faça login.");
 			return "redirect:/login";
