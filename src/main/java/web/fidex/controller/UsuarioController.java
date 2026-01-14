@@ -69,6 +69,7 @@ public class UsuarioController {
 		} catch (Exception e) {
 			logger.error("Erro ao cadastrar usuário: ", e);
 			redirectAttributes.addFlashAttribute("erro", "Erro ao criar conta. Tente novamente.");
+			redirectAttributes.addFlashAttribute("debugErro", e.getMessage());
 			redirectAttributes.addFlashAttribute("mostrarCadastro", true);
 			return "redirect:/login";
 		}

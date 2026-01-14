@@ -97,8 +97,9 @@
 		</div>
 	</div>
 
-	<!-- Hidden field for signup toggle -->
+	<!-- Hidden field for signup toggle and debug -->
 	<input type="hidden" id="mostrarCadastro" th:value="${mostrarCadastro != null ? mostrarCadastro : false}" />
+	<input type="hidden" id="debugErro" th:value="${debugErro}" />
 
 	<script>
 		const inputs = document.querySelectorAll(".input-group input");
@@ -145,6 +146,12 @@
 				signInDiv.style.display = 'none';
 				signUpDiv.style.display = 'flex';
 			}
+		}
+
+		// Log backend errors if any
+		var debugErro = document.getElementById('debugErro');
+		if (debugErro && debugErro.value) {
+			console.error("Backend Error:", debugErro.value);
 		}
 
 		// Auto-show signup form if there was an error during registration
