@@ -38,4 +38,5 @@ INSERT INTO papel (codigo, nome) VALUES
 (1, 'ROLE_ADMIN'),
 (2, 'ROLE_USUARIO');
 
+END;
 

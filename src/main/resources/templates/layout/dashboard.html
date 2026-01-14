@@ -9,6 +9,8 @@
     <meta name="robots" content="noindex, nofollow">
     <title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">Fidex</title>
     <link rel="shortcut icon" th:href="@{/images/favicon.ico}" />
+    <link rel="manifest" th:href="@{/manifest.json}" />
+    <meta name="theme-color" content="#e3ffa8" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,6 +40,14 @@
             const formSubmitButton = document.querySelector('.form input[type="submit"]');
             formSubmitButton.style.backgroundColor = "var(--load)";
         });
+    </script>
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('SW registered'))
+                .catch(err => console.log('SW registration failed'));
+        }
     </script>
 </body>
 

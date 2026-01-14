@@ -1,0 +1,16 @@
+{
+  "name": "FIDEX",
+  "short_name": "FIDEX",
+  "description": "Sistema de fidelização de clientes",
+  "start_url": "/login",
+  "display": "standalone",
+  "background_color": "#1f1f1f",
+  "theme_color": "#e3ffa8",
+  "icons": [
+    {
+      "src": "/images/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

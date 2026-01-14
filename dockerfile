@@ -25,8 +25,8 @@ WORKDIR /app
 # Copy only the JAR from build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# JVM optimizations for low memory environments
-ENV JAVA_OPTS="-Xmx256m -Xms128m -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:+UseStringDeduplication"
+# JVM optimizations for low memory and fast startup
+ENV JAVA_OPTS="-Xmx256m -Xms128m -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:+UseStringDeduplication -XX:TieredStopAtLevel=1 -noverify"
 
 # Port setup
 ENV PORT=8080
