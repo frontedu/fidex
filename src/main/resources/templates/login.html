@@ -31,22 +31,23 @@
 						<label for="name">Nome e sobrenome</label>
 					</div>
 					<div class="input-group">
-						<input type="text" id="username" name="nomeUsuario" />
-						<label for="username">Nome de usuário</label>
+						<input type="text" id="username-signup" name="nomeUsuario" />
+						<label for="username-signup">Nome de usuário</label>
 					</div>
 					<div class="input-group">
 						<input type="email" id="email" name="email" onblur="userValue()" />
 						<label for="email">Email</label>
 					</div>
 					<div class="input-group">
-						<input type="password" id="password" name="senha" />
-						<label for="password">Senha</label>
-						<img th:src="@{/images/eye-open.svg}" alt="Ver senha" class="eye" />
-						<img th:src="@{/images/eye-close.svg}" alt="Esconder senha" class="close-eye"
+						<input type="password" id="password-signup" name="senha" />
+						<label for="password-signup">Senha</label>
+						<img th:src="@{/images/eye-open.svg}" alt="Ver senha" class="eye eye-signup" />
+						<img th:src="@{/images/eye-close.svg}" alt="Esconder senha" class="close-eye close-eye-signup"
 							style="display: none" />
 					</div>
 
 					<input name="papeis" value="2" class="form-check-input" hidden>
+					<input type="hidden" name="dataNascimento" value="01/01/2000" />
 
 
 					<input type="submit" value="Criar conta" class="btn button_slide slide_right">
@@ -63,12 +64,12 @@
 					que bom ter você aqui :)</h1>
 				<form th:action="@{/login}" method="post" class="form">
 					<div class="input-group">
-						<input type="text" id="username" name="username" autofocus="autofocus" />
-						<label for="username">Nome de usuário</label>
+						<input type="text" id="username-signin" name="username" autofocus="autofocus" />
+						<label for="username-signin">Nome de usuário</label>
 					</div>
 					<div class="input-group">
-						<input type="password" name="password" id="password" />
-						<label for="password">Senha</label>
+						<input type="password" name="password" id="password-signin" />
+						<label for="password-signin">Senha</label>
 					</div>
 
 					<input type="submit" value="Entrar" class="btn button_slide slide_right">
@@ -96,21 +97,26 @@
 			});
 		});
 
-		const password = document.getElementById("password");
-		const eye = document.querySelector(".eye");
-		const closeEye = document.querySelector(".close-eye");
+		// Password toggle for signup form
+		const passwordSignup = document.getElementById("password-signup");
+		const eyeSignup = document.querySelector(".eye-signup");
+		const closeEyeSignup = document.querySelector(".close-eye-signup");
 
-		eye.addEventListener("click", () => {
-			password.setAttribute("type", "text");
-			eye.style.display = "none";
-			closeEye.style.display = "block";
-		});
+		if (eyeSignup) {
+			eyeSignup.addEventListener("click", () => {
+				passwordSignup.setAttribute("type", "text");
+				eyeSignup.style.display = "none";
+				closeEyeSignup.style.display = "block";
+			});
+		}
 
-		closeEye.addEventListener("click", () => {
-			password.setAttribute("type", "password");
-			closeEye.style.display = "none";
-			eye.style.display = "block";
-		});
+		if (closeEyeSignup) {
+			closeEyeSignup.addEventListener("click", () => {
+				passwordSignup.setAttribute("type", "password");
+				closeEyeSignup.style.display = "none";
+				eyeSignup.style.display = "block";
+			});
+		}
 
 		function toggle() {
 			var signInDiv = document.querySelector('.signin');
