@@ -6,14 +6,16 @@ WORKDIR /app
 # Copy Maven wrapper and pom first for better caching
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
-RUN chmod +x ./mvnw
+
+# Fix Windows line endings and make executable
+RUN sed -i 's/\r$//' ./mvnw && chmod +x ./mvnw
 
 # Download dependencies (cached layer)
-RUN ./mvnw dependency:go-offline -B
+RUN sh ./mvnw dependency:go-offline -B
 
 # Copy source and build
 COPY src ./src
-RUN ./mvnw package -DskipTests -B
+RUN sh ./mvnw package -DskipTests -B
 
 # Stage 2: Runtime (minimal image)
 FROM eclipse-temurin:17-jre-alpine
