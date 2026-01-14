@@ -1,8 +1,5 @@
 package web.fidex.validation.validator;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import web.fidex.validation.UniqueValueAttribute;
@@ -13,8 +10,7 @@ public class UniqueValueAttributeValidator implements ConstraintValidator<Unique
 	private String attribute;
 	private String message;
 
-	@Autowired
-	private ApplicationContext applicationContext;
+	// Removed Autowired applicationContext to avoid null pointer issues
 
 	private UniqueValue service;
 
@@ -25,10 +21,12 @@ public class UniqueValueAttributeValidator implements ConstraintValidator<Unique
 
 		Class<? extends UniqueValue> clazz = annotation.service();
 		String serviceQualifier = annotation.serviceQualifier();
+
+		// Use BeanUtil to retrieve the bean statically
 		if (!serviceQualifier.equals("")) {
-			service = applicationContext.getBean(serviceQualifier, clazz);
+			service = web.fidex.config.BeanUtil.getBean(serviceQualifier, clazz);
 		} else {
-			service = applicationContext.getBean(clazz);
+			service = web.fidex.config.BeanUtil.getBean(clazz);
 		}
 	}
 

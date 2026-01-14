@@ -47,7 +47,7 @@ public class UsuarioController {
 
 	@PostMapping("/cadastrar")
 	public String cadastrarNovoUsuario(@Valid Usuario usuario, BindingResult resultado,
-			Model model, RedirectAttributes redirectAttributes) {
+			Model model, RedirectAttributes redirectAttributes, jakarta.servlet.http.HttpServletRequest request) {
 		if (resultado.hasErrors()) {
 			logger.info("O usuario recebido para cadastrar não é válido.");
 			StringBuilder erros = new StringBuilder();
@@ -61,6 +61,9 @@ public class UsuarioController {
 		}
 
 		try {
+			// Save raw password for auto-login
+			String rawPassword = usuario.getSenha();
+
 			// Ensure it's a new user
 			usuario.setCodigo(null);
 			usuario.setAtivo(true);
@@ -78,8 +81,17 @@ public class UsuarioController {
 			usuario.setPapeis(papeisManaged);
 
 			cadastroUsuarioService.salvar(usuario);
-			redirectAttributes.addFlashAttribute("sucesso", "Conta criada com sucesso! Faça login.");
-			return "redirect:/login";
+
+			// Auto-login logic
+			try {
+				request.login(usuario.getNomeUsuario(), rawPassword);
+				return "redirect:/clientes";
+			} catch (Exception loginError) {
+				logger.error("Erro no auto-login: ", loginError);
+				redirectAttributes.addFlashAttribute("sucesso", "Conta criada com sucesso! Faça login.");
+				return "redirect:/login";
+			}
+
 		} catch (Exception e) {
 			logger.error("Erro ao cadastrar usuário: ", e);
 
