@@ -61,14 +61,18 @@ public class UsuarioController {
 		}
 
 		try {
+			// Ensure it's a new user
+			usuario.setCodigo(null);
 			usuario.setAtivo(true);
 			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 
 			// Re-fetch papeis from database to avoid detached entity issues
 			List<Papel> papeisManaged = new java.util.ArrayList<>();
-			for (Papel papel : usuario.getPapeis()) {
-				if (papel != null && papel.getCodigo() != null) {
-					papelRepository.findById(papel.getCodigo()).ifPresent(papeisManaged::add);
+			if (usuario.getPapeis() != null) {
+				for (Papel papel : usuario.getPapeis()) {
+					if (papel != null && papel.getCodigo() != null) {
+						papelRepository.findById(papel.getCodigo()).ifPresent(papeisManaged::add);
+					}
 				}
 			}
 			usuario.setPapeis(papeisManaged);
@@ -78,8 +82,15 @@ public class UsuarioController {
 			return "redirect:/login";
 		} catch (Exception e) {
 			logger.error("Erro ao cadastrar usuário: ", e);
-			redirectAttributes.addFlashAttribute("erro", "Erro ao criar conta. Tente novamente.");
-			redirectAttributes.addFlashAttribute("debugErro", e.getMessage());
+
+			// Get root cause for better debugging
+			Throwable rootCause = e;
+			while (rootCause.getCause() != null && rootCause.getCause() != rootCause) {
+				rootCause = rootCause.getCause();
+			}
+
+			redirectAttributes.addFlashAttribute("erro", "Erro ao criar conta: " + rootCause.getMessage());
+			redirectAttributes.addFlashAttribute("debugErro", rootCause.getMessage());
 			redirectAttributes.addFlashAttribute("mostrarCadastro", true);
 			return "redirect:/login";
 		}
