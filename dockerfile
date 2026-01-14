@@ -28,7 +28,9 @@ COPY --from=build /app/target/*.jar app.jar
 # JVM optimizations for low memory environments
 ENV JAVA_OPTS="-Xmx256m -Xms128m -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:+UseStringDeduplication"
 
-EXPOSE 8080
+# Port setup
+ENV PORT=8080
+EXPOSE $PORT
 
-# Use shell form to expand environment variables
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar --server.port=${PORT:-8080}"]
+# Use shell form to expand environment variables with Explicit Binding
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Dserver.port=${PORT} -Dserver.address=0.0.0.0 -jar app.jar"]
