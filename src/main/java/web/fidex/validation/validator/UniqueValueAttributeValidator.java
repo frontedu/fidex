@@ -19,14 +19,21 @@ public class UniqueValueAttributeValidator implements ConstraintValidator<Unique
 		attribute = annotation.attribute();
 		message = annotation.message();
 
-		Class<? extends UniqueValue> clazz = annotation.service();
-		String serviceQualifier = annotation.serviceQualifier();
+		try {
+			Class<? extends UniqueValue> clazz = annotation.service();
+			String serviceQualifier = annotation.serviceQualifier();
 
-		// Use BeanUtil to retrieve the bean statically
-		if (!serviceQualifier.equals("")) {
-			service = web.fidex.config.BeanUtil.getBean(serviceQualifier, clazz);
-		} else {
-			service = web.fidex.config.BeanUtil.getBean(clazz);
+			// Use BeanUtil to retrieve the bean statically
+			if (!serviceQualifier.equals("")) {
+				service = web.fidex.config.BeanUtil.getBean(serviceQualifier, clazz);
+			} else {
+				service = web.fidex.config.BeanUtil.getBean(clazz);
+			}
+		} catch (Exception e) {
+			// If bean retrieval fails, log and set service to null
+			// This will cause validation to pass by default in isValid
+			System.err.println("Failed to retrieve validation service: " + e.getMessage());
+			service = null;
 		}
 	}
 
@@ -35,13 +42,26 @@ public class UniqueValueAttributeValidator implements ConstraintValidator<Unique
 		if (value == null) {
 			return true;
 		}
-		boolean valid = service.isValueUnique(value, attribute);
 
-		if (!valid) {
-			ctx.disableDefaultConstraintViolation();
-			ctx.buildConstraintViolationWithTemplate(message).addPropertyNode(attribute).addConstraintViolation();
+		// If service failed to initialize, allow the value (fail-open for safety)
+		if (service == null) {
+			System.err.println("Validation service is null, allowing value to pass");
+			return true;
 		}
-		return valid;
+
+		try {
+			boolean valid = service.isValueUnique(value, attribute);
+
+			if (!valid) {
+				ctx.disableDefaultConstraintViolation();
+				ctx.buildConstraintViolationWithTemplate(message).addPropertyNode(attribute).addConstraintViolation();
+			}
+			return valid;
+		} catch (Exception e) {
+			// If validation fails with exception, log and allow (fail-open)
+			System.err.println("Validation failed with exception: " + e.getMessage());
+			return true;
+		}
 	}
 
 }

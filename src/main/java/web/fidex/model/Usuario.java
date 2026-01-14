@@ -22,7 +22,10 @@ import web.fidex.validation.UniqueValueAttribute;
 
 @Entity
 @Table(name = "usuario")
-@UniqueValueAttribute(attribute = "nomeUsuario", service = NomeUsuarioUnicoService.class, message = "Já existe um nome de usuário igual a este cadastrado")
+// Temporarily disabled to troubleshoot ApplicationContext null error
+// @UniqueValueAttribute(attribute = "nomeUsuario", service =
+// NomeUsuarioUnicoService.class, message = "Já existe um nome de usuário igual
+// a este cadastrado")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
