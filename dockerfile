@@ -1,19 +1,32 @@
-FROM ghcr.io/railwayapp/nixpacks:ubuntu-1716249803
+# Stage 1: Build
+FROM eclipse-temurin:17-jdk-alpine AS build
 
-ENTRYPOINT ["/bin/bash", "-l", "-c"]
+WORKDIR /app
 
-WORKDIR /app/
+# Copy Maven wrapper and pom first for better caching
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN chmod +x ./mvnw
 
-COPY .nixpacks/nixpkgs-59dc10b5a6f2a592af36375c68fda41246794b86.nix .nixpacks/nixpkgs-59dc10b5a6f2a592af36375c68fda41246794b86.nix
+# Download dependencies (cached layer)
+RUN ./mvnw dependency:go-offline -B
 
-RUN nix-env -if .nixpacks/nixpkgs-59dc10b5a6f2a592af36375c68fda41246794b86.nix && nix-collect-garbage -d
+# Copy source and build
+COPY src ./src
+RUN ./mvnw package -DskipTests -B
 
-ARG NIXPACKS_METADATA
-ENV NIXPACKS_METADATA=$NIXPACKS_METADATA
+# Stage 2: Runtime (minimal image)
+FROM eclipse-temurin:17-jre-alpine
 
+WORKDIR /app
 
-COPY . /app/.
-RUN --mount=type=cache,id=mpH3KmXGGg-m2/repository,target=/app/.m2/repository chmod +x ./mvnw && ./mvnw -DoutputFile=target/mvn-dependency-list.log -B -DskipTests clean dependency:list install
+# Copy only the JAR from build stage
+COPY --from=build /app/target/*.jar app.jar
 
-COPY . /app
-CMD ["java", "-Dserver.port=$PORT", "$JAVA_OPTS", "-jar", "target/*jar"]
+# JVM optimizations for low memory environments
+ENV JAVA_OPTS="-Xmx256m -Xms128m -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:+UseStringDeduplication"
+
+EXPOSE 8080
+
+# Use shell form to expand environment variables
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar --server.port=${PORT:-8080}"]

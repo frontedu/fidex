@@ -59,7 +59,7 @@ public class PrizeController {
 
     @GetMapping("/premios")
     public String pesquisar(PrizeFilter filtro, Model model,
-            @PageableDefault(size = 500) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         putClientAndPurchases(model);
         Page<Prize> pagina = prizeRepository.buscarComFiltro(filtro, pageable);
@@ -71,7 +71,7 @@ public class PrizeController {
 
     @GetMapping("/premios/ordenar/cliente")
     public String pesquisarAntigos(PrizeFilter filtro, Model model,
-            @PageableDefault(size = 500) @SortDefault(sort = "client", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "client", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         putClientAndPurchases(model);
         Page<Prize> pagina = prizeRepository.buscarComFiltro(filtro, pageable);
@@ -83,7 +83,7 @@ public class PrizeController {
 
     @GetMapping("/premios/ordenar/produto")
     public String pesquisarProduto(PrizeFilter filtro, Model model,
-            @PageableDefault(size = 500) @SortDefault(sort = "product", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "product", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         putClientAndPurchases(model);
         Page<Prize> pagina = prizeRepository.buscarComFiltro(filtro, pageable);
@@ -97,10 +97,11 @@ public class PrizeController {
     @Transactional
     public String cadastrar(@Valid Prize prize, BindingResult resultado, Model model) {
 
-        if(resultado.hasErrors()) {
+        if (resultado.hasErrors()) {
             model.addAttribute("mensagem", "Há campos em inválidos ou em branco. Verifique e tente novamente.");
             return "mostrarmensagem";
-        } else if(prize.getClient().getPoints() < prize.getProduct().getPrice() && prize.getProduct().getQuantity() > 0) {
+        } else if (prize.getClient().getPoints() < prize.getProduct().getPrice()
+                && prize.getProduct().getQuantity() > 0) {
             model.addAttribute("mensagem", "O cliente não possui pontuação suficiente para resgatar esse produto");
             return "mostrarmensagem";
         } else {

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: fidex
+    runtime: docker
+    plan: free
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_USERNAME
+        sync: false
+      - key: DATABASE_PASSWORD
+        sync: false
+      - key: JAVA_OPTS
+        value: "-Xmx256m -Xms128m -XX:+UseG1GC -XX:MaxGCPauseMillis=100"

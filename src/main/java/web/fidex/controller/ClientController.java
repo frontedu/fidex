@@ -25,7 +25,6 @@ import web.fidex.pagination.PageWrapper;
 import web.fidex.repository.ClientRepository;
 import web.fidex.service.ClientService;
 
-
 @Controller
 public class ClientController {
 
@@ -36,17 +35,19 @@ public class ClientController {
     private ClientService clientService;
 
     @GetMapping("/clientes")
-    public String pesquisar(ClientFilter filtro, Model model, @PageableDefault(size = 5000) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable, HttpServletRequest request) {
+    public String pesquisar(ClientFilter filtro, Model model,
+            @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+            HttpServletRequest request) {
         Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
         model.addAttribute("active", "ultimos");
         return "clientes";
-}
+    }
 
     @GetMapping("/clientes/ordenar/pontuacao")
     public String pesquisarPontuacao(ClientFilter filtro, Model model,
-            @PageableDefault(size = 5000) @SortDefault(sort = "points", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "points", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
@@ -57,7 +58,7 @@ public class ClientController {
 
     @GetMapping("/clientes/ordenar/nome")
     public String pesquisarNome(ClientFilter filtro, Model model,
-            @PageableDefault(size = 5000) @SortDefault(sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
             HttpServletRequest request) {
         Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
@@ -68,7 +69,7 @@ public class ClientController {
 
     @GetMapping("/clientes/ordenar/antigos")
     public String pesquisarAntigos(ClientFilter filtro, Model model,
-            @PageableDefault(size = 5000) @SortDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
             HttpServletRequest request) {
         Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
@@ -82,11 +83,11 @@ public class ClientController {
         if (resultado.hasErrors()) {
             model.addAttribute("mensagem", "Há campos em branco. Verifique e tente novamente.");
             return "mostrarmensagem";
-        }else if(client.getPhone().length() != 16){
+        } else if (client.getPhone().length() != 16) {
             System.out.println(client.getPhone());
             model.addAttribute("mensagem", "Telefone inválido. Digite apenas números com DDD.");
             return "mostrarmensagem";
-        }else if(client.getCpf().length() != 14){
+        } else if (client.getCpf().length() != 14) {
             model.addAttribute("mensagem", "CPF inválido. Digite apenas números.");
             return "mostrarmensagem";
         } else {

@@ -45,7 +45,7 @@ public class PurchaseController {
 
     @GetMapping("/compras")
     public String pesquisar(PurchaseFilter filtro, Model model,
-            @PageableDefault(size = 10000) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         putClient(model);
 
@@ -58,7 +58,7 @@ public class PurchaseController {
 
     @GetMapping("/compras/ordenar/valor")
     public String pesquisarValor(PurchaseFilter filtro, Model model,
-            @PageableDefault(size = 10000) @SortDefault(sort = "price", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "price", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         putClient(model);
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
@@ -71,7 +71,7 @@ public class PurchaseController {
 
     @GetMapping("/compras/ordenar/cliente")
     public String pesquisarNome(PurchaseFilter filtro, Model model,
-            @PageableDefault(size = 10000) @SortDefault(sort = "client", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 50) @SortDefault(sort = "client", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request) {
         putClient(model);
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
