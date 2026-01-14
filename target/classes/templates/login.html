@@ -4,12 +4,25 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="FIDEX - Acesse sua conta e gerencie seu programa de fidelidade de clientes.">
+	<meta property="og:title" content="FIDEX - Login">
+	<meta property="og:description"
+		content="Sistema de fidelização de clientes. Gerencie pontos, prêmios e recompense seus clientes.">
+	<meta property="og:type" content="website">
 	<title>Entrar | Fidex</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{/css/login.css}" />
 	<link rel="shortcut icon" th:href="@{/images/favicon.svg}" />
 </head>
 
 <body>
+
+	<!-- Toast Notification -->
+	<div id="toast" class="toast" th:if="${erro != null || sucesso != null}">
+		<div th:if="${sucesso != null}" class="toast-content toast-success" th:text="${sucesso}"></div>
+		<div th:if="${erro != null}" class="toast-content toast-error" th:text="${erro}"></div>
+	</div>
 
 	<div class="container">
 		<div class="left">
@@ -84,6 +97,9 @@
 		</div>
 	</div>
 
+	<!-- Hidden field for signup toggle -->
+	<input type="hidden" id="mostrarCadastro" th:value="${mostrarCadastro != null ? mostrarCadastro : false}" />
+
 	<script>
 		const inputs = document.querySelectorAll(".input-group input");
 		inputs.forEach((input) => {
@@ -129,6 +145,12 @@
 				signInDiv.style.display = 'none';
 				signUpDiv.style.display = 'flex';
 			}
+		}
+
+		// Auto-show signup form if there was an error during registration
+		var mostrarCadastroEl = document.getElementById('mostrarCadastro');
+		if (mostrarCadastroEl && mostrarCadastroEl.value === 'true') {
+			toggle();
 		}
 
 	</script>

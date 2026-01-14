@@ -1,0 +1,29 @@
+# Build artifacts
+target/
+
+# Git
+.git/
+.gitignore
+
+# IDE / Editor
+.vscode/
+.idea/
+*.iml
+
+# Documentation
+*.md
+!README.md
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Maven wrapper (we copy this explicitly)
+# !.mvn/
+
+# Render config
+render.yaml

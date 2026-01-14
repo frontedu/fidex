@@ -1,0 +1,17 @@
+# SEO Robots Configuration for FIDEX
+# Internal application - restrict indexing of private areas
+
+User-agent: *
+Disallow: /clientes
+Disallow: /compras
+Disallow: /produtos
+Disallow: /premios
+Disallow: /usuarios
+Disallow: /relatorios
+Disallow: /actuator
+
+Allow: /
+Allow: /login
+Allow: /css/
+Allow: /js/
+Allow: /images/

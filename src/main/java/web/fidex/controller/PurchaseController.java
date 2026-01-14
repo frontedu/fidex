@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -34,14 +33,17 @@ import web.fidex.service.PurchaseService;
 @Controller
 public class PurchaseController {
 
-    @Autowired
-    private PurchaseRepository purchaseRepository;
+    private final PurchaseRepository purchaseRepository;
+    private final ClientRepository clientRepository;
+    private final PurchaseService purchaseService;
 
-    @Autowired
-    private ClientRepository clientRepository;
-
-    @Autowired
-    private PurchaseService purchaseService;
+    public PurchaseController(PurchaseRepository purchaseRepository,
+            ClientRepository clientRepository,
+            PurchaseService purchaseService) {
+        this.purchaseRepository = purchaseRepository;
+        this.clientRepository = clientRepository;
+        this.purchaseService = purchaseService;
+    }
 
     @GetMapping("/compras")
     public String pesquisar(PurchaseFilter filtro, Model model,

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +12,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.validation.Valid;
 import web.fidex.model.Papel;
@@ -26,14 +26,17 @@ public class UsuarioController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UsuarioController.class);
 
-	@Autowired
-	private PapelRepository papelRepository;
+	private final PapelRepository papelRepository;
+	private final CadastroUsuarioService cadastroUsuarioService;
+	private final PasswordEncoder passwordEncoder;
 
-	@Autowired
-	private CadastroUsuarioService cadastroUsuarioService;
-
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+	public UsuarioController(PapelRepository papelRepository,
+			CadastroUsuarioService cadastroUsuarioService,
+			PasswordEncoder passwordEncoder) {
+		this.papelRepository = papelRepository;
+		this.cadastroUsuarioService = cadastroUsuarioService;
+		this.passwordEncoder = passwordEncoder;
+	}
 
 	@GetMapping("/cadastrar")
 	public String abrirCadastroUsuario(Usuario usuario, Model model) {
@@ -43,20 +46,30 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/cadastrar")
-	public String cadastrarNovoUsuario(@Valid Usuario usuario, BindingResult resultado, Model model) {
+	public String cadastrarNovoUsuario(@Valid Usuario usuario, BindingResult resultado,
+			Model model, RedirectAttributes redirectAttributes) {
 		if (resultado.hasErrors()) {
 			logger.info("O usuario recebido para cadastrar não é válido.");
-			logger.info("Erros encontrados:");
+			StringBuilder erros = new StringBuilder();
 			for (FieldError erro : resultado.getFieldErrors()) {
 				logger.info("{}", erro);
+				erros.append(erro.getDefaultMessage()).append(" ");
 			}
-			List<Papel> papeis = papelRepository.findAll();
-			model.addAttribute("todosPapeis", papeis);
-			return "login";
-		} else {
+			redirectAttributes.addFlashAttribute("erro", erros.toString().trim());
+			redirectAttributes.addFlashAttribute("mostrarCadastro", true);
+			return "redirect:/login";
+		}
+
+		try {
 			usuario.setAtivo(true);
 			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 			cadastroUsuarioService.salvar(usuario);
+			redirectAttributes.addFlashAttribute("sucesso", "Conta criada com sucesso! Faça login.");
+			return "redirect:/login";
+		} catch (Exception e) {
+			logger.error("Erro ao cadastrar usuário: ", e);
+			redirectAttributes.addFlashAttribute("erro", "Erro ao criar conta. Tente novamente.");
+			redirectAttributes.addFlashAttribute("mostrarCadastro", true);
 			return "redirect:/login";
 		}
 	}

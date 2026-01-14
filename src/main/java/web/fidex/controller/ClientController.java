@@ -2,7 +2,6 @@ package web.fidex.controller;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -28,11 +27,13 @@ import web.fidex.service.ClientService;
 @Controller
 public class ClientController {
 
-    @Autowired
-    private ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
+    private final ClientService clientService;
 
-    @Autowired
-    private ClientService clientService;
+    public ClientController(ClientRepository clientRepository, ClientService clientService) {
+        this.clientRepository = clientRepository;
+        this.clientService = clientService;
+    }
 
     @GetMapping("/clientes")
     public String pesquisar(ClientFilter filtro, Model model,
@@ -84,7 +85,6 @@ public class ClientController {
             model.addAttribute("mensagem", "Há campos em branco. Verifique e tente novamente.");
             return "mostrarmensagem";
         } else if (client.getPhone().length() != 16) {
-            System.out.println(client.getPhone());
             model.addAttribute("mensagem", "Telefone inválido. Digite apenas números com DDD.");
             return "mostrarmensagem";
         } else if (client.getCpf().length() != 14) {
