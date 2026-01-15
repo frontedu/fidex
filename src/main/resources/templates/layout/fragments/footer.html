@@ -1,13 +1,38 @@
 <!-- Footer -->
 <footer class="footer" sec:authorize="isAuthenticated()">
-        <!-- nome do usuario -->
-        <button class="user-profile">
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg>
-            </span>
-            <span sec:authentication="principal.username"></span>
-        </button>
+    <!-- Profile Button - Opens Modal -->
+    <label class="user-profile" for="profile-modal-toggle" style="cursor: pointer;">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                    d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z">
+                </path>
+            </svg>
+        </span>
+        <span sec:authentication="principal.username"></span>
+    </label>
+
+    <!-- Profile Modal -->
+    <div class="modal-container">
+        <input type="checkbox" id="profile-modal-toggle">
+        <label class="modal-backdrop" for="profile-modal-toggle"></label>
+        <div class="modal-content">
+            <h2>Configurações</h2>
+            <form th:action="@{/perfil/cashback}" method="POST" class="form">
+                <div class="input-group">
+                    <input type="number" id="cashback" name="cashback" min="0" max="100" step="0.1"
+                        th:value="${cashbackPercent != null ? cashbackPercent : 5}" />
+                    <label for="cashback">Cashback (%)</label>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--c-gray-500); margin-bottom: 16px;">
+                    Define a porcentagem de pontos que o cliente ganha por compra (0-100%).
+                </p>
+                <input type="submit" value="Salvar configurações" class="btn button_slide slide_right">
+            </form>
+        </div>
+    </div>
+
     <div>
-        2023 © Fidex
+        2026 © Fidex
     </div>
 </footer>

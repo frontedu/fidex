@@ -63,7 +63,8 @@
 					<input type="hidden" name="dataNascimento" value="01/01/2000" />
 
 
-					<input type="submit" value="Criar conta" class="btn button_slide slide_right">
+					<input type="submit" id="signup-btn" value="Criar conta" class="btn button_slide slide_right"
+						onclick="this.value='Criando...'; this.disabled=true; this.form.submit();">
 
 					<p class="bottom-text">
 						Já tem uma conta?

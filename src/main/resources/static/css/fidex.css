@@ -75,11 +75,11 @@ a {
   color: inherit;
 }
 
-#remover form{
+#remover form {
   z-index: 1;
 }
 
-#remover button{
+#remover button {
   background: none;
   border: none;
   padding: 0;
@@ -88,8 +88,8 @@ a {
   outline: inherit;
 }
 
-#remover button:focus{
- box-shadow: none;
+#remover button:focus {
+  box-shadow: none;
 }
 
 .responsive-wrapper {
@@ -499,7 +499,7 @@ a {
   font-size: 1.5em;
 }
 
-.tile-header span{
+.tile-header span {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -513,24 +513,24 @@ a {
   margin: 0;
 }
 
-.tile-header .customer-data{
+.tile-header .customer-data {
   margin-top: 8px;
   display: flex;
   gap: 12px;
 }
 
-.tile-header .product-data{
+.tile-header .product-data {
   margin-bottom: 8px;
   display: flex;
   gap: 12px;
 }
 
 
-.customer-stats{
+.customer-stats {
   margin-bottom: 8px;
 }
 
-.customer-stats i{
+.customer-stats i {
   padding: 6px 12px;
   border: solid 1px black;
   border-radius: 24px;
@@ -623,7 +623,7 @@ a {
   align-items: center;
 }
 
-.service-section-footer{
+.service-section-footer {
   display: flex;
   gap: 24px;
   align-items: center;
@@ -999,10 +999,13 @@ button:focus {
   text-align: center;
   transition: 0.1s ease-in;
 }
+
 #modal-toggle {
   display: none;
 }
-.modal-content, .modal-backdrop {
+
+.modal-content,
+.modal-backdrop {
   opacity: 0;
   transition: all .15s ease-in-out;
   position: fixed;
@@ -1010,6 +1013,7 @@ button:focus {
   overflow: hidden;
   cursor: pointer;
 }
+
 .modal-content {
   top: 0;
   bottom: 0;
@@ -1022,23 +1026,26 @@ button:focus {
   max-width: 480px;
 }
 
-.modal-content h2{
+.modal-content h2 {
   margin-top: 0;
   margin-bottom: 24px;
 }
+
 .modal-backdrop {
   left: 0;
   top: 0;
   height: 100vh;
   width: 100vw;
 }
-#modal-toggle:checked ~ .modal-backdrop {
+
+#modal-toggle:checked~.modal-backdrop {
   opacity: 1;
   z-index: 998;
   background-color: rgba(0, 0, 0, 0.33);
   background-image: url(https://railway.app/illustrations/grid--dark.svg);
 }
-#modal-toggle:checked ~ .modal-content {
+
+#modal-toggle:checked~.modal-content {
   opacity: 1;
   z-index: 999;
   background-color: #1f1f1f;
@@ -1048,29 +1055,35 @@ button:focus {
   pointer-events: auto;
   cursor: auto;
 }
+
 @media (max-width: 600px) {
-  #modal-toggle:checked ~ .modal-backdrop {
+  #modal-toggle:checked~.modal-backdrop {
     opacity: 0;
- }
+  }
+
   .modal-content {
     width: 100vw;
     height: 100%;
     top: 0;
     left: 0;
- }
+  }
 }
+
 .modal-close-btn {
   margin-top: 5px;
   display: inline-block;
   cursor: pointer;
 }
+
 .modal-close-btn svg {
   transition: 0.3s;
 }
+
 .modal-close-btn svg line {
   stroke-width: 5px;
   stroke: #5d4037;
 }
+
 .modal-close-btn:hover svg {
   transform: rotate(90deg);
 }
@@ -1098,6 +1111,7 @@ button:focus {
   pointer-events: none;
   transition: .15s ease-out;
 }
+
 .form .input-group :is(input, select) {
   font-family: "Be Vietnam Pro", sans-serif;
   width: 100%;
@@ -1110,20 +1124,21 @@ button:focus {
   background-color: transparent;
 }
 
-.form .input-group :is(input, select):focus ~ label,
-.form .input-group :is(input, select).filled ~ label,
-.form .input-group select ~ label{
+.form .input-group :is(input, select):focus~label,
+.form .input-group :is(input, select).filled~label,
+.form .input-group select~label {
   top: -20px;
   left: 0;
   color: #5a5a5a;
   font-size: 12px;
   font-weight: 600;
 }
+
 .form .input-group img {
   cursor: pointer;
 }
 
-.form input[type="submit"]{
+.form input[type="submit"] {
   letter-spacing: normal;
   font-family: "Be Vietnam Pro", sans-serif;
   width: 100%;
@@ -1160,7 +1175,67 @@ button:focus {
   .form .input-group {
     margin-bottom: 10px;
   }
+
   .form .input-group :is(input, select) {
     height: 40px;
   }
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  padding: 16px 24px;
+  border-radius: 8px;
+  color: var(--c-gray-900);
+  font-weight: 500;
+  animation: slideIn 0.3s ease-out, fadeOut 0.3s ease-out 4.7s forwards;
+  max-width: 350px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.toast-success {
+  background-color: var(--c-green-500);
+}
+
+.toast-error {
+  background-color: #ff6b6b;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Prize Pill Style */
+.prize-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: var(--c-prize-500);
+  color: var(--c-gray-900);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
 }

@@ -95,16 +95,29 @@ public class PrizeController {
 
     @PostMapping("/premios/cadastrar")
     @Transactional
-    public String cadastrar(@Valid Prize prize, BindingResult resultado, Model model) {
+    public String cadastrar(@Valid Prize prize, BindingResult resultado, Model model,
+            org.springframework.web.servlet.mvc.support.RedirectAttributes redirectAttributes) {
 
         if (resultado.hasErrors()) {
-            model.addAttribute("mensagem", "Há campos em inválidos ou em branco. Verifique e tente novamente.");
-            return "mostrarmensagem";
-        } else if (prize.getClient().getPoints() < prize.getProduct().getPrice()
-                && prize.getProduct().getQuantity() > 0) {
-            model.addAttribute("mensagem", "O cliente não possui pontuação suficiente para resgatar esse produto");
-            return "mostrarmensagem";
-        } else {
+            redirectAttributes.addFlashAttribute("erro",
+                    "Há campos inválidos ou em branco. Verifique e tente novamente.");
+            return "redirect:/premios";
+        }
+
+        // Check stock FIRST
+        if (prize.getProduct().getQuantity() <= 0) {
+            redirectAttributes.addFlashAttribute("erro", "Produto sem estoque disponível.");
+            return "redirect:/premios";
+        }
+
+        // Then check points
+        if (prize.getClient().getPoints() < prize.getProduct().getPrice()) {
+            redirectAttributes.addFlashAttribute("erro",
+                    "O cliente não possui pontuação suficiente para resgatar esse produto.");
+            return "redirect:/premios";
+        }
+
+        try {
             LocalDateTime currentDateTime = LocalDateTime.now();
             LocalDate currentDate = currentDateTime.toLocalDate();
 
@@ -121,12 +134,15 @@ public class PrizeController {
             String userId = userDetails.getUsername();
 
             prize.setCreatedBy(userId);
-
             prize.setDate(currentDate);
             prizeService.salvar(prize);
+
+            redirectAttributes.addFlashAttribute("sucesso", "Premiação cadastrada com sucesso!");
+            return "redirect:/premios";
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("erro", "Erro ao cadastrar premiação: " + e.getMessage());
             return "redirect:/premios";
         }
-
     }
 
     private void putClientAndPurchases(Model model) {

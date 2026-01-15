@@ -20,6 +20,16 @@
 
 <body>
 
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container">
+        <div th:if="${sucesso}" class="toast toast-success" id="toast-success">
+            <span th:text="${sucesso}"></span>
+        </div>
+        <div th:if="${erro}" class="toast toast-error" id="toast-error">
+            <span th:text="${erro}"></span>
+        </div>
+    </div>
+
     <!-- Conteudo Principal -->
     <div class="col" layout:fragment="main-content"></div>
 

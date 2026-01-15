@@ -29,7 +29,9 @@ public class SecurityConfig {
 						// URLs
 						.requestMatchers("/compras", "/produtos", "/premios", "/clientes")
 						.hasAnyRole("ADMIN", "USUARIO")
-						.requestMatchers("/relatorios/compras", "/relatorios/clientes", "/relatorios/produtos", "/relatorios/premios").hasRole("ADMIN")
+						.requestMatchers("/relatorios/compras", "/relatorios/clientes", "/relatorios/produtos",
+								"/relatorios/premios")
+						.hasAnyRole("ADMIN", "USUARIO")
 						// .requestMatchers("URL").hasAnyRole("ADMIN", "USUARIO")
 						// Todas as outras requisições exigem um usuário autenticado
 						.anyRequest().permitAll())
@@ -42,6 +44,12 @@ public class SecurityConfig {
 						// acessada anteriormente ou solicitada
 						.defaultSuccessUrl("/clientes", true)
 						.permitAll())
+				// Security headers
+				.headers(headers -> headers
+						.frameOptions(frame -> frame.deny())
+						.contentTypeOptions(content -> {
+						})
+						.xssProtection(xss -> xss.disable()))
 				.logout(logout -> logout
 						.permitAll()
 						// Para fazer logout (já é configurado automaticamente para a URL /logout)
@@ -52,19 +60,18 @@ public class SecurityConfig {
 	}
 
 	@Bean
- 	public UserDetailsService userDetailsService(DataSource dataSource) {    	
+	public UserDetailsService userDetailsService(DataSource dataSource) {
 		JdbcUserDetailsManager manager = new JdbcUserDetailsManager(dataSource);
 		manager.setUsersByUsernameQuery("select nome_usuario, senha, ativo "
-			  						+ "from usuario "
-			  						+ "where nome_usuario = ?");
+				+ "from usuario "
+				+ "where nome_usuario = ?");
 		manager.setAuthoritiesByUsernameQuery(
-			  "SELECT tab.nome_usuario , papel.nome FROM"
-			+ "(SELECT usuario.nome_usuario , usuario.codigo FROM usuario WHERE nome_usuario = ?) as tab "
-			+ " INNER JOIN usuario_papel ON codigo_usuario = tab.codigo "
-			+ " INNER JOIN papel ON codigo_papel = papel.codigo;");
+				"SELECT tab.nome_usuario , papel.nome FROM"
+						+ "(SELECT usuario.nome_usuario , usuario.codigo FROM usuario WHERE nome_usuario = ?) as tab "
+						+ " INNER JOIN usuario_papel ON codigo_usuario = tab.codigo "
+						+ " INNER JOIN papel ON codigo_papel = papel.codigo;");
 		return manager;
 	}
-
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
