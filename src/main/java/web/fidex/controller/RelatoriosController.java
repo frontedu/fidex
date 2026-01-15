@@ -21,8 +21,20 @@ public class RelatoriosController {
 	@Autowired
 	private RelatorioService relatorioService;
 
+	private boolean isAdmin() {
+		return org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication()
+				.getAuthorities().stream()
+				.anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
+	}
+
 	@GetMapping("/compras")
-	public ResponseEntity<byte[]> gerarRelatorioCompras() {
+	public Object gerarRelatorioCompras(jakarta.servlet.http.HttpServletRequest request,
+			org.springframework.web.servlet.mvc.support.RedirectAttributes redirectAttributes) {
+		if (!isAdmin()) {
+			String referer = request.getHeader("Referer");
+			redirectAttributes.addFlashAttribute("erro", "Acesso negado: Requer privilégios de administrador.");
+			return "redirect:" + (referer != null ? referer : "/clientes");
+		}
 		logger.trace("Entrou em gerarRelatorioSimplesVacinas");
 		logger.debug("Gerando relatório simples de todas as vacinas");
 
@@ -37,7 +49,13 @@ public class RelatoriosController {
 	}
 
 	@GetMapping("/premios")
-	public ResponseEntity<byte[]> gerarRelatorioPremios() {
+	public Object gerarRelatorioPremios(jakarta.servlet.http.HttpServletRequest request,
+			org.springframework.web.servlet.mvc.support.RedirectAttributes redirectAttributes) {
+		if (!isAdmin()) {
+			String referer = request.getHeader("Referer");
+			redirectAttributes.addFlashAttribute("erro", "Acesso negado: Requer privilégios de administrador.");
+			return "redirect:" + (referer != null ? referer : "/clientes");
+		}
 		logger.trace("Entrou em gerarRelatorioSimplesVacinas");
 		logger.debug("Gerando relatório simples de todas as vacinas");
 
@@ -52,7 +70,13 @@ public class RelatoriosController {
 	}
 
 	@GetMapping("/produtos")
-	public ResponseEntity<byte[]> gerarRelatorioProdutos() {
+	public Object gerarRelatorioProdutos(jakarta.servlet.http.HttpServletRequest request,
+			org.springframework.web.servlet.mvc.support.RedirectAttributes redirectAttributes) {
+		if (!isAdmin()) {
+			String referer = request.getHeader("Referer");
+			redirectAttributes.addFlashAttribute("erro", "Acesso negado: Requer privilégios de administrador.");
+			return "redirect:" + (referer != null ? referer : "/clientes");
+		}
 		logger.trace("Entrou em gerarRelatorioSimplesVacinas");
 		logger.debug("Gerando relatório simples de todas as vacinas");
 
@@ -67,7 +91,13 @@ public class RelatoriosController {
 	}
 
 	@GetMapping("/clientes")
-	public ResponseEntity<byte[]> gerarRelatorioClientes() {
+	public Object gerarRelatorioClientes(jakarta.servlet.http.HttpServletRequest request,
+			org.springframework.web.servlet.mvc.support.RedirectAttributes redirectAttributes) {
+		if (!isAdmin()) {
+			String referer = request.getHeader("Referer");
+			redirectAttributes.addFlashAttribute("erro", "Acesso negado: Requer privilégios de administrador.");
+			return "redirect:" + (referer != null ? referer : "/clientes");
+		}
 		logger.trace("Entrou em gerarRelatorioSimplesVacinas");
 		logger.debug("Gerando relatório simples de todas as vacinas");
 
@@ -82,7 +112,13 @@ public class RelatoriosController {
 	}
 
 	@GetMapping("/vacinas")
-	public ResponseEntity<byte[]> gerarRelatorioSimplesVacinas() {
+	public Object gerarRelatorioSimplesVacinas(jakarta.servlet.http.HttpServletRequest request,
+			org.springframework.web.servlet.mvc.support.RedirectAttributes redirectAttributes) {
+		if (!isAdmin()) {
+			String referer = request.getHeader("Referer");
+			redirectAttributes.addFlashAttribute("erro", "Acesso negado: Requer privilégios de administrador.");
+			return "redirect:" + (referer != null ? referer : "/clientes");
+		}
 		logger.trace("Entrou em gerarRelatorioSimplesVacinas");
 		logger.debug("Gerando relatório simples de todas as vacinas");
 
@@ -97,7 +133,13 @@ public class RelatoriosController {
 	}
 
 	@GetMapping("/vacinascomlotes")
-	public ResponseEntity<byte[]> gerarRelatorioComplexoTodosLotes() {
+	public Object gerarRelatorioComplexoTodosLotes(jakarta.servlet.http.HttpServletRequest request,
+			org.springframework.web.servlet.mvc.support.RedirectAttributes redirectAttributes) {
+		if (!isAdmin()) {
+			String referer = request.getHeader("Referer");
+			redirectAttributes.addFlashAttribute("erro", "Acesso negado: Requer privilégios de administrador.");
+			return "redirect:" + (referer != null ? referer : "/clientes");
+		}
 		logger.trace("Entrou em gerarRelatorioComplexoTodosLotes");
 		logger.debug("Gerando relatório complexo de todos os lotes");
 

@@ -17,10 +17,10 @@ import jakarta.validation.constraints.NotBlank;
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@SequenceGenerator(name="gerador5", sequenceName="user_code", allocationSize=1)
-	@GeneratedValue(generator="gerador5", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "gerador5", sequenceName = "user_code", allocationSize = 1)
+	@GeneratedValue(generator = "gerador5", strategy = GenerationType.SEQUENCE)
 	private Long id;
 	@NotBlank(message = "O nome  de usuário é obrigatório")
 	private String login;
@@ -28,6 +28,16 @@ public class User implements Serializable {
 	private String password;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
+
+	private Double cashback;
+
+	public Double getCashback() {
+		return cashback;
+	}
+
+	public void setCashback(Double cashback) {
+		this.cashback = cashback;
+	}
 
 	public Long getId() {
 		return id;
@@ -52,7 +62,6 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 	public Status getStatus() {
 		return status;

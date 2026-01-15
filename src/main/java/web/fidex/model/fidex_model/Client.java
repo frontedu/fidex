@@ -17,17 +17,17 @@ import jakarta.validation.constraints.NotBlank;
 public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@SequenceGenerator(name="gerador1", sequenceName="client_id_seq", allocationSize=1)
-	@GeneratedValue(generator="gerador1", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "gerador1", sequenceName = "client_id_seq", allocationSize = 1)
+	@GeneratedValue(generator = "gerador1", strategy = GenerationType.SEQUENCE)
 	private Long id;
 	@NotBlank(message = "O CPF é obrigatório")
-    private String cpf;
+	private String cpf;
 	@NotBlank(message = "O nome da pessoa é obrigatório")
-    private String name;
+	private String name;
 	@NotBlank(message = "O WhatsApp é obrigatório")
-    private String phone;
+	private String phone;
 	private Double points;
 	private String createdBy;
 	@Enumerated(EnumType.STRING)
@@ -41,24 +41,29 @@ public class Client implements Serializable {
 		this.id = id;
 	}
 
-    public String getCpf() {
-		if (cpf == null || cpf.isEmpty()) return "";
-    	return cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6, 9) + "-" + cpf.substring(9, 11); 
+	public String getCpf() {
+		if (cpf == null || cpf.isEmpty())
+			return "";
+		String clean = cpf.replaceAll("\\D", "");
+		if (clean.length() < 11)
+			return clean;
+		return clean.substring(0, 3) + "." + clean.substring(3, 6) + "." + clean.substring(6, 9) + "-"
+				+ clean.substring(9, 11);
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		this.cpf = (cpf != null) ? cpf.replaceAll("\\D", "") : null;
 	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getName(){
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getCreatedBy() {
+	public String getCreatedBy() {
 		return createdBy;
 	}
 
@@ -68,14 +73,17 @@ public class Client implements Serializable {
 
 	public String getPhone() {
 		if (phone == null || phone.isEmpty()) {
-        return "";
+			return "";
 		}
-		phone = phone.replaceAll("\\D", "");
-		return "(" + phone.substring(0, 2) + ") " + phone.substring(2, 3) + " " + phone.substring(3, 7) + "-" + phone.substring(7);
+		String clean = phone.replaceAll("\\D", "");
+		if (clean.length() < 11)
+			return clean;
+		return "(" + clean.substring(0, 2) + ") " + clean.substring(2, 3) + " " + clean.substring(3, 7) + "-"
+				+ clean.substring(7);
 	}
 
 	public void setPhone(String phone) {
-		this.phone = phone;
+		this.phone = (phone != null) ? phone.replaceAll("\\D", "") : null;
 	}
 
 	public Double getPoints() {

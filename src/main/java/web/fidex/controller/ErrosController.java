@@ -21,7 +21,9 @@ public class ErrosController implements ErrorController {
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
-                logger.warn("A URL {} foi acessada mas não existe.", url);
+                if (!url.contains(".well-known") && !url.contains("favicon.ico")) {
+                    logger.warn("A URL {} foi acessada mas não existe.", url);
+                }
                 return "error/404";
             } else if (statusCode == HttpStatus.FORBIDDEN.value()) {
                 logger.warn("Tentaram acessar a URL {} sem permissão.", url);

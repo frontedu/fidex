@@ -35,20 +35,37 @@
 
     <script>
         const inputs = document.querySelectorAll(".input-group input");
+
+        // Function to check and update input state
+        const updateInputState = (input) => {
+            if (input.value) {
+                input.classList.add("filled");
+            } else {
+                input.classList.remove("filled");
+            }
+        };
+
         inputs.forEach((input) => {
-            input.addEventListener("change", () => {
-                if (input.value) {
-                    input.classList.add("filled");
-                } else {
-                    input.classList.remove("filled");
-                }
-            });
+            // Check immediately on load
+            updateInputState(input);
+
+            // Listen for changes
+            input.addEventListener("change", () => updateInputState(input));
+            input.addEventListener("input", () => updateInputState(input));
         });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const formSubmitButton = document.querySelector('.form input[type="submit"]');
-            formSubmitButton.style.backgroundColor = "var(--load)";
+            if (formSubmitButton) {
+                formSubmitButton.style.backgroundColor = "var(--load)";
+            }
+
+            // Ensure modal checkbox is unchecked on load
+            const modalToggle = document.getElementById('modal-toggle-user');
+            if (modalToggle) {
+                modalToggle.checked = false;
+            }
         });
     </script>
     <script>

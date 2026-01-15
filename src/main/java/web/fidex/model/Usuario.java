@@ -46,6 +46,17 @@ public class Usuario implements Serializable {
 	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;
 	private boolean ativo;
+
+	private Double cashback;
+
+	public Double getCashback() {
+		return cashback;
+	}
+
+	public void setCashback(Double cashback) {
+		this.cashback = cashback;
+	}
+
 	@ManyToMany
 	@JoinTable(name = "usuario_papel", joinColumns = @JoinColumn(name = "codigo_usuario"), inverseJoinColumns = @JoinColumn(name = "codigo_papel"))
 	@Size(min = 1, message = "O usuário deve ter ao menos um papel no sistema")

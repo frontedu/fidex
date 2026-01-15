@@ -216,6 +216,11 @@ a {
   color: var(--c-text-tertiary);
 }
 
+.fidex-modal-section {
+  all: unset;
+  display: block;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -400,7 +405,7 @@ a {
   margin-top: 1.25rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
   .tiles {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -988,105 +993,8 @@ button:focus {
 }
 
 
-/* MODAL */
-.modal-btn {
-  color: #5d4037;
-  font-size: 10vw;
-  font-weight: bold;
-  padding: 5vw;
-  outline: solid #5d4037 1.5vw;
-  cursor: pointer;
-  text-align: center;
-  transition: 0.1s ease-in;
-}
 
-#modal-toggle {
-  display: none;
-}
-
-.modal-content,
-.modal-backdrop {
-  opacity: 0;
-  transition: all .15s ease-in-out;
-  position: fixed;
-  z-index: -1;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.modal-content {
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  left: 0;
-  right: 0;
-  text-align: left;
-  height: fit-content;
-  width: 70%;
-  max-width: 480px;
-}
-
-.modal-content h2 {
-  margin-top: 0;
-  margin-bottom: 24px;
-}
-
-.modal-backdrop {
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-}
-
-#modal-toggle:checked~.modal-backdrop {
-  opacity: 1;
-  z-index: 998;
-  background-color: rgba(0, 0, 0, 0.33);
-  background-image: url(https://railway.app/illustrations/grid--dark.svg);
-}
-
-#modal-toggle:checked~.modal-content {
-  opacity: 1;
-  z-index: 999;
-  background-color: #1f1f1f;
-  border-radius: 10px;
-  padding: 32px;
-  overflow: auto;
-  pointer-events: auto;
-  cursor: auto;
-}
-
-@media (max-width: 600px) {
-  #modal-toggle:checked~.modal-backdrop {
-    opacity: 0;
-  }
-
-  .modal-content {
-    width: 100vw;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
-}
-
-.modal-close-btn {
-  margin-top: 5px;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.modal-close-btn svg {
-  transition: 0.3s;
-}
-
-.modal-close-btn svg line {
-  stroke-width: 5px;
-  stroke: #5d4037;
-}
-
-.modal-close-btn:hover svg {
-  transform: rotate(90deg);
-}
+/* Modal rules moved to end of file for unification */
 
 
 
@@ -1238,4 +1146,66 @@ button:focus {
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
+}
+
+/* Modal Fixes & Unification */
+.fidex-settings-modal {
+  all: unset;
+  display: block;
+}
+
+#modal-toggle,
+#modal-toggle-user {
+  display: none !important;
+}
+
+#modal-toggle:checked~.modal-backdrop,
+#modal-toggle-user:checked~.modal-backdrop {
+  opacity: 1;
+  z-index: 998;
+  pointer-events: auto;
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.33);
+  background-image: url(https://railway.app/illustrations/grid--dark.svg);
+}
+
+#modal-toggle:checked~.modal-content,
+#modal-toggle-user:checked~.modal-content {
+  opacity: 1;
+  z-index: 999;
+  pointer-events: auto;
+  visibility: visible;
+  display: block !important;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  padding: 32px;
+  overflow: auto;
+  cursor: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Base styles for backdrop and content */
+.modal-backdrop,
+.modal-content {
+  position: fixed;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-backdrop {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: 90%;
+  max-width: 480px;
 }

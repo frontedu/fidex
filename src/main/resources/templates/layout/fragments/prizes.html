@@ -26,21 +26,13 @@
                     </svg>
                     <span th:text="${prize.date}"></span>
                 </span>
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000000" viewBox="0 0 256 256">
-                        <path
-                            d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84Z">
-                        </path>
-                    </svg>
-                    <span th:text="${prize.client.phone}"></span>
-                </span>
             </div>
             <!-- Client name below -->
             <h3 th:text="${prize.client.name}"></h3>
         </div>
         <!-- Prize name as pill -->
         <div class="customer-stats">
-            <span class="prize-pill" th:text="${prize.product.name}"></span>
+            <i th:text="${prize.product.name}" class="prize-pill"></i>
         </div>
 
     </article>

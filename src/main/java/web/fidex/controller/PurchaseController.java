@@ -28,6 +28,7 @@ import web.fidex.model.filter.PurchaseFilter;
 import web.fidex.pagination.PageWrapper;
 import web.fidex.repository.ClientRepository;
 import web.fidex.repository.PurchaseRepository;
+import web.fidex.repository.UsuarioRepository;
 import web.fidex.service.PurchaseService;
 
 @Controller
@@ -36,13 +37,16 @@ public class PurchaseController {
     private final PurchaseRepository purchaseRepository;
     private final ClientRepository clientRepository;
     private final PurchaseService purchaseService;
+    private final web.fidex.repository.UsuarioRepository usuarioRepository;
 
     public PurchaseController(PurchaseRepository purchaseRepository,
             ClientRepository clientRepository,
-            PurchaseService purchaseService) {
+            PurchaseService purchaseService,
+            web.fidex.repository.UsuarioRepository usuarioRepository) {
         this.purchaseRepository = purchaseRepository;
         this.clientRepository = clientRepository;
         this.purchaseService = purchaseService;
+        this.usuarioRepository = usuarioRepository;
     }
 
     @GetMapping("/compras")
@@ -93,30 +97,36 @@ public class PurchaseController {
             LocalDate currentDate = currentDateTime.toLocalDate();
             purchase.setDate(currentDate);
 
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            String userId = userDetails.getUsername();
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            String userId = (auth != null) ? auth.getName() : "system";
 
             purchase.setCreatedBy(userId);
+
+            // Calculate points based on user's cashback setting
+            web.fidex.model.Usuario usuario = usuarioRepository.findByNomeUsuarioIgnoreCase(userId);
+            double cashbackPercent = (usuario != null && usuario.getCashback() != null) ? usuario.getCashback() : 5.0;
+
+            // Calculate and set explicit points (freezing history)
+            double purchasePrice = (purchase.getPriceValue() != null) ? purchase.getPriceValue() : 0.0;
+            int pointsEarned = (int) (purchasePrice * cashbackPercent / 100);
+            purchase.setPoints(pointsEarned);
 
             purchaseService.salvar(purchase);
 
             Client client = purchase.getClient();
-            client.setPoints(client.getPoints() + purchase.getPoints());
-            clientRepository.save(client);
+            if (client != null) {
+                client.setPoints((client.getPoints() != null ? client.getPoints() : 0.0) + pointsEarned);
+                clientRepository.save(client);
+            }
 
             return "redirect:/compras";
         }
     }
 
     private void putClient(Model model) {
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if (authentication != null && authentication.isAuthenticated()) {
-            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            String username = userDetails.getUsername();
-            model.addAttribute("username", username);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.isAuthenticated()) {
+            model.addAttribute("username", auth.getName());
         }
 
         List<Client> clients = clientRepository.findByStatus(Status.ATIVO);

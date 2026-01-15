@@ -84,17 +84,16 @@ public class ClientController {
         if (resultado.hasErrors()) {
             model.addAttribute("mensagem", "Há campos em branco. Verifique e tente novamente.");
             return "mostrarmensagem";
-        } else if (client.getPhone().length() != 16) {
-            model.addAttribute("mensagem", "Telefone inválido. Digite apenas números com DDD.");
+        } else if (client.getPhone().replaceAll("\\D", "").length() != 11) {
+            model.addAttribute("mensagem", "WhatsApp inválido. Digite o número completo com DDD (11 dígitos).");
             return "mostrarmensagem";
-        } else if (client.getCpf().length() != 14) {
-            model.addAttribute("mensagem", "CPF inválido. Digite apenas números.");
+        } else if (client.getCpf().replaceAll("\\D", "").length() != 11) {
+            model.addAttribute("mensagem", "CPF inválido. Digite os 11 dígitos do CPF.");
             return "mostrarmensagem";
         } else {
 
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            String userId = userDetails.getUsername();
+            String userId = authentication.getName();
 
             client.setCreatedBy(userId);
 

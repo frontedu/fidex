@@ -104,35 +104,42 @@ public class PrizeController {
             return "redirect:/premios";
         }
 
-        // Check stock FIRST
-        if (prize.getProduct().getQuantity() <= 0) {
-            redirectAttributes.addFlashAttribute("erro", "Produto sem estoque disponível.");
-            return "redirect:/premios";
-        }
-
-        // Then check points
-        if (prize.getClient().getPoints() < prize.getProduct().getPrice()) {
-            redirectAttributes.addFlashAttribute("erro",
-                    "O cliente não possui pontuação suficiente para resgatar esse produto.");
-            return "redirect:/premios";
-        }
-
         try {
+            // Fetch real entities from DB to ensure we have current data
+            Product product = productRepository.findById(prize.getProduct().getId())
+                    .orElseThrow(() -> new RuntimeException("Produto não encontrado."));
+            Client client = clientRepository.findById(prize.getClient().getId())
+                    .orElseThrow(() -> new RuntimeException("Cliente não encontrado."));
+
+            // Check stock FIRST
+            if (product.getQuantity() == null || product.getQuantity() <= 0) {
+                redirectAttributes.addFlashAttribute("erro", "Produto sem estoque disponível.");
+                return "redirect:/premios";
+            }
+
+            // Then check points
+            if (client.getPoints() < product.getPrice()) {
+                redirectAttributes.addFlashAttribute("erro",
+                        "O cliente não possui pontuação suficiente para resgatar esse produto.");
+                return "redirect:/premios";
+            }
+
             LocalDateTime currentDateTime = LocalDateTime.now();
             LocalDate currentDate = currentDateTime.toLocalDate();
 
-            Product product = prize.getProduct();
+            // Perform updates
             product.setQuantity(product.getQuantity() - 1);
             productService.salvar(product);
 
-            Client client = prize.getClient();
-            client.setPoints(client.getPoints() - prize.getProduct().getPrice());
+            client.setPoints(client.getPoints() - product.getPrice());
             clientService.salvar(client);
 
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String userId = userDetails.getUsername();
 
+            prize.setProduct(product);
+            prize.setClient(client);
             prize.setCreatedBy(userId);
             prize.setDate(currentDate);
             prizeService.salvar(prize);

@@ -54,13 +54,26 @@ public class Purchase implements Serializable {
 		this.id = id;
 	}
 
+	private Integer points;
+
 	public String getPrice() {
 		DecimalFormat df = new DecimalFormat("R$ #,##0.00");
 		return df.format(price);
 	}
 
+	public Double getPriceValue() {
+		return price;
+	}
+
 	public int getPoints() {
+		if (points != null) {
+			return points;
+		}
 		return (int) (price * 5 / 100);
+	}
+
+	public void setPoints(Integer points) {
+		this.points = points;
 	}
 
 	public void setPrice(Double price) {

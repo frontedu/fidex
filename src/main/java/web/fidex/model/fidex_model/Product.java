@@ -28,12 +28,12 @@ public class Product implements Serializable {
 	private String name;
 	@Min(value = 0)
 	private Double price;
-	@Min(value = 1)
+	@Min(value = 0)
 	private Long quantity;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 	private String createdBy;
-	
+
 	public String getCreatedBy() {
 		return createdBy;
 	}

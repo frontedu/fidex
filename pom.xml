@@ -117,7 +117,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Adiciona a dependência do Flyway -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
