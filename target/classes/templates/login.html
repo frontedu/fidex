@@ -21,7 +21,7 @@
 	<!-- Toast Notification -->
 	<div id="toast" class="toast" th:if="${erro != null || sucesso != null}">
 		<div th:if="${sucesso != null}" class="toast-content toast-success" th:text="${sucesso}"></div>
-		<div th:if="${erro != null}" class="toast-content toast-error" th:text="${erro}"></div>
+		<div th:if="${erro != null}" class="toast-content toast-error" th:utext="${erro}"></div>
 	</div>
 
 	<div class="container">
@@ -40,19 +40,19 @@
 				<h1 class="heading heading-up">Crie sua conta, é rápido e gratuito!</h1>
 				<form th:action="@{/usuarios/cadastrar}" method="post" th:object="${usuario}" class="form">
 					<div class="input-group">
-						<input type="text" id="name" name="nome" />
+						<input type="text" id="name" th:field="*{nome}" />
 						<label for="name">Nome e sobrenome</label>
 					</div>
 					<div class="input-group">
-						<input type="text" id="username-signup" name="nomeUsuario" />
+						<input type="text" id="username-signup" th:field="*{nomeUsuario}" />
 						<label for="username-signup">Nome de usuário</label>
 					</div>
 					<div class="input-group">
-						<input type="email" id="email" name="email" onblur="userValue()" />
-						<label for="email">Email</label>
+						<input type="email" id="email" th:field="*{email}" required />
+						<label for="email">E-mail</label>
 					</div>
 					<div class="input-group">
-						<input type="password" id="password-signup" name="senha" />
+						<input type="password" id="password-signup" th:field="*{senha}" autocomplete="off" />
 						<label for="password-signup">Senha</label>
 						<img th:src="@{/images/eye-open.svg}" alt="Ver senha" class="eye eye-signup" />
 						<img th:src="@{/images/eye-close.svg}" alt="Esconder senha" class="close-eye close-eye-signup"
@@ -159,6 +159,23 @@
 		var mostrarCadastroEl = document.getElementById('mostrarCadastro');
 		if (mostrarCadastroEl && mostrarCadastroEl.value === 'true') {
 			toggle();
+		}
+
+		// Check for filled inputs on page load (autofill, etc.)
+		window.addEventListener('load', () => {
+			inputs.forEach((input) => {
+				if (input.value) {
+					input.classList.add("filled");
+				}
+			});
+		});
+
+		// Hide toast after animation if it fails to disappear
+		const toast = document.getElementById('toast');
+		if (toast) {
+			setTimeout(() => {
+				toast.style.display = 'none';
+			}, 5000);
 		}
 
 	</script>

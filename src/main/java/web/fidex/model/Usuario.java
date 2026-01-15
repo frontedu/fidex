@@ -34,14 +34,17 @@ public class Usuario implements Serializable {
 	@SequenceGenerator(name = "gerador55", sequenceName = "usuario_codigo_seq", allocationSize = 1)
 	@GeneratedValue(generator = "gerador55", strategy = GenerationType.SEQUENCE)
 	private Long codigo;
-	@NotBlank(message = "O nome do usuário é obrigatório")
+	@NotBlank(message = "O nome é obrigatório")
 	private String nome;
-	@NotBlank(message = "O e-mail do usuário é obrigatório")
+	@NotBlank(message = "O e-mail é obrigatório")
+	@jakarta.validation.constraints.Email(message = "O e-mail é inválido")
 	private String email;
-	@NotBlank(message = "A senha do usuário é obrigatória")
+	@NotBlank(message = "A senha é obrigatória")
+	@Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres")
 	private String senha;
 	@Column(name = "nome_usuario")
-	@NotBlank(message = "O nome de usuário do usuário é obrigatório")
+	@NotBlank(message = "O nome de usuário é obrigatório")
+	@Size(min = 4, message = "O usuário deve ter no mínimo 4 caracteres")
 	private String nomeUsuario;
 	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;

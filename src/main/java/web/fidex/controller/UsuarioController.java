@@ -50,13 +50,16 @@ public class UsuarioController {
 			Model model, RedirectAttributes redirectAttributes, jakarta.servlet.http.HttpServletRequest request) {
 		if (resultado.hasErrors()) {
 			logger.info("O usuario recebido para cadastrar não é válido.");
-			StringBuilder erros = new StringBuilder();
-			for (FieldError erro : resultado.getFieldErrors()) {
-				logger.info("{}", erro);
-				erros.append(erro.getDefaultMessage()).append(" ");
-			}
-			redirectAttributes.addFlashAttribute("erro", erros.toString().trim());
+			java.util.List<String> errorMessages = resultado.getFieldErrors().stream()
+					.map(org.springframework.validation.FieldError::getDefaultMessage)
+					.distinct()
+					.collect(java.util.stream.Collectors.toList());
+
+			String formatada = String.join("<br/>", errorMessages);
+
+			redirectAttributes.addFlashAttribute("erro", formatada);
 			redirectAttributes.addFlashAttribute("mostrarCadastro", true);
+			redirectAttributes.addFlashAttribute("usuario", usuario);
 			return "redirect:/login";
 		}
 

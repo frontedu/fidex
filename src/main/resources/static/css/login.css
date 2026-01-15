@@ -261,6 +261,8 @@
   font-weight: 500;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   max-width: 350px;
+  line-height: 1.5;
+  text-align: left;
 }
 
 .toast-success {

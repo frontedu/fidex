@@ -18,7 +18,9 @@ public class IndexController {
 		if (request.getParameter("error") != null) {
 			model.addAttribute("erro", "Usuário ou senha inválidos. Verifique seus dados e tente novamente.");
 		}
-		model.addAttribute("usuario", new Usuario());
+		if (!model.containsAttribute("usuario")) {
+			model.addAttribute("usuario", new Usuario());
+		}
 		return "login";
 	}
 
