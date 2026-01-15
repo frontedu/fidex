@@ -14,7 +14,10 @@ public class IndexController {
 	}
 
 	@GetMapping("/login")
-	public String login(Model model) {
+	public String login(Model model, String error) {
+		if (error != null) {
+			model.addAttribute("erro", "Usuário ou senha inválidos. Verifique seus dados e tente novamente.");
+		}
 		model.addAttribute("usuario", new Usuario());
 		return "login";
 	}
