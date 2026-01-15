@@ -14,8 +14,8 @@ public class IndexController {
 	}
 
 	@GetMapping("/login")
-	public String login(Model model, String error) {
-		if (error != null) {
+	public String login(Model model, jakarta.servlet.http.HttpServletRequest request) {
+		if (request.getParameter("error") != null) {
 			model.addAttribute("erro", "Usuário ou senha inválidos. Verifique seus dados e tente novamente.");
 		}
 		model.addAttribute("usuario", new Usuario());

@@ -39,7 +39,7 @@ public class SecurityConfig {
 						// Uma página de login customizada
 						.loginPage("/login")
 						// Define a URL para o caso de falha no login
-						// .failureUrl("/login-error")
+						.failureUrl("/login?error")
 						// Define a URL para o caso de sucesso no login se nenhuma URL segura foi
 						// acessada anteriormente ou solicitada
 						.defaultSuccessUrl("/clientes", true)

@@ -161,6 +161,23 @@
 			toggle();
 		}
 
+		// Check for filled inputs on page load (autofill, etc.)
+		window.addEventListener('load', () => {
+			inputs.forEach((input) => {
+				if (input.value) {
+					input.classList.add("filled");
+				}
+			});
+		});
+
+		// Hide toast after animation if it fails to disappear
+		const toast = document.getElementById('toast');
+		if (toast) {
+			setTimeout(() => {
+				toast.style.display = 'none';
+			}, 5000);
+		}
+
 	</script>
 </body>
 
