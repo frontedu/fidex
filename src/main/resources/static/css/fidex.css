@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 :root {
   --load: #e3ffa8;
   --c-gray-900: #000000;
@@ -44,10 +42,12 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
 .pace-inactive {
-  display: none;
+  opacity: 0;
 }
 
 .pace .pace-progress {
@@ -57,7 +57,17 @@ body {
   top: 0;
   right: 100%;
   width: 100%;
-  height: .05rem;
+  height: 3px;
+  /* Slightly thicker */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow per design hint */
+  transition: transform 0.4s ease-in-out;
+  /* Smooth movement on transform */
+}
+
+.pace-inactive .pace-progress {
+  /* Keep display block to allow fade out */
+  display: block;
 }
 
 img {
@@ -329,7 +339,10 @@ a {
   background: transparent;
   cursor: pointer;
   color: var(--c-text-tertiary);
+  color: var(--c-text-tertiary);
   transition: 0.25s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .user-profile:hover,
@@ -1154,9 +1167,15 @@ button:focus {
   display: block;
 }
 
+/* Robust hiding for Checkbox Hack to ensure label toggling works reliably */
 #modal-toggle,
 #modal-toggle-user {
-  display: none !important;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  width: 0;
+  margin: 0;
 }
 
 #modal-toggle:checked~.modal-backdrop,

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${titulo}">Relatório</title>
+    <style>
+        /* Reset and base styles for PDF */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 20mm 15mm;
+
+            @bottom-center {
+                content: "Página " counter(page) " de " counter(pages);
+                font-size: 9pt;
+                color: #666;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #1a1a1a;
+            background: #fff;
+        }
+
+        /* Header */
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #1f1f1f;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .report-header h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            color: #1f1f1f;
+            margin: 0;
+        }
+
+        .report-header .logo {
+            font-size: 24pt;
+            font-weight: 800;
+            color: #45ffbc;
+            background: #1f1f1f;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .report-meta {
+            font-size: 9pt;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .report-meta span {
+            margin-right: 20px;
+        }
+
+        /* Stats summary */
+        .stats-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-box {
+            flex: 1;
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-box .value {
+            font-size: 20pt;
+            font-weight: 700;
+            color: #1f1f1f;
+        }
+
+        .stat-box .label {
+            font-size: 9pt;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        thead {
+            background: #1f1f1f;
+        }
+
+        th {
+            color: #fff;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 10px;
+            font-size: 10pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 10pt;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        tr:hover {
+            background: #f0f0f0;
+        }
+
+        /* Special columns */
+        .text-right {
+            text-align: right;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .currency {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 8pt;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-inactive {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Footer */
+        .report-footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 8pt;
+            color: #999;
+            text-align: center;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .empty-state h3 {
+            font-size: 14pt;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="report-header">
+        <div>
+            <h1 th:text="${titulo}">Relatório</h1>
+        </div>
+        <div class="logo">FIDEX</div>
+    </div>
+
+    <!-- Meta info -->
+    <div class="report-meta">
+        <span><strong>Gerado em:</strong> <span th:text="${dataGeracao}">01/01/2026</span></span>
+        <span th:if="${usuario != null}"><strong>Usuário:</strong> <span th:text="${usuario}">Admin</span></span>
+        <span th:if="${totalRegistros != null}"><strong>Total:</strong> <span th:text="${totalRegistros}">0</span>
+            registros</span>
+    </div>
+
+    <!-- Content slot - will be replaced by child templates -->
+    <div th:replace="${conteudo}">
+        <!-- Content injected here -->
+    </div>
+
+    <!-- Footer -->
+    <div class="report-footer">
+        Fidex © 2026 - Relatório gerado automaticamente
+    </div>
+</body>
+
+</html>

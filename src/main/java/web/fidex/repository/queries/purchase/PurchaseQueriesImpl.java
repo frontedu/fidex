@@ -43,8 +43,8 @@ public class PurchaseQueriesImpl implements PurchaseQueries {
 
         if (filtro.getClientName() != null) {
             predicateList.add(builder.like(
-                builder.upper(p.<Client>get("client").<String>get("name")), "%" + 
-                filtro.getClientName().toUpperCase() + "%"));
+                    builder.upper(p.<Client>get("client").<String>get("name")), "%" +
+                            filtro.getClientName().toUpperCase() + "%"));
         }
 
         if (filtro.getPrice() != null) {
@@ -53,7 +53,7 @@ public class PurchaseQueriesImpl implements PurchaseQueries {
 
         if (filtro.getDate() != null) {
             predicateList.add(builder.equal(
-                 p.<LocalDate>get("date"), filtro.getDate()));
+                    p.<LocalDate>get("date"), filtro.getDate()));
         }
 
         predicateList.add(builder.equal(p.<Status>get("status"), Status.ATIVO));
@@ -63,7 +63,6 @@ public class PurchaseQueriesImpl implements PurchaseQueries {
         String userId = userDetails.getUsername();
 
         predicateList.add(builder.equal(p.get("createdBy"), userId));
-
 
         p.fetch("client");
 
@@ -96,8 +95,8 @@ public class PurchaseQueriesImpl implements PurchaseQueries {
 
         if (filtro.getClientName() != null) {
             predicateList.add(builder.like(
-                builder.upper(p.<Client>get("client").<String>get("name")), "%" + 
-                filtro.getClientName().toUpperCase() + "%"));
+                    builder.upper(p.<Client>get("client").<String>get("name")), "%" +
+                            filtro.getClientName().toUpperCase() + "%"));
         }
 
         if (filtro.getPrice() != null) {
@@ -106,7 +105,7 @@ public class PurchaseQueriesImpl implements PurchaseQueries {
 
         if (filtro.getDate() != null) {
             predicateList.add(builder.equal(
-                 p.<LocalDate>get("date"), filtro.getDate()));
+                    p.<LocalDate>get("date"), filtro.getDate()));
         }
 
         predicateList.add(builder.equal(p.<Status>get("status"), Status.ATIVO));

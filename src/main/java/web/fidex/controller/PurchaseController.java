@@ -37,12 +37,12 @@ public class PurchaseController {
     private final PurchaseRepository purchaseRepository;
     private final ClientRepository clientRepository;
     private final PurchaseService purchaseService;
-    private final web.fidex.repository.UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
 
     public PurchaseController(PurchaseRepository purchaseRepository,
             ClientRepository clientRepository,
             PurchaseService purchaseService,
-            web.fidex.repository.UsuarioRepository usuarioRepository) {
+            UsuarioRepository usuarioRepository) {
         this.purchaseRepository = purchaseRepository;
         this.clientRepository = clientRepository;
         this.purchaseService = purchaseService;
@@ -103,11 +103,11 @@ public class PurchaseController {
             purchase.setCreatedBy(userId);
 
             // Calculate points based on user's cashback setting
-            web.fidex.model.Usuario usuario = usuarioRepository.findByNomeUsuarioIgnoreCase(userId);
+            web.fidex.model.fidex_model.Usuario usuario = usuarioRepository.findByNomeUsuarioIgnoreCase(userId);
             double cashbackPercent = (usuario != null && usuario.getCashback() != null) ? usuario.getCashback() : 5.0;
 
             // Calculate and set explicit points (freezing history)
-            double purchasePrice = (purchase.getPriceValue() != null) ? purchase.getPriceValue() : 0.0;
+            double purchasePrice = (purchase.getPrice() != null) ? purchase.getPrice() : 0.0;
             int pointsEarned = (int) (purchasePrice * cashbackPercent / 100);
             purchase.setPoints(pointsEarned);
 

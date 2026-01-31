@@ -1,10 +1,29 @@
 # FIDEX - O jeito descomplicado de recompensar seus clientes
 
-Sistema de fidelização de clientes construído com Spring Boot, Thymeleaf e PostgreSQL.
+Sistema de fidelização de clientes construído com Spring Boot, Kotlin, Thymeleaf e PostgreSQL.
+
+## 🆕 Versão 3.5 - Novidades
+
+### Migração para Kotlin
+- **Modelos refatorados**: `Client`, `Product`, `Purchase`, `Prize`, `Usuario` migrados para Kotlin
+- **Repositórios Kotlin**: `ClientRepository`, `UsuarioRepository` com sintaxe Kotlin idiomática
+- **Serviços Kotlin**: `PdfService`, `RelatorioServiceKt` escritos em Kotlin
+
+### Novo Sistema de Relatórios (Flying Saucer)
+- **Geração via HTML/CSS**: Templates Thymeleaf convertidos para PDF com Flying Saucer
+- **Filtro por usuário**: Administradores visualizam todos os dados; usuários comuns visualizam apenas seus registros
+- **Templates modernos**: `clientes.html`, `compras.html`, `produtos.html`, `premios.html`
+
+### UI Reativa com Salvamento Otimista
+- **Feedback imediato**: Registros aparecem instantaneamente na interface antes da confirmação do servidor
+- **Sincronização em background**: `localStorage` gerencia fila de ações pendentes
+- **Fallback automático**: Em caso de falha, o sistema reverte as alterações visuais
+
+---
 
 ## 📋 Pré-requisitos
 
-- Java 21
+- Java 17+
 - Maven 3.8+
 - PostgreSQL (local ou AWS RDS)
 

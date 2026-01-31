@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.validation.Valid;
-import web.fidex.model.Papel;
-import web.fidex.model.Usuario;
+import web.fidex.model.fidex_model.Papel;
+import web.fidex.model.fidex_model.Usuario;
 import web.fidex.repository.PapelRepository;
 import web.fidex.service.CadastroUsuarioService;
 

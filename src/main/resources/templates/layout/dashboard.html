@@ -14,11 +14,74 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/css/fidex.css" th:href="@{/css/fidex.css}">
+
+    <script>
+        window.paceOptions = {
+            restartOnRequestAfter: false,
+            restartOnPushState: false,
+            elements: false, // Don't wait for specific elements
+            eventLag: false, // Disable lag detection for speed
+            document: true // Rely mainly on document ready
+        };
+    </script>
+    <script defer th:src="@{/js/fidex-core.js}" src="../static/js/fidex-core.js"></script>
     <script defer th:src="@{/js/progress.js}" src="../static/js/progress.js"></script>
+
 </head>
 
 <body>
+
+    <!-- SVG Sprite -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-plus" viewBox="0 0 256 256">
+            <path
+                d="M208,128a8,8,0,0,1-8,8H136v64a8,8,0,0,1-16,0V136H56a8,8,0,0,1,0-16h64V56a8,8,0,0,1,16,0v64h64A8,8,0,0,1,208,128Z">
+            </path>
+        </symbol>
+        <symbol id="icon-pdf" viewBox="0 0 256 256">
+            <path
+                d="M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,112V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z">
+            </path>
+        </symbol>
+        <symbol id="icon-logout" viewBox="0 0 256 256">
+            <path
+                d="M112,216a8,8,0,0,1-8,8H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32h56a8,8,0,0,1,0,16H48V208h56A8,8,0,0,1,112,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L196.69,120H104a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,221.66,122.34Z">
+            </path>
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 256 256">
+            <path
+                d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z">
+            </path>
+        </symbol>
+        <symbol id="icon-phone" viewBox="0 0 256 256">
+            <path
+                d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z">
+            </path>
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 256 256">
+            <path
+                d="M75.19,198.4a8,8,0,0,0,11.21-1.6,52,52,0,0,1,83.2,0,8,8,0,1,0,12.8-9.6A67.88,67.88,0,0,0,155,165.51a40,40,0,1,0-53.94,0A67.88,67.88,0,0,0,73.6,187.2,8,8,0,0,0,75.19,198.4ZM128,112a24,24,0,1,1-24,24A24,24,0,0,1,128,112Zm72-88H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V40A16,16,0,0,0,200,24Zm0,192H56V40H200ZM88,64a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,64Z">
+            </path>
+        </symbol>
+        <symbol id="icon-product" viewBox="0 0 256 256">
+            <path
+                d="M223.16,68.42l-16-32A8,8,0,0,0,200,32H56a8,8,0,0,0-7.16,4.42l-16,32A8.08,8.08,0,0,0,32,72V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V72A8.08,8.08,0,0,0,223.16,68.42ZM60.94,48H195.06l8,16H52.94ZM208,208H48V80H208V208Zm-42.34-61.66a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32L120,164.69V104a8,8,0,0,1,16,0v60.69l18.34-18.35A8,8,0,0,1,165.66,146.34Z">
+            </path>
+        </symbol>
+        <symbol id="icon-calendar" viewBox="0 0 256 256">
+            <path
+                d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Z">
+            </path>
+        </symbol>
+        <symbol id="icon-cart" viewBox="0 0 256 256">
+            <path
+                d="M216,64H176a48,48,0,0,0-96,0H40A16,16,0,0,0,24,80V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V80A16,16,0,0,0,216,64ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32Zm88,168H40V80H80V96a8,8,0,0,0,16,0V80h64V96a8,8,0,0,0,16,0V80h40Z">
+            </path>
+        </symbol>
+    </svg>
 
     <!-- Toast Notifications -->
     <div id="toast-container" class="toast-container">
@@ -33,49 +96,6 @@
     <!-- Conteudo Principal -->
     <div class="col" layout:fragment="main-content"></div>
 
-    <script>
-        const inputs = document.querySelectorAll(".input-group input");
-
-        // Function to check and update input state
-        const updateInputState = (input) => {
-            if (input.value) {
-                input.classList.add("filled");
-            } else {
-                input.classList.remove("filled");
-            }
-        };
-
-        inputs.forEach((input) => {
-            // Check immediately on load
-            updateInputState(input);
-
-            // Listen for changes
-            input.addEventListener("change", () => updateInputState(input));
-            input.addEventListener("input", () => updateInputState(input));
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const formSubmitButton = document.querySelector('.form input[type="submit"]');
-            if (formSubmitButton) {
-                formSubmitButton.style.backgroundColor = "var(--load)";
-            }
-
-            // Ensure modal checkbox is unchecked on load
-            const modalToggle = document.getElementById('modal-toggle-user');
-            if (modalToggle) {
-                modalToggle.checked = false;
-            }
-        });
-    </script>
-    <script>
-        // Register Service Worker for PWA
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(reg => console.log('SW registered'))
-                .catch(err => console.log('SW registration failed'));
-        }
-    </script>
 </body>
 
 </html>

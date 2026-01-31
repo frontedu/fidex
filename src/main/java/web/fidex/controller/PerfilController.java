@@ -39,7 +39,7 @@ public class PerfilController {
         }
 
         String currentUsername = auth.getName();
-        web.fidex.model.Usuario usuario = usuarioRepository.findByNomeUsuarioIgnoreCase(currentUsername);
+        web.fidex.model.fidex_model.Usuario usuario = usuarioRepository.findByNomeUsuarioIgnoreCase(currentUsername);
 
         if (usuario != null) {
             usuario.setCashback(cashback);

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import org.springframework.cache.annotation.Cacheable;
+
 import web.fidex.model.fidex_model.Client;
 import web.fidex.repository.ClientRepository;
 
@@ -13,20 +15,21 @@ import web.fidex.repository.ClientRepository;
 public class ClientService {
 
     @Autowired
-    private ClientRepository ClientRepository;
+    private ClientRepository clientRepository;
 
     @Transactional
-    public void salvar(Client Client) {
-        ClientRepository.save(Client);
+    public void salvar(Client client) {
+        clientRepository.save(client);
     }
 
     @Transactional
     public void remover(Long codigo) {
-        ClientRepository.deleteById(codigo);
+        clientRepository.deleteById(codigo);
     }
 
+    @Cacheable("clients")
     public List<Client> getAllClients() {
-        return ClientRepository.findAll();
+        return clientRepository.findAll();
     }
 
 }

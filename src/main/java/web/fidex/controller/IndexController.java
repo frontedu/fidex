@@ -3,7 +3,7 @@ package web.fidex.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import web.fidex.model.Usuario;
+import web.fidex.model.fidex_model.Usuario;
 
 @Controller
 public class IndexController {

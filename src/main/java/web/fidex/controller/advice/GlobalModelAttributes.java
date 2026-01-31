@@ -5,7 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import web.fidex.model.Usuario;
+import web.fidex.model.fidex_model.Usuario;
 import web.fidex.repository.UsuarioRepository;
 
 @ControllerAdvice

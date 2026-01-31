@@ -20,17 +20,14 @@ public class ProductService {
     @Autowired
     private ClientRepository clientRepository;
 
-    @Autowired
-    private ProductRepository ProductRepository;
-
     @Transactional
-    public void salvar(Product Product) {
-        ProductRepository.save(Product);
+    public void salvar(Product product) {
+        productRepository.save(product);
     }
 
     @Transactional
     public void remover(Long codigo) {
-        ProductRepository.deleteById(codigo);
+        productRepository.deleteById(codigo);
     }
 
     public List<Product> getProductsByPoints(Long clientId) {

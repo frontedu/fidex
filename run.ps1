@@ -10,11 +10,15 @@ if (Test-Path .env) {
             }
         }
     }
-} else {
+}
+else {
     Write-Error ".env não encontrado!"
     exit
 }
 
-# Executa o Spring Boot usando o Maven Wrapper
+# Executa o Spring Boot usando o Maven Wrapper com otimizações
 Write-Host "Iniciando Fidex..." -ForegroundColor Cyan
-./mvnw spring-boot:run
+
+# Flags de otimização:
+# -DskipTests: Pula testes
+./mvnw spring-boot:run "-DskipTests"
