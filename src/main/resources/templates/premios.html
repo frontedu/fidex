@@ -49,22 +49,23 @@
                         <!-- Content -->
                         <h2>Nova premiação
                         </h2>
-                        <form th:action="@{/premios/cadastrar}" method="POST" class="form">
+                        <form th:action="@{/premios/cadastrar}" method="POST" class="form" data-optimistic
+                            data-list="premios" data-modal-toggle="modal-toggle">
                             <input type="hidden" name="id">
                             <input type="hidden" name="date" id="dateInput">
                             <div class="input-group">
-                                <select id="client" name="client">
+                                <select id="clientId" name="clientId">
                                     <option th:each="client : ${clients}" th:value="${client.id}"
                                         th:text="${client.name}" th:if="${client.createdBy == username}"></option>
                                 </select>
-                                <label for="client">Cliente</label>
+                                <label for="clientId">Cliente</label>
                             </div>
                             <div class="input-group">
-                                <select id="product" name="product">
+                                <select id="productId" name="productId">
                                     <option th:each="product : ${products}" th:value="${product.id}"
                                         th:text="${product.name}" th:if="${product.createdBy == username}"></option>
                                 </select>
-                                <label for="product">Produto</label>
+                                <label for="productId">Produto</label>
                             </div>
                             <input type="submit" value="Cadastrar premiação" class="btn button_slide slide_right">
                         </form>
@@ -118,6 +119,7 @@
                 </section>
             </div>
         </div>
+        <script th:src="@{/js/optimistic-ui.js}"></script>
     </div>
 
 </body>

@@ -1,6 +1,5 @@
 package web.fidex.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,18 +8,21 @@ import web.fidex.repository.PurchaseRepository;
 
 @Service
 public class PurchaseService {
-    
-    @Autowired
-    private PurchaseRepository PurchaseRepository;
+
+    private final PurchaseRepository purchaseRepository;
+
+    public PurchaseService(PurchaseRepository purchaseRepository) {
+        this.purchaseRepository = purchaseRepository;
+    }
 
     @Transactional
-    public void salvar(Purchase Purchase) {
-        PurchaseRepository.save(Purchase);
+    public void salvar(Purchase purchase) {
+        purchaseRepository.save(purchase);
     }
 
     @Transactional
     public void remover(Long codigo) {
-        PurchaseRepository.deleteById(codigo);
+        purchaseRepository.deleteById(codigo);
     }
 
 }

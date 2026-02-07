@@ -2,22 +2,15 @@ package web.fidex.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity
 @Table(name = "papel")
 public class Papel implements Serializable {
 
-	private static final long serialVersionUID = 3377158425416402634L; // gere um outro valor
+	private static final long serialVersionUID = 3377158425416402634L;
 
 	@Id
-	@SequenceGenerator(name="gerador", sequenceName="papel_codigo_seq", allocationSize=1)
-	@GeneratedValue(generator="gerador", strategy=GenerationType.SEQUENCE)
 	private Long codigo;
 	private String nome;
 

@@ -7,14 +7,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import web.fidex.model.fidex_model.Client;
@@ -38,7 +37,9 @@ public class ClientController {
     @GetMapping("/clientes")
     public String pesquisar(ClientFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
         Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -49,7 +50,9 @@ public class ClientController {
     @GetMapping("/clientes/ordenar/pontuacao")
     public String pesquisarPontuacao(ClientFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "points", direction = Sort.Direction.DESC) Pageable pageable,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
         Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -60,7 +63,9 @@ public class ClientController {
     @GetMapping("/clientes/ordenar/nome")
     public String pesquisarNome(ClientFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
         Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -71,7 +76,9 @@ public class ClientController {
     @GetMapping("/clientes/ordenar/antigos")
     public String pesquisarAntigos(ClientFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
         Page<Client> pagina = clientRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Client> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -80,23 +87,19 @@ public class ClientController {
     }
 
     @PostMapping("/clientes/cadastrar")
-    public String cadastrar(@Valid Client client, BindingResult resultado, Model model) {
+    public String cadastrar(@Valid Client client, BindingResult resultado, Model model,
+            @AuthenticationPrincipal(expression = "username") String username) {
         if (resultado.hasErrors()) {
-            model.addAttribute("mensagem", "Há campos em branco. Verifique e tente novamente.");
+            model.addAttribute("mensagem", "Ha campos em branco. Verifique e tente novamente.");
             return "mostrarmensagem";
         } else if (client.getPhone().replaceAll("\\D", "").length() != 11) {
-            model.addAttribute("mensagem", "WhatsApp inválido. Digite o número completo com DDD (11 dígitos).");
+            model.addAttribute("mensagem", "WhatsApp invalido. Digite o numero completo com DDD (11 digitos).");
             return "mostrarmensagem";
         } else if (client.getCpf().replaceAll("\\D", "").length() != 11) {
-            model.addAttribute("mensagem", "CPF inválido. Digite os 11 dígitos do CPF.");
+            model.addAttribute("mensagem", "CPF invalido. Digite os 11 digitos do CPF.");
             return "mostrarmensagem";
         } else {
-
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            String userId = authentication.getName();
-
-            client.setCreatedBy(userId);
-
+            client.setCreatedBy(username);
             clientService.salvar(client);
             return "redirect:/clientes";
         }
@@ -111,7 +114,7 @@ public class ClientController {
             clientService.salvar(client);
             return "redirect:/clientes";
         } else {
-            model.addAttribute("mensagem", "Não foi encontrada cliente com esse código.");
+            model.addAttribute("mensagem", "Nao foi encontrada cliente com esse codigo.");
             return "mostrarmensagem";
         }
     }

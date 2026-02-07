@@ -52,7 +52,8 @@
                     <div class="modal-content">
                         <!-- Content -->
                         <h2>Novo produto</h2>
-                        <form th:action="@{/produtos/cadastrar}" method="POST" class="form">
+                        <form th:action="@{/produtos/cadastrar}" method="POST" class="form" data-optimistic
+                            data-list="produtos" data-modal-toggle="modal-toggle">
                             <input type="hidden" name="id">
                             <input type="hidden" name="points">
                             <div class="input-group">
@@ -119,6 +120,7 @@
                 </section>
             </div>
         </div>
+        <script th:src="@{/js/optimistic-ui.js}"></script>
     </div>
 
 </body>

@@ -64,15 +64,12 @@ public class UsuarioController {
 		}
 
 		try {
-			// Save raw password for auto-login
 			String rawPassword = usuario.getSenha();
 
-			// Ensure it's a new user
 			usuario.setCodigo(null);
 			usuario.setAtivo(true);
 			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 
-			// Re-fetch papeis from database to avoid detached entity issues
 			List<Papel> papeisManaged = new java.util.ArrayList<>();
 			if (usuario.getPapeis() != null) {
 				for (Papel papel : usuario.getPapeis()) {
@@ -85,7 +82,6 @@ public class UsuarioController {
 
 			cadastroUsuarioService.salvar(usuario);
 
-			// Auto-login logic
 			try {
 				request.login(usuario.getNomeUsuario(), rawPassword);
 				return "redirect:/clientes";
@@ -98,7 +94,6 @@ public class UsuarioController {
 		} catch (Exception e) {
 			logger.error("Erro ao cadastrar usuário: ", e);
 
-			// Get root cause for better debugging
 			Throwable rootCause = e;
 			while (rootCause.getCause() != null && rootCause.getCause() != rootCause) {
 				rootCause = rootCause.getCause();

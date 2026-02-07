@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        body {
+            font-family: sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #3b82f6;
+            font-size: 24pt;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #f9fafb;
+            color: #374151;
+            font-weight: bold;
+            text-align: left;
+            padding: 12px 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #f3f4f6;
+            color: #4b5563;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 9pt;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Relatório de Produtos</h1>
+        <p th:text="'Empresa: ' + ${username}"></p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th style="text-align: right;">Preço</th>
+                <th style="text-align: right;">Estoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="produto : ${produtos}">
+                <td th:text="${produto.name}"></td>
+                <td th:text="${#numbers.formatCurrency(produto.price)}" style="text-align: right;"></td>
+                <td th:text="${produto.quantity}" style="text-align: right;"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        Gerado pelo Sistema FIDEX - Fidelização de Clientes
+    </div>
+</body>
+
+</html>

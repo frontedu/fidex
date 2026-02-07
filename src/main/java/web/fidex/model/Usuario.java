@@ -5,48 +5,32 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.Table;
 import web.fidex.service.NomeUsuarioUnicoService;
 import web.fidex.validation.UniqueValueAttribute;
 
-@Entity
 @Table(name = "usuario")
-// Temporarily disabled to troubleshoot ApplicationContext null error
-// @UniqueValueAttribute(attribute = "nomeUsuario", service =
-// NomeUsuarioUnicoService.class, message = "Já existe um nome de usuário igual
-// a este cadastrado")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "gerador55", sequenceName = "usuario_codigo_seq", allocationSize = 1)
-	@GeneratedValue(generator = "gerador55", strategy = GenerationType.SEQUENCE)
 	private Long codigo;
-	@NotBlank(message = "O nome é obrigatório")
+	@NotBlank(message = "O nome Ã© obrigatÃ³rio")
 	private String nome;
-	@NotBlank(message = "O e-mail é obrigatório")
-	@jakarta.validation.constraints.Email(message = "O e-mail é inválido")
+	@NotBlank(message = "O e-mail Ã© obrigatÃ³rio")
+	@jakarta.validation.constraints.Email(message = "O e-mail Ã© invÃ¡lido")
 	private String email;
-	@NotBlank(message = "A senha é obrigatória")
-	@Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres")
+	@NotBlank(message = "A senha Ã© obrigatÃ³ria")
+	@Size(min = 8, message = "A senha deve ter no mÃ­nimo 8 caracteres")
 	private String senha;
-	@Column(name = "nome_usuario")
-	@NotBlank(message = "O nome de usuário é obrigatório")
-	@Size(min = 4, message = "O usuário deve ter no mínimo 4 caracteres")
+	@NotBlank(message = "O nome de usuÃ¡rio Ã© obrigatÃ³rio")
+	@Size(min = 4, message = "O usuÃ¡rio deve ter no mÃ­nimo 4 caracteres")
 	private String nomeUsuario;
-	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;
 	private boolean ativo;
 
@@ -60,9 +44,8 @@ public class Usuario implements Serializable {
 		this.cashback = cashback;
 	}
 
-	@ManyToMany
-	@JoinTable(name = "usuario_papel", joinColumns = @JoinColumn(name = "codigo_usuario"), inverseJoinColumns = @JoinColumn(name = "codigo_papel"))
-	@Size(min = 1, message = "O usuário deve ter ao menos um papel no sistema")
+	@Size(min = 1, message = "O usuÃ¡rio deve ter ao menos um papel no sistema")
+	@Transient
 	private List<Papel> papeis = new ArrayList<>();
 
 	public Long getCodigo() {

@@ -1,5 +1,5 @@
-# Stage 1: Build
-FROM eclipse-temurin:17-jdk-alpine AS build
+# Stage 1: Build native image with GraalVM
+FROM ghcr.io/graalvm/native-image-community:25 AS build
 
 WORKDIR /app
 
@@ -11,26 +11,27 @@ COPY mvnw pom.xml ./
 RUN sed -i 's/\r$//' ./mvnw && chmod +x ./mvnw
 
 # Download dependencies (cached layer)
-RUN sh ./mvnw dependency:go-offline -B
+RUN ./mvnw -Pnative -DskipTests dependency:go-offline -B
 
-# Copy source and build
+# Copy source and build native executable
 COPY src ./src
-RUN sh ./mvnw package -DskipTests -B
+RUN ./mvnw -Pnative -DskipTests native:compile -B
 
 # Stage 2: Runtime (minimal image)
-FROM eclipse-temurin:17-jre-alpine
+FROM debian:bookworm-slim
 
 WORKDIR /app
 
-# Copy only the JAR from build stage
-COPY --from=build /app/target/*.jar app.jar
+# Certificates for outbound HTTPS
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
 
-# JVM optimizations for low memory and fast startup
-ENV JAVA_OPTS="-Xmx256m -Xms128m -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:+UseStringDeduplication -XX:TieredStopAtLevel=1"
+# Copy native binary
+COPY --from=build /app/target/fidex /app/app
 
 # Port setup
 ENV PORT=8080
-EXPOSE $PORT
+EXPOSE 8080
 
-# Use shell form to expand environment variables with Explicit Binding
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Dserver.port=${PORT} -Dserver.address=0.0.0.0 -jar app.jar"]
+ENTRYPOINT ["/app/app"]

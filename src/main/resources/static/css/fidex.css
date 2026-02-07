@@ -79,6 +79,14 @@ a {
   z-index: 1;
 }
 
+#remover {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  z-index: 2;
+}
+
 #remover button {
   background: none;
   border: none;
@@ -86,6 +94,22 @@ a {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+#remover .icon-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--c-gray-500);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-text-primary);
+}
+
+#remover svg {
+  display: block;
 }
 
 #remover button:focus {

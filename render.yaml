@@ -1,4 +1,4 @@
-services:
+﻿services:
   - type: web
     name: fidex
     runtime: docker
@@ -11,5 +11,3 @@ services:
         sync: false
       - key: DATABASE_PASSWORD
         sync: false
-      - key: JAVA_OPTS
-        value: "-Xmx256m -Xms128m -XX:+UseG1GC -XX:MaxGCPauseMillis=100"
