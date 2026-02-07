@@ -171,7 +171,9 @@
   }
 
   .left .desc {
-    font-size: 18px;
+    font-size: 24px;
+    /* Adjusted +10% */
+    font-weight: 700;
   }
 
   .left .illustration {
@@ -196,32 +198,24 @@
   }
 
   .wrapper .heading {
-    font-size: 20px;
-  }
-
-  .social-login {
-    gap: 10px;
-  }
-
-  .social-login div {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .form .input-group {
-    margin-bottom: 10px;
+    font-size: 24px;
+    /* Increased from 20px */
   }
 
   .form .input-group input {
-    height: 40px;
+    height: 45px;
+    font-size: 18px;
+    /* Increased */
   }
 
-  .heading-up {
-    display: none;
+  .form .btn {
+    font-size: 18px;
+    /* Increased */
   }
 
   .bottom-text {
-    font-size: 14px;
+    font-size: 16px;
+    /* Adjusted +5% */
   }
 }
 

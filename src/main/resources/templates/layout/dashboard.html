@@ -14,7 +14,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" type="text/css" href="../static/css/fidex.css" th:href="@{/css/fidex.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/fidex.css" th:href="@{/css/fidex.css?v=28}">
     <script defer th:src="@{/js/progress.js}" src="../static/js/progress.js"></script>
 </head>
 
@@ -32,6 +32,10 @@
 
     <!-- Conteudo Principal -->
     <div class="col" layout:fragment="main-content"></div>
+
+    <!-- Mobile Components -->
+    <!-- Mobile Components -->
+    <div th:replace="~{layout/fragments/mobile_nav :: mobile-nav}"></div>
 
     <script>
         const inputs = document.querySelectorAll(".input-group input");

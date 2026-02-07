@@ -132,6 +132,12 @@ a {
   flex-direction: column;
 }
 
+@media (max-width: 390px) {
+  .app {
+    padding: 1rem 0.75rem 4rem;
+  }
+}
+
 .app-header {
   display: grid;
   grid-template-columns: minmax(min-content, 175px) minmax(max-content, 1fr) minmax(max-content, 150px);
@@ -161,7 +167,24 @@ a {
 
 @media (max-width: 1200px) {
   .app-header-actions {
+    display: flex;
+  }
+
+  .app-header-actions .flat-button {
     display: none;
+  }
+
+  .app-header-actions-buttons {
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  /* Hide PDF button on small screens */
+  @media (max-width: 390px) {
+    .app-header-actions-buttons a[href*="relatorios"] {
+      display: none !important;
+    }
   }
 }
 
@@ -180,23 +203,205 @@ a {
   display: none;
 }
 
+/* --- MOBILE NAVIGATION (APPLE STYLE) --- */
+.show-mobile,
+.show-mobile-inline {
+  display: none;
+}
+
 @media (max-width: 1200px) {
-  .app-header-mobile {
+  .show-mobile {
+    display: block;
+  }
+
+  .show-mobile-inline {
+    display: inline-flex !important;
+  }
+
+  /* Desktop Visibility Fix - ensure strict hiding */
+  .app-header-mobile,
+  .mobile-nav-container,
+  .fab-container {
+    display: block;
+  }
+
+  /* Force cards to stack on mobile */
+  .tiles {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mobile-nav-container {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: calc(100% - 24px);
+    max-width: 400px;
+    background-color: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    padding: 8px 12px;
+    /* Reduced padding for small screens */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    /* animation: slideUp removed to prevent "reset" feel on navigation */
+  }
+
+  .mobile-nav {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--c-gray-500);
+    padding: 8px 12px;
+    border-radius: 99px;
+    /* Standard radius for the item itself */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mobile-nav-item:hover,
+  .mobile-nav-item:active {
+    transform: scale(0.92);
+    /* iOS-style touch feedback */
+    background-color: rgba(0, 0, 0, 0.15);
+    /* Darker feedback */
+    border-radius: 99px;
+  }
+
+  .mobile-nav-item svg {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+    margin-bottom: 2px;
+    z-index: 2;
+  }
+
+  /* Active State - Pill Background */
+  .mobile-nav-item.active {
+    color: var(--c-gray-100);
+    background-color: rgb(255 255 255 / 5%);
+    border-radius: 99px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+  }
+
+  .mobile-nav-item.active svg {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 8px var(--c-olive-500));
+    color: var(--c-olive-500);
+  }
+
+  .mobile-nav-item span {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    display: block;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1.1;
+    z-index: 2;
+  }
+
+  .mobile-nav-item.active span {
+    opacity: 1;
+    font-weight: 700;
+    color: var(--c-white);
+  }
+
+  .fab-container {
+    position: relative;
+    /* Reset fixed positioning */
+    inset: auto;
+    bottom: auto;
+    right: auto;
+    z-index: 1001;
+    animation: fabPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s backwards;
+    flex-shrink: 0;
+  }
+
+  .fab-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background-color: var(--load, var(--c-olive-500));
+    color: var(--c-gray-900);
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .fab-button:active {
+    transform: scale(0.92);
   }
 }
+
+@media (min-width: 1201px) {
+
+  .show-mobile,
+  .show-mobile-inline,
+  .mobile-nav-container,
+  .fab-container {
+    display: none !important;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 120px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fabPop {
+  from {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+/* -------------------------------------- */
 
 .app-body {
   height: 100%;
   display: grid;
-  grid-template-columns: minmax(min-content, 175px) minmax(max-content, 1fr);
-  column-gap: 4rem;
+  grid-template-columns: 180px 1fr;
+  column-gap: 3.5rem;
   padding-top: 2.5rem;
 }
 
 @media (max-width: 1200px) {
   .app-body {
     grid-template-columns: 1fr;
+    padding-top: 1rem;
+    /* Reduced from 2.5rem */
   }
 
   .app-body>* {
@@ -424,14 +629,40 @@ a {
 .tiles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 1rem;
-  row-gap: 1rem;
-  margin-top: 1.25rem;
+  gap: 1rem;
+}
+
+.customer-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  color: var(--c-gray-900);
+  /* Darker color for visibility on light/vibrant backgrounds */
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.customer-data span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (max-width: 480px) {
+  .customer-data {
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 1200px) {
   .tiles {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr !important;
+    row-gap: 1.5rem !important;
+    /* Increased gap */
+    margin-top: 0.625rem;
   }
 }
 
@@ -446,6 +677,15 @@ a {
   justify-content: space-between;
   position: relative;
   transition: 0.25s ease;
+  width: 100%;
+}
+
+@media (max-width: 390px) {
+  .tile {
+    padding: 0.75rem;
+    min-height: auto;
+    gap: 1rem;
+  }
 }
 
 .tile:hover {
@@ -540,6 +780,8 @@ a {
   line-height: 1.375;
   font-size: 1.5rem;
   margin: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .tile-header .customer-data {

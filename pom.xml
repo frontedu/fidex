@@ -19,7 +19,6 @@
 		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<native.maven.plugin.version>0.11.4</native.maven.plugin.version>
 	</properties>
 
 	<repositories>
@@ -150,20 +149,6 @@
 				<configuration>
 					<mainClass>web.fidex.Application</mainClass>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.graalvm.buildtools</groupId>
-				<artifactId>native-maven-plugin</artifactId>
-				<version>${native.maven.plugin.version}</version>
-				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<id>add-reachability-metadata</id>
-						<goals>
-							<goal>add-reachability-metadata</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
