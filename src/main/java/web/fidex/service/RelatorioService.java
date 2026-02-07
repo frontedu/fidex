@@ -1,131 +1,100 @@
 package web.fidex.service;
 
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
+import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
+
+import web.fidex.model.fidex_model.Client;
+import web.fidex.model.fidex_model.Prize;
+import web.fidex.model.fidex_model.Product;
+import web.fidex.model.fidex_model.Purchase;
+import web.fidex.repository.ClientRepository;
+import web.fidex.repository.PrizeRepository;
+import web.fidex.repository.ProductRepository;
+import web.fidex.repository.PurchaseRepository;
 
 @Service
 public class RelatorioService {
 
 	private static final Logger logger = LoggerFactory.getLogger(RelatorioService.class);
 
-	@Autowired
-	private DataSource dataSource;
+	private final RelatorioTemplateService templateService;
+	private final ClientRepository clientRepository;
+	private final ProductRepository productRepository;
+	private final PurchaseRepository purchaseRepository;
+	private final PrizeRepository prizeRepository;
 
-	public byte[] gerarCompras() {
-		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/compras.jasper");
-		try (Connection conexao = dataSource.getConnection()) {
-			try {
-				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
-				return JasperExportManager.exportReportToPdf(jasperPrint);
-			} catch (JRException e) {
-				logger.error("Problemas na geracao do PDF do relatório: " + e);
-			}
-		} catch (SQLException e) {
-			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
-		}
-
-		return null;
+	public RelatorioService(RelatorioTemplateService templateService,
+			ClientRepository clientRepository,
+			ProductRepository productRepository,
+			PurchaseRepository purchaseRepository,
+			PrizeRepository prizeRepository) {
+		this.templateService = templateService;
+		this.clientRepository = clientRepository;
+		this.productRepository = productRepository;
+		this.purchaseRepository = purchaseRepository;
+		this.prizeRepository = prizeRepository;
 	}
 
-	public byte[] gerarProdutos() {
-		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/produtos.jasper");
-		try (Connection conexao = dataSource.getConnection()) {
-			try {
-				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
-				return JasperExportManager.exportReportToPdf(jasperPrint);
-			} catch (JRException e) {
-				logger.error("Problemas na geracao do PDF do relatório: " + e);
-			}
-		} catch (SQLException e) {
-			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
-		}
+	private byte[] generatePdf(String templateName, Map<String, Object> variables) {
+		long start = System.currentTimeMillis();
+		String html = templateService.render(templateName, variables);
+		long renderTime = System.currentTimeMillis();
+		logger.info("Template render time: {}ms", renderTime - start);
 
-		return null;
+		try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+			PdfRendererBuilder builder = new PdfRendererBuilder();
+			builder.useFastMode();
+			builder.withHtmlContent(html, "");
+			builder.toStream(os);
+			builder.run();
+			long pdfTime = System.currentTimeMillis();
+			logger.info("PDF generation time: {}ms", pdfTime - renderTime);
+			return os.toByteArray();
+		} catch (Exception e) {
+			logger.error("Error generating PDF from template: " + templateName, e);
+			return null;
+		}
 	}
 
-	public byte[] gerarPremios() {
-		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/premios.jasper");
-		try (Connection conexao = dataSource.getConnection()) {
-			try {
-				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
-				return JasperExportManager.exportReportToPdf(jasperPrint);
-			} catch (JRException e) {
-				logger.error("Problemas na geracao do PDF do relatório: " + e);
-			}
-		} catch (SQLException e) {
-			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
-		}
-
-		return null;
+	public byte[] gerarCompras(String username) {
+		List<Purchase> compras = purchaseRepository.findByCreatedBy(username, Pageable.unpaged()).getContent();
+		Map<String, Object> vars = new HashMap<>();
+		vars.put("compras", compras);
+		vars.put("username", username);
+		return generatePdf("compras", vars);
 	}
 
-	public byte[] gerarClientes() {
-		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/clientes.jasper");
-		try (Connection conexao = dataSource.getConnection()) {
-			try {
-				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
-				return JasperExportManager.exportReportToPdf(jasperPrint);
-			} catch (JRException e) {
-				logger.error("Problemas na geracao do PDF do relatório: " + e);
-			}
-		} catch (SQLException e) {
-			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
-		}
-
-		return null;
+	public byte[] gerarProdutos(String username) {
+		List<Product> produtos = productRepository.findByCreatedBy(username, Pageable.unpaged()).getContent();
+		Map<String, Object> vars = new HashMap<>();
+		vars.put("produtos", produtos);
+		vars.put("username", username);
+		return generatePdf("produtos", vars);
 	}
 
-	public byte[] gerarRelatorioSimplesVacinas() {
-		logger.trace("Entrou em gerarRelatorioSimplesVacinas");
-		InputStream arquivoJasper = getClass()
-				.getResourceAsStream("/relatorios/RelatorioSQLDiretoSimplesVacina.jasper");
-		try (Connection conexao = dataSource.getConnection()) {
-			try {
-				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, null, conexao);
-				return JasperExportManager.exportReportToPdf(jasperPrint);
-			} catch (JRException e) {
-				logger.error("Problemas na geracao do PDF do relatório: " + e);
-			}
-		} catch (SQLException e) {
-			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
-		}
-
-		return null;
+	public byte[] gerarPremios(String username) {
+		List<Prize> premios = prizeRepository.findByCreatedBy(username, Pageable.unpaged()).getContent();
+		Map<String, Object> vars = new HashMap<>();
+		vars.put("premios", premios);
+		vars.put("username", username);
+		return generatePdf("premios", vars);
 	}
 
-	public byte[] gerarRelatorioComplexoTodosLotes() {
-		logger.trace("Entrou em gerarRelatorioComplexoTodosLotes");
-
-		try (Connection conexao = dataSource.getConnection()) {
-			try {
-				InputStream arquivoJasper = getClass()
-						.getResourceAsStream("/relatorios/RelatorioSQLDiretoComplexoVacina.jasper");
-				Map<String, Object> parametros = new HashMap<>();
-				parametros.put("TITULO", "Outra coisa");
-
-				JasperPrint jasperPrint = JasperFillManager.fillReport(arquivoJasper, parametros, conexao);
-				return JasperExportManager.exportReportToPdf(jasperPrint);
-			} catch (JRException e) {
-				logger.error("Problemas na geracao do PDF do relatório: " + e);
-			}
-		} catch (SQLException e) {
-			logger.error("Problemas na obtenção de uma conexão com o BD na geração de relatório: " + e);
-		}
-		return null;
+	public byte[] gerarClientes(String username) {
+		List<Client> clientes = clientRepository.findByCreatedBy(username, Pageable.unpaged()).getContent();
+		Map<String, Object> vars = new HashMap<>();
+		vars.put("clientes", clientes);
+		vars.put("username", username);
+		return generatePdf("clientes", vars);
 	}
 }

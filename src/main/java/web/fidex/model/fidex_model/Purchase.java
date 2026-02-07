@@ -5,36 +5,28 @@ import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Min;
 
-@Entity
+import jakarta.validation.constraints.Min;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.Table;
+
 @Table(name = "purchase")
 public class Purchase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	private static final ThreadLocal<DecimalFormat> PRICE_FORMATTER = ThreadLocal.withInitial(
+			() -> new DecimalFormat("R$ #,##0.00"));
 
 	@Id
-	@SequenceGenerator(name = "gerador4", sequenceName = "purchase_id_seq", allocationSize = 1)
-	@GeneratedValue(generator = "gerador4", strategy = GenerationType.SEQUENCE)
 	private Long id;
 	@Min(value = 0)
 	private Double price;
 	private LocalDate date;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "client_id")
+	private Long clientId;
+	@Transient
 	private Client client;
-	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 	private String createdBy;
 
@@ -57,8 +49,10 @@ public class Purchase implements Serializable {
 	private Integer points;
 
 	public String getPrice() {
-		DecimalFormat df = new DecimalFormat("R$ #,##0.00");
-		return df.format(price);
+		if (price == null) {
+			return "R$ 0,00";
+		}
+		return PRICE_FORMATTER.get().format(price);
 	}
 
 	public Double getPriceValue() {
@@ -68,6 +62,9 @@ public class Purchase implements Serializable {
 	public int getPoints() {
 		if (points != null) {
 			return points;
+		}
+		if (price == null) {
+			return 0;
 		}
 		return (int) (price * 5 / 100);
 	}
@@ -81,8 +78,14 @@ public class Purchase implements Serializable {
 	}
 
 	public String getDate() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		return date.format(formatter);
+		if (date == null) {
+			return "";
+		}
+		return date.format(DATE_FORMATTER);
+	}
+
+	public LocalDate getDateValue() {
+		return date;
 	}
 
 	public void setDate(LocalDate date) {
@@ -103,6 +106,21 @@ public class Purchase implements Serializable {
 
 	public void setClient(Client client) {
 		this.client = client;
+		if (client != null && client.getId() != null) {
+			this.clientId = client.getId();
+		}
+	}
+
+	public Long getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(Long clientId) {
+		this.clientId = clientId;
+	}
+
+	public Integer getPointsValue() {
+		return points;
 	}
 
 	@Override

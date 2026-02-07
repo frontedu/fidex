@@ -1,6 +1,5 @@
 package web.fidex.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,18 +8,21 @@ import web.fidex.repository.PrizeRepository;
 
 @Service
 public class PrizeService {
-    
-    @Autowired
-    private PrizeRepository PrizeRepository;
+
+    private final PrizeRepository prizeRepository;
+
+    public PrizeService(PrizeRepository prizeRepository) {
+        this.prizeRepository = prizeRepository;
+    }
 
     @Transactional
-    public void salvar(Prize Prize) {
-        PrizeRepository.save(Prize);
+    public void salvar(Prize prize) {
+        prizeRepository.save(prize);
     }
 
     @Transactional
     public void remover(Long codigo) {
-        PrizeRepository.deleteById(codigo);
+        prizeRepository.deleteById(codigo);
     }
 
 }

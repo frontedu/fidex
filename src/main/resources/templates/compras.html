@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" layout:decorate="~{layout/dashboard}" xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.thymeleaf.org">
+    xmlns:layout="http://www.thymeleaf.org" th:with="activeNav='compras'">
 
 <head>
     <title>Cadastro de compras</title>
@@ -43,15 +43,16 @@
                     <div class="modal-content">
                         <!-- Content -->
                         <h2>Nova compra</h2>
-                        <form th:action="@{/compras/cadastrar}" method="POST" class="form">
+                        <form th:action="@{/compras/cadastrar}" method="POST" class="form" data-optimistic
+                            data-list="compras" data-modal-toggle="modal-toggle">
                             <input type="hidden" name="id">
                             <input type="hidden" name="date" id="dateInput">
                             <div class="input-group">
-                                <select id="client" name="client">
+                                <select id="clientId" name="clientId">
                                     <option th:each="client : ${clients}" th:value="${client.id}"
                                         th:text="${client.name}" th:if="${client.createdBy == username}"></option>
                                 </select>
-                                <label for="client">Cliente</label>
+                                <label for="clientId">Cliente</label>
                             </div>
                             <div class="input-group">
                                 <input type="number" id="price" name="price" autofocus="autofocus" />
@@ -66,6 +67,15 @@
                 </div>
                 <!--  Modal  -->
                 <div class="app-header-actions-buttons">
+                    <label for="modal-toggle" class="icon-button large show-mobile-inline"
+                        style="background-color: var(--load); color: var(--c-gray-900); border: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z">
+                            </path>
+                        </svg>
+                    </label>
                     <a th:href="@{/relatorios/compras}" style="text-decoration: none;">
                         <button class="icon-button large">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff"
@@ -90,16 +100,6 @@
                     </form>
                 </div>
             </div>
-            <div class="app-header-mobile">
-                <button class="icon-button large">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256">
-                        <path
-                            d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z">
-                        </path>
-                    </svg>
-                </button>
-            </div>
-
         </header>
         <div class="app-body">
             <div class="app-body-navigation">
@@ -119,14 +119,61 @@
         var formattedDate = currentDate.toISOString();
         document.getElementById("dateInput").value = formattedDate;
 
-        const cashbackRate = /*[[${cashbackPercent}]]*/ 5.0;
+        <!--  Modal  -->
+        <div class="app-header-actions-buttons">
+            <a th:href="@{/relatorios/compras}" style="text-decoration: none;">
+                <button class="icon-button large">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,112V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z">
+                        </path>
+                    </svg>
+                </button>
+            </a>
 
-        document.getElementById("price").addEventListener("input", function () {
+
+            <form action="#" th:action="@{/logout}" method="post">
+                <button class="icon-button large">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,216a8,8,0,0,1-8,8H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32h56a8,8,0,0,1,0,16H48V208h56A8,8,0,0,1,112,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L196.69,120H104a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,221.66,122.34Z">
+                        </path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+            </div >
+        </header >
+            <div class="app-body">
+                <div class="app-body-navigation">
+                    <nav th:replace="~{layout/fragments/nav :: nav(opcao='compras')}"></nav>
+                    <footer th:replace="~{layout/fragments/footer}"></footer>
+                </div>
+                <div class="app-body-main-content">
+                    <section class="service-section">
+                        <div class="tiles" th:replace="~{layout/fragments/purchases}"></div>
+                    </section>
+                </div>
+            </div>
+    </div >
+
+            <script th:inline="javascript">
+                var currentDate = new Date();
+                var formattedDate = currentDate.toISOString();
+                document.getElementById("dateInput").value = formattedDate;
+
+                const cashbackRate = /*[[${cashbackPercent}]]*/ 5.0;
+
+                document.getElementById("price").addEventListener("input", function () {
             var price = parseFloat(document.getElementById("price").value) || 0;
-            var points = Math.floor(price * cashbackRate / 100);
-            document.getElementById("pointsInput").value = points;
+                var points = Math.floor(price * cashbackRate / 100);
+                document.getElementById("pointsInput").value = points;
         });
     </script>
+    <script th:src="@{/js/optimistic-ui.js}"></script>
+
 
 
 </body>

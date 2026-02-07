@@ -2,26 +2,17 @@ package web.fidex.model.fidex_model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity
 @Table(name = "product")
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "gerador3", sequenceName = "product_id_seq", allocationSize = 1)
-	@GeneratedValue(generator = "gerador3", strategy = GenerationType.SEQUENCE)
 	private Long id;
 
 	@NotBlank(message = "O nome do produto é obrigatório")
@@ -30,7 +21,6 @@ public class Product implements Serializable {
 	private Double price;
 	@Min(value = 0)
 	private Long quantity;
-	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 	private String createdBy;
 
@@ -75,6 +65,9 @@ public class Product implements Serializable {
 	}
 
 	public int getPoints() {
+		if (price == null) {
+			return 0;
+		}
 		return (int) (price * 1);
 	}
 

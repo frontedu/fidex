@@ -2,31 +2,34 @@ package web.fidex.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import web.fidex.model.fidex_model.Client;
+import web.fidex.model.fidex_model.Status;
 import web.fidex.repository.ClientRepository;
 
 @Service
 public class ClientService {
 
-    @Autowired
-    private ClientRepository ClientRepository;
+    private final ClientRepository clientRepository;
+
+    public ClientService(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
+    }
 
     @Transactional
-    public void salvar(Client Client) {
-        ClientRepository.save(Client);
+    public void salvar(Client client) {
+        clientRepository.save(client);
     }
 
     @Transactional
     public void remover(Long codigo) {
-        ClientRepository.deleteById(codigo);
+        clientRepository.deleteById(codigo);
     }
 
-    public List<Client> getAllClients() {
-        return ClientRepository.findAll();
+    @Transactional(readOnly = true)
+    public List<Client> getAllActiveByUser(String createdBy) {
+        return clientRepository.findByCreatedByAndStatus(createdBy, Status.ATIVO);
     }
-
 }

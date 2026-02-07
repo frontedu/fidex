@@ -10,17 +10,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.transaction.annotation.Transactional;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import web.fidex.model.Usuario;
 import web.fidex.model.fidex_model.Client;
 import web.fidex.model.fidex_model.Purchase;
 import web.fidex.model.fidex_model.Status;
@@ -28,8 +28,8 @@ import web.fidex.model.filter.PurchaseFilter;
 import web.fidex.pagination.PageWrapper;
 import web.fidex.repository.ClientRepository;
 import web.fidex.repository.PurchaseRepository;
-import web.fidex.repository.UsuarioRepository;
 import web.fidex.service.PurchaseService;
+import web.fidex.service.UsuarioService;
 
 @Controller
 public class PurchaseController {
@@ -37,23 +37,25 @@ public class PurchaseController {
     private final PurchaseRepository purchaseRepository;
     private final ClientRepository clientRepository;
     private final PurchaseService purchaseService;
-    private final web.fidex.repository.UsuarioRepository usuarioRepository;
+    private final UsuarioService usuarioService;
 
     public PurchaseController(PurchaseRepository purchaseRepository,
             ClientRepository clientRepository,
             PurchaseService purchaseService,
-            web.fidex.repository.UsuarioRepository usuarioRepository) {
+            UsuarioService usuarioService) {
         this.purchaseRepository = purchaseRepository;
         this.clientRepository = clientRepository;
         this.purchaseService = purchaseService;
-        this.usuarioRepository = usuarioRepository;
+        this.usuarioService = usuarioService;
     }
 
     @GetMapping("/compras")
     public String pesquisar(PurchaseFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
-            HttpServletRequest request) {
-        putClient(model);
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
+        putClient(model, username);
 
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
@@ -65,8 +67,10 @@ public class PurchaseController {
     @GetMapping("/compras/ordenar/valor")
     public String pesquisarValor(PurchaseFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "price", direction = Sort.Direction.DESC) Pageable pageable,
-            HttpServletRequest request) {
-        putClient(model);
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
+        putClient(model, username);
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -78,8 +82,10 @@ public class PurchaseController {
     @GetMapping("/compras/ordenar/cliente")
     public String pesquisarNome(PurchaseFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "client", direction = Sort.Direction.DESC) Pageable pageable,
-            HttpServletRequest request) {
-        putClient(model);
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
+        putClient(model, username);
         Page<Purchase> pagina = purchaseRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Purchase> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -89,47 +95,46 @@ public class PurchaseController {
     }
 
     @PostMapping("/compras/cadastrar")
-    public String cadastrar(@Valid Purchase purchase, BindingResult resultado, Model model) {
+    @Transactional
+    public String cadastrar(@Valid Purchase purchase, BindingResult resultado, Model model,
+            @AuthenticationPrincipal(expression = "username") String username) {
         if (resultado.hasErrors()) {
             return "redirect:/compras";
-        } else {
-            LocalDateTime currentDateTime = LocalDateTime.now();
-            LocalDate currentDate = currentDateTime.toLocalDate();
-            purchase.setDate(currentDate);
-
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            String userId = (auth != null) ? auth.getName() : "system";
-
-            purchase.setCreatedBy(userId);
-
-            // Calculate points based on user's cashback setting
-            web.fidex.model.Usuario usuario = usuarioRepository.findByNomeUsuarioIgnoreCase(userId);
-            double cashbackPercent = (usuario != null && usuario.getCashback() != null) ? usuario.getCashback() : 5.0;
-
-            // Calculate and set explicit points (freezing history)
-            double purchasePrice = (purchase.getPriceValue() != null) ? purchase.getPriceValue() : 0.0;
-            int pointsEarned = (int) (purchasePrice * cashbackPercent / 100);
-            purchase.setPoints(pointsEarned);
-
-            purchaseService.salvar(purchase);
-
-            Client client = purchase.getClient();
-            if (client != null) {
-                client.setPoints((client.getPoints() != null ? client.getPoints() : 0.0) + pointsEarned);
-                clientRepository.save(client);
-            }
-
-            return "redirect:/compras";
         }
+
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        LocalDate currentDate = currentDateTime.toLocalDate();
+        purchase.setDate(currentDate);
+
+        purchase.setCreatedBy(username);
+
+        Usuario usuario = usuarioService.findByNomeUsuarioIgnoreCase(username);
+        double cashbackPercent = (usuario != null && usuario.getCashback() != null) ? usuario.getCashback() : 5.0;
+
+        double purchasePrice = (purchase.getPriceValue() != null) ? purchase.getPriceValue() : 0.0;
+        int pointsEarned = (int) (purchasePrice * cashbackPercent / 100);
+        purchase.setPoints(pointsEarned);
+
+        purchaseService.salvar(purchase);
+
+        purchaseService.salvar(purchase);
+
+        Client client = purchase.getClient();
+        if (client == null && purchase.getClientId() != null) {
+            client = clientRepository.findById(purchase.getClientId()).orElse(null);
+            purchase.setClient(client);
+        }
+
+        if (client != null) {
+            client.setPoints((client.getPoints() != null ? client.getPoints() : 0.0) + pointsEarned);
+            clientRepository.save(client);
+        }
+
+        return "redirect:/compras";
     }
 
-    private void putClient(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null && auth.isAuthenticated()) {
-            model.addAttribute("username", auth.getName());
-        }
-
-        List<Client> clients = clientRepository.findByStatus(Status.ATIVO);
+    private void putClient(Model model, String username) {
+        List<Client> clients = clientRepository.findByCreatedByAndStatus(username, Status.ATIVO);
         model.addAttribute("clients", clients);
     }
 
@@ -142,11 +147,14 @@ public class PurchaseController {
             Purchase purchase = optPurchase.get();
             Client client = purchase.getClient();
 
-            if (client.getPoints() - purchase.getPoints() < 0) {
-                client.setPoints(0.00);
+            double currentPoints = client.getPoints() != null ? client.getPoints() : 0.0;
+            int purchasePoints = purchase.getPoints();
+
+            if (currentPoints - purchasePoints < 0) {
+                client.setPoints(0.0);
                 clientRepository.save(client);
             } else {
-                client.setPoints(client.getPoints() - purchase.getPoints());
+                client.setPoints(currentPoints - purchasePoints);
                 clientRepository.save(client);
             }
 
@@ -155,7 +163,7 @@ public class PurchaseController {
 
             return "redirect:/compras";
         } else {
-            model.addAttribute("mensagem", "Não foi encontrado compra com esse código.");
+            model.addAttribute("mensagem", "Nao foi encontrado compra com esse codigo.");
             return "mostrarmensagem";
         }
     }

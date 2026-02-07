@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" layout:decorate="~{layout/dashboard}" xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.thymeleaf.org">
+    xmlns:layout="http://www.thymeleaf.org" th:with="activeNav='premios'">
 
 <head>
     <title>Cadastro de prêmios</title>
@@ -49,22 +49,23 @@
                         <!-- Content -->
                         <h2>Nova premiação
                         </h2>
-                        <form th:action="@{/premios/cadastrar}" method="POST" class="form">
+                        <form th:action="@{/premios/cadastrar}" method="POST" class="form" data-optimistic
+                            data-list="premios" data-modal-toggle="modal-toggle">
                             <input type="hidden" name="id">
                             <input type="hidden" name="date" id="dateInput">
                             <div class="input-group">
-                                <select id="client" name="client">
+                                <select id="clientId" name="clientId">
                                     <option th:each="client : ${clients}" th:value="${client.id}"
                                         th:text="${client.name}" th:if="${client.createdBy == username}"></option>
                                 </select>
-                                <label for="client">Cliente</label>
+                                <label for="clientId">Cliente</label>
                             </div>
                             <div class="input-group">
-                                <select id="product" name="product">
+                                <select id="productId" name="productId">
                                     <option th:each="product : ${products}" th:value="${product.id}"
                                         th:text="${product.name}" th:if="${product.createdBy == username}"></option>
                                 </select>
-                                <label for="product">Produto</label>
+                                <label for="productId">Produto</label>
                             </div>
                             <input type="submit" value="Cadastrar premiação" class="btn button_slide slide_right">
                         </form>
@@ -72,6 +73,15 @@
                 </div>
                 <!--  Modal  -->
                 <div class="app-header-actions-buttons">
+                    <label for="modal-toggle" class="icon-button large show-mobile-inline"
+                        style="background-color: var(--load); color: var(--c-gray-900); border: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z">
+                            </path>
+                        </svg>
+                    </label>
                     <a th:href="@{/relatorios/premios}" style="text-decoration: none;">
                         <button class="icon-button large">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff"
@@ -96,15 +106,6 @@
                     </form>
                 </div>
             </div>
-            <div class="app-header-mobile">
-                <button class="icon-button large">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256">
-                        <path
-                            d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z">
-                        </path>
-                    </svg>
-                </button>
-            </div>
 
         </header>
         <div class="app-body">
@@ -118,6 +119,7 @@
                 </section>
             </div>
         </div>
+        <script th:src="@{/js/optimistic-ui.js}"></script>
     </div>
 
 </body>

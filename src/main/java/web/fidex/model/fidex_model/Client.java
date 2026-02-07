@@ -2,35 +2,28 @@ package web.fidex.model.fidex_model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import java.util.regex.Pattern;
 
-@Entity
+import jakarta.validation.constraints.NotBlank;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
 @Table(name = "client")
 public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private static final Pattern NON_DIGITS = Pattern.compile("\\D");
 
 	@Id
-	@SequenceGenerator(name = "gerador1", sequenceName = "client_id_seq", allocationSize = 1)
-	@GeneratedValue(generator = "gerador1", strategy = GenerationType.SEQUENCE)
 	private Long id;
-	@NotBlank(message = "O CPF é obrigatório")
+	@NotBlank(message = "O CPF e obrigatorio")
 	private String cpf;
-	@NotBlank(message = "O nome da pessoa é obrigatório")
+	@NotBlank(message = "O nome da pessoa e obrigatorio")
 	private String name;
-	@NotBlank(message = "O WhatsApp é obrigatório")
+	@NotBlank(message = "O WhatsApp e obrigatorio")
 	private String phone;
 	private Double points;
 	private String createdBy;
-	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 
 	public Long getId() {
@@ -42,17 +35,23 @@ public class Client implements Serializable {
 	}
 
 	public String getCpf() {
-		if (cpf == null || cpf.isEmpty())
+		String clean = onlyDigits(cpf);
+		if (clean == null || clean.isEmpty()) {
 			return "";
-		String clean = cpf.replaceAll("\\D", "");
-		if (clean.length() < 11)
+		}
+		if (clean.length() < 11) {
 			return clean;
+		}
 		return clean.substring(0, 3) + "." + clean.substring(3, 6) + "." + clean.substring(6, 9) + "-"
 				+ clean.substring(9, 11);
 	}
 
+	public String getCpfRaw() {
+		return cpf;
+	}
+
 	public void setCpf(String cpf) {
-		this.cpf = (cpf != null) ? cpf.replaceAll("\\D", "") : null;
+		this.cpf = onlyDigits(cpf);
 	}
 
 	public void setName(String name) {
@@ -72,18 +71,23 @@ public class Client implements Serializable {
 	}
 
 	public String getPhone() {
-		if (phone == null || phone.isEmpty()) {
+		String clean = onlyDigits(phone);
+		if (clean == null || clean.isEmpty()) {
 			return "";
 		}
-		String clean = phone.replaceAll("\\D", "");
-		if (clean.length() < 11)
+		if (clean.length() < 11) {
 			return clean;
+		}
 		return "(" + clean.substring(0, 2) + ") " + clean.substring(2, 3) + " " + clean.substring(3, 7) + "-"
 				+ clean.substring(7);
 	}
 
+	public String getPhoneRaw() {
+		return phone;
+	}
+
 	public void setPhone(String phone) {
-		this.phone = (phone != null) ? phone.replaceAll("\\D", "") : null;
+		this.phone = onlyDigits(phone);
 	}
 
 	public Double getPoints() {
@@ -100,6 +104,13 @@ public class Client implements Serializable {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	private static String onlyDigits(String value) {
+		if (value == null) {
+			return null;
+		}
+		return NON_DIGITS.matcher(value).replaceAll("");
 	}
 
 	@Override

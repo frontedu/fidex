@@ -2,15 +2,12 @@ package web.fidex.controller;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,16 +26,20 @@ import web.fidex.service.ProductService;
 @Controller
 public class ProductController {
 
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+    private final ProductService productService;
 
-    @Autowired
-    private ProductService productService;
+    public ProductController(ProductRepository productRepository, ProductService productService) {
+        this.productRepository = productRepository;
+        this.productService = productService;
+    }
 
     @GetMapping("/produtos")
     public String pesquisar(ProductFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
         Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -50,7 +51,9 @@ public class ProductController {
     @GetMapping("/produtos/ordenar/estoque")
     public String pesquisarEstoque(ProductFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "quantity", direction = Sort.Direction.DESC) Pageable pageable,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
         Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -62,7 +65,9 @@ public class ProductController {
     @GetMapping("/produtos/ordenar/pontos")
     public String pesquisarPontos(ProductFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "price", direction = Sort.Direction.DESC) Pageable pageable,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
         Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -74,7 +79,9 @@ public class ProductController {
     @GetMapping("/produtos/ordenar/nome")
     public String pesquisarNome(ProductFilter filtro, Model model,
             @PageableDefault(size = 50) @SortDefault(sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            @AuthenticationPrincipal(expression = "username") String username) {
+        filtro.setCreatedBy(username);
         Page<Product> pagina = productRepository.buscarComFiltro(filtro, pageable);
         PageWrapper<Product> paginaWrapper = new PageWrapper<>(pagina, request);
         model.addAttribute("pagina", paginaWrapper);
@@ -83,21 +90,17 @@ public class ProductController {
     }
 
     @PostMapping("/produtos/cadastrar")
-    public String cadastrar(@Valid Product product, BindingResult resultado, Model model) {
+    public String cadastrar(@Valid Product product, BindingResult resultado, Model model,
+            @AuthenticationPrincipal(expression = "username") String username) {
         if (resultado.hasErrors()) {
-            model.addAttribute("mensagem", "Há campos em inválidos ou em branco. Verifique e tente novamente.");
+            model.addAttribute("mensagem", "Ha campos invalidos ou em branco. Verifique e tente novamente.");
             return "mostrarmensagem";
-        } else {
-
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            String userId = userDetails.getUsername();
-
-            product.setCreatedBy(userId);
-
-            productService.salvar(product);
-            return "redirect:/produtos";
         }
+
+        product.setCreatedBy(username);
+
+        productService.salvar(product);
+        return "redirect:/produtos";
     }
 
     @PostMapping("/produtos/remover")
@@ -109,7 +112,7 @@ public class ProductController {
             productService.salvar(product);
             return "redirect:/produtos";
         } else {
-            model.addAttribute("mensagem", "Não foi encontrado produto com esse código.");
+            model.addAttribute("mensagem", "Nao foi encontrado produto com esse codigo.");
             return "mostrarmensagem";
         }
     }

@@ -4,37 +4,27 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.Table;
+
 @Table(name = "prize")
 public class Prize implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	@Id
-	@SequenceGenerator(name = "gerador2", sequenceName = "prize_id_seq", allocationSize = 1)
-	@GeneratedValue(generator = "gerador2", strategy = GenerationType.SEQUENCE)
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "client_id")
+	private Long clientId;
+	@Transient
 	private Client client;
 	private LocalDate date;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "product_id")
+	private Long productId;
+	@Transient
 	private Product product;
-	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 	private String createdBy;
 
@@ -55,8 +45,14 @@ public class Prize implements Serializable {
 	}
 
 	public String getDate() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		return date.format(formatter);
+		if (date == null) {
+			return "";
+		}
+		return date.format(DATE_FORMATTER);
+	}
+
+	public LocalDate getDateValue() {
+		return date;
 	}
 
 	public void setDate(LocalDate date) {
@@ -82,6 +78,9 @@ public class Prize implements Serializable {
 
 	public void setClient(Client client) {
 		this.client = client;
+		if (client != null && client.getId() != null) {
+			this.clientId = client.getId();
+		}
 	}
 
 	public Product getProduct() {
@@ -90,6 +89,25 @@ public class Prize implements Serializable {
 
 	public void setProduct(Product product) {
 		this.product = product;
+		if (product != null && product.getId() != null) {
+			this.productId = product.getId();
+		}
+	}
+
+	public Long getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(Long clientId) {
+		this.clientId = clientId;
+	}
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
 	}
 
 	@Override
